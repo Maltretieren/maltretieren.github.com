@@ -29,7 +29,7 @@ namespace :my_tasks do
 	
 	desc "Upload test results"
 	task :uploadTestResults do
-		puts "\n## Listing of folder tests/coverage"
+		puts "\n## Upload test results to coveralls"
 		system("cat ./tests/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./tests/coverage")
 	end
 	
