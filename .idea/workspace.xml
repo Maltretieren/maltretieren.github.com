@@ -48,8 +48,8 @@
       <file leaf-file-name="karma.conf.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/config/karma.conf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7627416" vertical-offset="616" max-vertical-offset="1200">
-              <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.8945519" vertical-offset="616" max-vertical-offset="1275">
+              <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -1155,8 +1155,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/config/karma.conf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7627416" vertical-offset="616" max-vertical-offset="1200">
-          <caret line="70" column="10" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.8945519" vertical-offset="616" max-vertical-offset="1275">
+          <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
           <folding />
         </state>
       </provider>
