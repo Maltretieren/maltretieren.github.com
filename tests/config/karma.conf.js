@@ -63,12 +63,12 @@ module.exports = function(config){
 		// http://blog.dc.esri.com/2014/03/26/js-code-coverage/
 		reporters: [
 			'coverage'
-		],
+		]//,
 		// optionally, configure the reporter
-		coverageReporter: {
-		  type : 'lcov',
-		  dir : 'coverage/'
-		}
+		//coverageReporter: {
+		//  type : 'lcov',
+		//  dir : 'coverage/'
+		//}
 		
     })
 }
