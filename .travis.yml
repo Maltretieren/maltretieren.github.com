@@ -21,9 +21,8 @@ before_script:
   - git config --global user.name "Travis CI"
   - git remote set-url origin https://Maltretieren:${GH_TOKEN}@github.com/Maltretieren/maltretieren.github.com.git
 
-script: {
-  "test2coveralls": "cat ./tests/coverage/lcov.info"
-}
+script:
+  - "cat ./tests/coverage/lcov.info"
 
 #http://stackoverflow.com/questions/24537778/what-is-the-proper-way-to-get-the-karma-test-coverage-path-into-travis-ci
 
