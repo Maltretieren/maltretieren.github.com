@@ -68,7 +68,7 @@ module.exports = function(config){
         // https://github.com/karma-runner/karma-coverage/pull/62
 		coverageReporter: {
 		  type : 'lcov',
-		  dir : 'coverage/',
+		  dir : 'tests/coverage/',
           subdir: '.'
 		}
 		
