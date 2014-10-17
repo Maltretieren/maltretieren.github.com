@@ -69,9 +69,7 @@ module.exports = function(config){
 		coverageReporter: {
 		  type : 'lcov',
 		  dir : 'coverage/',
-          subdir: function(browser, platform) {
-            // normalization process to keep a consistent browser name
-            return browser.toLowerCase().split(' ')[0];
+          subdir: '.'
           }
           // Would output the results into: './coverage/firefox/'
 		}
