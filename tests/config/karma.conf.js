@@ -71,7 +71,7 @@ module.exports = function(config){
 		  dir : 'coverage/',
           subdir: function(browser, platform) {
             // normalization process to keep a consistent browser name
-                return browser.toLowerCase().split(' ')[0];
+            return browser.toLowerCase().split(' ')[0];
           }
           // Would output the results into: './coverage/firefox/'
 		}
