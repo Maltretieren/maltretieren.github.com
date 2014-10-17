@@ -8,6 +8,11 @@ module.exports = function(grunt) {
                 singleRun: true,
                 browsers: ['PhantomJS']
             }
+            coveralls: {
+                options: {
+                    coverage_dir: 'tests/coverage/'
+                }
+            }
         }
     });
 	grunt.loadNpmTasks('grunt-karma');
