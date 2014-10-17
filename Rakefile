@@ -31,7 +31,7 @@ namespace :my_tasks do
 	task :uploadTestResults do
 		puts "\n## Listing of folder tests/coverage"
 		system("ls -la coverage")
-		system("ls -la coverage/PhantomJS 1.9.7 (Linux)")
+		system("ls -la coverage/*/")
 	end
 	
 	task :deploy do
