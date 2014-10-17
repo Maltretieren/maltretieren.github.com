@@ -8,7 +8,14 @@ require "bundler/setup"
 require "jekyll"
 require "fileutils"
 require "rake/clean"
+
+# test code coverage
+require 'simplecov'
+SimpleCov.start
+
 require 'coveralls'
+Coveralls.wear!
+
 
 # Change your GitHub reponame
 GITHUB_REPONAME = "Maltretieren/maltretieren.github.com"
@@ -26,7 +33,6 @@ namespace :my_tasks do
 	task :uploadTestResults do
 		puts "\n## Listing of folder tests/coverage"
 		system("ls coverage")
-		Coveralls.wear!
 	end
 	
 	task :deploy do
