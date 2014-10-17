@@ -30,7 +30,7 @@ namespace :my_tasks do
 	desc "Upload test results"
 	task :uploadTestResults do
 		puts "\n## Listing of folder tests/coverage"
-		system(istanbul cover jasmine-node --captureExceptions spec/ && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage)
+		system("cat ./tests/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./tests/coverage")
 	end
 	
 	task :deploy do
