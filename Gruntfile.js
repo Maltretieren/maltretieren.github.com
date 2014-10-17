@@ -7,7 +7,7 @@ module.exports = function(grunt) {
                 configFile: 'tests/config/karma.conf.js',
                 singleRun: true,
                 browsers: ['PhantomJS']
-            }
+            },
             coveralls: {
                 options: {
                     coverage_dir: 'tests/coverage/'
