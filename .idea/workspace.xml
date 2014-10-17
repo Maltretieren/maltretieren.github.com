@@ -89,9 +89,9 @@
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.64748204" vertical-offset="0" max-vertical-offset="675">
-              <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+              <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
               <folding>
-                <marker date="1413578740000" expanded="true" signature="261:514" placeholder="before_script:" />
+                <marker date="1413578920000" expanded="true" signature="261:520" placeholder="before_script:" />
               </folding>
             </state>
           </provider>
@@ -1158,9 +1158,9 @@
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.64748204" vertical-offset="0" max-vertical-offset="675">
-          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
           <folding>
-            <marker date="1413578740000" expanded="true" signature="261:514" placeholder="before_script:" />
+            <marker date="1413578920000" expanded="true" signature="261:520" placeholder="before_script:" />
           </folding>
         </state>
       </provider>
