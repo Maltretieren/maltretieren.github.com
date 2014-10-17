@@ -28,4 +28,9 @@ env:
     secure: e7qb+HWe8cE7z7LVFCHqvCPCFyHRSRIzKYmUZHLfbaHOxE8e6K17eqSPFRIaBRYtEgjlIrx0OZe8Yh5uXehR9IiGRU3A4BlbiUDt0UClfIkplxf2coUMkAzWTa9kMDcErOY7GGBcv66vqKYC+III8Q+cNvyLkJXCZaNUYPhrGuE=
 
 notifications:
-  email: true
+  webhooks:
+     urls:
+        - https://webhooks.gitter.im/e/3e1f0d56076552547591
+        on_success: always
+        on_failure: always
+        on_start: false
