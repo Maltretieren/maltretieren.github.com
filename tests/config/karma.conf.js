@@ -70,8 +70,6 @@ module.exports = function(config){
 		  type : 'lcov',
 		  dir : 'coverage/',
           subdir: '.'
-          }
-          // Would output the results into: './coverage/firefox/'
 		}
 		
     })
