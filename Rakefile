@@ -30,7 +30,7 @@ namespace :my_tasks do
 	desc "Upload test results"
 	task :uploadTestResults do
 		puts "\n## Upload test results to coveralls"
-		%x["cat ./tests/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"]
+		%x["cat ./tests/coverage/lcov.info"]
 	end
 	
 	task :deploy do
