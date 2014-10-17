@@ -56,7 +56,7 @@ module.exports = function(config){
 		  // source files, that you wanna generate coverage for
 		  // do not include tests or libraries
 		  // (these files will be instrumented by Istanbul)
-		  'app/js/*.js': ['coverage']
+		  'app/js/*/*.js': ['coverage']
 		},
 		// https://github.com/karma-runner/karma-coverage
 		// http://karma-runner.github.io/0.8/config/coverage.html
