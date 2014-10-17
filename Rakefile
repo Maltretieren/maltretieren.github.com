@@ -1,7 +1,6 @@
 # This RAKEFILE is for Travis CI - generate a template branch out of the master and commit it to the
 # repo. This is needed to provide the fork functionality...
 
-
 # test code coverage
 require 'coveralls'
 Coveralls.wear!
