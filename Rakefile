@@ -26,6 +26,12 @@ namespace :my_tasks do
 		"destination" => "_site"
 		})).process
 	end
+
+	desc "Upload test results"
+	task :uploadTestResults do
+		puts "\n## Upload test results to coveralls"
+		system("cat ./tests/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js")
+	end
 	
 	task :deploy do
 	  puts "\n## Deleting template branch"
@@ -56,4 +62,4 @@ namespace :my_tasks do
 end
 
 # first generate the site to see if jekyll is working - after that test the JavaScript code...
-task :default => ["my_tasks:generate", "my_tasks:deploy"]
+task :default => ["my_tasks:generate", "my_tasks:uploadTestResults", "my_tasks:deploy"]
