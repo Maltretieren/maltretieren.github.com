@@ -1,6 +1,10 @@
 # This RAKEFILE is for Travis CI - generate a template branch out of the master and commit it to the
 # repo. This is needed to provide the fork functionality...
 
+# test code coverage
+require 'coveralls'
+Coveralls.wear!
+
 require "rubygems"
 require "tmpdir"
 
@@ -8,6 +12,8 @@ require "bundler/setup"
 require "jekyll"
 require "fileutils"
 require "rake/clean"
+
+
 
 # Change your GitHub reponame
 GITHUB_REPONAME = "Maltretieren/maltretieren.github.com"
@@ -20,11 +26,12 @@ namespace :my_tasks do
 		"destination" => "_site"
 		})).process
 	end
-
+	
 	desc "Upload test results"
 	task :uploadTestResults do
-		puts "\n## Upload test results to coveralls"
-		%x["ls -la ./tests/coverage/"]
+		puts "\n## Listing of folder tests/coverage"
+		system("ls -la coverage")
+		system("ls -la coverage/*/")
 	end
 	
 	task :deploy do

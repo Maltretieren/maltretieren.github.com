@@ -68,8 +68,12 @@ module.exports = function(config){
         // https://github.com/karma-runner/karma-coverage/pull/62
 		coverageReporter: {
 		  type : 'lcov',
-		  dir : 'tests/coverage/',
-          subdir: '.'
+		  dir : 'coverage/',
+          subdir: function(browser, platform) {
+            // normalization process to keep a consistent browser name
+            return browser.toLowerCase().split(' ')[0];
+          }
+          // Would output the results into: './coverage/firefox/'
 		}
 		
     })
