@@ -33,6 +33,9 @@ namespace :my_tasks do
 		system("ls -la coverage")
 		system("ls -la coverage/*/")
 		puts "\n## Transfer coverage report to coveralls"
+		system("cd coverage/*/")
+		sytem("ls -la .")
+		puts "\n## Transfer coverage report to coveralls"
 		%x["cat ./tests/coverage/*/lcov.info"]
 	end
 	
