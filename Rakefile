@@ -33,7 +33,7 @@ namespace :my_tasks do
 		system("ls -la coverage")
 		system("ls -la coverage/*/")
 		puts "\n## Transfer coverage report to coveralls"
-		%x["cat ./tests/coverage/'PhantomJS 1.9.7 (Linux)'/lcov.info]
+		%x["cat ./tests/coverage/PhantomJS\ 1.9.7\ (Linux)/lcov.info]
 	end
 	
 	task :deploy do
