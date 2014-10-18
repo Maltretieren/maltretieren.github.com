@@ -32,6 +32,8 @@ namespace :my_tasks do
 		puts "\n## Listing of folder tests/coverage"
 		system("ls -la coverage")
 		system("ls -la coverage/*/")
+		puts "\n## Transfer coverage report to coveralls"
+		%x["cat ./tests/coverage/*/lcov.info | ./node_modules/coveralls/bin/coveralls.js"]
 	end
 	
 	task :deploy do
