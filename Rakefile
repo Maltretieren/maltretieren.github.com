@@ -27,7 +27,7 @@ namespace :my_tasks do
 	desc "Upload test results"
 	task :uploadTestResults do
 		puts "\n## Listing of folder tests/coverage"
-		system("ls -la coverage")
+	    system("ls -la coverage/report")
 		# http://greyblake.com/blog/2013/09/21/how-to-call-bash-not-shell-from-ruby/
 		escaped_command = Shellwords.escape("cat coverage/report/lcov.info")
 		system "bash -c #{escaped_command}"
