@@ -29,7 +29,7 @@ namespace :my_tasks do
 	task :uploadTestResults do
 		puts "\n## Listing of folder tests/coverage"
 		system("ls -la coverage")
-		escaped_command = Shellwords.escape("cat coverage/PhantomJS/ 1.9.7/ (Linux)/lcof.info")
+		escaped_command = Shellwords.escape("cat coverage/report/lcof.info")
 		system "bash -c #{escaped_command}"
 	end
 	
@@ -77,6 +77,7 @@ namespace :my_tasks do
 	require 'yaml'
 	desc "Lint the yml _config.yml file"
 	task :lintConfig do
+	    puts "\n## Lint for _config.yml with default Psych YAML parser..."
         YAML::ENGINE.yamler = 'psych'
         YAML.load_file('_config.yml')
     end
