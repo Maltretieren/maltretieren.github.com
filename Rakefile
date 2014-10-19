@@ -59,7 +59,21 @@ namespace :my_tasks do
 	  status = system("git push origin template >> /dev/null")
 	  puts status ? "Success" : "Failed"
 	end
+
+	require 'yaml'
+
+	task :lintYml do
+      d = Dir["./**/*.yml"]
+      d.each do |file|
+        begin
+          puts "checking : #{file}"
+          f =  YAML.load_file(file)
+        rescue Exception
+          puts "failed to read #{file}: #{$!}"
+        end
+      end
+    end
 end
 
 # first generate the site to see if jekyll is working - after that test the JavaScript code...
-task :default => ["my_tasks:generate", "my_tasks:uploadTestResults", "my_tasks:deploy"]
+task :default => ["my_tasks:generate", "my_tasks:uploadTestResults", "my_tasks:deploy", "my_tasks:lintYml"]
