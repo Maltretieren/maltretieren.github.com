@@ -1,6 +1,7 @@
 # For more see: http://jekyllrb.com/docs/permalinks/
 permalink: /:categories/:year/:month/:day/:title
 
+# exclude also node_modules - https://github.com/jekyll/jekyll/issues/2624
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "node_modules"]
 
 # Markdown interpreter - Maruku is not maintained any more... Since version 2.2.0

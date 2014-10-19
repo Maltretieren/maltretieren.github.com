@@ -9,9 +9,8 @@ require "jekyll"
 require "fileutils"
 require "rake/clean"
 
-# http://greyblake.com/blog/2013/09/21/how-to-call-bash-not-shell-from-ruby/
+# helper to execute bash commands
 require 'shellwords'
-
 
 # Change your GitHub reponame
 GITHUB_REPONAME = "Maltretieren/maltretieren.github.com"
@@ -29,6 +28,7 @@ namespace :my_tasks do
 	task :uploadTestResults do
 		puts "\n## Listing of folder tests/coverage"
 		system("ls -la coverage")
+		# http://greyblake.com/blog/2013/09/21/how-to-call-bash-not-shell-from-ruby/
 		escaped_command = Shellwords.escape("cat coverage/report/lcof.info")
 		system "bash -c #{escaped_command}"
 	end
