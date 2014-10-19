@@ -1,4 +1,4 @@
-x^module.exports = function(grunt) {
+module.exports = function(grunt) {
     grunt.initConfig({
         karma: {
             // Add a new travis ci karma configuration
@@ -11,8 +11,7 @@ x^module.exports = function(grunt) {
         }
     });
 	grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-coveralls');
 
     // Add a new task for travis
-    grunt.registerTask('travis', ['karma:travis'])
+    grunt.registerTask('test', ['karma:travis'])
 };
