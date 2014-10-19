@@ -61,7 +61,7 @@ namespace :my_tasks do
 	end
 
 	require 'yaml'
-
+	desc "Lint the yml "_config.yml" file"
 	task :lintYml do
       d = Dir["./**/*.yml"]
       d.each do |file|
