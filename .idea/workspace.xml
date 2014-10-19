@@ -39,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.94727594" vertical-offset="631" max-vertical-offset="1260">
-              <caret line="78" column="106" selection-start-line="78" selection-start-column="106" selection-end-line="78" selection-end-column="106" />
+              <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -1164,7 +1164,7 @@
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.94727594" vertical-offset="631" max-vertical-offset="1260">
-          <caret line="78" column="106" selection-start-line="78" selection-start-column="106" selection-end-line="78" selection-end-column="106" />
+          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
           <folding />
         </state>
       </provider>

@@ -76,4 +76,4 @@ namespace :my_tasks do
 end
 
 # first generate the site to see if jekyll is working - after that test the JavaScript code...
-task :default => ["my_tasks:generate", "my_tasks:uploadTestResults", "my_tasks:deploy", "my_tasks:lintYml"]
+task :default => ["my_tasks:uploadTestResults", "my_tasks:deploy", "my_tasks:lintYml"]
