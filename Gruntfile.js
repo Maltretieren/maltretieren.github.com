@@ -29,5 +29,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-coveralls');
 
     // Add a new task for travis
-    grunt.registerTask('test', ['karma:travis', 'karma:coveralls'])
+    grunt.registerTask('travis', ['karma:travis'])
+    grunt.registerTask('coveralls', ['karma:coveralls'])
 };
