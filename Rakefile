@@ -33,7 +33,7 @@ namespace :my_tasks do
 	task :uploadTestResults do
 		puts "\n## Listing of folder tests/coverage"
 		system("ls -la coverage")
-		escaped_command = Shellwords.escape("cat coverage/PhantomJS 1.9.7/lcof.info")
+		escaped_command = Shellwords.escape("cat coverage/PhantomJS/ 1.9.7/ (Linux)/lcof.info")
 		system "bash -c #{escaped_command}"
 	end
 	
