@@ -21,7 +21,7 @@ module.exports = function(grunt) {
             },
             your_target: {
                 // Target-specific LCOV coverage file
-                src: 'coverage-results/extra-results-*.info'
+                src: 'coverage/report/extra-results-*.info'
             }
         }
     });
