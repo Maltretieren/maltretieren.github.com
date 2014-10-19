@@ -18,7 +18,7 @@
       "grunt-contrib-watch": "0.6.1",
 	  "karma-junit-reporter": "0.2.2",
 	  "karma-coverage": "~0.2.6",
-      "coveralls": "2.11.2"
+      "grunt-coveralls": "1.0.0"
   },
 
   "repository": {
