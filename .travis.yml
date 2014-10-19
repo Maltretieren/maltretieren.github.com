@@ -25,7 +25,7 @@ before_script:
 
 #http://stackoverflow.com/questions/24537778/what-is-the-proper-way-to-get-the-karma-test-coverage-path-into-travis-ci
 after_script:
-  - codeclimate < test/coverage/**/lcov.info
+  - grunt coveralls
 
 env:
   global:
