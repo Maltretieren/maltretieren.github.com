@@ -20,6 +20,7 @@
 	  "karma-coverage": "~0.2.3",
       "coveralls": "2.11.2"
   },
+    
   "repository": {
     "type": "git",
     "url": "https://github.com/Maltretieren/maltretieren.github.com.git"
