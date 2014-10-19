@@ -32,7 +32,7 @@ namespace :my_tasks do
 		#escaped_command = Shellwords.escape("cat coverage/report/lcov.info")
 		#puts system "bash -c #{escaped_command}"
 		output = `cat coverage/report/lcov.info`
-        put output
+        puts output
 	end
 	
 	task :deploy do
