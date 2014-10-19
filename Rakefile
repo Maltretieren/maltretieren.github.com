@@ -34,7 +34,7 @@ namespace :my_tasks do
 		puts "\n## Listing of folder tests/coverage"
 		system("ls -la coverage")
 		escaped_command = Shellwords.escape("ls -la coverage/*")
-		%x[escaped_command]
+		system "bash -c #{escaped_command}"
 	end
 	
 	task :deploy do
