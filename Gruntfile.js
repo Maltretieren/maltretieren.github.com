@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+xmodule.exports = function(grunt) {
     grunt.initConfig({
         karma: {
             // Add a new travis ci karma configuration
@@ -7,6 +7,13 @@ module.exports = function(grunt) {
                 configFile: 'tests/config/karma.conf.js',
                 singleRun: true,
                 browsers: ['PhantomJS']
+            },
+            unit: {
+                configFile: 'tests/config/karma.conf.js',
+                runnerPort: 9999,
+                singleRun: true,
+                browsers: ['PhantomJS'],
+                logLevel: 'ERROR'
             }
         }
     });
