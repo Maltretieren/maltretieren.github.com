@@ -8,10 +8,23 @@ module.exports = function(grunt) {
                 singleRun: true,
                 browsers: ['PhantomJS']
             }
+        },
+        coveralls: {
+            options: {
+                // LCOV coverage file relevant to every target
+                src: 'coverage/report/lcov.info',
+
+                // When true, grunt-coveralls will only print a warning rather than
+                // an error, to prevent CI builds from failing unnecessarily (e.g. if
+                // coveralls.io is down). Optional, defaults to false.
+                force: false
+            }
         }
     });
 	grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-coveralls');
 
     // Add a new task for travis
     grunt.registerTask('test', ['karma:travis'])
+    grunt.registerTask('test', ['coveralls'])
 };
