@@ -61,7 +61,7 @@ namespace :my_tasks do
 	end
 
 	require 'yaml'
-	desc "Lint the yml "_config.yml" file"
+	desc "Lint the yml _config.yml file"
 	task :lintYml do
         YAML::ENGINE.yamler = 'psych'
         YAML.load_file('_config.yml')
