@@ -35,11 +35,24 @@ module.exports = function(grunt) {
                 // Target-specific LCOV coverage file
                 src: 'coverage/report/lcov.info'
             }
-        }
+        },
+        phantomjs_screenshot: {
+            main: {
+                options: {},
+                files: [{
+                    expand: true,
+                    cwd: 'src/',
+                    src: ['**/*.html'],
+                    dest: 'imagefolder/',
+                    ext: '.png'
+                }]
+            }
+        },
     });
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-coveralls');
+    grunt.loadNpmTasks('grunt-phantomjs-screenshot');
 
     // Add a new task for travis
     grunt.registerTask('devmode', ['karma:unit', 'watch'])
