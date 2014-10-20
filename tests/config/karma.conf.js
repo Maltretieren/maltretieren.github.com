@@ -66,8 +66,7 @@ module.exports = function(config){
 		},
 
 		// optionally, configure the reporter
-		// optionally, configure the reporter
-        // https://github.com/karma-runner/karma-coverage/pull/62
+        // about the subdir option: https://github.com/karma-runner/karma-coverage/pull/62
 		coverageReporter: {
 		  type : 'text',
 		  dir : 'coverage/',
