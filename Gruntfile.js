@@ -41,7 +41,7 @@ module.exports = function(grunt) {
                 options: {},
                 files: [{
                     expand: true,
-                    cwd: 'src/',
+                    cwd: '/',
                     src: ['**/*.html'],
                     dest: 'imagefolder/',
                     ext: '.png'
@@ -58,4 +58,5 @@ module.exports = function(grunt) {
     grunt.registerTask('devmode', ['karma:unit', 'watch'])
 	grunt.registerTask('test', ['karma:travis'])
     grunt.registerTask('test', ['coveralls'])
+    grunt.registerTask('test', ['phantomjs_screenshot'])
 };
