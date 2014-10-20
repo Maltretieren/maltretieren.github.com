@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Unit tests for CommentsCtrl', function() {
+describe('CommentsCtrl', function() {
     var $rootScope, $scope, $controller;
 
 	// prepare angular for being testable
@@ -16,9 +16,9 @@ describe('Unit tests for CommentsCtrl', function() {
     }));
 
     // this has a dependency to config.js
-    it('test availabilty of comments url in config'), function() {
-        console.log($scope.commentsUrl);
-    }
+    it('test availabilty of comments url in config', function() {
+        //console.log($scope.commentsUrl);
+    });
 
     it('should call the function getComments', function () {
         spyOn($scope, 'getComments');

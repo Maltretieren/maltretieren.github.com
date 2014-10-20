@@ -1,7 +1,7 @@
 'use strict';
 
-describe('Unit tests for GithubForkCtrl', function() {
-    var $rootScope, $scope, $controller;
+describe('GithubForkCtrl', function() {
+    var $rootScope, $scope, $controller, UserModel;
 
     // prepare angular for being testable
     beforeEach(angular.mock.module('myApp'));
@@ -9,14 +9,22 @@ describe('Unit tests for GithubForkCtrl', function() {
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();
         $controller = _$controller_;
+        // Mock UserModel
+        UserModel = {
+            getUser: function() {
+                return "{'name':'Maltretieren','isAdmin':true}"
+            }
+        }
         $controller('GithubForkCtrl', {
             '$rootScope' : $rootScope,
-            '$scope': $scope
+            '$scope': $scope,
+            'UserModel': UserModel
         });
     }));
 
-    // this has a dependency to config.js
-    it('look at available themes'), function() {
-        console.log($scope.options.availableThemes);
-    }
+    // dependency to UserModel
+    it('test if themes are available', function(done) {
+        expect($scope.options.availableThemes.length).toBeGreaterThan(0);
+        done();
+    });
 });

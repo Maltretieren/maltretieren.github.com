@@ -444,7 +444,8 @@ myApp.service("UserModel", function ($rootScope) {
 			var userObject = JSON.parse(userString);
 			return userObject;
 		} else {
-			return null;
+            var userObject = {"name":"Guest","isAdmin":false};
+			return userObject;
 		}
 	}
 });
