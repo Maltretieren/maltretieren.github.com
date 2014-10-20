@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 		// triggers test run when some source/test files are changed... (this is for local testing)
 		watch: {
             karma: {
-                files: ['tests/**/*.js'],
+                files: ['tests/**/*Spec.js'],
                 tasks: ['karma:unit:run']
             }
         },
@@ -37,12 +37,12 @@ module.exports = function(grunt) {
             }
         }
     });
-	//grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-coveralls');
 
     // Add a new task for travis
-    //grunt.registerTask('devmode', ['karma:unit', 'watch'])
+    grunt.registerTask('devmode', ['karma:unit', 'watch'])
 	grunt.registerTask('test', ['karma:travis'])
     grunt.registerTask('test', ['coveralls'])
 };
