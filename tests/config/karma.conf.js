@@ -68,8 +68,8 @@ module.exports = function(config){
 		// optionally, configure the reporter
 		coverageReporter: {
 		  type : 'lcov',
-		  dir : 'tests/coverage/report',
-		  subdir: '.'
+		  dir : 'tests/coverage',
+		  subdir: 'report'
 		}
 		
     })
