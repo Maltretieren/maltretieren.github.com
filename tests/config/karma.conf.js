@@ -37,7 +37,7 @@ module.exports = function(config){
             'app/version.js',
             'tests/versionSpec.js'
         ],
-		// list of files to exclude, main.js is not needed because all of the files were loaded manually
+		// list of files to exclude
 		exclude: [
 			'app/js/main.js'
 		],
@@ -52,22 +52,23 @@ module.exports = function(config){
             'karma-jasmine',
 			'karma-coverage'
         ],
+		// https://github.com/karma-runner/karma-coverage
+		// http://karma-runner.github.io/0.8/config/coverage.html
+		// http://blog.dc.esri.com/2014/03/26/js-code-coverage/
+		reporters: [
+			'coverage'
+		],
 		preprocessors: {
 		  // source files, that you wanna generate coverage for
 		  // do not include tests or libraries
 		  // (these files will be instrumented by Istanbul)
-		  'app/js/*/*.js': ['coverage']
+		  'app/js/*.js': ['coverage']
 		},
-		// https://github.com/karma-runner/karma-coverage
-		// http://karma-runner.github.io/0.8/config/coverage.html
-		// http://blog.dc.esri.com/2014/03/26/js-code-coverage/
-        reporters: ['progress', 'coverage'],
+
 		// optionally, configure the reporter
-        // https://github.com/karma-runner/karma-coverage/pull/62
 		coverageReporter: {
-		  type : 'lcov',
-		  dir : 'coverage/',
-          subdir: 'report'
+		  type : 'text',
+		  dir : 'tests/coverage/'
 		}
 		
     })
