@@ -9,6 +9,7 @@ branches:
 before_install:
   # http://projectpoppycock.com/unit-testing-with-angularjs-grunt-karma-and-travisci/
   - npm install -g grunt-cli
+  - npm install grunt-karma grunt-contrib-watch
 
 # second step
 install:

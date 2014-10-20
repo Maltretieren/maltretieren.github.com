@@ -37,7 +37,7 @@ module.exports = function(config){
             'app/version.js',
             'tests/versionSpec.js'
         ],
-		// list of files to exclude
+		// list of files to exclude, main.js is not needed because all of the files were loaded manually
 		exclude: [
 			'app/js/main.js'
 		],

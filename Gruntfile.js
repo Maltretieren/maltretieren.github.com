@@ -3,10 +3,20 @@ module.exports = function(grunt) {
         karma: {
             // Add a new travis ci karma configuration
             // configs here override those in our existing karma.conf.js
-            travis: {
+            unit: {
                 configFile: 'tests/config/karma.conf.js',
-                singleRun: true,
-                browsers: ['PhantomJS']
+                background: true
+            }
+        },
+		travis: {
+		    configFile: 'tests/config/karma.conf.js',
+            singleRun: true,
+            browsers: ['PhantomJS']
+		}
+		watch: {
+            karma: {
+                files: ['tests/**/*.js'],
+                tasks: ['karma:unit:run']
             }
         },
         coveralls: {
@@ -25,10 +35,12 @@ module.exports = function(grunt) {
             }
         }
     });
+	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-coveralls');
 
     // Add a new task for travis
-    grunt.registerTask('test', ['karma:travis'])
-    grunt.registerTask('test', ['coveralls'])
+    grunt.registerTask('devmode', ['karma:unit', 'watch'])
+	grunt.registerTask('test', ['karma:travis'])
+    grunt.registerTask('devmode', ['coveralls'])
 };
