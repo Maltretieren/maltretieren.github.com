@@ -61,7 +61,7 @@ module.exports = function(config){
 		  // source files, that you wanna generate coverage for
 		  // do not include tests or libraries
 		  // (these files will be instrumented by Istanbul)
-		  'app/js/*Spec.js': ['coverage']
+		  'app/js/CommentsCtrlSpec.js': ['coverage']
 		},
 
 		// optionally, configure the reporter
