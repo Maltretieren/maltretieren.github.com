@@ -35,19 +35,7 @@ module.exports = function(grunt) {
                 // Target-specific LCOV coverage file
                 src: 'coverage/report/lcov.info'
             }
-        },
-        phantomjs_screenshot: {
-            main: {
-                options: {},
-                files: [{
-                    expand: true,
-                    cwd: '/',
-                    src: ['**/*.html'],
-                    dest: 'imagefolder/',
-                    ext: '.png'
-                }]
-            }
-        },
+        }
     });
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-karma');
@@ -58,5 +46,4 @@ module.exports = function(grunt) {
     grunt.registerTask('devmode', ['karma:unit', 'watch'])
 	grunt.registerTask('test', ['karma:travis'])
     grunt.registerTask('test', ['coveralls'])
-    grunt.registerTask('test', ['phantomjs_screenshot'])
 };
