@@ -13,9 +13,10 @@ module.exports = function(grunt) {
                 browsers: ['PhantomJS']
 			}
         },
+		// triggers test run when some source/test files are changed... (this is for local testing)
 		watch: {
             karma: {
-                files: ['tests/**/*.js'],
+                files: ['tests/**/*.js', 'app/js/**/*.js'],
                 tasks: ['karma:unit:run']
             }
         },
@@ -28,10 +29,6 @@ module.exports = function(grunt) {
                 // an error, to prevent CI builds from failing unnecessarily (e.g. if
                 // coveralls.io is down). Optional, defaults to false.
                 force: false
-            },
-            your_target: {
-                // Target-specific LCOV coverage file
-                src: 'coverage/report/lcov.info'
             }
         }
     });
