@@ -21,6 +21,27 @@ install:
 
 before_script:
   - grunt karma
+Aborted due to warnings.
+crunshs-MBP:maltretieren.github.com crunsh$ grunt test
+Running "coveralls:your_target" (coveralls) task
+>> No src files could be found for grunt-coveralls
+Warning: Task "coveralls:your_target" failed. Use --force to continue.
+
+Aborted due to warnings.
+crunshs-MBP:maltretieren.github.com crunsh$ grunt test
+Running "coveralls:your_target" (coveralls) task
+>> No src files could be found for grunt-coveralls
+Warning: Task "coveralls:your_target" failed. Use --force to continue.
+
+Aborted due to warnings.
+crunshs-MBP:maltretieren.github.com crunsh$ grunt karma
+Running "karma:unit" (karma) task
+
+Running "karma:travis" (karma) task
+WARN [karma]: Port 9876 in use
+INFO [karma]: Karma v0.12.24 server started at http://localhost:9877/
+INFO [launcher]: Starting browser PhantomJS
+INFO [PhantomJS 1.9.7 (Mac OS X)]: Connected on socket 3Sv-xpAA4NMWI2RMc3aF with i
 
   - git config --global user.name "Travis CI"
   - git remote set-url origin https://Maltretieren:${GH_TOKEN}@github.com/Maltretieren/maltretieren.github.com.git
