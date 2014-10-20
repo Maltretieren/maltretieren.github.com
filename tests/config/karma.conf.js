@@ -40,6 +40,7 @@ module.exports = function(config){
 		exclude: [
 			'app/js/main.js'
 		],
+		logLevel: config.LOG_INFO,
         autoWatch : false,
         frameworks: ['jasmine'],
 		// overriden by settings in Gruntfile.js
