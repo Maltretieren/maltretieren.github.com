@@ -68,7 +68,7 @@ module.exports = function(config){
 		// optionally, configure the reporter
         // about the subdir option: https://github.com/karma-runner/karma-coverage/pull/62
 		coverageReporter: {
-		  type : 'text',
+		  type : 'lcov',
 		  dir : 'coverage/',
           subdir: 'report'
 		}
