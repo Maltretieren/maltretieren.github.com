@@ -42,6 +42,7 @@ module.exports = function(config){
 		],
         autoWatch : false,
         frameworks: ['jasmine'],
+		// overriden by settings in Gruntfile.js
         browsers : ['PhantomJS'],
         plugins : [
             'karma-junit-reporter',
