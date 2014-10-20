@@ -6,13 +6,13 @@ module.exports = function(grunt) {
             unit: {
                 configFile: 'tests/config/karma.conf.js',
                 background: true
-            }
+            },
+			travis: {
+			    configFile: 'tests/config/karma.conf.js',
+                singleRun: true,
+                browsers: ['PhantomJS']
+			}
         },
-		travis: {
-		    configFile: 'tests/config/karma.conf.js',
-            singleRun: true,
-            browsers: ['PhantomJS']
-		}
 		watch: {
             karma: {
                 files: ['tests/**/*.js'],
@@ -42,5 +42,5 @@ module.exports = function(grunt) {
     // Add a new task for travis
     grunt.registerTask('devmode', ['karma:unit', 'watch'])
 	grunt.registerTask('test', ['karma:travis'])
-    grunt.registerTask('devmode', ['coveralls'])
+    grunt.registerTask('test', ['coveralls'])
 };
