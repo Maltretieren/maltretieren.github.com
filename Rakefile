@@ -26,8 +26,8 @@ namespace :my_tasks do
 	
 	desc "Upload test results"
 	task :uploadTestResults do
-		#puts "\n## Listing of folder tests/coverage"
-	    #system("ls -la coverage/report")
+		puts "\n## You should see a lcov.info file in here (this is a test coverage file, generated from karma-coverage for jasmine tests..."
+	    system("ls -la coverage/report")
 	    #system("ls -la coverage/report/lcov-report")
 		# http://greyblake.com/blog/2013/09/21/how-to-call-bash-not-shell-from-ruby/
 		#escaped_command = Shellwords.escape("cat coverage/report/lcov.info")
