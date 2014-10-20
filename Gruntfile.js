@@ -5,7 +5,7 @@ module.exports = function(grunt) {
             // configs here override those in our existing karma.conf.js
             unit: {
                 configFile: 'tests/config/karma.conf.js',
-                background: true
+                background: false
             },
 			travis: {
 			    configFile: 'tests/config/karma.conf.js',
