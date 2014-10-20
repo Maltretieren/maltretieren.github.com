@@ -4,7 +4,6 @@
   "scripts": {
       "test": "grunt test"
   },
-  // use exact version numbers - make sure everybody is running the same version...
   "devDependencies": {
 	  "grunt": "0.4.5",
 	  "grunt-karma": "0.9.0",
