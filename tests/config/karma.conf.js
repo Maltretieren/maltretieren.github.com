@@ -34,7 +34,8 @@ module.exports = function(config){
 			'assets/js/raty/jquery.raty.js',
 			'assets/js/keenio-2.1.0/keenio.js',
 			'assets/js/angular-1.3.0/angular-mocks.js',
-            'tests/CommentsCtrlSpec.js'
+            'app/version.js',
+            'tests/versionSpec.js'
         ],
 		// list of files to exclude
 		exclude: [
@@ -61,7 +62,7 @@ module.exports = function(config){
 		  // source files, that you wanna generate coverage for
 		  // do not include tests or libraries
 		  // (these files will be instrumented by Istanbul)
-		  'app/js/CommentsCtrlSpec.js': ['coverage']
+		  'app/js/*.js': ['coverage']
 		},
 
 		// optionally, configure the reporter
