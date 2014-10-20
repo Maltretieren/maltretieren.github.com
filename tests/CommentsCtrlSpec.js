@@ -17,8 +17,7 @@ describe('Unit tests for CommentsCtrl', function() {
 
     // this has a dependency to config.js
     it('test availabilty of comments url in config'), function() {
-        console.log("hieeeeer");
-		$scope.commentsUrl.toBeUndefined();
+		expect($scope.commentsUrl).toBeUndefined();
     }
 
     it('should call the function getComments', function () {
