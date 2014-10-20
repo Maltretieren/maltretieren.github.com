@@ -34,8 +34,7 @@ module.exports = function(config){
 			'assets/js/raty/jquery.raty.js',
 			'assets/js/keenio-2.1.0/keenio.js',
 			'assets/js/angular-1.3.0/angular-mocks.js',
-            'app/version.js',
-            'tests/versionSpec.js'
+            'tests/CommentsCtrlSpec.js'
         ],
 		// list of files to exclude
 		exclude: [
