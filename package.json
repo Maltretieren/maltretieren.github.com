@@ -6,15 +6,11 @@
   },
   // use exact version numbers - make sure everybody is running the same version...
   "devDependencies": {
-      // startub karma test runner with grunt
 	  "grunt": "0.4.5",
 	  "grunt-karma": "0.9.0",
-	  // headless browser for testing
       "phantomjs": "1.9.1-0",
-      // test ensemble
 	  "karma": "~0.12",
 	  "karma-jasmine": "0.2.2",
-	  // plugins for karma
       "karma-chrome-launcher": "0.1.5",
       "karma-script-launcher": "0.1.0",
       "karma-firefox-launcher": "0.1.3",
@@ -22,7 +18,6 @@
       "grunt-contrib-watch": "0.6.1",
       "karma-junit-reporter": "0.2.2",
 	  "karma-coverage": "0.2.6",
-	  // upload test coverage results to coveralls
       "grunt-coveralls": "1.0.0"
   },
 
