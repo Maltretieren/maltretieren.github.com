@@ -42,7 +42,7 @@ module.exports = function(config){
 		],
         autoWatch : false,
         frameworks: ['jasmine'],
-        browsers : ['Chrome'],
+        browsers : ['PhantomJS'],
         plugins : [
             'karma-junit-reporter',
             'karma-chrome-launcher',
