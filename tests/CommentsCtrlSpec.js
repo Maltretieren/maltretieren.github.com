@@ -16,9 +16,14 @@ describe('Unit tests for CommentsCtrl', function() {
     }));
 
     // this has a dependency to config.js
-    it('test availabilty of comments url in config'), function() {
-		expect($scope.commentsUrl).toBeUndefined();
-    }
+    it('test availabilty of comments url in config', function() {
+        $scope.commentsUrl.toBeUndefined();
+    });
+	
+	it('test if comments are disabled if there is no comments url provided', function() {
+		$scope.commentsUrl = '';
+		console.log($scope.commentsToggle);
+	});
 
     it('should call the function getComments', function () {
         spyOn($scope, 'getComments');
