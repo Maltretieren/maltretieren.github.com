@@ -18,8 +18,6 @@ describe('Unit tests for KeenioMasterCtrl', function() {
     }));
 	
 	it('should test if the more functionality is working', function () {
-        spyOn($scope, 'cancel');
-		$scope.cancel()
-		expect($scope.cancel).toHaveBeenCalled();
+        expect($scope.user).not.toBeUndefined()
 	});
 });
