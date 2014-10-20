@@ -61,16 +61,13 @@ module.exports = function(config){
 		// https://github.com/karma-runner/karma-coverage
 		// http://karma-runner.github.io/0.8/config/coverage.html
 		// http://blog.dc.esri.com/2014/03/26/js-code-coverage/
-		reporters: [
-            'progress',
-            'coverage'
-		],
+        reporters: ['progress', 'coverage'],
 		// optionally, configure the reporter
         // https://github.com/karma-runner/karma-coverage/pull/62
 		coverageReporter: {
-		  type : 'text',
+		  type : 'lcov',
 		  dir : 'coverage/',
-            subdir: 'report'
+          subdir: 'report'
 		}
 		
     })
