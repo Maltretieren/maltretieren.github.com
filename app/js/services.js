@@ -241,8 +241,8 @@ myApp.service("GithubSrvc", function (
 				return fileCountDeferred.promise;
 			} else {
 				readyPromise.reject("Could not init githubInstance");
-				return deferred.promise;
-			} 
+				return readyPromise.promise;
+			}
         },
 		getFiles: function(fileNames) {
 			var self = this;
