@@ -6,14 +6,15 @@ module.exports = function(grunt) {
             unit: {
                 configFile: 'tests/config/karma.conf.js',
 				browsers: ['PhantomJS'],
-                background: true
+                background: true,
+				logLevel: 'DEBUG'
             },
 			// logLevel: OFF, ERROR, WARN, INFO, DEBUG
 			travis: {
 			    configFile: 'tests/config/karma.conf.js',
                 singleRun: true,
                 browsers: ['PhantomJS'],
-				logLevel: 'INFO'
+				logLevel: 'DEBUG'
 			}
         },
 		// triggers test run when some source/test files are changed... (this is for local testing)
