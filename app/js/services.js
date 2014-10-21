@@ -347,21 +347,22 @@ myApp.service("GithubSrvc", function (
 			
 			// get the content you want to edit from github
             var githubInstance = GithubAuthService.instance();
+			var deferred = $q.defer();
 			if(githubInstance != null) {
 				var repo = githubInstance.getRepo(config.github.user, config.github.repository);
 				var branch = repo.getBranch("master");
 				var contents = branch.read(path, false)
-			
+				
 				// if the content is ready, fill the editor, when the save button is clicked a promise is resolved...
-				var deferred = $q.defer();
 				contents.then(function(result) {
 					var frontMatter = YamlSrvc.parse(result.content);
 					EditorSrvc.open(frontMatter.content);
 					deferred.resolve(frontMatter);
-					return deferred.promise;
 				})
-			};
-            return null;
+				return deferred.promise;
+			} else {
+				return deferred.reject("Could not init githubInstance");
+			}
         },
 		commit: function(text, path, branch, showMessage, force) {
 			if(typeof branch === 'undefined') {
