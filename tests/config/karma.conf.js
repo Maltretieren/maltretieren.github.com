@@ -41,17 +41,18 @@ module.exports = function(config){
 			'app/js/main.js'
 		],
         autoWatch : true,
-		logLevel: config.LOG_DEBUG,
         frameworks: ['jasmine'],
 		// overriden by settings in Gruntfile.js
         browsers : ['PhantomJS'],
+		// karma-spec-reporter for nice output like "SUCCESS Unit: services myService should behave"
         plugins : [
             'karma-junit-reporter',
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-phantomjs-launcher',
             'karma-jasmine',
-			'karma-coverage'
+			'karma-coverage',
+			'karma-spec-reporter'
         ],
 		// https://github.com/karma-runner/karma-coverage
 		// http://karma-runner.github.io/0.8/config/coverage.html
