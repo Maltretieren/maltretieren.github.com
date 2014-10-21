@@ -242,7 +242,7 @@ myApp.service("GithubSrvc", function (
 			} else {
 				readyPromise.reject("Could not init githubInstance");
 				return deferred.promise;
-			}
+			} 
         },
 		getFiles: function(fileNames) {
 			var self = this;
