@@ -611,7 +611,7 @@ myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 });
 
 /**
- *	This controller exports/imports posts as a zip
+ *	This controller imports posts from a zip archive
  */
 myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
     // binding to hide the edit button for non-admin users...
@@ -690,13 +690,24 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
 /**
  *	This controller manages edits on content on github
  */
-myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeout, toaster, YamlSrvc, UserModel, ParameterSrvc, GithubSrvc) {
+myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeout, toaster, YamlSrvc, UserModel, ParameterSrvc, GithubSrvc, hotkeys) {
     var scope = $scope;
 
     $scope.options = {}
     $scope.yaml = {};
     // the advanced settings form is collapsed by default
 	$scope.advancedSettings = true;
+
+    // enable ctrl+s to save the post
+    // You can pass it an object.  This hotkey will not be unbound unless manually removed
+    // using the hotkeys.del() method
+    hotkeys.bindTo($scope)
+        combo: 'ctrl+s',
+        description: 'This one goes to 11',
+        callback: function() {
+            console.log("hotkey detected")
+        }
+    });
 
 	// styling for tags / categories labels
     $scope.getTagClass = function(city) {

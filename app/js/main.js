@@ -24,6 +24,7 @@
         .script( "/assets/js/angular-1.3.0/angular-route.min.js" )
 		.script( "/assets/js/angular-1.3.0/angular-animate.min.js" )
         .script( "/assets/js/angular-1.3.0/angular-sanitize.min.js" )
+        .script( "/assets/js/angular-hotkeys-1.4.5/hotkeys.js")
         .script( "/assets/js/dialogs-3.0/dialogs.min.js" )
         .script( "/assets/js/bootstrap-tagsinput-0.3.9/bootstrap-tagsinput.min.js" )
         .script( "/assets/js/bootstrap-tagsinput-0.3.9/bootstrap-tagsinput-angular.js" )

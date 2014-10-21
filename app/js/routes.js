@@ -2,7 +2,9 @@
 
 // ngSantinize: for confirm dialogs -> https://github.com/m-e-conroy/angular-dialog-service
 // bootstrap-tagsinput: http://timschlechter.github.io/bootstrap-tagsinput/examples/
-var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ngSanitize', 'dialogs', 'bootstrap-tagsinput', 'ngResource', 'ui.bootstrap', 'toaster']);
+// cfp.hotkeys: https://github.com/chieffancypants/angular-hotkeys
+
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ngSanitize', 'dialogs', 'bootstrap-tagsinput', 'ngResource', 'ui.bootstrap', 'toaster', 'cfp.hotkeys']);
 
 myApp.config(function ($routeProvider) {
 
