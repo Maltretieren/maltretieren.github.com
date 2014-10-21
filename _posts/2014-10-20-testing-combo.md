@@ -1,10 +1,11 @@
 ---
 layout: post
-categories :
-  - development
-tagline: 
-tags : 
-  - development
+categories:
+ - development
+tagline:
+tags:
+ - development
+frontpage: true
 ---
 {% include JB/setup %}
 
