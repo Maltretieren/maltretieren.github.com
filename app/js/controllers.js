@@ -707,6 +707,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
         callback: function() {
             console.log("hotkey detected");
+            scope.save();
         }
     });
 
