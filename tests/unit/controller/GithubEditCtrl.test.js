@@ -21,7 +21,7 @@ describe('Controller', function() {
             // this test is not working for now
             spyOn($scope, 'save');
             console.info('Simulating STRG+S hotkey')
-            //$window.crossBrowser_initKeyboardEvent("keydown", {"key": 0, "char": "s", ctrlKey: true})
+            KeyEvent.simulate(17, 84)
             //expect($scope.save).toHaveBeenCalled();
         });
     });
