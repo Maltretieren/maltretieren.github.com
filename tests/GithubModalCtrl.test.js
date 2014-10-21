@@ -3,7 +3,7 @@
 describe('GithubModalCtrl', function() {
     var $rootScope, $scope, $controller, $modalInstance;
 
-    // prepare angular for being testable
+    // http://stackoverflow.com/questions/22246813/unit-testing-testing-a-modalinstance-controller-with-karma-jasmine
     beforeEach(angular.mock.module('myApp'));
     beforeEach(angular.mock.inject(function(_$rootScope_, _$controller_){
         $rootScope = _$rootScope_;
