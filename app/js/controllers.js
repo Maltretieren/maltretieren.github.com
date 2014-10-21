@@ -702,7 +702,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
     hotkeys.bindTo(scope).add({
         combo: 'ctrl+s',
         description: 'Save the post',
-        //allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
+        allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
         callback: function() {
             console.log("hotkey detected");
             scope.save();

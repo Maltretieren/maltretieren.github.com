@@ -21,7 +21,7 @@ describe('Controller', function() {
             // this test is not working for now
             spyOn($scope, 'save');
             console.info('Simulating STRG+S hotkey')
-            KeyEvent.simulate(17, 84)
+            KeyEvent.simulate(19, 19)
             //expect($scope.save).toHaveBeenCalled();
         });
     });
