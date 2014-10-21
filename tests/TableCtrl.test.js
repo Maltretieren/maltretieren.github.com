@@ -17,7 +17,6 @@ describe('TableCtrl', function() {
 
     // dependency to UserModel
     it('should test the table controller', function(done) {
-        spyOn($rootScope, '$broadcast').and.callThrough();
 		expect(true).toBeTruthy();
         done();
     });

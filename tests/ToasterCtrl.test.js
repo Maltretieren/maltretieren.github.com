@@ -9,7 +9,7 @@ describe('ToasterCtrl', function() {
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();
         $controller = _$controller_;
-        $controller('TousterCtrl', {
+        $controller('ToasterCtrl', {
             '$rootScope' : $rootScope,
             '$scope': $scope,
         });
