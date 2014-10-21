@@ -30,6 +30,8 @@ namespace :my_tasks do
 	    system("ls -la coverage/report")
 		if File.zero?("overage/report/lcov.info")
 		    abort("The report files where not generated correctly")
+		else
+		    puts("The lcov.info file seems to be fine...)
 		end
 	    #system("ls -la coverage/report/lcov-report")
 		# http://greyblake.com/blog/2013/09/21/how-to-call-bash-not-shell-from-ruby/
