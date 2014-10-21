@@ -11,11 +11,12 @@ module.exports = function(grunt) {
             },
 			// logLevel: OFF, ERROR, WARN, INFO, DEBUG
 			// loglevel: couldn't see any impact when changed...
+			//continuous integration mode: run tests once in PhantomJS browser.
 			travis: {
 			    configFile: 'tests/config/karma.conf.js',
                 singleRun: true,
                 browsers: ['PhantomJS'],
-				logLevel: 'DEBUG'
+				logLevel: 'INFO'
 			}
         },
 		// triggers test run when some source/test files are changed... (this is for local testing)
