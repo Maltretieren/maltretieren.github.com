@@ -1,7 +1,7 @@
 'use strict';
 
 describe('KeenioMasterCtrl', function() {
-    var $rootScope, $scope, $controller, data;
+    var $rootScope, $scope, $controller, $modalInstance, data;
 
     beforeEach(angular.mock.module('myApp'));
     beforeEach(angular.mock.inject(function(_$rootScope_, _$controller_){
@@ -11,10 +11,18 @@ describe('KeenioMasterCtrl', function() {
 		data = {
 			commentId: '007'
 		};
+		$modalInstance = { // Create a mock object using spies
+			close: jasmine.createSpy('modalInstance.close'),
+			dismiss: jasmine.createSpy('modalInstance.dismiss'),
+			result: {
+				then: jasmine.createSpy('modalInstance.result.then')
+			}
+		};
         $controller('KeenioMasterCtrl', {
             '$rootScope' : $rootScope,
             '$scope': $scope,
-			'data': data
+			'data': data,
+			'$modalInstance' : $modalInstance
         });
     }));
 
