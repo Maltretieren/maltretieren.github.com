@@ -1,7 +1,7 @@
 'use strict';
 
 describe('KeenioMasterCtrl', function() {
-    var $rootScope, $scope, $controller;
+    var $rootScope, $scope, $controller, $modalInstance;
 
     // prepare angular for being testable
     beforeEach(angular.mock.module('myApp'));
@@ -9,9 +9,17 @@ describe('KeenioMasterCtrl', function() {
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();
         $controller = _$controller_;
+		$modalInstance = { // Create a mock object using spies
+			close: jasmine.createSpy('modalInstance.close'),
+			dismiss: jasmine.createSpy('modalInstance.dismiss'),
+			result: {
+				then: jasmine.createSpy('modalInstance.result.then')
+			}
+		}
         $controller('KeenioMasterCtrl', {
             '$rootScope' : $rootScope,
-            '$scope': $scope,
+			'$modalInstance' : $modalInstance,
+            '$scope': $scope
         });
     }));
 
