@@ -25,7 +25,7 @@ namespace :my_tasks do
 	end
 	
 	desc "Test if the test coverage report files where generated correctly"
-	task :uploadTestResults do
+	task :coverageResultsTest do
 		puts "\n## You should see a lcov.info file in here. The file size should be greate than zero bytes :)"
 	    system("ls -la coverage/report")
 		if File.zero?("overage/report/lcov.info")
@@ -92,4 +92,4 @@ namespace :my_tasks do
 end
 
 # first generate the site to see if jekyll is working - after that test the JavaScript code...
-task :default => ["my_tasks:generate", "my_tasks:uploadTestResults", "my_tasks:deploy", "my_tasks:lintConfig"]
+task :default => ["my_tasks:generate", "my_tasks:coverageResultTest", "my_tasks:deploy", "my_tasks:lintConfig"]
