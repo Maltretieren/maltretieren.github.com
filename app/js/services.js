@@ -194,49 +194,55 @@ myApp.service("GithubSrvc", function (
         },
         getContents: function(path) {
             var githubInstance = GithubAuthService.instance();
-            var repo = githubInstance.getRepo(config.github.user, config.github.repository);
-            var branch = repo.getBranch("master");
-            var self = this;
-
-			console.log(path);
-			var contentArray = {};
 			var readyPromise = $q.defer();
 			
-			var folderCounter = 0;
-			var fileCounter = 0;
-			
-			// preprocess response to seperate files/folders
-			var filesPath = [];
-			var foldersPath = [];
+			if(githubInstance != null) {
+				var repo = githubInstance.getRepo(config.github.user, config.github.repository);
+				var branch = repo.getBranch("master");
+				var self = this;
 
-            var j = 0;
-			var fileCountDeferred = $q.defer();
-			// find all files to export also in subfolders
-			var fileCount = function(path) {
-				branch.contents(path).then(function(response) {
-					var res = JSON.parse(response);
+				console.log(path);
+				var contentArray = {};
+				
+				var folderCounter = 0;
+				var fileCounter = 0;
+				
+				// preprocess response to seperate files/folders
+				var filesPath = [];
+				var foldersPath = [];
 
-                    for(var i=0; i<res.length;i++) {
-                        if(res[i].type === "file") {
-                            filesPath.push(res[i].path);
-                        } else {
-                            foldersPath.push(res[i].path);
-                        }
-                    }
+				var j = 0;
+				var fileCountDeferred = $q.defer();
+				// find all files to export also in subfolders
+				var fileCount = function(path) {
+					branch.contents(path).then(function(response) {
+						var res = JSON.parse(response);
 
-                    if(j!==foldersPath.length) {
-                        var newFolder = foldersPath[j++];
-                        console.log(newFolder);
-                        fileCount(newFolder);
-                    } else {
-                        fileCountDeferred.resolve(filesPath);
-                    }
-				});
-			};
-            // this is the toplevel folder to search for files
-            fileCount(path);
+						for(var i=0; i<res.length;i++) {
+							if(res[i].type === "file") {
+								filesPath.push(res[i].path);
+							} else {
+								foldersPath.push(res[i].path);
+							}
+						}
 
-			return fileCountDeferred.promise;
+						if(j!==foldersPath.length) {
+							var newFolder = foldersPath[j++];
+							console.log(newFolder);
+							fileCount(newFolder);
+						} else {
+							fileCountDeferred.resolve(filesPath);
+						}
+					});
+				};
+				// this is the toplevel folder to search for files
+				fileCount(path);
+
+				return fileCountDeferred.promise;
+			} else {
+				readyPromise.reject("Could not init githubInstance");
+				return deferred.promise;
+			}
         },
 		getFiles: function(fileNames) {
 			var self = this;
