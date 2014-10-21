@@ -35,6 +35,7 @@ With the power of Javascript and external services you can make your static site
 - Comments via keen.io
 - Ratings via keen.io
 - Nice image captions
+- Support of hotkeys
 
 ### Administration area
 - Import/Export of posts
