@@ -41,7 +41,7 @@ module.exports = function(config){
 			'app/js/main.js'
 		],
         autoWatch : true,
-		logLevel: config.LOG_INFO,
+		logLevel: config.LOG_DEBUG,
         frameworks: ['jasmine'],
 		// overriden by settings in Gruntfile.js
         browsers : ['PhantomJS'],
