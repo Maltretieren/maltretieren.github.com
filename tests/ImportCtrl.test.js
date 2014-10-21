@@ -16,7 +16,7 @@ describe('ImportCtrl', function() {
     }));
 
     // dependency to UserModel
-    it('should test the export controller', function(done) {
+    it('should test the import controller', function(done) {
         expect(true).toBeTruthy();
         done();
     });
