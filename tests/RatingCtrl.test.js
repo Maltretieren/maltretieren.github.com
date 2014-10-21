@@ -15,7 +15,7 @@ describe('RatingCtrl', function() {
         });
     }));
 
-    it('should test the export controller', function(done) {
+    it('should test the rating controller', function(done) {
         expect(true).toBeTruthy();
         done();
     });
