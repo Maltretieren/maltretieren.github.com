@@ -9,7 +9,7 @@ describe('ExportCtrl', function() {
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();
         $controller = _$controller_;
-        $controller('GithubCtrl', {
+        $controller('ExportCtrl', {
             '$rootScope' : $rootScope,
             '$scope': $scope,
         });
