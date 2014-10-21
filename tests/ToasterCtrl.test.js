@@ -1,6 +1,6 @@
 'use strict';
 
-describe('ToasterCtrl', function() {
+describe('ToasterController', function() {
     var $rootScope, $scope, $controller;
 
     // prepare angular for being testable
@@ -9,7 +9,7 @@ describe('ToasterCtrl', function() {
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();
         $controller = _$controller_;
-        $controller('ToasterCtrl', {
+        $controller('ToasterController', {
             '$rootScope' : $rootScope,
             '$scope': $scope,
         });
