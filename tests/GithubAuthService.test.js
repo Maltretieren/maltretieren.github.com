@@ -17,7 +17,6 @@ describe('GithubAuthService', function() {
         }
         $service('GithubAuthService', {
             '$rootScope' : $rootScope,
-            '$scope': $scope,
             'UserModel': UserModel
         });
     }));
