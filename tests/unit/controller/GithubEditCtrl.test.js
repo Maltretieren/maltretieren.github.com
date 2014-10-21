@@ -18,8 +18,14 @@ describe('Controller', function() {
         }));
 
         it('should test the github edit controller', function (done) {
-            expect(true).toBeTruthy();
-            done();
+            var triggerHotkeySave = function (element, keyCode) {
+                var e = $angular.element.Event('ctrl+s');
+                e.which = keyCode;
+                element.trigger(e);
+            };
+            spyOn($scope, 'save');
+            triggerHotkeySave
+            expect($scope.save).toHaveBeenCalled();
         });
     });
 });
