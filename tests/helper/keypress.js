@@ -1,7 +1,4 @@
-// https://gist.github.com/termi/4654819
-// http://stackoverflow.com/questions/22574431/testing-keydown-events-in-jasmine-with-specific-keycode
-
-void function() {//closure
+void function() { //closure
 
     var global = this
         , _initKeyboardEvent_type = (function( e ) {

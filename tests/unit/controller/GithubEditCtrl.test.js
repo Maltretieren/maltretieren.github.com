@@ -17,15 +17,11 @@ describe('Controller', function() {
             });
         }));
 
-        it('should test the github edit controller', function (done) {
-            var triggerHotkeySave = function (element, keyCode) {
-                var e = $angular.element.Event('ctrl+s');
-                e.which = keyCode;
-                element.trigger(e);
-            };
+        it('test the save hotkey', function() {
             spyOn($scope, 'save');
-            triggerHotkeySave
-            expect($scope.save).toHaveBeenCalled();
+            console.info('Simulating STRG+S hotkey')
+            window.crossBrowser_initKeyboardEvent("keypress", {"key": 1, "char": "s", ctrlKey: true})
+            //expect($scope.save).toHaveBeenCalled();
         });
     });
 });
