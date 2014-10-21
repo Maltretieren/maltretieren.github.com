@@ -10,6 +10,7 @@ module.exports = function(grunt) {
 				logLevel: 'DEBUG'
             },
 			// logLevel: OFF, ERROR, WARN, INFO, DEBUG
+			// loglevel: couldn't see any impact when changed...
 			travis: {
 			    configFile: 'tests/config/karma.conf.js',
                 singleRun: true,
