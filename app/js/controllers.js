@@ -850,11 +850,11 @@ myApp.controller('RatingCtrl', function($scope) {
     }
 
     var getRatings = function() {
-        var url = ´https://api.keen.io/3.0/projects/532b3e5a00111c0da1000006/queries/average?
-				api_key=fca64cb411fe523d053f2d9b1d159011135be6ce55da682f1ad8d6b1d4f629b84dd5
-				64edb1c0d7a0d7575ebaaa79b55daa075f7c866d7430ace403bab51b7513aa41b30ce443f9d7
-				36d45d33c78a0b44420c2ecd35223b76d67af37df1d0cc52bf67e73cb32d949eb58cb5814e7e
-				5e6a&event_collection=accessoires&timezone=3600&target_property=rating&group_by=id´
+        var url = "https://api.keen.io/3.0/projects/532b3e5a00111c0da1000006/queries/average?" +
+				"api_key=fca64cb411fe523d053f2d9b1d159011135be6ce55da682f1ad8d6b1d4f629b84dd5" +
+				"64edb1c0d7a0d7575ebaaa79b55daa075f7c866d7430ace403bab51b7513aa41b30ce443f9d7" +
+				"36d45d33c78a0b44420c2ecd35223b76d67af37df1d0cc52bf67e73cb32d949eb58cb5814e7e" +
+				"5e6a&event_collection=accessoires&timezone=3600&target_property=rating&group_by=id"
         var success = function (data) {
             for(i=0;i<data.result.length;i++)
             {
