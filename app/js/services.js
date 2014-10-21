@@ -358,9 +358,10 @@ myApp.service("GithubSrvc", function (
 					var frontMatter = YamlSrvc.parse(result.content);
 					EditorSrvc.open(frontMatter.content);
 					deferred.resolve(frontMatter);
+					return deferred.promise;
 				})
 			};
-            return deferred.promise;
+            return null;
         },
 		commit: function(text, path, branch, showMessage, force) {
 			if(typeof branch === 'undefined') {
