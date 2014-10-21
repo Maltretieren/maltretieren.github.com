@@ -330,16 +330,21 @@ myApp.service("GithubSrvc", function (
         },
         getContent: function(path) {
             var githubInstance = GithubAuthService.instance();
-            var repo = githubInstance.getRepo(config.github.user, config.github.repository);
-
-            //console.log(path);
-            var branch = repo.getBranch("master");
-            var contents = branch.read(path, false)
             var deferred = $q.defer();
-            contents.then(function(result) {
-               deferred.resolve(result);
-            })
-            return deferred.promise;
+			
+			if(githubInstance != null) {
+				var repo = githubInstance.getRepo(config.github.user, config.github.repository);
+				var branch = repo.getBranch("master");
+				var contents = branch.read(path, false)
+
+				contents.then(function(result) {
+				   deferred.resolve(result);
+				});
+				return deferred.promise;
+			} else {
+				deferred.reject("Could not init githubInstance");
+				return deferred.promise;
+			}
         },
         editContent: function(path) {
             var self = this;
@@ -358,7 +363,7 @@ myApp.service("GithubSrvc", function (
 					var frontMatter = YamlSrvc.parse(result.content);
 					EditorSrvc.open(frontMatter.content);
 					deferred.resolve(frontMatter);
-				})
+				});
 				return deferred.promise;
 			} else {
 				deferred.reject("Could not init githubInstance");
