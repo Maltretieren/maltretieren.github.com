@@ -19,7 +19,7 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
 			// this should ask for the UserModel - user object, and get the token from there...
 			// the token is stored in localStorage, maybe a session store would work also?
             if(github===null) {
-                console.log("new github instance "+username);
+                console.info("new github instance "+username);
                 var oauthToken = localStorage.getItem("oauthToken");
 
                 // search for info in localStorage
@@ -43,8 +43,8 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
                         auth: "oauth"
                     });
                 } else {
-                    console.log("oauthToken is not available or not valid");
-                    console.log("Did you login via github? Otherwise you can connect via Basic Authentication... Please provide a username and password...")
+                    console.info("oauthToken is not available or not valid");
+                    console.info("Did you login via github? Otherwise you can connect via Basic Authentication... Please provide a username and password...")
                 }
             } else {
                 console.log("service already instanciated")
