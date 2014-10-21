@@ -11,8 +11,8 @@ before_install:
   # http://stackoverflow.com/questions/19255976/how-to-make-travis-execute-angular-tests-on-chrome-please-set-env-variable-chr
   #- "export DISPLAY=:99.0"
   #- "sh -e /etc/init.d/xvfb start"
-  
-  - sudo apt-get -y install libxml2
+  # http://stackoverflow.com/questions/6277456/nokogiri-installation-fails-libxml2-is-missing
+  - sudo apt-get -y install libxslt-dev libxml2-dev
   # make grunt available from command line...
   - npm install -g grunt-cli
 
