@@ -1,29 +1,17 @@
 'use strict';
 
 describe('GithubAuthService', function() {
-    var $rootScope, $scope, githubAuthService;
+    var githubAuthService;
 
     // prepare angular for being testable
-    beforeEach(angular.mock.module('myApp'));
-    beforeEach(angular.mock.inject(function(_$rootScope_, _GithubAuthService_){
-        $rootScope = _$rootScope_;
-        $scope = $rootScope.$new();
-        $service = _GithubAuthService;
-        // Mock UserModel
-        UserModel = {
-            getUser: function() {
-                return "{'name':'Maltretieren','isAdmin':true}"
-            }
-        }
-        $provider('GithubAuthService', {
-            '$rootScope' : $rootScope,
-            'UserModel': UserModel
-        });
+    beforeEach(module('myApp'));
+    beforeEach(inject(function(_GithubAuthService_){
+        githubAuthService = _GithubAuthService_;
     }));
 
     // dependency to UserModel
-    it('startup', function(done) {
-        expect(true).toBeTruthy();
-        done();
+    it('should test userInfo', function() {
+        var octokit = githubAuthService.instance("testUsername", "testPassword");
+        expect(octokit instanceof Octokit).toBeTruthy()
     });
 });
