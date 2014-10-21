@@ -27,4 +27,9 @@ describe('GithubForkCtrl', function() {
         expect($scope.options.availableThemes.length).toBeGreaterThan(0);
         done();
     });
+
+    it('test if themes are available', function(done) {
+        expect($scope.options.availableThemes.length).toBeGreaterThan(3);
+        done();
+    });
 });

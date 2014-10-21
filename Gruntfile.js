@@ -22,8 +22,8 @@ module.exports = function(grunt) {
 		// triggers test run when some source/test files are changed... (this is for local testing)
 		watch: {
             karma: {
-                files: ['tests/**/*Spec.js'],
-                tasks: ['karma:unit:run']
+                files: ['tests/**/*.test.js'],
+                tasks: ['karma:travis:run']
             }
         },
         coveralls: {
