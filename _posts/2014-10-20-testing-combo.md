@@ -19,8 +19,6 @@ The goal is to automatically run tests for this angularjs site when a new file i
 ## Tips and Tricks
 ### Listen to changes
 
-{% highlight bash linenos=table %}
+{% highlight sh linenos=table %}
 grunt watch
 {% endhighlight %}
-
-test
