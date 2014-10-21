@@ -1,21 +1,21 @@
 'use strict';
 
 describe('GithubAuthService', function() {
-    var $rootScope, $scope, $service;
+    var $rootScope, $scope, githubAuthService;
 
     // prepare angular for being testable
     beforeEach(angular.mock.module('myApp'));
-    beforeEach(angular.mock.inject(function(_$rootScope_, _$service_){
+    beforeEach(angular.mock.inject(function(_$rootScope_, _GithubAuthService_){
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();
-        $service = _$service_;
+        $service = _GithubAuthService;
         // Mock UserModel
         UserModel = {
             getUser: function() {
                 return "{'name':'Maltretieren','isAdmin':true}"
             }
         }
-        $service('GithubAuthService', {
+        $provider('GithubAuthService', {
             '$rootScope' : $rootScope,
             'UserModel': UserModel
         });
