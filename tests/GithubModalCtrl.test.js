@@ -1,7 +1,7 @@
 'use strict';
 
 describe('GithubModalCtrl', function() {
-    var $rootScope, $scope, $controller, UserModel;
+    var $rootScope, $scope, $controller, $modalInstance;
 
     // prepare angular for being testable
     beforeEach(angular.mock.module('myApp'));
@@ -9,16 +9,17 @@ describe('GithubModalCtrl', function() {
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();
         $controller = _$controller_;
-        // Mock UserModel
-        UserModel = {
-            getUser: function() {
-                return "{'name':'Maltretieren','isAdmin':true}"
-            }
-        }
+		$modalInstance = { // Create a mock object using spies
+			close: jasmine.createSpy('modalInstance.close'),
+			dismiss: jasmine.createSpy('modalInstance.dismiss'),
+			result: {
+				then: jasmine.createSpy('modalInstance.result.then')
+			}
+		}
         $controller('GithubModalCtrl', {
             '$rootScope' : $rootScope,
             '$scope': $scope,
-            'UserModel': UserModel
+			'$modalInstance' : $modalInstance
         });
     }));
 
