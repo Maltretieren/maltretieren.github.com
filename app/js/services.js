@@ -124,7 +124,7 @@ myApp.service("GithubSrvc", function (
             console.log(config.github.repository);
             var repo = githubInstance.getRepo(config.github.user, config.github.repository);
             var branch = repo.getBranch("master");
-            var promise = this.commit("check if user is admin", "/tests/results/test.admin", branch);
+            var promise = this.commit("check if user is admin", "tests/results/test.admin", branch);
             promise.then(function() {
                 console.log("testAdming: success");
 				UserModel.setIsAdmin(true);
