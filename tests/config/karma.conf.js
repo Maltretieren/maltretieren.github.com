@@ -46,7 +46,7 @@ module.exports = function(config){
 		logLevel: config.WARN,
         frameworks: ['jasmine'],
 		// overriden by settings in Gruntfile.js
-        browsers : ['Chrome'],
+        browsers : ['PhantomJS'],
 		// karma-spec-reporter for nice output like "SUCCESS Unit: services myService should behave"
 		// http://stackoverflow.com/questions/17289423/need-proper-html-reporter-for-karma-jasmine
         plugins : [
