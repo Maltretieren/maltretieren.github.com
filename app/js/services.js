@@ -361,7 +361,8 @@ myApp.service("GithubSrvc", function (
 				})
 				return deferred.promise;
 			} else {
-				return deferred.reject("Could not init githubInstance");
+				deferred.reject("Could not init githubInstance");
+				return deferred.promise;
 			}
         },
 		commit: function(text, path, branch, showMessage, force) {
