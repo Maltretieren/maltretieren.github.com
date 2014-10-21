@@ -701,11 +701,12 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
     // enable ctrl+s to save the post
     // You can pass it an object.  This hotkey will not be unbound unless manually removed
     // using the hotkeys.del() method
-    hotkeys.bindTo($scope).add({
+    hotkeys.bindTo(scope).add({
         combo: 'ctrl+s',
-        description: 'This one goes to 11',
+        description: 'Save the post',
+        allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
         callback: function() {
-            console.log("hotkey detected")
+            console.log("hotkey detected");
         }
     });
 
