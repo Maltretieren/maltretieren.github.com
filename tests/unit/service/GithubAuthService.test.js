@@ -8,7 +8,7 @@ describe('Service', function() {
         // prepare angular for being testable
         beforeEach(module('myApp'));
         beforeEach(inject(function (_GithubAuthService_) {
-            githubAuthService = _GithubAuthService_;
+            githubAuthService  = _GithubAuthService_;
         }));
 
         // dependency to UserModel
