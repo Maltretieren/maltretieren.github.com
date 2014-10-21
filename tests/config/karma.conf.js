@@ -4,7 +4,7 @@ module.exports = function(config){
 		// manual definition, this is redundant to /app/js/main.js labjs file, but I didn't manage to reuse...
         files : [
             // helper
-            '/tests/helper/keypress.js'
+            '/tests/helper/keypress.js',
             // same as in /app/js/main.js
 			'assets/js/jquery-2.1.0/jquery-2.1.0.min.js',
 			'app/js/config.js',
