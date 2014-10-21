@@ -24,9 +24,9 @@ namespace :my_tasks do
 		})).process
 	end
 	
-	desc "Upload test results"
+	desc "Test if the test coverage report files where generated correctly"
 	task :uploadTestResults do
-		puts "\n## You should see a lcov.info file in here (this is a test coverage file, generated from karma-coverage for jasmine tests...) . This file size should be greate than zero bytes :)"
+		puts "\n## You should see a lcov.info file in here. The file size should be greate than zero bytes :)"
 	    system("ls -la coverage/report")
 		if File.zero?("overage/report/lcov.info")
 		    abort("The report files where not generated correctly")
