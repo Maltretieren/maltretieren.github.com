@@ -6,6 +6,7 @@ tagline:
 tags:
  - development
 frontpage: true
+published: true
 ---
 {% include JB/setup %}
 
