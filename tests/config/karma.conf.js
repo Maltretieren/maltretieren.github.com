@@ -12,6 +12,7 @@ module.exports = function(config){
 			'assets/js/wikiquotes/wikiquote-api.js',
 			'assets/js/listjs-0.2.0/list.js',
 			'assets/js/angular-1.3.0/angular.min.js',
+            'assets/js/angular-hotkeys-1.4.5/hotkeys.js',
 			'assets/js/angular-1.3.0/angular-route.min.js',
 			'assets/js/angular-1.3.0/angular-animate.min.js',
 			'assets/js/angular-1.3.0/angular-sanitize.min.js',
