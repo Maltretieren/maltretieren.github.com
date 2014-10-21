@@ -8,7 +8,9 @@ describe('KeenioMasterCtrl', function() {
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();
         $controller = _$controller_;
-		data.commentId = '007'
+		data = {
+			commentId: '007'
+		};
         $controller('KeenioMasterCtrl', {
             '$rootScope' : $rootScope,
             '$scope': $scope,
