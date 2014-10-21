@@ -109,7 +109,8 @@ myApp.controller("KeenioMasterCtrl", function ($scope, $modalInstance, $http, to
 		$scope.masterKey = $scope.user.name;
         console.log("Keenio Master key: "+$scope.masterKey);
 		console.log("Keenio Comment Id: "+$scope.commentId);
-		var postsUrl = 'https://api.keen.io/3.0/projects/532b3e5a00111c0da1000006/events/comments?api_key='+$scope.masterKey+'&filters=[{"property_name":"keen.id","operator":"eq","property_value":"'+$scope.commentId+'"}]';
+		var postsUrl = 'https://api.keen.io/3.0/projects/532b3e5a00111c0da1000006/events/comments?api_key=' +
+						$scope.masterKey+'&filters=[{"property_name":"keen.id","operator":"eq","property_value":"'+$scope.commentId+'"}]';
 		console.log(postsUrl)
 		$http({method: 'DELETE', url: postsUrl}).
 			success(function(data, status, headers, config) {
