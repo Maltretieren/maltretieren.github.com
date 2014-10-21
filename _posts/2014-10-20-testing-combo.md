@@ -20,4 +20,4 @@ The goal is to automatically run tests for this angularjs site when a new file i
 ### Listen to changes
 {% highlight bash linenos=table %}
 grunt watch
-{% highlight %}
+{% endhighlight %}
