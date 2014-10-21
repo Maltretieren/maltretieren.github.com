@@ -10,8 +10,8 @@ module.exports = function(grunt) {
 				logLevel: 'DEBUG'
             },
 			// logLevel: OFF, ERROR, WARN, INFO, DEBUG
-			// loglevel: couldn't see any impact when changed...
-			//continuous integration mode: run tests once in PhantomJS browser.
+			// used karma-spec-reporter for nice outputs
+			// continuous integration mode: run tests once in PhantomJS browser.
 			travis: {
 			    configFile: 'tests/config/karma.conf.js',
                 singleRun: true,

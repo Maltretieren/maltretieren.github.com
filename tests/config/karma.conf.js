@@ -45,6 +45,7 @@ module.exports = function(config){
 		// overriden by settings in Gruntfile.js
         browsers : ['PhantomJS'],
 		// karma-spec-reporter for nice output like "SUCCESS Unit: services myService should behave"
+		// http://stackoverflow.com/questions/17289423/need-proper-html-reporter-for-karma-jasmine
         plugins : [
             'karma-junit-reporter',
             'karma-chrome-launcher',
@@ -57,6 +58,7 @@ module.exports = function(config){
 		// https://github.com/karma-runner/karma-coverage
 		// http://karma-runner.github.io/0.8/config/coverage.html
 		// http://blog.dc.esri.com/2014/03/26/js-code-coverage/
+		// http://stackoverflow.com/questions/17289423/need-proper-html-reporter-for-karma-jasmine
 		reporters: [
 			'progress', 'coverage', 'spec'
 		],
