@@ -1,4 +1,8 @@
-void function() { //closure
+// https://gist.github.com/termi/4654819
+//http://stackoverflow.com/questions/22574431/testing-keydown-events-in-jasmine-with-specific-keycode
+// https://github.com/karma-runner/karma-phantomjs-launcher/issues/19
+
+void function() {//closure
 
     var global = this
         , _initKeyboardEvent_type = (function( e ) {
@@ -22,13 +26,14 @@ void function() { //closure
                 /*
                  // Safari and IE9 throw Error here due keyCode, charCode and which is readonly
                  // Uncomment this code block if you need legacy properties
+                 */
                  delete e.keyCode;
                  _Object_defineProperty(e, {writable: true, configurable: true, value: 9})
                  delete e.charCode;
                  _Object_defineProperty(e, {writable: true, configurable: true, value: 9})
                  delete e.which;
                  _Object_defineProperty(e, {writable: true, configurable: true, value: 9})
-                 */
+
 
                 return ((e["keyIdentifier"] || e["key"]) == "+" && (e["keyLocation"] || e["location"]) == 3) && (
                     e.ctrlKey ?
