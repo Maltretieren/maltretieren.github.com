@@ -1,23 +1,17 @@
 'use strict';
-		var onKeyPress = function(evt){
-		  // http://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed
-		  // http://unixpapa.com/js/key.html
-		  // http://stackoverflow.com/questions/20313575/angular-js-unit-test-mock-document
-		  // http://stackoverflow.com/questions/25201673/angular-js-jquery-qtip-and-jasmine-test-case
-		  // https://github.com/ccampbell/mousetrap -> http://ngmodules.org/modules/mgo-mousetrap
-		  evt = evt || window.event;
-			var charCode = evt.keyCode || evt.which;
-			console.log(charCode);
-			var charStr = String.fromCharCode(charCode);
-			console.log(charStr);
-		}
-		
+
+// Useful resources:
+// http://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed
+// http://unixpapa.com/js/key.html
+// http://stackoverflow.com/questions/20313575/angular-js-unit-test-mock-document
+// http://stackoverflow.com/questions/25201673/angular-js-jquery-qtip-and-jasmine-test-case
+// https://github.com/ccampbell/mousetrap -> http://ngmodules.org/modules/mgo-mousetrap
+
 // group all controller tests together with outer describe
 describe('Controller', function() {
     describe('GithubEditCtrl', function () {
-        var $scope, $controller, $window, $document, $compile, input;
+        var $scope, $controller, $compile;
 
-		
 		function getElement() {
 			var element = angular.element("<textarea id=\"target-editor\"></textarea>");
 			$compile(element)($scope);
