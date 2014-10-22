@@ -32,6 +32,8 @@ before_script:
 after_script:
   - grunt coveralls
 
+addons:
+  sauce_connect: true
 
 env:
   global:
