@@ -20,7 +20,7 @@ describe('Controller', function() {
 			input = document.createElement("textarea");
 			console.info(input);
 			document.getElementById("body").appendChild(input);
-		}
+		});
 		afterEach(function(){
 			form.remove();
 			form = null;
