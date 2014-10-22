@@ -47,23 +47,17 @@ module.exports = function(grunt) {
                 src: 'coverage/report/lcov.info'
             }
         },
-		protractor: {
-			saucelabs: {
-				options: {
-					configFile: "tests/config/saucelabs.spec.conf.js",
-					args: {
-						sauceUser: process.env.SAUCE_USERNAME,
-						sauceKey: process.env.SAUCE_ACCESS_KEY
-					}
-				}
-			},
-			your_target: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
-			  options: {
-				configFile: "/tests/config/protractor-conf.js", // Target-specific config file
-				args: {} // Target-specific arguments
-			  }
-			},
-		},
+        protractor: {
+            saucelabs: {
+                options: {
+                    configFile: "tests/config/protractor.conf.js",
+                    args: {
+                        sauceUser: process.env.SAUCE_USERNAME,
+                        sauceKey: process.env.SAUCE_ACCESS_KEY
+                    }
+                }
+            }
+        },
 		connect: {
 		  server: {
 			options: {
@@ -71,20 +65,7 @@ module.exports = function(grunt) {
 			  port: 9999
 			}
 		  }
-		},
-		'saucelabs-jasmine': {
-            all: {
-                options: {
-                    urls: ["http://127.0.0.1:9999/test-jasmine/SpecRunner.html"],
-                    tunnelTimeout: 5,
-                    build: process.env.TRAVIS_JOB_ID,
-                    concurrency: 3,
-                    browsers: browsers,
-                    testname: "pasta tests",
-                    tags: ["master"]
-                }
-            }
-        }
+		}
     });
 	
 	// load all grunt npm tasks from package.json dev section
