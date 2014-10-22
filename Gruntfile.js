@@ -81,9 +81,7 @@ module.exports = function(grunt) {
 
 	
     // Add a new task for travis
-    grunt.registerTask('devmode', ['karma:unit', 'watch']);
-	grunt.registerTask('test', ['karma:travis']);
-    grunt.registerTask('test', ['protractor:saucelabs']);
-    grunt.registerTask('test', ['connect:test']);
-    grunt.registerTask('test', ['coveralls']);
+    grunt.registerTask('devmode', ['karma:unit', 'watch'])
+    grunt.registerTask('test', ['karma:travis', 'connect:test', 'protractor:saucelabs'])
+    grunt.registerTask('test', ['coveralls'])
 };
