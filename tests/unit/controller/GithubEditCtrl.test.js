@@ -5,7 +5,7 @@ describe('Controller', function() {
     describe('GithubEditCtrl', function () {
         var $scope, $controller, $window, $document, $compile, input;
 		function getElement() {
-			var element = angular.element("<textarea id='target-editor' onkeypress='console.info(\"key pressed\")'></textarea>");
+			var element = angular.element("<textarea id=\"target-editor\" onkeypress=\"console.info('key pressed')\"></textarea>");
 			$compile(element)($scope);
 			document.body.appendChild(element[0]);
 			return element;
@@ -41,7 +41,7 @@ describe('Controller', function() {
             var element = getElement();
 			spyOn($scope, 'save');
             console.info('Simulating STRG+S hotkey inside the textarea')
-			happen.once(input, {
+			happen.once(elemnt[0], {
 				type: 'keypress',
 				keyCode: '83',
 				ctrlKey: true
