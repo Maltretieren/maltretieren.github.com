@@ -65,6 +65,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-coveralls');
     grunt.loadNpmTasks('grunt-phantomjs-screenshot');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 
     // Add a new task for travis
     grunt.registerTask('devmode', ['karma:unit', 'watch'])
