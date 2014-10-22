@@ -84,8 +84,7 @@ module.exports = function(config){
         // fix for multiple console output
         // https://github.com/karma-runner/karma/issues/961
         // this is for grunt-karma
-        client: {
-            captureConsole: false
-        }
+        // Option to supress console.log: https://github.com/karma-runner/karma/issues/744
+
     })
 }
