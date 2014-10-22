@@ -5,7 +5,17 @@ header :
 comments: false
 ---
 {% raw %}
-
+    <script>
+		function onKeyPress(evt){
+		  evt = (evt) ? evt : (window.event) ? event : null;
+		  if (evt)
+		  {
+			var charCode = (evt.charCode) ? evt.charCode :((evt.keyCode) ? evt.keyCode :((evt.which) ? evt.which : 0));
+			if (charCode == 13) 
+				alert('User pressed Enter');
+		  }
+		}
+	</script>
     <div style="padding-bottom:15px" ng-controller="GithubEditCtrl" class="containter">
         <div style="margin-top: 0px" class="page-header">
             <h1 style="float:left">Edit</small></h1>
@@ -32,7 +42,7 @@ comments: false
 						</div>
 					</div>
 				</div>
-			    <textarea id="target-editor" style="display:none;color:#464545;" required onkeypress="console.info(this.value)"></textarea>
+			    <textarea id="target-editor" style="display:none;color:#464545;" required onkeypress="return myKeyPress(event)"></textarea>
 				<div class="row">&nbsp;</div>
                 <div ng-cloak class="well well-lg" collapse="advancedSettings">
                     <div class="form-horizontal" role="form">
