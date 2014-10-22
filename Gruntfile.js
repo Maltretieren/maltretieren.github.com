@@ -80,11 +80,11 @@ module.exports = function(grunt) {
             }
         },
     });
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-coveralls');
-    grunt.loadNpmTasks('grunt-phantomjs-screenshot');
-	grunt.loadNpmTasks('grunt-contrib-connect');
+	
+	// load all grunt npm tasks from package.json dev section
+	for (var key in grunt.file.readJSON('package.json').devDependencies) {
+		if (key !== 'grunt' && key.indexOf('grunt') === 0) grunt.loadNpmTasks(key);
+	}
 
     // Add a new task for travis
     grunt.registerTask('devmode', ['karma:unit', 'watch'])
