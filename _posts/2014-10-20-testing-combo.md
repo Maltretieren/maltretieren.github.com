@@ -13,8 +13,8 @@ published: true
 ## The Goal
 The goal is to automatically run tests for this angularjs site whssSSSen a new file is deployed to github. The tests will run on Travis. The testing combo reads as following
 
- - Karma (Test Runner)
- - Jasmine (behavior-driven development framework for testing JavaScript code)
+ - Karma (Test Runner, integrates well with AnularJS)
+ - Jasmine (Expression Language to express test in your application)
  - Istanbul (Code Coverage)
  - PhantomJS (Headless/GUIless browser)
  - Selenium (Run End2End -e2e- tests)
