@@ -13,8 +13,10 @@ describe('Controller', function() {
         var $scope, $controller, $compile;
 
 		function getElement() {
+			// Mock the related DOM element
 			var element = angular.element("<textarea id=\"target-editor\"></textarea>");
 			$compile(element)($scope);
+			document.body.appendChild(element[0]);
 			return element;
 		}
 		
@@ -30,10 +32,10 @@ describe('Controller', function() {
         }));
 		
 		// depends on happen-js defined in keypress.js
-        it('should test the save hotkey', function() {
+        it('should test the save hotkey (STRG+s)', function() {
             var element = getElement();
 			spyOn($scope, 'save');
-            console.info('Simulating STRG+S hotkey inside the textarea')
+            console.info('Simulating STRG+s hotkey inside the textarea')
 			// https://github.com/tmcw/happen
 			// simulates a CTRL+s
 			happen.once(element[0], {
