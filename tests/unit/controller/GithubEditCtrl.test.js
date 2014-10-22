@@ -33,7 +33,7 @@ describe('Controller', function() {
 			happen.once(input, {
 				type: 'keypress',
 				keyCode: '84',
-				ctrl: true
+				ctrlKey: true
 			});
             //KeyEvent.simulate(19, 19)
             //expect($scope.save).toHaveBeenCalled();
