@@ -3,7 +3,7 @@
 // group all controller tests together with outer describe
 describe('Controller', function() {
     describe('GithubEditCtrl', function () {
-        var $scope, $controller, $window;
+        var $scope, $controller, $window, input;
 
         // prepare angular for being testable
         beforeEach(angular.mock.module('myApp'));
@@ -16,13 +16,21 @@ describe('Controller', function() {
                 '$window': $window
             });
         }));
+		beforeEach(function() {
+			input = document.createElement("textarea");
+			console.info(input);
+			document.getElementById("body").appendChild(input);
+		}
+		afterEach(function(){
+			form.remove();
+			form = null;
+		});
 
         it('test the save hotkey', function() {
             // this test is not working for now
             spyOn($scope, 'save');
             console.info('Simulating STRG+S hotkey')
-			var element = document.getElementById('target-editor');
-			console.info(element);
+			console.info(input);
             //KeyEvent.simulate(19, 19)
             //expect($scope.save).toHaveBeenCalled();
         });
