@@ -64,7 +64,13 @@ module.exports = function(grunt) {
 			  hostname: 'localhost',
 			  port: 9999
 			}
-		  }
+		  },
+          test: {
+              options: {
+                  hostname: 'localhost',
+                  port: 9999
+              }
+          }
 		}
     });
 	
