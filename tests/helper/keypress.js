@@ -4,6 +4,11 @@
 // http://stackoverflow.com/questions/596481/simulate-javascript-key-events
 // https://github.com/tmcw/happen
 
+function handleEvent(oEvent) {<!--  w w  w  . j  a v  a 2  s . c o  m-->
+var oTextbox = document.getElementById("txt1");
+oTextbox.value += "\n>" + oEvent.type;
+}
+
 !(function(context) {
     var h = {},
         events = {
