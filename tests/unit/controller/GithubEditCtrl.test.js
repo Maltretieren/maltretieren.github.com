@@ -21,7 +21,9 @@ describe('Controller', function() {
             // this test is not working for now
             spyOn($scope, 'save');
             console.info('Simulating STRG+S hotkey')
-            KeyEvent.simulate(19, 19)
+			var element = document.getElementById('target-editor');
+			console.info(element);
+            //KeyEvent.simulate(19, 19)
             //expect($scope.save).toHaveBeenCalled();
         });
     });

@@ -2,133 +2,150 @@
 //http://stackoverflow.com/questions/22574431/testing-keydown-events-in-jasmine-with-specific-keycode
 // https://github.com/karma-runner/karma-phantomjs-launcher/issues/19
 // http://stackoverflow.com/questions/596481/simulate-javascript-key-events
+// https://github.com/tmcw/happen
 
-(function() {
-    var KeyEvent = function(data, type) {
-        this.keyCode = 'keyCode' in data ? data.keyCode : 0;
-        this.charCode = 'charCode' in data ? data.charCode : 0;
+!(function(context) {
+    var h = {},
+        events = {
+            mouse: ['click', 'mousedown', 'mouseup', 'mousemove',
+                'mouseover', 'mouseout'],
+            key: ['keydown', 'keyup', 'keypress']
+        },
+        s, i;
 
-        var modifiers = 'modifiers' in data ? data.modifiers : [];
-
-        this.ctrlKey = false;
-        this.metaKey = false;
-        this.altKey = false;
-        this.shiftKey = false;
-
-        for (var i = 0; i < modifiers.length; i++) {
-            this[modifiers[i] + 'Key'] = true;
+    // Make inheritance bearable: clone one level of properties
+    function extend(child, parent) {
+        for (var property in parent) {
+            if (typeof child[property] == 'undefined') {
+                child[property] = parent[property];
+            }
         }
+        return child;
+    }
 
-        this.type = type || 'keypress';
+    // IE<9 doesn't support indexOf
+    function has(x, y) {
+        for (var i = 0; i < x.length; i++) if (x[i] == y) return true;
+        return false;
+    }
+
+    h.makeEvent = function(o) {
+        var evt;
+        if (has(events.key, o.type)) {
+            if (typeof Event === 'function') {
+                evt = new Event(o.type);
+                evt.keyCode = o.keyCode || 0;
+                evt.charCode = o.charCode || 0;
+                evt.shiftKey = o.shiftKey || false;
+                evt.metaKey = o.metaKey || false;
+                evt.ctrlKey = o.ctrlKey || false;
+                evt.altKey = o.altKey || false;
+            } else {
+                evt = document.createEvent('KeyboardEvent');
+                // https://developer.mozilla.org/en/DOM/event.initKeyEvent
+                // https://developer.mozilla.org/en/DOM/KeyboardEvent
+                evt[(evt.initKeyEvent) ? 'initKeyEvent'
+                    : 'initKeyboardEvent'](
+                    o.type, //  in DOMString typeArg,
+                    true,   //  in boolean canBubbleArg,
+                    true,   //  in boolean cancelableArg,
+                    null,   //  in nsIDOMAbstractView viewArg,  Specifies UIEvent.view. This value may be null.
+                    o.ctrlKey || false,  //  in boolean ctrlKeyArg,
+                    o.altKey || false,  //  in boolean altKeyArg,
+                    o.shiftKey || false,  //  in boolean shiftKeyArg,
+                    o.metaKey || false,  //  in boolean metaKeyArg,
+                    o.keyCode || 0,     //  in unsigned long keyCodeArg,
+                    o.charCode || 0       //  in unsigned long charCodeArg);
+                );
+
+                // Workaround for https://bugs.webkit.org/show_bug.cgi?id=16735
+                if (evt.ctrlKey != (o.ctrlKey || 0) ||
+                  evt.altKey != (o.altKey || 0) ||
+                  evt.shiftKey != (o.shiftKey || 0) ||
+                  evt.metaKey != (o.metaKey || 0) ||
+                  evt.keyCode != (o.keyCode || 0) ||
+                  evt.charCode != (o.charCode || 0)) {
+                    evt = document.createEvent('Event');
+                    evt.initEvent(o.type, true, true);
+                    evt.ctrlKey  = o.ctrlKey || false;
+                    evt.altKey   = o.altKey || false;
+                    evt.shiftKey = o.shiftKey || false;
+                    evt.metaKey  = o.metaKey || false;
+                    evt.keyCode  = o.keyCode || 0;
+                    evt.charCode = o.charCode || 0;
+                }
+            }
+        } else {
+            if (typeof document.createEvent === 'undefined' &&
+                typeof document.createEventObject !== 'undefined') {
+                evt = document.createEventObject();
+                extend(evt, o);
+            } else if (typeof document.createEvent !== 'undefined') {
+                // both MouseEvent and MouseEvents work in Chrome
+                evt = document.createEvent('MouseEvents');
+                // https://developer.mozilla.org/en/DOM/event.initMouseEvent
+                evt.initMouseEvent(o.type,
+                    true, // canBubble
+                    true, // cancelable
+                    window, // 'AbstractView'
+                    o.detail || 0, // click count or mousewheel detail
+                    o.screenX || 0, // screenX
+                    o.screenY || 0, // screenY
+                    o.clientX || 0, // clientX
+                    o.clientY || 0, // clientY
+                    o.ctrlKey || 0, // ctrl
+                    o.altKey || false, // alt
+                    o.shiftKey || false, // shift
+                    o.metaKey || false, // meta
+                    o.button || false, // mouse button
+                    null // relatedTarget
+                );
+            }
+        }
+        return evt;
     };
 
-    KeyEvent.prototype.toNative = function() {
-        var event = document.createEventObject ? document.createEventObject() : document.createEvent('Events');
-
-        if (event.initEvent) {
-            event.initEvent(this.type, true, true);
+    h.dispatchEvent = function(x, evt) {
+        // not ie before 9
+        if (typeof x.dispatchEvent !== 'undefined') {
+            x.dispatchEvent(evt);
+        } else if (typeof x.fireEvent !== 'undefined') {
+            x.fireEvent('on' + evt.type, evt);
         }
-
-        event.keyCode = this.keyCode;
-        event.which = this.charCode || this.keyCode;
-        event.shiftKey = this.shiftKey;
-        event.metaKey = this.metaKey;
-        event.altKey = this.altKey;
-        event.ctrlKey = this.ctrlKey;
-
-        return event;
     };
 
-    KeyEvent.prototype.fire = function(element) {
-        var event = this.toNative();
-        if (element.dispatchEvent) {
-            element.dispatchEvent(event);
-            return;
-        }
-
-        element.fireEvent('on' + this.type, event);
+    h.once = function(x, o) {
+        h.dispatchEvent(x, h.makeEvent(o || {}));
     };
 
-    // simulates complete key event as if the user pressed the key in the browser
-    // triggers a keydown, then a keypress, then a keyup
-    KeyEvent.simulate = function(charCode, keyCode, modifiers, element, repeat) {
-        if (modifiers === undefined) {
-            modifiers = [];
+    for (var type in events) {
+        if (!events.hasOwnProperty(type)) continue;
+        var shortcuts = events[type];
+        for (i = 0; i < shortcuts.length; i++) {
+            s = shortcuts[i];
+            h[s] = (function(s) {
+                return function(x, o) {
+                    h.once(x, extend(o || {}, { type: s }));
+                };
+            })(s);
         }
+    }
 
-        if (element === undefined) {
-            element = document;
-        }
+    h.dblclick = function(x, o) {
+        h.once(x, extend(o || {}, { type: 'dblclick', detail: 2 }));
+    };
 
-        if (repeat === undefined) {
-            repeat = 1;
-        }
+    if (typeof window !== 'undefined') window.happen = h;
+    if (typeof module !== 'undefined') module.exports = h;
 
-        var modifierToKeyCode = {
-            'shift': 16,
-            'ctrl': 17,
-            'alt': 18,
-            'meta': 91
+    // Provide jQuery plugin
+    if (typeof jQuery !== 'undefined' && jQuery.fn) {
+        jQuery.fn.happen = function(o) {
+            if (typeof o === 'string') o = { type: o };
+            for (var i = 0; i < this.length; i++) {
+                happen.once(this[i], o);
+            }
+            return this;
         };
-
-        // if the key is a modifier then take it out of the regular
-        // keypress/keydown
-        if (keyCode == 16 || keyCode == 17 || keyCode == 18 || keyCode == 91) {
-            repeat = 0;
-        }
-
-        var modifiersToInclude = [];
-        var keyEvents = [];
-
-        // modifiers would go down first
-        for (var i = 0; i < modifiers.length; i++) {
-            modifiersToInclude.push(modifiers[i]);
-            keyEvents.push(new KeyEvent({
-                charCode: 0,
-                keyCode: modifierToKeyCode[modifiers[i]],
-                modifiers: modifiersToInclude
-            }, 'keydown'));
-        }
-
-        // @todo factor in duration for these
-        while (repeat > 0) {
-            keyEvents.push(new KeyEvent({
-                charCode: 0,
-                keyCode: keyCode,
-                modifiers: modifiersToInclude
-            }, 'keydown'));
-
-            keyEvents.push(new KeyEvent({
-                charCode: charCode,
-                keyCode: charCode,
-                modifiers: modifiersToInclude
-            }, 'keypress'));
-
-            repeat--;
-        }
-
-        keyEvents.push(new KeyEvent({
-            charCode: 0,
-            keyCode: keyCode,
-            modifiers: modifiersToInclude
-        }, 'keyup'));
-
-        // now lift up the modifier keys
-        for (i = 0; i < modifiersToInclude.length; i++) {
-            var modifierKeyCode = modifierToKeyCode[modifiersToInclude[i]];
-            modifiersToInclude.splice(i, 1);
-            keyEvents.push(new KeyEvent({
-                charCode: 0,
-                keyCode: modifierKeyCode,
-                modifiers: modifiersToInclude
-            }, 'keyup'));
-        }
-
-        for (i = 0; i < keyEvents.length; i++) {
-            // console.log('firing', keyEvents[i].type, keyEvents[i].keyCode, keyEvents[i].charCode);
-            keyEvents[i].fire(element);
-        }
-    };
-
-    window.KeyEvent = KeyEvent;
-}) ();
+    }
+})(this);
