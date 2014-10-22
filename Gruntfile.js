@@ -50,7 +50,7 @@ module.exports = function(grunt) {
         protractor: {
             saucelabs: {
                 options: {
-                    configFile: "tests/config/protractor.conf.js",
+                    configFile: "tests/config/protractor-conf.js",
                     args: {
                         sauceUser: process.env.SAUCE_USERNAME,
                         sauceKey: process.env.SAUCE_ACCESS_KEY
