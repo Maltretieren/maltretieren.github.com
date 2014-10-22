@@ -32,7 +32,7 @@ describe('Controller', function() {
 			console.info(input);
 			happen.once(input, {
 				type: 'keypress',
-				keyCode: '84',
+				keyCode: '83',
 				ctrlKey: true
 			});
             //KeyEvent.simulate(19, 19)
