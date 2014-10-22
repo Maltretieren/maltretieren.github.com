@@ -64,7 +64,20 @@ module.exports = function(grunt) {
 			  port: 9001
 			}
 		  }
-		}
+		},
+		saucelabs-jasmine: {
+            all: {
+                options: {
+                    urls: ["http://127.0.0.1:9999/test-jasmine/SpecRunner.html"],
+                    tunnelTimeout: 5,
+                    build: process.env.TRAVIS_JOB_ID,
+                    concurrency: 3,
+                    browsers: browsers,
+                    testname: "pasta tests",
+                    tags: ["master"]
+                }
+            }
+        },
     });
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-karma');
