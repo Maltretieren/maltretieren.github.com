@@ -54,12 +54,6 @@ describe('Controller', function() {
 			spyOn($scope, 'save');
             console.info('Simulating STRG+S hotkey inside the textarea')
 			//https://github.com/tmcw/happen
-			console.info("3");
-			happen.once(element[0], {
-				type: 'keydown',
-				keyCode: '83',
-				ctrlKey: true
-			});
 			console.info("4");
 			happen.once(element[0], {
 				type: 'keyup',
