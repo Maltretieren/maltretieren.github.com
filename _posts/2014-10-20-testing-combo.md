@@ -13,11 +13,13 @@ published: true
 ## The Goal
 The goal is to automatically run tests for this angularjs site whssSSSen a new file is deployed to github. The tests will run on Travis. The testing combo reads as following
 
- - Karma
- - Jasmine
+ - Karma (Test Runner)
+ - Jasmine (behavior-driven development framework for testing JavaScript code)
  - Istanbul (Code Coverage)
- - Selenium
- - Protractor
+ - PhantomJS (Headless/GUIless browser)
+ - Selenium (Run End2End -e2e- tests)
+ - Protractor (Extends Selenium for AngularJS testing)
+ - Grunt Plugins (grunt-protractor-runner grunt-contrib-watch, grunt-contrib-connect, grunt-saucelabs)
  
 ## Tips and Tricks
 ### Listen to changes
