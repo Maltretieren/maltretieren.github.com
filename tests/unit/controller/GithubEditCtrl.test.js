@@ -3,26 +3,25 @@
 // group all controller tests together with outer describe
 describe('Controller', function() {
     describe('GithubEditCtrl', function () {
-        var $scope, $controller, $window, input;
+        var $scope, $controller, $window, $document, input;
 
         // prepare angular for being testable
         beforeEach(module('myApp'));
-		beforeEach(function() {
-			input = document.createElement("textarea");
-			input.setAttribute('id', 'target-editor');
-		});
-        beforeEach(inject(function (_$rootScope_, _$controller_, _$window_) {
+        beforeEach(inject(function (_$rootScope_, _$controller_, _$window_, _$document_) {
             $scope = _$rootScope_.$new();
             $controller = _$controller_;
             $window = _$window_;
+			$document = $_document_;
             $controller('GithubEditCtrl', {
                 '$scope': $scope,
                 '$window': $window
             });
         }));
-		
-		afterEach(function(){
-			input = null;
+		beforeEach(function() {
+			input = document.createElement("textarea");
+			input.setAttribute('id', 'target-editor');
+			var body = $document.find('body').eq(0);
+			body.append(input);
 		});
 
         it('test the save hotkey', function() {
