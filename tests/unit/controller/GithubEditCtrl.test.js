@@ -15,7 +15,6 @@ describe('Controller', function() {
 		function getElement() {
 			var element = angular.element("<textarea id=\"target-editor\"></textarea>");
 			$compile(element)($scope);
-			document.body.appendChild(element[0]);
 			return element;
 		}
 		
