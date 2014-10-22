@@ -6,8 +6,13 @@ describe('Controller', function() {
         var $scope, $controller, $window, input;
 
         // prepare angular for being testable
-        beforeEach(angular.mock.module('myApp'));
-        beforeEach(angular.mock.inject(function (_$rootScope_, _$controller_, _$window_) {
+        beforeEach(module('myApp'));
+		beforeEach(function() {
+			input = document.createElement("textarea");
+			input.setAttribute('id', 'target-editor');
+			console.info(input);
+		});
+        beforeEach(inject(function (_$rootScope_, _$controller_, _$window_) {
             $scope = _$rootScope_.$new();
             $controller = _$controller_;
             $window = _$window_;
@@ -16,11 +21,7 @@ describe('Controller', function() {
                 '$window': $window
             });
         }));
-		beforeEach(function() {
-			input = document.createElement("textarea");
-			input.setAttribute('id', 'target-editor');
-			console.info(input);
-		});
+		
 		afterEach(function(){
 			input = null;
 		});
