@@ -17,13 +17,14 @@ describe('Controller', function() {
 			$compile(element)($scope);
 			document.body.appendChild(element[0]);
 			return element;
-		  }
+		}
 		
         // prepare angular for being testable
         beforeEach(module('myApp'));
-        beforeEach(inject(function (_$rootScope_, _$controller_) {
+        beforeEach(inject(function (_$rootScope_, _$controller_, _$compile_) {
             $scope = _$rootScope_.$new();
             $controller = _$controller_;
+			$compile = _$compile_
             $controller('GithubEditCtrl', {
                 '$scope': $scope
             });
