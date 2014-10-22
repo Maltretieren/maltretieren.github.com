@@ -22,8 +22,7 @@ describe('Controller', function() {
 			console.info(input);
 		});
 		afterEach(function(){
-			form.remove();
-			form = null;
+			input = null;
 		});
 
         it('test the save hotkey', function() {
