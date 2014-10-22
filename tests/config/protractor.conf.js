@@ -9,7 +9,7 @@ exports.config = {
         'name': 'maltretieren.github.io'
     },
 
-    specs: ['../../tests/e2e/*.spec.js'],
+    specs: ['../../tests/e2e/*.test.js'],
 
     jasmineNodeOpts: {
         showColors: true,

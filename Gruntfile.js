@@ -50,19 +50,13 @@ module.exports = function(grunt) {
         protractor: {
             saucelabs: {
                 options: {
-                    configFile: "tests/config/protractor-conf.js",
+                    configFile: "tests/config/protractor.conf.js",
                     args: {
                         sauceUser: process.env.SAUCE_USERNAME,
                         sauceKey: process.env.SAUCE_ACCESS_KEY
                     }
                 }
-            },
-            your_target: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
-                options: {
-                    configFile: "tests/config/protractor-conf.js", // Target-specific config file
-                    args: {} // Target-specific arguments
-                }
-            },
+            }
         },
 		connect: {
 		  server: {
