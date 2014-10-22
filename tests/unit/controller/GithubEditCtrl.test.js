@@ -22,6 +22,10 @@ describe('Controller', function() {
 		
         // prepare angular for being testable
         beforeEach(module('myApp'));
+		
+		
+		// Inject in angular constructs otherwise,
+		//  you would need to inject these into each test
         beforeEach(inject(function (_$rootScope_, _$controller_, _$compile_) {
             $scope = _$rootScope_.$new();
             $controller = _$controller_;
