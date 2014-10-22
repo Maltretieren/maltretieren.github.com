@@ -10,7 +10,6 @@ describe('Controller', function() {
 		beforeEach(function() {
 			input = document.createElement("textarea");
 			input.setAttribute('id', 'target-editor');
-			console.info(input);
 		});
         beforeEach(inject(function (_$rootScope_, _$controller_, _$window_) {
             $scope = _$rootScope_.$new();
@@ -31,6 +30,11 @@ describe('Controller', function() {
             spyOn($scope, 'save');
             console.info('Simulating STRG+S hotkey inside the textarea')
 			console.info(input);
+			happen.once(input, {
+				type: 'keypress',
+				keyCode: '84',
+				ctrl: true
+			});
             //KeyEvent.simulate(19, 19)
             //expect($scope.save).toHaveBeenCalled();
         });
