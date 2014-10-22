@@ -7,13 +7,11 @@ comments: false
 {% raw %}
     <script type="text/javascript">
 		function onKeyPress(evt){
-		  evt = (evt) ? evt : (window.event) ? event : null;
-		  if (evt)
-		  {
-			var charCode = (evt.charCode) ? evt.charCode :((evt.keyCode) ? evt.keyCode :((evt.which) ? evt.which : 0));
-			if (charCode == 13) 
-				alert('User pressed Enter');
-		  }
+		  // http://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed
+		  evt = evt || window.event;
+			var charCode = evt.keyCode || evt.which;
+			var charStr = String.fromCharCode(charCode);
+			console.log(charStr);
 		}
 	</script>
     <div style="padding-bottom:15px" ng-controller="GithubEditCtrl" class="containter">
