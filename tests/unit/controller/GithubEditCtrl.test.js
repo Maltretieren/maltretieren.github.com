@@ -62,7 +62,7 @@ describe('Controller', function() {
 			});
 			console.info("key should be pressed");
             //KeyEvent.simulate(19, 19)
-            //expect($scope.save).toHaveBeenCalled();
+            expect($scope.save).toHaveBeenCalled();
         });
     });
 });
