@@ -29,7 +29,7 @@ describe('Controller', function() {
             });
         }));
 		
-        it('test the save hotkey', function() {
+        it('should test the save hotkey', function() {
             // this test is not working for now
             var element = getElement();
 			spyOn($scope, 'save');
@@ -41,7 +41,7 @@ describe('Controller', function() {
 				keyCode: '83',
 				ctrlKey: true
 			});
-            expect($scope.save).not.toHaveBeenCalled();
+            expect($scope.save).toHaveBeenCalled();
         });
     });
 });
