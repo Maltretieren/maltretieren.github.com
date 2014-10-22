@@ -19,6 +19,7 @@ describe('Controller', function() {
             $window = _$window_;
 			$document = _$document_;
 			$compile = _$compile_;
+			var element = getElement();
             $controller('GithubEditCtrl', {
                 '$scope': $scope,
                 '$window': $window
@@ -37,7 +38,7 @@ describe('Controller', function() {
 
         it('test the save hotkey', function() {
             // this test is not working for now
-            var element = getElement();
+            
 			spyOn($scope, 'save');
             console.info('Simulating STRG+S hotkey inside the textarea')
 			happen.once(input, {
