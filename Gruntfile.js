@@ -71,10 +71,10 @@ module.exports = function(grunt) {
 			}
 		  }
 		},
-		saucelabs-jasmine: {
+		'saucelabs-jasmine': {
             all: {
                 options: {
-                    urls: ["http://127.0.0.1:9999/test-jasmine/SpecRunner.html"],
+                    urls: ["http://127.0.0.1:9001/test-jasmine/SpecRunner.html"],
                     tunnelTimeout: 5,
                     build: process.env.TRAVIS_JOB_ID,
                     concurrency: 3,
@@ -95,5 +95,5 @@ module.exports = function(grunt) {
     grunt.registerTask('devmode', ['karma:unit', 'watch'])
 	grunt.registerTask('test', ['karma:travis'])
     grunt.registerTask('test', ['coveralls'])
-	grunt.registerTask('test', ['karma:connect', "saucelabs-jasmine"]);
+	grunt.registerTask('test', ['connect', "saucelabs-jasmine"]);
 };
