@@ -1,1 +1,1 @@
-check if user is admin
+Test if the logged in user has admistrative priveleges to commit to the repo
