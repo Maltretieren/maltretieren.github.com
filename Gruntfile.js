@@ -86,6 +86,7 @@ module.exports = function(grunt) {
 		if (key !== 'grunt' && key.indexOf('grunt') === 0) grunt.loadNpmTasks(key);
 	}
 
+	
     // Add a new task for travis
     grunt.registerTask('devmode', ['karma:unit', 'watch'])
 	grunt.registerTask('test', ['karma:travis'])
