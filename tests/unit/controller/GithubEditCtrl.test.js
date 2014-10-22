@@ -41,6 +41,7 @@ describe('Controller', function() {
             var element = getElement();
 			spyOn($scope, 'save');
             console.info('Simulating STRG+S hotkey inside the textarea')
+			//https://github.com/tmcw/happen
 			happen.once(element[0], {
 				type: 'keypress',
 				keyCode: '83',
