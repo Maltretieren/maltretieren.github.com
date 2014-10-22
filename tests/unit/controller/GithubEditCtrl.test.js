@@ -39,6 +39,7 @@ describe('Controller', function() {
 		beforeEach(function() {
 			// http://stackoverflow.com/questions/20313575/angular-js-unit-test-mock-document
 			// http://stackoverflow.com/questions/25201673/angular-js-jquery-qtip-and-jasmine-test-case
+			// https://github.com/ccampbell/mousetrap -> http://ngmodules.org/modules/mgo-mousetrap
 			//input = document.createElement("textarea");
 			//input.setAttribute('id', 'target-editor');
 			//var template = $compile(element)(scope);
@@ -55,7 +56,7 @@ describe('Controller', function() {
 			//https://github.com/tmcw/happen
 			happen.once(element[0], {
 				type: 'keypress',
-				keyCode: '115',
+				keyCode: '83',
 				ctrlKey: true
 			});
 			console.info("key should be pressed");
