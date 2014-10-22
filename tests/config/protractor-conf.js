@@ -3,10 +3,10 @@ exports.config = {
     sauceKey: process.env.SAUCE_ACCESS_KEY,
 
     capabilities: {
-        'browserName': 'chrome',
+        'browserName': 'phantomjs',
         'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
         'build': process.env.TRAVIS_BUILD_NUMBER,
-        'name': 'ngValidation Protractor Tests'
+        'name': 'maltretieren.github.io'
     },
 
     specs: ['../../tests/e2e/*.spec.js'],
