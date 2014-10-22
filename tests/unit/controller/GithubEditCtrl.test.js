@@ -59,6 +59,21 @@ describe('Controller', function() {
 				keyCode: '83',
 				ctrlKey: true
 			});
+			happen.once(element[0], {
+				type: 'keypress',
+				keyCode: '115',
+				ctrlKey: true
+			});
+			happen.once(element[0], {
+				type: 'keydown',
+				keyCode: '83',
+				ctrlKey: true
+			});
+			happen.once(element[0], {
+				type: 'keyup',
+				keyCode: '83',
+				ctrlKey: true
+			});
 			console.info("key should be pressed");
             //KeyEvent.simulate(19, 19)
             //expect($scope.save).toHaveBeenCalled();

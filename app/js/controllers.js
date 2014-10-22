@@ -699,7 +699,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 	$scope.advancedSettings = true;
 
     // enable ctrl+s to save the post
-    hotkeys.bindTo(scope).add({
+    hotkeys.bindTo($scope).add({
         combo: 'ctrl+s',
         description: 'Save the post',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
