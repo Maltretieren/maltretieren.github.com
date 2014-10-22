@@ -8,8 +8,10 @@ comments: false
     <script type="text/javascript">
 		function onKeyPress(evt){
 		  // http://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed
+		  // http://unixpapa.com/js/key.html
 		  evt = evt || window.event;
 			var charCode = evt.keyCode || evt.which;
+			console.log(charCode);
 			var charStr = String.fromCharCode(charCode);
 			console.log(charStr);
 		}
