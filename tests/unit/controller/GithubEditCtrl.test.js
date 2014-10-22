@@ -20,7 +20,7 @@ describe('Controller', function() {
 			
 			input = document.createElement("textarea");
 			input.setAttribute('id', 'target-editor');
-			var template = $compile(input)(scope);
+			var template = $compile(input)($scope);
 			$scope.$digest();
         }));
 		beforeEach(function() {
