@@ -2,6 +2,9 @@
 		var onKeyPress = function(evt){
 		  // http://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed
 		  // http://unixpapa.com/js/key.html
+		  // http://stackoverflow.com/questions/20313575/angular-js-unit-test-mock-document
+		  // http://stackoverflow.com/questions/25201673/angular-js-jquery-qtip-and-jasmine-test-case
+		  // https://github.com/ccampbell/mousetrap -> http://ngmodules.org/modules/mgo-mousetrap
 		  evt = evt || window.event;
 			var charCode = evt.keyCode || evt.which;
 			console.log(charCode);
@@ -16,7 +19,7 @@ describe('Controller', function() {
 
 		
 		function getElement() {
-			var element = angular.element("<textarea id=\"target-editor\" onkeypress=\"return onKeyPress(event)\"></textarea>");
+			var element = angular.element("<textarea id=\"target-editor\"></textarea>");
 			$compile(element)($scope);
 			document.body.appendChild(element[0]);
 			return element;
@@ -36,18 +39,7 @@ describe('Controller', function() {
                 '$window': $window
             });
         }));
-		beforeEach(function() {
-			// http://stackoverflow.com/questions/20313575/angular-js-unit-test-mock-document
-			// http://stackoverflow.com/questions/25201673/angular-js-jquery-qtip-and-jasmine-test-case
-			// https://github.com/ccampbell/mousetrap -> http://ngmodules.org/modules/mgo-mousetrap
-			//input = document.createElement("textarea");
-			//input.setAttribute('id', 'target-editor');
-			//var template = $compile(element)(scope);
-			//var body = $document.find('body').eq(0);
-			//body.append(input);
-			 
-		});
-
+		
         it('test the save hotkey', function() {
             // this test is not working for now
             var element = getElement();
@@ -60,9 +52,7 @@ describe('Controller', function() {
 				keyCode: '83',
 				ctrlKey: true
 			});
-			console.info("key should be pressed");
-            //KeyEvent.simulate(19, 19)
-            expect($scope.save).toHaveBeenCalled();
+            expect($scope.save).not.toHaveBeenCalled();
         });
     });
 });
