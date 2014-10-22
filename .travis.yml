@@ -32,10 +32,14 @@ before_script:
 after_script:
   - grunt coveralls
 
-# this is for Travis to be able to commit to github to prepare the template branch
+
 env:
   global:
+    # this is for Travis to be able to commit to github to prepare the template branch
     - secure: e7qb+HWe8cE7z7LVFCHqvCPCFyHRSRIzKYmUZHLfbaHOxE8e6K17eqSPFRIaBRYtEgjlIrx0OZe8Yh5uXehR9IiGRU3A4BlbiUDt0UClfIkplxf2coUMkAzWTa9kMDcErOY7GGBcv66vqKYC+III8Q+cNvyLkJXCZaNUYPhrGuE=
+    # Sauce Labs credentials on Travis CI
+    - secure: Qoca0JIhb4pZnYoOGAYk8unp07je8bdsKMZsr4mW+qOsOezbP9DzLu/PypjpVlJeDBSA3trDAV4/9xMnOpwB5Itw2nd31+B8czOuyrVcRQ/JaCPGJVoxDZtvxwHEr7ulunp/c8jq4dU2y9+WDPaWgZqPlvhICD4n1yzTfyLFEKg=
+    - secure: BiZm/krGePeNjWBV8nEUvi1UOSUp2AOaquK3ivUX8PUW5k56/U9KaRFyRm8aBfhCbrrZW4eSPUoQZOCbjaJHPLsQKljbB+/pPil2BF805mn+ejp+aaVK+tX7ZbB9LKU0ewmhP56+pKUKIBtCxF63bXBgE0g/TxcCyu8IyAzkQwU=
 
 notifications:
   webhooks:
