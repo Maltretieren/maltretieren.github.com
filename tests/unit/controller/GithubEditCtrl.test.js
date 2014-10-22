@@ -44,7 +44,7 @@ describe('Controller', function() {
 			//https://github.com/tmcw/happen
 			happen.once(element[0], {
 				type: 'keypress',
-				keyCode: '83',
+				keyCode: '115',
 				ctrlKey: true
 			});
 			console.info("key should be pressed");
