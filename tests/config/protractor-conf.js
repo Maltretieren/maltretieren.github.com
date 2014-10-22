@@ -9,7 +9,7 @@ exports.config = {
         'name': 'ngValidation Protractor Tests'
     },
 
-    specs: ['tests/e2e/*.spec.js'],
+    specs: ['../../tests/e2e/*.spec.js'],
 
     jasmineNodeOpts: {
         showColors: true,
