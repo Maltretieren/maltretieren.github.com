@@ -89,5 +89,5 @@ module.exports = function(grunt) {
     grunt.registerTask('devmode', ['karma:unit', 'watch'])
 	grunt.registerTask('test', ['karma:travis'])
     grunt.registerTask('test', ['coveralls'])
-	grunt.registerTask('test', ['karma:connect', 'protractor:saucelabs']);
+	grunt.registerTask('test', ['karma:connect', "saucelabs-jasmine"]);
 };
