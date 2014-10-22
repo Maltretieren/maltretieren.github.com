@@ -11,13 +11,14 @@ describe('Controller', function() {
             $scope = _$rootScope_.$new();
             $controller = _$controller_;
             $window = _$window_;
-			$document = $_document_;
+			$document = _$document_;
             $controller('GithubEditCtrl', {
                 '$scope': $scope,
                 '$window': $window
             });
         }));
 		beforeEach(function() {
+			// http://stackoverflow.com/questions/20313575/angular-js-unit-test-mock-document
 			input = document.createElement("textarea");
 			input.setAttribute('id', 'target-editor');
 			var body = $document.find('body').eq(0);
