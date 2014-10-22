@@ -22,5 +22,3 @@ The goal is to automatically run tests for this angularjs site whssSSSen a new f
 {% highlight sh linenos=table %}
 grunt watch
 {% endhighlight %}
-
-dssssssssssss
