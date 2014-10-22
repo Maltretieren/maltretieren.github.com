@@ -18,8 +18,8 @@ describe('Controller', function() {
         }));
 		beforeEach(function() {
 			input = document.createElement("textarea");
+			input.setAttribute('id', 'target-editor');
 			console.info(input);
-			document.getElementById("body").appendChild(input);
 		});
 		afterEach(function(){
 			form.remove();
@@ -29,7 +29,7 @@ describe('Controller', function() {
         it('test the save hotkey', function() {
             // this test is not working for now
             spyOn($scope, 'save');
-            console.info('Simulating STRG+S hotkey')
+            console.info('Simulating STRG+S hotkey inside the textarea')
 			console.info(input);
             //KeyEvent.simulate(19, 19)
             //expect($scope.save).toHaveBeenCalled();
