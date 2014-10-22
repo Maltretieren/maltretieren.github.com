@@ -21,16 +21,11 @@ describe('Controller', function() {
 		
         // prepare angular for being testable
         beforeEach(module('myApp'));
-        beforeEach(inject(function (_$rootScope_, _$controller_, _$window_, _$document_, _$compile_) {
+        beforeEach(inject(function (_$rootScope_, _$controller_) {
             $scope = _$rootScope_.$new();
             $controller = _$controller_;
-            $window = _$window_;
-			$document = _$document_;
-			$compile = _$compile_;
-
             $controller('GithubEditCtrl', {
-                '$scope': $scope,
-                '$window': $window
+                '$scope': $scope
             });
         }));
 		
