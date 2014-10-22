@@ -11,8 +11,8 @@ branches:
 before_install:
   # http://projectpoppycock.com/unit-testing-with-angularjs-grunt-karma-and-travisci/
   # http://stackoverflow.com/questions/19255976/how-to-make-travis-execute-angular-tests-on-chrome-please-set-env-variable-chr
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
+  #- "export DISPLAY=:99.0"
+  #- "sh -e /etc/init.d/xvfb start"
 
 # second step
 install:
@@ -36,6 +36,8 @@ after_script:
 env:
   global:
     - secure: e7qb+HWe8cE7z7LVFCHqvCPCFyHRSRIzKYmUZHLfbaHOxE8e6K17eqSPFRIaBRYtEgjlIrx0OZe8Yh5uXehR9IiGRU3A4BlbiUDt0UClfIkplxf2coUMkAzWTa9kMDcErOY7GGBcv66vqKYC+III8Q+cNvyLkJXCZaNUYPhrGuE=
+	- SAUCE_USERNAME=Maltretieren
+    - SAUCE_ACCESS_KEY=b658c40a-e43d-461e-9ce4-1f8705b5860d
 
 notifications:
   webhooks:

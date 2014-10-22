@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 		// triggers test run when some source/test files are changed... (this is for local testing)
 		watch: {
             karma: {
-                files: ['tests/**/*.test.js', 'app/js/*.js'],
+                files: ['tests/**/*Spec.js'],
                 tasks: ['karma:unit:run']
             }
         },
@@ -40,7 +40,18 @@ module.exports = function(grunt) {
                 // Target-specific LCOV coverage file
                 src: 'coverage/report/lcov.info'
             }
-        }
+        },
+		protractor: {
+			saucelabs: {
+				options: {
+					configFile: "saucelabs.spec.conf.js",
+					args: {
+						sauceUser: process.env.SAUCE_USERNAME,
+						sauceKey: process.env.SAUCE_ACCESS_KEY
+					}
+				}
+			}
+		}
     });
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-karma');
