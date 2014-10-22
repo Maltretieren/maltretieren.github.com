@@ -44,13 +44,21 @@ module.exports = function(grunt) {
 		protractor: {
 			saucelabs: {
 				options: {
-					configFile: "saucelabs.spec.conf.js",
+					configFile: "tests/config/saucelabs.spec.conf.js",
 					args: {
 						sauceUser: process.env.SAUCE_USERNAME,
 						sauceKey: process.env.SAUCE_ACCESS_KEY
 					}
 				}
 			}
+		},
+		connect: {
+		  server: {
+			options: {
+			  hostname: 'localhost',
+			  port: 9001
+			}
+		  }
 		}
     });
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -62,4 +70,5 @@ module.exports = function(grunt) {
     grunt.registerTask('devmode', ['karma:unit', 'watch'])
 	grunt.registerTask('test', ['karma:travis'])
     grunt.registerTask('test', ['coveralls'])
+	grunt.registerTask('test', ['connect:test', 'protractor:saucelabs']);
 };
