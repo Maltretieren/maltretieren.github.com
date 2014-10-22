@@ -4,7 +4,10 @@
 describe('Controller', function() {
     describe('GithubEditCtrl', function () {
         var $scope, $controller, $window, $document, $compile, input;
-		var onKeyPress = function(evt){
+
+		
+		function getElement() {
+				var onKeyPress = function(evt){
 		  // http://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed
 		  // http://unixpapa.com/js/key.html
 		  evt = evt || window.event;
@@ -14,7 +17,6 @@ describe('Controller', function() {
 			console.log(charStr);
 		}
 		
-		function getElement() {
 			var element = angular.element("<textarea id=\"target-editor\" onkeypress=\"return onKeyPress(event)\"></textarea>");
 			$compile(element)($scope);
 			document.body.appendChild(element[0]);
