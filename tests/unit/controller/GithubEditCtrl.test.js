@@ -4,7 +4,7 @@
 describe('Controller', function() {
     describe('GithubEditCtrl', function () {
         var $scope, $controller, $window, $document, $compile, input;
-		function onKeyPress(evt){
+		var onKeyPress = function(evt){
 		  // http://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed
 		  // http://unixpapa.com/js/key.html
 		  evt = evt || window.event;
