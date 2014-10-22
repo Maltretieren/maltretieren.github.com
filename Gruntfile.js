@@ -84,7 +84,7 @@ module.exports = function(grunt) {
                     tags: ["master"]
                 }
             }
-        },
+        }
     });
 	
 	// load all grunt npm tasks from package.json dev section
