@@ -5,7 +5,7 @@ describe('Controller', function() {
     describe('GithubEditCtrl', function () {
         var $scope, $controller, $window, $document, $compile, input;
 		function getElement() {
-			var element = angular.element("<textarea id=\"target-editor\" onkeypress=\"console.info('key pressed')\"></textarea>");
+			var element = angular.element("<textarea id=\"target-editor\" onkeypress=\"console.info(this.value)\"></textarea>");
 			$compile(element)($scope);
 			document.body.appendChild(element[0]);
 			return element;
