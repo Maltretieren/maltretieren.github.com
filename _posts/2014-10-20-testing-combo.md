@@ -15,7 +15,7 @@ The goal is to automatically run tests for this angularjs site whssSSSen a new f
 
  - Karma
  - Jasmine
- - Istanbul
+ - Istanbul (Code Coverage)
  - Selenium
  - Protractor
  
