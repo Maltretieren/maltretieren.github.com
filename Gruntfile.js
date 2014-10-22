@@ -1,5 +1,11 @@
 module.exports = function(grunt) {
-    grunt.initConfig({
+     var browsers = [{
+        browserName: "firefox",
+        version: "19",
+        platform: "XP"
+    }]
+	
+	grunt.initConfig({
         karma: {
             // Add a new travis ci karma configuration
             // configs here override those in our existing karma.conf.js
