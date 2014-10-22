@@ -43,7 +43,8 @@ module.exports = function(config){
 			'app/js/main.js'
 		],
         autoWatch : true,
-		logLevel: config.WARN,
+        // Possible Values: config.LOG_DISABLE, config.LOG_ERROR, config.LOG_WARN, config.LOG_INFO, config.LOG_DEBUG
+        logLevel: config.DISABLE,
         frameworks: ['jasmine'],
 		// overriden by settings in Gruntfile.js
         browsers : ['phantomjs'],
@@ -63,7 +64,7 @@ module.exports = function(config){
 		// http://blog.dc.esri.com/2014/03/26/js-code-coverage/
 		// http://stackoverflow.com/questions/17289423/need-proper-html-reporter-for-karma-jasmine
 		reporters: [
-			'progress', 'coverage', 'spec'
+			'coverage', 'spec'
 		],
 		preprocessors: {
 		  // source files, that you wanna generate coverage for
@@ -78,6 +79,12 @@ module.exports = function(config){
 		  type : 'lcov',
 		  dir : 'coverage/',
           subdir: 'report'
-		}
+		},
+
+        // fix for multiple console output
+        // https://github.com/karma-runner/karma/issues/961
+        client: {
+            captureConsole: false
+        }
     })
 }

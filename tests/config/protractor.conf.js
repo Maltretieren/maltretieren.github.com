@@ -3,7 +3,8 @@ exports.config = {
     sauceKey: process.env.SAUCE_ACCESS_KEY,
 
     capabilities: {
-        'browserName': 'Chrome',
+        'browserName': 'phantomjs',
+        'phantomjs.cli.args': ['--ignore-ssl-errors=true',  '--web-security=false']
         'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
         'build': process.env.TRAVIS_BUILD_NUMBER,
         'name': 'maltretieren.github.io'

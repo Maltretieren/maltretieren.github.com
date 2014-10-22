@@ -12,8 +12,8 @@ module.exports = function(grunt) {
             unit: {
                 configFile: 'tests/config/karma.conf.js',
 				browsers: ['PhantomJS'],
-                background: true,
-				logLevel: 'DEBUG'
+                // This is not browser console log: https://github.com/karma-runner/karma/issues/480
+                logLevel: 'OFF'
             },
 			// logLevel: OFF, ERROR, WARN, INFO, DEBUG
 			// used karma-spec-reporter for nice outputs
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 		// triggers test run when some source/test files are changed... (this is for local testing)
 		watch: {
             karma: {
-                files: ['tests/**/*Spec.js'],
+                files: ['tests/unit/**/*.test.js'],
                 tasks: ['karma:unit:run']
             }
         },
