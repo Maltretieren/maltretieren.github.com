@@ -3,13 +3,13 @@ exports.config = {
     sauceKey: process.env.SAUCE_ACCESS_KEY,
 
     capabilities: {
-        'browserName': 'phantomjs',
+        'browserName': 'Chrome',
         'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
         'build': process.env.TRAVIS_BUILD_NUMBER,
         'name': 'maltretieren.github.io'
     },
 
-    specs: ['../../tests/e2e/*.test.js'],
+    specs: ['../../tests/e2e/*.spec.js'],
 
     jasmineNodeOpts: {
         showColors: true,
