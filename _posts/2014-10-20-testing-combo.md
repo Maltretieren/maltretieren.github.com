@@ -12,9 +12,12 @@ published: true
 
 ## The Goal
 The goal is to automatically run tests for this angularjs site whssSSSen a new file is deployed to github. The tests will run on Travis. The testing combo reads as following
- * Karma
- * Jasmine
- * Istanbul
+
+ - Karma
+ - Jasmine
+ - Istanbul
+ - Selenium
+ - Protractor
  
 ## Tips and Tricks
 ### Listen to changes
