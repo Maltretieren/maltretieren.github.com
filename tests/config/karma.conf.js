@@ -64,7 +64,7 @@ module.exports = function(config){
 		// http://blog.dc.esri.com/2014/03/26/js-code-coverage/
 		// http://stackoverflow.com/questions/17289423/need-proper-html-reporter-for-karma-jasmine
 		reporters: [
-			'coverage', 'spec'
+			'progress', 'coverage', 'spec'
 		],
 		preprocessors: {
 		  // source files, that you wanna generate coverage for
@@ -85,6 +85,8 @@ module.exports = function(config){
         // https://github.com/karma-runner/karma/issues/961
         // this is for grunt-karma
         // Option to supress console.log: https://github.com/karma-runner/karma/issues/744
-
+        client: {
+            captureConsole: false
+        }
     })
 }
