@@ -3,6 +3,7 @@ module.exports = function(config){
         basePath : '../../',
 		// manual definition, this is redundant to /app/js/main.js labjs file, but I didn't manage to reuse...
         files : [
+            'tests/helper/keypress.js',
 			'assets/js/jquery-2.1.0/jquery-2.1.0.min.js',
 			'app/js/config.js',
 			'assets/js/oauth/jso.js',
@@ -12,6 +13,7 @@ module.exports = function(config){
 			'assets/js/wikiquotes/wikiquote-api.js',
 			'assets/js/listjs-0.2.0/list.js',
 			'assets/js/angular-1.3.0/angular.min.js',
+            'assets/js/angular-hotkeys-1.4.5/hotkeys.js',
 			'assets/js/angular-1.3.0/angular-route.min.js',
 			'assets/js/angular-1.3.0/angular-animate.min.js',
 			'assets/js/angular-1.3.0/angular-sanitize.min.js',
@@ -34,16 +36,18 @@ module.exports = function(config){
 			'assets/js/raty/jquery.raty.js',
 			'assets/js/keenio-2.1.0/keenio.js',
 			'assets/js/angular-1.3.0/angular-mocks.js',
-            'tests/unit/***/.test.js'
+            'tests/unit/**/*.test.js'
         ],
 		// list of files to exclude
 		exclude: [
 			'app/js/main.js'
 		],
         autoWatch : true,
+        // Possible Values: config.LOG_DISABLE, config.LOG_ERROR, config.LOG_WARN, config.LOG_INFO, config.LOG_DEBUG
+        logLevel: config.DISABLE,
         frameworks: ['jasmine'],
 		// overriden by settings in Gruntfile.js
-        browsers : ['PhantomJS'],
+        browsers : ['phantomjs'],
 		// karma-spec-reporter for nice output like "SUCCESS Unit: services myService should behave"
 		// http://stackoverflow.com/questions/17289423/need-proper-html-reporter-for-karma-jasmine
         plugins : [
@@ -75,14 +79,14 @@ module.exports = function(config){
 		  type : 'lcov',
 		  dir : 'coverage/',
           subdir: 'report'
-		}, 
-		
-		// fix for multiple console output
-		// https://github.com/karma-runner/karma/issues/961
-		// this is for grunt-karma
-		// Option to supress console.log: https://github.com/karma-runner/karma/issues/744
-		client: {
-			captureConsole: false
-		}
+		},
+
+        // fix for multiple console output
+        // https://github.com/karma-runner/karma/issues/961
+        // this is for grunt-karma
+        // Option to supress console.log: https://github.com/karma-runner/karma/issues/744
+        client: {
+            captureConsole: false
+        }
     })
 }
