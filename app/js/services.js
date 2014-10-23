@@ -482,7 +482,7 @@ myApp.service("UrlSrvc", function ($window) {
 			while (match = search.exec(query))
 				urlParams[decode(match[1])] = decode(match[2]);
 		})();
-		return urlParams[pramName];
+		return urlParams[paramName];
 	}
 	
 	var parseDateTitle = function (path) {	
