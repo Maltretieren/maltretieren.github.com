@@ -111,7 +111,7 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
 
 myApp.service("GithubSrvc", function (
     $rootScope, $q, $interval, GithubAuthService,
-    UserModel, PollingSrvc, YamlSrvc, EditorSrvc, ParameterSrvc, $http, $timeout) {
+    UserModel, PollingSrvc, YamlSrvc, EditorSrvc, UrlSrvc, $http, $timeout) {
 
     return {
         requestCode: function() {
