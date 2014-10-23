@@ -723,7 +723,9 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 	
 	// reconstruct data/title from file name...
     if(typeof(path) != 'undefined' && typeof(url) !='undefined') {
-        UrlSrvc.parseDateTitle(path);
+        dateTitle = UrlSrvc.parseDateTitle(path);
+		$scope.options.title = dateTitle.title;
+		date = dateTitle.date,
     } else {
 		$scope.options.isNewContent = true;
         console.log("new content...")
