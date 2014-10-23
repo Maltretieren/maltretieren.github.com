@@ -4,18 +4,23 @@
 describe('Service', function() {
     describe('UrlSrvc', function () {
         var UrlSrvc;
-		var $provide;
 
         // prepare angular for being testable
-        beforeEach(('myApp'));
-        beforeEach(inject(function (_UrlSrvc_, _$provide_) {
-            UrlSrvc = _UrlSrvc_;
-			$provide = _$provide_;
+        beforeEach(angular.mock.module('myApp'), function($provide){
+            $provide.value('$window', {location:{href:'http://test.com/test?path=test'}});
+        });
+        beforeEach(inject(function (_UrlSrvc_) {
+            UrlSrvc  = _UrlSrvc_;
         }));
 
-        // dependency to UserModel
-        it('should test if it can extract params correctly', function(){
-            $provide.value('$window', {location:{href:'dummy'}});
+        it('should extract a param out of the browser location', function () {
+            var dateTitle = UrlSrvc.parseDateTitle("_posts/2014-10-20-testing-combo.md");
+            console.log(dateTitle);
+        });
+
+        it('should test parsing of the path variable', function () {
+            var param = UrlSrvc.getParams('path')
+            console.log(param);
         });
     });
 });

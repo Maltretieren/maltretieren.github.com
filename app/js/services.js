@@ -488,7 +488,7 @@ myApp.service("UrlSrvc", function ($window) {
 	var parseDateTitle = function (path) {	
 		var splif = path.split("-");
 		var title = ""
-		date = splif[0].split("/")[1]+"-"+splif[1]+"-"+splif[2];
+		var date = splif[0].split("/")[1]+"-"+splif[1]+"-"+splif[2];
 		for(var i=3;i<splif.length;i++) {
 			if(i!==splif.length-1) {
 				title += splif[i]+" ";

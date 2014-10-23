@@ -34,14 +34,15 @@ describe('Controller', function() {
                 '$scope': $scope
             });
         }));
-		
+
 		// depends on happen-js defined in keypress.js
-        it('should test the save hotkey (STRG+s)', function() {
+        iit('should test the save hotkey (STRG+s)', function() {
             var element = getElement();
 			spyOn($scope, 'save');
             console.info('Simulating STRG+s hotkey inside the textarea')
 			// https://github.com/tmcw/happen
 			// simulates a CTRL+s
+            // works for phatomjs, but not for firefox and chrome
 			happen.once(element[0], {
 				type: 'keydown',
 				keyCode: '83',
