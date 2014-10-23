@@ -14,7 +14,7 @@ describe('Service', function() {
         // dependency to UserModel
         it('should test if it can extract params correctly', function ($provide, $window) {
             var url = "https://maltretieren.github.io/app/admin/edit.html?path=_posts/2014-10-20-testing-combo.md&url=/development/2014/10/20/testing-combo";
-			$provide.value('$window', {location:{href:url}});
+			$provide.value('$window', {location:{href:'test'}});
 			console.log(window.location.href);
         });
     });
