@@ -3,12 +3,14 @@
 // group all controller tests together with outer describe
 describe('Service', function() {
     describe('UrlSrvc', function () {
-        var urlSrvc;
+        var UrlSrvc;
+		var $provide;
 
         // prepare angular for being testable
-        beforeEach(angular.mock.module('myApp'));
-        beforeEach(angular.mock.inject(function (_UrlSrvc_) {
-            urlSrvc = _UrlSrvc_;
+        beforeEach(('myApp'));
+        beforeEach(inject(function (_UrlSrvc_, _$provide_) {
+            UrlSrvc = _UrlSrvc_;
+			$provide = _$provide_;
         }));
 
         // dependency to UserModel
