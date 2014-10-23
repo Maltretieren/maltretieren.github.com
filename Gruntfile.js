@@ -4,29 +4,29 @@ module.exports = function(grunt) {
         version: "19",
         platform: "XP"
     }]
-	
-	grunt.initConfig({
+    
+    grunt.initConfig({
         karma: {
             // Add a new travis ci karma configuration
             // configs here override those in our existing karma.conf.js
             unit: {
                 configFile: 'tests/config/karma.conf.js',
-				browsers: ['Chrome'],
+                browsers: ['Chrome'],
                 // This is not browser console log: https://github.com/karma-runner/karma/issues/480
                 logLevel: 'INFO'
             },
-			// logLevel: OFF, ERROR, WARN, INFO, DEBUG
-			// used karma-spec-reporter for nice outputs
-			// continuous integration mode: run tests once in PhantomJS browser.
-			travis: {
-			    configFile: 'tests/config/karma.conf.js',
+            // logLevel: OFF, ERROR, WARN, INFO, DEBUG
+            // used karma-spec-reporter for nice outputs
+            // continuous integration mode: run tests once in PhantomJS browser.
+            travis: {
+                configFile: 'tests/config/karma.conf.js',
                 singleRun: true,
                 browsers: ['PhantomJS'],
-				logLevel: 'INFO'
-			}
+                logLevel: 'INFO'
+            }
         },
-		// triggers test run when some source/test files are changed... (this is for local testing)
-		watch: {
+        // triggers test run when some source/test files are changed... (this is for local testing)
+        watch: {
             karma: {
                 files: ['tests/unit/**/*.test.js'],
                 tasks: ['karma:unit:run']
@@ -58,30 +58,30 @@ module.exports = function(grunt) {
                 }
             }
         },
-		connect: {
-		  server: {
-			options: {
-			  hostname: 'localhost',
-			  port: 9999
-			}
-		  },
+        connect: {
+          server: {
+            options: {
+              hostname: 'localhost',
+              port: 9999
+            }
+          },
           test: {
               options: {
                   hostname: 'localhost',
                   port: 9999
               }
           }
-		}
+        }
     });
-	
-	// load all grunt npm tasks from package.json dev section
-	for (var key in grunt.file.readJSON('package.json').devDependencies) {
-		if (key !== 'grunt' && key.indexOf('grunt') === 0) grunt.loadNpmTasks(key);
-	}
+    
+    // load all grunt npm tasks from package.json dev section
+    for (var key in grunt.file.readJSON('package.json').devDependencies) {
+        if (key !== 'grunt' && key.indexOf('grunt') === 0) grunt.loadNpmTasks(key);
+    }
 
-	
+    
     // Add a new task for travis
-	grunt.registerTask('devmode', ['karma:unit', 'watch'])
-	grunt.registerTask('testLocally', ['karma:unit', 'watch'])
-	grunt.registerTask('test', ['karma:travis', 'protractor:saucelabs'])
+    grunt.registerTask('devmode', ['karma:unit', 'watch'])
+    grunt.registerTask('testLocally', ['karma:unit', 'watch'])
+    grunt.registerTask('test', ['karma:travis', 'protractor:saucelabs'])
 };
