@@ -501,6 +501,11 @@ myApp.service("UrlSrvc", function ($window) {
 			title: title
 		}
 	}
+	
+	return {
+		getParams: getParams,
+		parseDateTitle: parseDateTitle
+	}
 });
 
 myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthService) {
