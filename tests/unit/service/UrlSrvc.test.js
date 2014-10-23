@@ -7,7 +7,7 @@ describe('Service', function() {
 
         // prepare angular for being testable
         beforeEach(module('myApp'));
-        beforeEach(inject(function (_UrlSrvc_, _$provide_, $window) {
+        beforeEach(inject(function (_UrlSrvc_, _$provide_, _$window_) {
             urlSrvc = _UrlSrvc_;
 			$provide = _$provide_;
 			$window = _$window_
