@@ -468,22 +468,39 @@ myApp.service("UserModel", function ($rootScope) {
 /**
  This is a helper function
  **/
-myApp.service("ParameterSrvc", function ($window) {
-    var urlParams;
-    ($window.onpopstate = function () {
-        var match,
-            pl     = /\+/g,  // Regex for replacing addition symbol with a space
-            search = /([^&=]+)=?([^&]*)/g,
-            decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-            query  = window.location.search.substring(1);
+myApp.service("UrlSrvc", function ($window) {
+    var getParams = function (paramName) {
+		var urlParams;
+		($window.onpopstate = function () {
+			var match,
+				pl     = /\+/g,  // Regex for replacing addition symbol with a space
+				search = /([^&=]+)=?([^&]*)/g,
+				decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+				query  = window.location.search.substring(1);
 
-        urlParams = {};
-        while (match = search.exec(query))
-            urlParams[decode(match[1])] = decode(match[2]);
-    })();
-    return {
-        urlParams: urlParams
-    }
+			urlParams = {};
+			while (match = search.exec(query))
+				urlParams[decode(match[1])] = decode(match[2]);
+		})();
+		return urlParams[pramName);
+	}
+	
+	var parseDateTile = function (path) {	
+		var splif = path.split("-");
+		var title = ""
+		date = splif[0].split("/")[1]+"-"+splif[1]+"-"+splif[2];
+		for(var i=3;i<splif.length;i++) {
+			if(i!==splif.length-1) {
+				title += splif[i]+" ";
+			} else {
+				title += splif[i].split(".")[0];
+			}
+		}
+		return {
+			date: date,
+			title: title
+		}
+	}
 });
 
 myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthService) {

@@ -188,7 +188,7 @@ myApp.controller("GithubModalCtrl", function ($scope, $modalInstance, UserModel,
 /**
  * GitHub controller using the GitHub service
  */
-myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, ParameterSrvc, UserModel, GithubSrvc, GithubAuthService) {
+myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, UrlSrvc, UserModel, GithubSrvc, GithubAuthService) {
 	// login by the owner of the repository: edits on the blog are possible
 	// login by someone else: create an empty fork of the repository, automatically available
 	//      - ask for a name: the fork will be created for that name: xyz.github.io
@@ -212,7 +212,7 @@ myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, Par
 			$scope.user = user;
 		} else {
 			console.log("no user object found in localStorage - if a code is provided use that to get a token");
-			var oauthCode = ParameterSrvc.urlParams['code'];
+			var oauthCode = UrlSrvc.getParams('code');
 			if(typeof oauthCode !== 'undefined') {
 				console.log("code provided, request a token with that code");
 				GithubAuthService.requestToken(oauthCode).then(function() {
@@ -690,7 +690,7 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
 /**
  *	This controller manages edits on content on github
  */
-myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeout, toaster, YamlSrvc, UserModel, ParameterSrvc, GithubSrvc, hotkeys) {
+myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeout, toaster, YamlSrvc, UserModel, UrlSrvc, GithubSrvc, hotkeys) {
     var scope = $scope;
 
     $scope.options = {}
@@ -718,21 +718,12 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
     $scope.options.title = "";
 	$scope.options.isNewContent = false;
 	
-    var path = ParameterSrvc.urlParams['path'];
-    var url = ParameterSrvc.urlParams['url'];
+    var path = UrlSrvc.getParams('path']);
+    var url = UrlSrvc.getParams('url');
 	
 	// reconstruct data/title from file name...
     if(typeof(path) != 'undefined' && typeof(url) !='undefined') {
-        var splif = path.split("-");
-        date = splif[0].split("/")[1]+"-"+splif[1]+"-"+splif[2];
-        //$scope.options.title = "";
-        for(var i=3;i<splif.length;i++) {
-            if(i!==splif.length-1) {
-                $scope.options.title += splif[i]+" ";
-            } else {
-                $scope.options.title += splif[i].split(".")[0];
-            }
-        }
+        UrlSrvc.parseDateTitle(path);
     } else {
 		$scope.options.isNewContent = true;
         console.log("new content...")
