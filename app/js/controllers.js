@@ -725,7 +725,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
     if(typeof(path) != 'undefined' && typeof(url) !='undefined') {
         dateTitle = UrlSrvc.parseDateTitle(path);
 		$scope.options.title = dateTitle.title;
-		date = dateTitle.date,
+		date = dateTitle.date;
     } else {
 		$scope.options.isNewContent = true;
         console.log("new content...")
