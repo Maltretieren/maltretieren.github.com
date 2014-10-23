@@ -22,14 +22,14 @@ describe('Controller', function() {
         });
 
         it('should call the function getComments', function () {
-                spyOn($scope, 'getComments');
-                $scope.getComments();
-                expect($scope.getComments).toHaveBeenCalled();
-            });
+            spyOn($scope, 'getComments');
+            $scope.getComments();
+            expect($scope.getComments).toHaveBeenCalled();
+        });
 
-            it('should call the function submit', function () {
-                spyOn($scope, 'submit');
-                $scope.submit();
+        it('should call the function submit', function () {
+            spyOn($scope, 'submit');
+            $scope.submit();
             expect($scope.submit).toHaveBeenCalled();
         });
 

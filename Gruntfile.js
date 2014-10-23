@@ -11,9 +11,9 @@ module.exports = function(grunt) {
             // configs here override those in our existing karma.conf.js
             unit: {
                 configFile: 'tests/config/karma.conf.js',
-				browsers: ['PhantomJS'],
+				browsers: ['Chrome'],
                 // This is not browser console log: https://github.com/karma-runner/karma/issues/480
-                logLevel: 'OFF'
+                logLevel: 'INFO'
             },
 			// logLevel: OFF, ERROR, WARN, INFO, DEBUG
 			// used karma-spec-reporter for nice outputs
@@ -82,6 +82,6 @@ module.exports = function(grunt) {
 	
     // Add a new task for travis
 	grunt.registerTask('devmode', ['karma:unit', 'watch'])
-	grunt.registerTask('test', ['karma:travis', 'connect:test', 'protractor:saucelabs'])
-	//grunt.registerTask('test', ['coveralls'])
+	grunt.registerTask('testLocally', ['karma:unit', 'watch'])
+	grunt.registerTask('test', ['karma:travis', ['coveralls'], 'protractor:saucelabs'])
 };

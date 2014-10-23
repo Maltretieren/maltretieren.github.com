@@ -469,14 +469,14 @@ myApp.service("UserModel", function ($rootScope) {
  This is a helper function
  **/
 myApp.service("UrlSrvc", function ($window) {
-    var getParams = function (paramName) {
+    var getParams = function (url, paramName) {
 		var urlParams;
 		($window.onpopstate = function () {
 			var match,
 				pl     = /\+/g,  // Regex for replacing addition symbol with a space
 				search = /([^&=]+)=?([^&]*)/g,
 				decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-				query  = window.location.search.substring(1);
+				query  = url.split('?')[1];
 
 			urlParams = {};
 			while (match = search.exec(query))
@@ -484,7 +484,11 @@ myApp.service("UrlSrvc", function ($window) {
 		})();
 		return urlParams[paramName];
 	}
-	
+
+    var getUrl = function () {
+        return window.location;
+    }
+
 	var parseDateTitle = function (path) {	
 		var splif = path.split("-");
 		var title = ""
@@ -504,7 +508,8 @@ myApp.service("UrlSrvc", function ($window) {
 	
 	return {
 		getParams: getParams,
-		parseDateTitle: parseDateTitle
+		parseDateTitle: parseDateTitle,
+        getUrl: getUrl
 	}
 });
 

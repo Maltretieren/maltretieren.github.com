@@ -36,7 +36,7 @@ describe('Controller', function() {
         }));
 
 		// depends on happen-js defined in keypress.js
-        iit('should test the save hotkey (STRG+s)', function() {
+        it('should test the save hotkey (STRG+s)', function() {
             var element = getElement();
 			spyOn($scope, 'save');
             console.info('Simulating STRG+s hotkey inside the textarea')

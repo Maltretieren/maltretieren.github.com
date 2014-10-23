@@ -212,7 +212,8 @@ myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, Url
 			$scope.user = user;
 		} else {
 			console.log("no user object found in localStorage - if a code is provided use that to get a token");
-			var oauthCode = UrlSrvc.getParams('code');
+            var url = UrlSrvc.getUrl();
+			var oauthCode = UrlSrvc.getParams(url, 'code');
 			if(typeof oauthCode !== 'undefined') {
 				console.log("code provided, request a token with that code");
 				GithubAuthService.requestToken(oauthCode).then(function() {
@@ -717,9 +718,10 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 	var date = "";
     $scope.options.title = "";
 	$scope.options.isNewContent = false;
-	
-    var path = UrlSrvc.getParams('path');
-    var url = UrlSrvc.getParams('url');
+
+    var url = UrlSrvc.getUrl();
+    var path = UrlSrvc.getParams(url, 'path');
+    var url = UrlSrvc.getParams(url, 'url');
 	
 	// reconstruct data/title from file name...
     if(typeof(path) != 'undefined' && typeof(url) !='undefined') {

@@ -6,10 +6,8 @@ describe('Service', function() {
         var UrlSrvc;
 
         // prepare angular for being testable
-        beforeEach(angular.mock.module('myApp'), function($provide){
-            $provide.value('$window', {location:{href:'http://test.com/test?path=test'}});
-        });
-        beforeEach(inject(function (_UrlSrvc_) {
+        beforeEach(module('myApp'));
+        beforeEach(inject(function (_UrlSrvc_, _$location_) {
             UrlSrvc  = _UrlSrvc_;
         }));
 
@@ -19,8 +17,8 @@ describe('Service', function() {
         });
 
         it('should test parsing of the path variable', function () {
-            var param = UrlSrvc.getParams('path')
-            console.log(param);
+            var url = 'http://abc.com/edit.html?path=_posts/2014-10-20-testing-combo.md&url=/development/2014/10/20/testing-combo'
+            var param = UrlSrvc.getParams(url, 'path');
         });
     });
 });
