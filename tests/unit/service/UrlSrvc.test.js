@@ -14,7 +14,7 @@ describe('Service', function() {
         }));
 
         // dependency to UserModel
-        it('should test if it can extract params correctly', function($provide){
+        it('should test if it can extract params correctly', function(){
             $provide.value('$window', {location:{href:'dummy'}});
         });
     });
