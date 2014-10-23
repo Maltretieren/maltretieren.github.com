@@ -718,7 +718,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
     $scope.options.title = "";
 	$scope.options.isNewContent = false;
 	
-    var path = UrlSrvc.getParams('path']);
+    var path = UrlSrvc.getParams('path'];
     var url = UrlSrvc.getParams('url');
 	
 	// reconstruct data/title from file name...
