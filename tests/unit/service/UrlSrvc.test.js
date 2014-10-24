@@ -3,6 +3,7 @@
 // group all controller tests together with outer describe
 describe('Service', function() {
     describe('UrlSrvc', function () {
+        var UrlSrvc;
 		var mockUrlSrvc = {};
 		
         // prepare angular for being testable
@@ -16,6 +17,7 @@ describe('Service', function() {
 			});
         });
 		beforeEach(inject(function (_UrlSrvc_) {
+			UrlSrvc = _UrlSrvc_;
 			mockUrlSrvc.getUrl = function () {
 				return 'http://abc.com/edit.html?path=_posts/2014-10-20-testing-combo.md&url=/development/2014/10/20/testing-combo';
 			}
