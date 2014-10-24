@@ -20,7 +20,8 @@ describe('Service', function() {
 			module(function ($provide) {
 				$provide.value('UrlSrvc', mockGetUrl);
 			});
-        }));
+        });
+        });
 
         it('should extract a param out of the browser location', function () {
             var dateTitle = UrlSrvc.parseDateTitle("_posts/2014-10-20-testing-combo.md");
