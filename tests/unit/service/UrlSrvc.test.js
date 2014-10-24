@@ -10,10 +10,8 @@ describe('Service', function() {
         beforeEach(module('myApp'));
 		beforeEach(inject(function (_UrlSrvc_) {
             UrlSrvc = _UrlSrvc_;
-			UrlSrvc.getUrl = function() {
-				return 'http://abc.com/edit.html?path=_posts/2014-10-20-testing-combo.md&url=/development/2014/10/20/testing-combo';
-			}
         }));
+
 	
         it('should extract a param out of the browser location', function () {
             var dateTitle = UrlSrvc.parseDateTitle("_posts/2014-10-20-testing-combo.md");
@@ -23,7 +21,7 @@ describe('Service', function() {
 
         it('should test parsing of the path variable', function () {
             // this should use the mocked function 
-			var url = UrlSrvc.getUrl();
+			var url = 'http://abc.com/edit.html?path=_posts/2014-10-20-testing-combo.md&url=/development/2014/10/20/testing-combo';
             var param = UrlSrvc.getParams(url, 'path');
             expect(param).toBe('_posts/2014-10-20-testing-combo.md');
         })

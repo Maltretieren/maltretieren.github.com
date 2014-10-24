@@ -11,7 +11,7 @@ module.exports = function(grunt) {
             // configs here override those in our existing karma.conf.js
             unit: {
                 configFile: 'tests/config/karma.conf.js',
-                browsers: ['Chrome'],
+                browsers: ['PhantomJS'],
                 // This is not browser console log: https://github.com/karma-runner/karma/issues/480
                 logLevel: 'INFO'
             },
