@@ -4,7 +4,7 @@
 describe('Service', function() {
     describe('UrlSrvc', function () {
         var UrlSrvc;
-		var mockGetUrl;
+		var mockUrlSrvc = {};
 		
         // prepare angular for being testable
 		// http://www.youtube.com/watch?v=qK-Z0oEdE4Y&feature=player_embedded
@@ -13,11 +13,13 @@ describe('Service', function() {
         beforeEach(function () {
 			// mock the function getUrl in UrlSrvc (other functions will stay intact)
 			module(function ($provide) {
-				$provide.value('UrlSrvc.getUrl()', mockGetUrl);
+				$provide.value('UrlSrvc', mockUrlSrvc);
 			});
         });
 		beforeEach(inject(function (_UrlSrvc_) {
-			UrlSrvc = _UrlSrvc_;
+			mockUrlSrvc.getUrl = function () {
+				return 'http://abc.com/edit.html?path=_posts/2014-10-20-testing-combo.md&url=/development/2014/10/20/testing-combo';
+			}
 		}));
 
         it('should extract a param out of the browser location', function () {
@@ -27,9 +29,7 @@ describe('Service', function() {
         });
 
         it('should test parsing of the path variable', function () {
-			mockGetUrl.getUrl = function () {
-				return 'http://abc.com/edit.html?path=_posts/2014-10-20-testing-combo.md&url=/development/2014/10/20/testing-combo';
-			}
+			
 		
             // this should use the mocked function
 			var url = UrlSrvc.getUrl();
