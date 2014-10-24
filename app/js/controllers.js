@@ -213,6 +213,7 @@ myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, Url
 		} else {
 			console.log("no user object found in localStorage - if a code is provided use that to get a token");
             var url = UrlSrvc.getUrl();
+			console.log(url);
 			var oauthCode = UrlSrvc.getParams(url, 'code');
 			if(typeof oauthCode !== 'undefined') {
 				console.log("code provided, request a token with that code");
@@ -720,6 +721,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 	$scope.options.isNewContent = false;
 
     var url = UrlSrvc.getUrl();
+	console.log(url);
     var path = UrlSrvc.getParams(url, 'path');
     var url = UrlSrvc.getParams(url, 'url');
 	
