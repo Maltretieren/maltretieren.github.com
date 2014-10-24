@@ -3,7 +3,6 @@
 // group all controller tests together with outer describe
 describe('Service', function() {
     describe('UrlSrvc', function () {
-        var UrlSrvc;
 		var mockUrlSrvc = {};
 		
         // prepare angular for being testable
@@ -29,8 +28,6 @@ describe('Service', function() {
         });
 
         it('should test parsing of the path variable', function () {
-			
-		
             // this should use the mocked function
 			var url = UrlSrvc.getUrl();
 			console.log("url: "+url);
