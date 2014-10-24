@@ -30,7 +30,7 @@ describe('Service', function() {
         });
 
         it('should test to read the oauth token from localStorage', function () {
-            window.localStorage.setItem("oauthToken", "123456");
+            localStorage.setItem("oauthToken", "123456");
             var octokit = githubAuthService.instance();
             expect(octokit instanceof Octokit).toBeTruthy();
         });
