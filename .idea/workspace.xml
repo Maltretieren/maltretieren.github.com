@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa22cf5-244d-4173-9ad0-0380914b5e40" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/unit/service/GithubAuthService.test.js" afterPath="$PROJECT_DIR$/tests/unit/service/GithubAuthService.test.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/unit/service/UserModel.test.js" afterPath="$PROJECT_DIR$/tests/unit/service/UserModel.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="maltretieren.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,8 +58,8 @@
       <file leaf-file-name="UserModel.test.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/unit/service/UserModel.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.851735" vertical-offset="150" max-vertical-offset="615">
-              <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.9053628" vertical-offset="238" max-vertical-offset="720">
+              <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -1137,8 +1135,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/unit/service/UserModel.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.851735" vertical-offset="150" max-vertical-offset="615">
-          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.9053628" vertical-offset="238" max-vertical-offset="720">
+          <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
           <folding />
         </state>
       </provider>

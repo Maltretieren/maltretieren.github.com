@@ -23,10 +23,17 @@ describe('Service', function() {
             //UserModel.serializeUser(user);
         });
 
-        it('should test setUserName', function () {
+        it('should test setUserName with user argument', function () {
             var spyUserModel = spyOn(UserModel, 'setUserName');
             UserModel.setUserName(user);
             expect(spyUserModel).toHaveBeenCalled();
+        });
+
+        it('should test setUserName with NO user argument', function () {
+            var spyUserModel = spyOn(UserModel, 'setUserName');
+            var returnStatus = UserModel.setUserName();
+            expect(spyUserModel).toHaveBeenCalled();
+            expect(returnStatus).not.toBeNull();
         });
 
         it('should test UserModel', function () {
