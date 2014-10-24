@@ -21,7 +21,7 @@ describe('Service', function() {
 				$provide.value('UrlSrvc.getUrl', mockGetUrl);
 			});
         });
-		beforeEach(inject(function (_UrlSrvc_, _$location_) {
+		beforeEach(inject(function (_UrlSrvc_) {
 			UrlSrvc = _UrlSrvc_;
 		}));
 
@@ -34,6 +34,7 @@ describe('Service', function() {
         it('should test parsing of the path variable', function () {
             // this should use the mocked function
 			var url = UrlSrvc.getUrl();
+			console.log(url);
             var param = UrlSrvc.getParams(url, 'path');
             expect(param).toBe('_posts/2014-10-20-testing-combo.md');
         })
