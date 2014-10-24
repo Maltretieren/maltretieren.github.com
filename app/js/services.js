@@ -486,7 +486,7 @@ myApp.service("UrlSrvc", function ($window) {
 	}
 
     var getUrl = function () {
-        return window.location;
+        return window.location.search;
     }
 
 	var parseDateTitle = function (path) {	
