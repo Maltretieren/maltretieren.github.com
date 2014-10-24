@@ -11,10 +11,16 @@ describe('Service', function() {
             githubAuthService  = _GithubAuthService_;
         }));
 
-        // dependency to UserModel
-        it('should test userInfo', function () {
+        // Dependency to octokit library
+        it('should test login with username/password', function () {
             var octokit = githubAuthService.instance("testUsername", "testPassword");
             expect(octokit instanceof Octokit).toBeTruthy()
+        });
+
+        it('should test to read the oauth token from localStorage', function () {
+            window.localStorage.setItem("oauthToken", "123456");
+            var octokit = githubAuthService.instance();
+            expect(octokit instanceof Octokit).toBeTruthy();
         });
     });
 });
