@@ -8,11 +8,12 @@ describe('Service', function() {
 		
         // prepare angular for being testable
 		// http://www.youtube.com/watch?v=qK-Z0oEdE4Y&feature=player_embedded
+		// howto wire up with promises: http://plnkr.co/edit/Fi1SQq?p=preview
         beforeEach(module('myApp'));
         beforeEach(function () {
 			// mock the function getUrl in UrlSrvc (other functions will stay intact)
 			module(function ($provide) {
-				$provide.value('UrlSrvc', mockGetUrl);
+				$provide.value('UrlSrvc.getUrl', mockGetUrl);
 			});
         });
 		beforeEach(inject(function (_UrlSrvc_) {
