@@ -18,12 +18,12 @@ describe('Service', function() {
 			
 			// tell Angular to use mock instead
 			module(function ($provide) {
-				$provide.value('UrlSrvc', mockGetUrl);
+				$provide.value('UrlSrvc.getUrl', mockGetUrl);
 			});
         });
-		beforeEach(inject(function (_UrlSrvc_) {
-            UrlSrvc  = _UrlSrvc_;
-        }));
+		beforeEach(inject(function (_UrlSrvc_, _$location_) {
+			UrlSrvc = _UrlSrvc_;
+		}));
 
         it('should extract a param out of the browser location', function () {
             var dateTitle = UrlSrvc.parseDateTitle("_posts/2014-10-20-testing-combo.md");
