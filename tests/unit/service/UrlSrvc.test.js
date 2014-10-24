@@ -15,7 +15,7 @@ describe('Service', function() {
 			
 			// mock the function getUrl in UrlSrvc (other functions will stay intact)
 			module(function ($provide) {
-				$provide.value('UrlSrvc.getUrl', mockGetUrl);
+				$provide.value('UrlSrvc', mockGetUrl);
 			});
         });
 		beforeEach(inject(function (_UrlSrvc_) {
