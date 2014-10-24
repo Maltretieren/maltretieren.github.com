@@ -9,15 +9,13 @@ describe('Service', function() {
 		// http://www.youtube.com/watch?v=qK-Z0oEdE4Y&feature=player_embedded
         beforeEach(module('myApp'));
         beforeEach(function () {
-			var mockGetUrl = {
-				getUrl: function () {
-					return 'http://abc.com/edit.html?path=_posts/2014-10-20-testing-combo.md&url=/development/2014/10/20/testing-combo';
-				}
-			};
+			mockGetUrl = function () {
+				return 'http://abc.com/edit.html?path=_posts/2014-10-20-testing-combo.md&url=/development/2014/10/20/testing-combo';
+			}
 			
-			// tell Angular to use mock instead
+			// mock the function getUrl in UrlSrvc (other functions will stay intact)
 			module(function ($provide) {
-				$provide.value('UrlSrvc', mockGetUrl.getUrl);
+				$provide.value('UrlSrvc.getUrl', mockGetUrl);
 			});
         });
 		beforeEach(inject(function (_UrlSrvc_) {
