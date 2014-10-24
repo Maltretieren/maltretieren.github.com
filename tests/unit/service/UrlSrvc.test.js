@@ -10,7 +10,7 @@ describe('Service', function() {
 		// http://www.youtube.com/watch?v=qK-Z0oEdE4Y&feature=player_embedded
         beforeEach(module('myApp'));
         beforeEach(function () {
-			mockGetUrl = {
+			mockGetUrl = function() {
 				getUrl: function () {
 					return 'http://abc.com/edit.html?path=_posts/2014-10-20-testing-combo.md&url=/development/2014/10/20/testing-combo';
 				}
@@ -34,7 +34,7 @@ describe('Service', function() {
         it('should test parsing of the path variable', function () {
             // this should use the mocked function
 			var url = UrlSrvc.getUrl();
-			console.log(url);
+			console.log("url: "+url);
             var param = UrlSrvc.getParams(url, 'path');
             expect(param).toBe('_posts/2014-10-20-testing-combo.md');
         })
