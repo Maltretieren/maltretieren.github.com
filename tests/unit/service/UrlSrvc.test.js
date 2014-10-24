@@ -17,7 +17,7 @@ describe('Service', function() {
 			
 			// tell Angular to use mock instead
 			module(function ($provide) {
-				$provide.value('UrlSrvc.getUrl', mockGetUrl);
+				$provide.value('UrlSrvc', mockGetUrl);
 			});
         });
 		beforeEach(inject(function (_UrlSrvc_) {
