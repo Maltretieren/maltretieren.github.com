@@ -11,6 +11,18 @@ describe('Service', function() {
             githubAuthService  = _GithubAuthService_;
         }));
 
+        // test logoutout functionality after each unit-test
+        afterEach(function() {
+            var spyLogout = spyOn(githubAuthService, 'logout');
+            githubAuthService.logout();
+            expect(spyLogout).toHaveBeenCalled();
+
+            // reset local storage (because this is not done by logout...
+            localStorage.clear();
+            var localStorageCount = Object.keys(localStorage).length;
+            expect(localStorageCount).toBe(0);
+        });
+
         // Dependency to octokit library
         it('should test login with username/password', function () {
             var octokit = githubAuthService.instance("testUsername", "testPassword");
