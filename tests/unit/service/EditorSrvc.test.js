@@ -31,7 +31,7 @@ describe('Service', function() {
 			var spyGetContent = spyOn(EditorSrvc, 'getEditorContent');
 			var content = EditorSrvc.getEditorContent();
 			expect(spyOpen).toHaveBeenCalled();
-			//expect(content).toBe('TestContent');
+			
         });
     });
 });
