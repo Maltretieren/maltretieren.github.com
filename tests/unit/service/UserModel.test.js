@@ -9,8 +9,6 @@ describe('Service', function() {
 
         // http://stackoverflow.com/questions/23165534/re-initialize-angularjs-in-a-test
         beforeEach(angular.mock.module('myApp'));
-
-
         beforeEach(function() {
             // LocalStorage mock.
             spyOn(localStorage, 'getItem').and.callFake(function(key) {
@@ -19,6 +17,10 @@ describe('Service', function() {
             Object.defineProperty(sessionStorage, "setItem", { writable: true });
             spyOn(localStorage, 'setItem').and.callFake(function(key, value) {
                 store[key] = value;
+            });
+
+            spyOn(localStorage, 'clear').and.callFake(function() {
+                store = {};
             });
         });
         beforeEach(inject(function (_UserModel_) {
@@ -34,9 +36,10 @@ describe('Service', function() {
 
             // this tests if the user is stored correctly
             expect(store.user).toEqual('{"name":"testUserName"}');
+            expect(UserModel.user).toEqual({"name":"testUserName"});
         });
 
-        it('should test setUserName with user argument', function () {
+        it('should test setIsAdmin with user argument', function () {
             // UserModel.setUserName uses localStorage to store the user object
             var spyUserModel = spyOn(UserModel, 'setIsAdmin').and.callThrough();
             UserModel.setIsAdmin(true);
@@ -44,6 +47,7 @@ describe('Service', function() {
 
             // this tests if the user is stored correctly
             expect(store.user).toEqual('{"isAdmin":true}');
+            expect(UserModel.user).toEqual({"isAdmin":true});
         });
 
         // this is not recommended :)
@@ -52,6 +56,26 @@ describe('Service', function() {
             var returnStatus = UserModel.setUserName();
             expect(spyUserModel).toHaveBeenCalled();
             expect(returnStatus).not.toBeNull();
+        });
+
+        it('should test setPassword', function () {
+
+        });
+
+        it('should test logout', function () {
+            // Prepare storage
+            var spyUserModel = spyOn(UserModel, 'setIsAdmin').and.callThrough();
+            UserModel.setIsAdmin(true);
+            expect(UserModel.setIsAdmin).toHaveBeenCalled();
+
+            // Delete storage
+            var spyLogout = spyOn(UserModel, 'logout').and.callThrough();
+            UserModel.logout();
+            expect(UserModel.logout).toHaveBeenCalled();
+
+            // localStorage should be empty
+            expect(store).toEqual({});
+            expect(UserModel.user).toEqual({});
         });
     });
 });
