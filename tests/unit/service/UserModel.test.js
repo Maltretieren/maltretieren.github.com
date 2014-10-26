@@ -52,17 +52,17 @@ describe('Service', function() {
 
         // this is not recommended :)
         it('should test setUserName with NO user argument', function () {
-            var spyUserModel = spyOn(UserModel, 'setUserName');
+            var spyUserModel = spyOn(UserModel, 'setUserName').and.callThrough();;
             var returnStatus = UserModel.setUserName();
             expect(spyUserModel).toHaveBeenCalled();
             expect(returnStatus).not.toBeNull();
         });
 
         it('should test setPassword', function () {
-            var spySetPassword = spyOn(UserModel, 'setPassword');
+            var spySetPassword = spyOn(UserModel, 'setPassword').and.callThrough();;
             UserModel.setPassword("testPassword");
             expect(spySetPassword).toHaveBeenCalled();
-            expect(store.user).toEqual('{"isAdmin":true}');
+            expect(store.user).toEqual('{"password":"testPassword"}');
         });
 
         it('should test logout', function () {
