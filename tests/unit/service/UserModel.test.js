@@ -33,11 +33,13 @@ describe('Service', function() {
 
         // this is done after github login to save provided credentials in localStorage (name,
         it('should test setUserName with user argument', function () {
-            var spyUserModel = spyOn(UserModel, 'setUserName');
+            var spyUserModel = spyOn(UserModel, 'setUserName').and.callThrough();
+            //var spySerializeUser = spyOn(UserModel, 'serializeUser');
             //var spyLocalStorage = spyOn(localStorage, 'setItem');
 
             UserModel.setUserName(user);
             expect(UserModel.setUserName).toHaveBeenCalled();
+            //expect(UserModel.serializeUser).toHaveBeenCalled();
 
             // no check if user is available in localStorage
             //var localStorage = Object.keys(localStorage);
