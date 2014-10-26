@@ -59,7 +59,10 @@ describe('Service', function() {
         });
 
         it('should test setPassword', function () {
-
+            var spySetPassword = spyOn(UserModel, 'setPassword');
+            UserModel.setPassword("testPassword");
+            expect(spySetPassword).toHaveBeenCalled();
+            expect(store.user).toEqual('{"isAdin":true}');
         });
 
         it('should test logout', function () {

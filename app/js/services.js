@@ -433,7 +433,6 @@ myApp.service("UserModel", function ($rootScope) {
 	this.user = {};
     var serializeUser = function(user) {
         var userJson = JSON.stringify(user);
-        console.log(userJson);
         localStorage.setItem("user", userJson);
     }
 
