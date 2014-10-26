@@ -3,14 +3,7 @@
 // group all controller tests together with outer describe
 describe('Service', function() {
     describe('UserModel', function () {
-        var UserModel = {
-            setUserName: function(userName) {
-                // nothing to do here
-            },
-            serializeUser: function(user) {
-                //
-            }
-        };
+        var UserModel;
         var user = {
             name: 'testUserName',
             isAdmin: true
@@ -19,26 +12,23 @@ describe('Service', function() {
         // http://stackoverflow.com/questions/23165534/re-initialize-angularjs-in-a-test
         var localStorageMock;
         beforeEach(angular.mock.module('myApp'));
-        beforeEach(function() {
-            // Clear before every test
-            localStorageMock = {
-                getItem: function(key) {},
-                setItem: function(key, value) {}
-            };
-        });
-        beforeEach(module(function($provide) {
-            $provide.value('$window', {
-                localStorage: localStorageMock
-            });
-            $provide.value('UserModel', UserModel);
+        //beforeEach(function() {
+        //    // Clear before every test
+        //    localStorageMock = {
+        //        getItem: function(key) {},
+        //        setItem: function(key, value) {}
+        //    };
+        //});
+        beforeEach(inject(function (_UserModel_) {
+            UserModel  = _UserModel_;
         }));
 
         // will transform user object to json and stores it in localStorage
         // can't test explicitly, but implicitly through setUserName
         it('should test serializeUser', function () {
-            var spySerializeUser = spyOn(UserModel, 'serializeUser');
-            UserModel.serializeUser(user);
-            expect(spySerializeUser).toHaveBeenCalled();
+            //var spySerializeUser = spyOn(UserModel, 'serializeUser');
+            //UserModel.serializeUser(user);
+            //expect(spySerializeUser).toHaveBeenCalled();
         });
 
         // this is done after github login to save provided credentials in localStorage (name,
@@ -47,7 +37,7 @@ describe('Service', function() {
             //var spyLocalStorage = spyOn(localStorage, 'setItem');
 
             UserModel.setUserName(user);
-            expect(spyUserModel).toHaveBeenCalled();
+            expect(UserModel.setUserName).toHaveBeenCalled();
 
             // no check if user is available in localStorage
             //var localStorage = Object.keys(localStorage);
