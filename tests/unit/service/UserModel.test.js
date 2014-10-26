@@ -26,7 +26,7 @@ describe('Service', function() {
         }));
 
         // this is done after github login to save provided credentials in localStorage (name,
-        it('should test setUserName with user argument', function () {
+        it('should test setUserName with userName argument', function () {
             // UserModel.setUserName uses localStorage to store the user object
             var spyUserModel = spyOn(UserModel, 'setUserName').and.callThrough();
             UserModel.setUserName(userName);
@@ -34,6 +34,16 @@ describe('Service', function() {
 
             // this tests if the user is stored correctly
             expect(store.user).toEqual('{"name":"testUserName"}');
+        });
+
+        it('should test setUserName with user argument', function () {
+            // UserModel.setUserName uses localStorage to store the user object
+            var spyUserModel = spyOn(UserModel, 'setIsAdmin').and.callThrough();
+            UserModel.setIsAdmin(true);
+            expect(UserModel.setIsAdmin).toHaveBeenCalled();
+
+            // this tests if the user is stored correctly
+            expect(store.user).toEqual('{"isAdmin":true}');
         });
 
         // this is not recommended :)
