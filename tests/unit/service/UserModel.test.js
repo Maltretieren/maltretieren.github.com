@@ -80,5 +80,13 @@ describe('Service', function() {
             expect(store).toEqual({});
             expect(UserModel.user).toEqual({});
         });
+
+        it('should test getUser', function () {
+            var spyGetUser = spyOn(UserModel, 'getUser').and.callThrough();;
+            var returnStatus = UserModel.getUser();
+            expect(spyGetUser).toHaveBeenCalled();
+            // there is no user in localStorage - should return null
+            expect(returnStatus).toBe(null);
+        });
     });
 });
