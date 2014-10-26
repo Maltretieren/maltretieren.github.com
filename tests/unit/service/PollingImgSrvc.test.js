@@ -12,7 +12,9 @@ describe('Service', function() {
         }));
 
         it('should test PollingImgSrvc', function () {
-            expect(true).toBeTruthy()
+            var spyPoll = spyOn(PollingImgSrvc, 'checkReady').and.callThrough();
+            var pollPromise = PollingImgSrvc.checkReady();
+            expect(spyPoll).toHaveBeenCalled();
         });
     });
 });

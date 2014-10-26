@@ -24,8 +24,10 @@ describe('Service', function() {
         it('should test StyleSwitcher', function () {
             var element = getElement();
             var spyStyle = spyOn(StyleSwitcher, 'switch').and.callThrough();
+            // the test covers all code if the element title matches the style to switch to...
             StyleSwitcher.switch("test");
             expect(StyleSwitcher.switch).toHaveBeenCalled();
+            // here should come a test if the element was activated
         });
     });
 });
