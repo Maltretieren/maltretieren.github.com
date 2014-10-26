@@ -27,7 +27,7 @@ namespace :my_tasks do
 	desc "Test if the test coverage report files where generated correctly"
 	task :coverageResultTest do
 		puts "\n## You should see a lcov.info file in here. The file size should be greate than zero bytes :)"
-	    system("ls -la coverage/report")
+	    system("ls -la tests/results/coverage/report")
 		if File.zero?("tests/results/overage/report/lcov.info")
 		    abort("The report files where not generated correctly")
 		else
