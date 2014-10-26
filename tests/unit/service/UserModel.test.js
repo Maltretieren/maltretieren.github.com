@@ -30,6 +30,7 @@ describe('Service', function() {
             $provide.value('$window', {
                 localStorage: localStorageMock
             });
+            $provide.value('UserModel', UserModel);
         }));
 
         // will transform user object to json and stores it in localStorage
