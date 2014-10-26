@@ -3,7 +3,7 @@ module.exports = function(config){
         basePath : '../../',
 		// manual definition, this is redundant to /app/js/main.js labjs file, but I didn't manage to reuse...
         files : [
-            'tests/helper/keypress.js',
+            // ensure the right order of loading with concrete list in following order:
 			'assets/js/jquery-2.1.0/jquery-2.1.0.min.js',
 			'app/js/config.js',
 			'assets/js/oauth/jso.js',
@@ -36,6 +36,11 @@ module.exports = function(config){
 			'assets/js/raty/jquery.raty.js',
 			'assets/js/keenio-2.1.0/keenio.js',
 			'assets/js/angular-1.3.0/angular-mocks.js',
+
+            // helper
+            'tests/helper/**/*.heloper.js'
+
+            // tests
             'tests/unit/**/*.test.js'
         ],
 		// list of files to exclude
