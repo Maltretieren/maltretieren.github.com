@@ -7,7 +7,7 @@ describe('Service', function() {
 
         function getElement() {
             // Mock the related DOM element
-            var element = angular.element("<link rel='stylesheet'></link>");
+            var element = angular.element("<link rel='stylesheet' title='testTitle'></link>");
             $compile(element)($scope);
             document.body.appendChild(element[0]);
             return element;
