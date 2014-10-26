@@ -38,7 +38,7 @@ module.exports = function(config){
 			'assets/js/angular-1.3.0/angular-mocks.js',
 
             // helper
-            'tests/helper/**/*.heloper.js'
+            'tests/helper/**/*.heloper.js',
 
             // tests
             'tests/unit/**/*.test.js'
