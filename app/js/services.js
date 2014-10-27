@@ -656,26 +656,26 @@ myApp.service("EditorSrvc", function () {
 });
 
 myApp.service("PollingImgSrvc", function ($q, $timeout) {
+
     var poll = function (repoName) {
         var deferred = $q.defer();
-        console.log("init PollingImgSrvc");
 
         var pollForImg = function() {
+            console.log("poll");
             var img = new Image();
 
             img.onload = function() {
-                console.log("success, resolve promise");
+                console.log("yehh");
                 deferred.resolve();
             }
             img.onerror = function() {
-                console.log("error, try again");
+                console.log("oh noooo");
                 var pollForImage = function() {
                     pollForImg();
                 }
                 $timeout(pollForImage, 30000);
             }
             img.src = "https://"+repoName+"/app/img/ping.gif";
-            console.log(img.src);
         }
         pollForImg();
 
