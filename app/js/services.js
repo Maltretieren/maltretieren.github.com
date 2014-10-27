@@ -661,21 +661,25 @@ myApp.service("PollingImgSrvc", function ($q, $timeout) {
         var deferred = $q.defer();
 
         var pollForImg = function() {
-            console.log("poll");
-            var img = new Image();
+            if(!angular.isUndefined(repoName)) {
+                console.log("poll");
+                var img = new Image();
 
-            img.onload = function() {
-                console.log("yehh");
-                deferred.resolve();
-            }
-            img.onerror = function() {
-                console.log("oh noooo");
-                var pollForImage = function() {
-                    pollForImg();
+                img.onload = function () {
+                    console.log("yehh");
+                    deferred.resolve();
                 }
-                $timeout(pollForImage, 30000);
+                img.onerror = function () {
+                    console.log("oh noooo");
+                    var pollForImage = function () {
+                        pollForImg();
+                    }
+                    $timeout(pollForImage, 30000);
+                }
+                img.src = "https://" + repoName + "/app/img/ping.gif";
+            } else {
+                return deferred.reject("fn should be called with a repoName")
             }
-            img.src = "https://"+repoName+"/app/img/ping.gif";
         }
         pollForImg();
 
