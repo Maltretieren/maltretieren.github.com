@@ -82,6 +82,11 @@ module.exports = function(config){
           subdir: 'report'
 		},
 
+        // proxy for supporting test load of images
+        proxies =  {
+            'http://test/app/img/ping.gif': '/tests/assets/img/ping.gif'
+        };
+
         // fix for multiple console output
         // https://github.com/karma-runner/karma/issues/961
         // this is for grunt-karma
