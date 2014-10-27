@@ -1,20 +1,132 @@
-"use strict";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>app/js/services.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/CommentsCtrl.html">CommentsCtrl</a></li>
+            
+                <li><a href="../classes/ExportCtrl.html">ExportCtrl</a></li>
+            
+                <li><a href="../classes/GithubAuthService.html">GithubAuthService</a></li>
+            
+                <li><a href="../classes/GithubCtrl.html">GithubCtrl</a></li>
+            
+                <li><a href="../classes/GithubEditCtrl.html">GithubEditCtrl</a></li>
+            
+                <li><a href="../classes/GithubForkCtrl.html">GithubForkCtrl</a></li>
+            
+                <li><a href="../classes/GithubModalCtrl.html">GithubModalCtrl</a></li>
+            
+                <li><a href="../classes/GithubSrvc.html">GithubSrvc</a></li>
+            
+                <li><a href="../classes/ImportCtrl.html">ImportCtrl</a></li>
+            
+                <li><a href="../classes/RatingCtrl.html">RatingCtrl</a></li>
+            
+                <li><a href="../classes/TableCtrl.html">TableCtrl</a></li>
+            
+                <li><a href="../classes/ToasterController.html">ToasterController</a></li>
+            
+                <li><a href="../classes/WikiquoteCtrl.html">WikiquoteCtrl</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
 
 
-myApp.value('version', '0.1');
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: app/js/services.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&quot;use strict&quot;;
+
+
+myApp.value(&#x27;version&#x27;, &#x27;0.1&#x27;);
 
 /**
  * Services are singleton objects used to share data
  * (e.g. among several controllers) and generally
  * encapsulate reusable pieces of code (since they can be
- * injected and offer their "services" in any part of your app
+ * injected and offer their &quot;services&quot; in any part of your app
  * that needs them: controllers, directives, filters, other services etc).
  *
  * @class GithubAuthService
  * @constructor
  *
  * */
-myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
+myApp.service(&quot;GithubAuthService&quot;, function ($http, $q, $rootScope, UserModel) {
     var github = null;
 
     return {
@@ -29,35 +141,35 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
             // this should ask for the UserModel - user object, and get the token from there...
             // the token is stored in localStorage, maybe a session store would work also?
             if(github===null) {
-                console.info("new github instance "+username);
-                var oauthToken = localStorage.getItem("oauthToken");
+                console.info(&quot;new github instance &quot;+username);
+                var oauthToken = localStorage.getItem(&quot;oauthToken&quot;);
 
                 // search for info in localStorage
-                if(typeof username === 'undefined' && typeof password === 'undefined' && UserModel.getUser() !== null) {
+                if(typeof username === &#x27;undefined&#x27; &amp;&amp; typeof password === &#x27;undefined&#x27; &amp;&amp; UserModel.getUser() !== null) {
                     username = UserModel.getUser().name;
                     password = UserModel.getUser().password;
-                    console.log("localStorage - Username: "+username);
+                    console.log(&quot;localStorage - Username: &quot;+username);
                 }
 
-                if(typeof username !== 'undefined' && typeof password !== 'undefined') {
-                    console.log("using username/password workflow")
+                if(typeof username !== &#x27;undefined&#x27; &amp;&amp; typeof password !== &#x27;undefined&#x27;) {
+                    console.log(&quot;using username/password workflow&quot;)
                     github = new Octokit({
                         username: username,
                         password: password,
-                        auth: "basic"
+                        auth: &quot;basic&quot;
                     });
-                } else if(oauthToken != "undefined" && oauthToken != null) {
-                    console.log("using oath workflow");
+                } else if(oauthToken != &quot;undefined&quot; &amp;&amp; oauthToken != null) {
+                    console.log(&quot;using oath workflow&quot;);
                     github = new Octokit({
                         token: oauthToken,
-                        auth: "oauth"
+                        auth: &quot;oauth&quot;
                     });
                 } else {
-                    console.info("oauthToken is not available or not valid");
-                    console.info("Did you login via github? Otherwise you can connect via Basic Authentication... Please provide a username and password...")
+                    console.info(&quot;oauthToken is not available or not valid&quot;);
+                    console.info(&quot;Did you login via github? Otherwise you can connect via Basic Authentication... Please provide a username and password...&quot;)
                 }
             } else {
-                console.log("service already instanciated")
+                console.log(&quot;service already instanciated&quot;)
             }
             return github;
         },
@@ -68,10 +180,10 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
          * @return 
          */
         requestCode: function() {
-            console.log("Request a new token, the page will be reloaded with code appended to the address...");
+            console.log(&quot;Request a new token, the page will be reloaded with code appended to the address...&quot;);
             // request a token, this generates a state random string, the string has to be validated after login
             jso_configure({
-                "github": {
+                &quot;github&quot;: {
                     client_id: config.github.client_id,
                     redirect_uri: config.github.redirection_url,
                     authorization: config.github.authorization
@@ -79,7 +191,7 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
             });
 
             $.oajax({
-                jso_provider: "github",
+                jso_provider: &quot;github&quot;,
                 jso_allowia: true
             });
         },
@@ -93,19 +205,19 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
             var that = this;
             var tokenPromise = $q.defer();
 
-            $http({method: 'GET', url: config.heroku.authenticate+""+oauthCode}).
+            $http({method: &#x27;GET&#x27;, url: config.heroku.authenticate+&quot;&quot;+oauthCode}).
                 success(function(data, status, headers, config) {
-                    if(typeof data.token != 'undefined') {
-                        console.log("Yaayy, got a token: "+data.token);
-                        localStorage.setItem("oauthToken", data.token);
+                    if(typeof data.token != &#x27;undefined&#x27;) {
+                        console.log(&quot;Yaayy, got a token: &quot;+data.token);
+                        localStorage.setItem(&quot;oauthToken&quot;, data.token);
                         tokenPromise.resolve();
                     } else {
-                        console.log("It was not possible to get a token with the provided code");
+                        console.log(&quot;It was not possible to get a token with the provided code&quot;);
                         tokenPromise.reject();
                     }
                 }).
                 error(function(data, status, headers, config) {
-                    alert("Error while getting a token for the provided code");
+                    alert(&quot;Error while getting a token for the provided code&quot;);
                 });
 
             return tokenPromise.promise;
@@ -158,7 +270,7 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
  * @class GithubSrvc
  * @constructor
  */
-myApp.service("GithubSrvc", function (
+myApp.service(&quot;GithubSrvc&quot;, function (
     $rootScope, $q, $interval, GithubAuthService,
     UserModel, PollingSrvc, YamlSrvc, EditorSrvc, UrlSrvc, $http, $timeout) {
 
@@ -182,14 +294,14 @@ myApp.service("GithubSrvc", function (
             console.log(config.github.user);
             console.log(config.github.repository);
             var repo = githubInstance.getRepo(config.github.user, config.github.repository);
-            var branch = repo.getBranch("master");
-            var promise = this.commit("Test if the logged in user has admistrative priveleges to commit to the repo", "tests/results/test.admin", branch);
+            var branch = repo.getBranch(&quot;master&quot;);
+            var promise = this.commit(&quot;Test if the logged in user has admistrative priveleges to commit to the repo&quot;, &quot;tests/results/test.admin&quot;, branch);
             promise.then(function() {
-                console.log("testAdming: success");
+                console.log(&quot;testAdming: success&quot;);
 				UserModel.setIsAdmin(true);
                 deferred.resolve();
             }, function(reason) {
-                console.log("testAdmin: errrrorrr");
+                console.log(&quot;testAdmin: errrrorrr&quot;);
 				UserModel.setIsAdmin(false);
                 deferred.reject();
             })
@@ -210,7 +322,7 @@ myApp.service("GithubSrvc", function (
                 var promise = $q.when(repo.fork());
                 return promise;
             } else {
-                console.log("no token provided... Please login");
+                console.log(&quot;no token provided... Please login&quot;);
             }
 		},
         /**
@@ -220,9 +332,9 @@ myApp.service("GithubSrvc", function (
          * @return CallExpression
          */
         renameRepo: function(forkName) {
-			console.log("rename repo to "+forkName);
-            if(!forkName || forkName.length < 5){
-				forkName = UserModel.getUser().name+".github.com"
+			console.log(&quot;rename repo to &quot;+forkName);
+            if(!forkName || forkName.length &lt; 5){
+				forkName = UserModel.getUser().name+&quot;.github.com&quot;
 			}
 			
             var that = this;
@@ -233,8 +345,8 @@ myApp.service("GithubSrvc", function (
             //var userName = UserModel.getUser().name;
             var repo = githubInstance.getRepo(UserModel.getUser().name, config.github.repository);
             return $q.when(repo.updateInfo(patch)).then(function(res) {
-                console.log("Repository renamed...")
-                //that.renameBranch(forkName, "heads/master");
+                console.log(&quot;Repository renamed...&quot;)
+                //that.renameBranch(forkName, &quot;heads/master&quot;);
             })
         },
         /**
@@ -246,25 +358,25 @@ myApp.service("GithubSrvc", function (
         batchDelete: function(forkName) {
             var githubInstance = GithubAuthService.instance();
             var repo = githubInstance.getRepo(UserModel.getUser().name, forkName);
-            var branch = repo.getBranch("master");
+            var branch = repo.getBranch(&quot;master&quot;);
 
 			// polling for the posts dir every second until rename complete,
 			// then start delete every second....
 			(function tick(path) {
 				$q.when(branch.contents(path)).then(function(res) {
-					console.log("cleanup of _posts...");
+					console.log(&quot;cleanup of _posts...&quot;);
 					var i = 0;
 					$interval(function() {
-						if(res[i].type === "file") {
-							branch.remove(res[i].path, "deleted");
+						if(res[i].type === &quot;file&quot;) {
+							branch.remove(res[i].path, &quot;deleted&quot;);
 						} else {
-							console.log(res[i].path + " is a folder - delete the content instead");
+							console.log(res[i].path + &quot; is a folder - delete the content instead&quot;);
 							tick(res[i].path);
 						}
 						i++;
 					}, 1500, res.length);
 				}, function(err) {
-					$timeout(tick("_posts"), 1000);
+					$timeout(tick(&quot;_posts&quot;), 1000);
 				});
 			})();
 
@@ -281,7 +393,7 @@ myApp.service("GithubSrvc", function (
 			
 			if(githubInstance != null) {
 				var repo = githubInstance.getRepo(config.github.user, config.github.repository);
-				var branch = repo.getBranch("master");
+				var branch = repo.getBranch(&quot;master&quot;);
 				var self = this;
 
 				console.log(path);
@@ -307,8 +419,8 @@ myApp.service("GithubSrvc", function (
 					branch.contents(path).then(function(response) {
 						var res = JSON.parse(response);
 
-						for(var i=0; i<res.length;i++) {
-							if(res[i].type === "file") {
+						for(var i=0; i&lt;res.length;i++) {
+							if(res[i].type === &quot;file&quot;) {
 								filesPath.push(res[i].path);
 							} else {
 								foldersPath.push(res[i].path);
@@ -329,7 +441,7 @@ myApp.service("GithubSrvc", function (
 
 				return fileCountDeferred.promise;
 			} else {
-				readyPromise.reject("Could not init githubInstance");
+				readyPromise.reject(&quot;Could not init githubInstance&quot;);
 				return readyPromise.promise;
 			}
         },
@@ -344,7 +456,7 @@ myApp.service("GithubSrvc", function (
 			
 			var githubInstance = GithubAuthService.instance();
             var repo = githubInstance.getRepo(config.github.user, config.github.repository);
-            var branch = repo.getBranch("master");
+            var branch = repo.getBranch(&quot;master&quot;);
 						
 			var contents = {};
 			var i=1;
@@ -386,7 +498,7 @@ myApp.service("GithubSrvc", function (
 			var githubInstance = GithubAuthService.instance();
 			var repo = githubInstance.getRepo(UserModel.getUser().name, forkName);
 			return repo.git.deleteRef(branchName).then(function(result) {
-				console.log("deleted branch"+branchName);
+				console.log(&quot;deleted branch&quot;+branchName);
 				//that.renameBranch(forkName);
 			});
         },
@@ -400,9 +512,9 @@ myApp.service("GithubSrvc", function (
 			var that = this;
 			var githubInstance = GithubAuthService.instance();
 			var repo = githubInstance.getRepo(UserModel.getUser().name, forkName);
-			return repo.git.deleteRef("heads/master").then(function(result) {
-				console.log("deleted master branch");
-				//that.createBranch(forkName, "master");
+			return repo.git.deleteRef(&quot;heads/master&quot;).then(function(result) {
+				console.log(&quot;deleted master branch&quot;);
+				//that.createBranch(forkName, &quot;master&quot;);
 			});
         },
         /**
@@ -416,13 +528,13 @@ myApp.service("GithubSrvc", function (
 			var that = this;
 			var githubInstance = GithubAuthService.instance();
 			var repo = githubInstance.getRepo(UserModel.getUser().name, forkName);
-			console.log("switch to template branche");
-			var branch = repo.getBranch("template");
+			console.log(&quot;switch to template branche&quot;);
+			var branch = repo.getBranch(&quot;template&quot;);
 			var forkName = forkName;
-			console.log("create master branch from template");
-			return branch.createBranch("master").then(function() {
-				console.log("master branch created from template branch");
-                branch = repo.getBranch("master");
+			console.log(&quot;create master branch from template&quot;);
+			return branch.createBranch(&quot;master&quot;).then(function() {
+				console.log(&quot;master branch created from template branch&quot;);
+                branch = repo.getBranch(&quot;master&quot;);
 			});
         },
         /**
@@ -438,26 +550,26 @@ myApp.service("GithubSrvc", function (
             var content = this.getContent(path);
             var deferred = $q.defer();
             content.then(function(data) {
-                var configLine = data.content.split('\n');
-                var newConfigData = "";
-                for(var i = 0;i < configLine.length;i++){
-                    var split = configLine[i].split(":");
+                var configLine = data.content.split(&#x27;\n&#x27;);
+                var newConfigData = &quot;&quot;;
+                for(var i = 0;i &lt; configLine.length;i++){
+                    var split = configLine[i].split(&quot;:&quot;);
                     var replaceKey = split[0].trim();
                     var replaceHit = replace[replaceKey];
-                    if(typeof replaceHit != 'undefined') {
-                       console.log("HITTTTTT")
-                       newConfigData += split[0]+": "+replaceHit+"\n";
+                    if(typeof replaceHit != &#x27;undefined&#x27;) {
+                       console.log(&quot;HITTTTTT&quot;)
+                       newConfigData += split[0]+&quot;: &quot;+replaceHit+&quot;\n&quot;;
                     } else {
-                       newConfigData += configLine[i]+"\n";
+                       newConfigData += configLine[i]+&quot;\n&quot;;
                     }
                 }
                 //console.log(newConfigData);
                 var githubInstance = GithubAuthService.instance();
                 var repo = githubInstance.getRepo(UserModel.getUser().name, repositoryName);
-                var branch = repo.getBranch("master");
+                var branch = repo.getBranch(&quot;master&quot;);
                 var commitPromise = self.commit(newConfigData, path, branch, false);
                 commitPromise.then(function() {
-                    console.log("updated backend config data");
+                    console.log(&quot;updated backend config data&quot;);
                     deferred.resolve(newConfigData);
                 });
             });
@@ -475,7 +587,7 @@ myApp.service("GithubSrvc", function (
 			
 			if(githubInstance != null) {
 				var repo = githubInstance.getRepo(config.github.user, config.github.repository);
-				var branch = repo.getBranch("master");
+				var branch = repo.getBranch(&quot;master&quot;);
 				var contents = branch.read(path, false)
 
 				contents.then(function(result) {
@@ -483,7 +595,7 @@ myApp.service("GithubSrvc", function (
 				});
 				return deferred.promise;
 			} else {
-				deferred.reject("Could not init githubInstance");
+				deferred.reject(&quot;Could not init githubInstance&quot;);
 				return deferred.promise;
 			}
         },
@@ -502,7 +614,7 @@ myApp.service("GithubSrvc", function (
 			var deferred = $q.defer();
 			if(githubInstance != null) {
 				var repo = githubInstance.getRepo(config.github.user, config.github.repository);
-				var branch = repo.getBranch("master");
+				var branch = repo.getBranch(&quot;master&quot;);
 				var contents = branch.read(path, false)
 				
 				// if the content is ready, fill the editor, when the save button is clicked a promise is resolved...
@@ -513,7 +625,7 @@ myApp.service("GithubSrvc", function (
 				});
 				return deferred.promise;
 			} else {
-				deferred.reject("Could not init githubInstance");
+				deferred.reject(&quot;Could not init githubInstance&quot;);
 				return deferred.promise;
 			}
         },
@@ -528,13 +640,13 @@ myApp.service("GithubSrvc", function (
 		 * @return MemberExpression
 		 */
 		commit: function(text, path, branch, showMessage, force) {
-			if(typeof branch === 'undefined') {
+			if(typeof branch === &#x27;undefined&#x27;) {
 				var githubInstance = GithubAuthService.instance();
 				var repo = githubInstance.getRepo(config.github.user, config.github.repository);
-				branch = repo.getBranch("master");
+				branch = repo.getBranch(&quot;master&quot;);
 			}
 			var contents = {};
-            if(typeof text == 'string') {
+            if(typeof text == &#x27;string&#x27;) {
                 contents[path] = text;
             } else {
                contents = text;
@@ -542,13 +654,13 @@ myApp.service("GithubSrvc", function (
 
             var deferred = $q.defer();
 
-            branch.writeMany(contents, 'Save from GUI', force).then(function() {
+            branch.writeMany(contents, &#x27;Save from GUI&#x27;, force).then(function() {
                 deferred.resolve();
 				if(showMessage) {
-					$rootScope.$broadcast('Toast::githubCommitSuccess');
+					$rootScope.$broadcast(&#x27;Toast::githubCommitSuccess&#x27;);
 				}
             }, function(error) {
-                console.log("there was a commit error");
+                console.log(&quot;there was a commit error&quot;);
                 deferred.reject();
             });
             return deferred.promise;
@@ -565,16 +677,16 @@ myApp.service("GithubSrvc", function (
 		commitMany: function(posts, message, showMessage, force) {
 			var githubInstance = GithubAuthService.instance();
 			var repo = githubInstance.getRepo(config.github.user, config.github.repository);
-			var branch = repo.getBranch("master");
+			var branch = repo.getBranch(&quot;master&quot;);
 
             var deferred = $q.defer();
             branch.writeMany(posts, message, force).then(function() {
                 deferred.resolve();
 				if(showMessage) {
-					$rootScope.$broadcast('Toast::githubCommitSuccess');
+					$rootScope.$broadcast(&#x27;Toast::githubCommitSuccess&#x27;);
 				}
             }, function(error) {
-                console.log("there was a commit error");
+                console.log(&quot;there was a commit error&quot;);
                 deferred.reject();
             });
             return deferred.promise;
@@ -588,14 +700,14 @@ myApp.service("GithubSrvc", function (
         deleteContent: function(path) {
             var githubInstance = GithubAuthService.instance();
             var repo = githubInstance.getRepo(config.github.user, config.github.repository);
-            var branch = repo.getBranch("master");
-            return branch.remove(path, 'Deleted Post from GUI');
+            var branch = repo.getBranch(&quot;master&quot;);
+            return branch.remove(path, &#x27;Deleted Post from GUI&#x27;);
         }
     }
 });
 
 // Inspired by http://joelhooks.com/blog/2013/04/24/modeling-data-and-state-in-your-angularjs-application/
-myApp.service("UserModel", function ($rootScope) {
+myApp.service(&quot;UserModel&quot;, function ($rootScope) {
 	this.user = {};
     /**
      * Description
@@ -605,7 +717,7 @@ myApp.service("UserModel", function ($rootScope) {
      */
     var serializeUser = function(user) {
         var userJson = JSON.stringify(user);
-        localStorage.setItem("user", userJson);
+        localStorage.setItem(&quot;user&quot;, userJson);
     }
 
 	/**
@@ -616,7 +728,7 @@ myApp.service("UserModel", function ($rootScope) {
 	 */
 	this.setUserName = function(userName) {
 		this.user.name = userName;
-        $rootScope.$broadcast('UserModel::userLoggedIn');
+        $rootScope.$broadcast(&#x27;UserModel::userLoggedIn&#x27;);
         serializeUser(this.user);
 	};
     /**
@@ -647,7 +759,7 @@ myApp.service("UserModel", function ($rootScope) {
 	this.logout = function() {
 		this.user = {};
 		localStorage.clear();
-		$rootScope.$broadcast('UserModel::userLoggedOut');
+		$rootScope.$broadcast(&#x27;UserModel::userLoggedOut&#x27;);
 	}
 	/**
 	 * Description
@@ -655,8 +767,8 @@ myApp.service("UserModel", function ($rootScope) {
 	 * @return 
 	 */
 	this.getUser = function() {
-		var userString = localStorage.getItem("user");
-		if(typeof userString !== 'undefined') {
+		var userString = localStorage.getItem(&quot;user&quot;);
+		if(typeof userString !== &#x27;undefined&#x27;) {
 			var userObject = JSON.parse(userString);
 			return userObject;
 		} else {
@@ -668,7 +780,7 @@ myApp.service("UserModel", function ($rootScope) {
 /**
  This is a helper function
  **/
-myApp.service("UrlSrvc", function ($window) {
+myApp.service(&quot;UrlSrvc&quot;, function ($window) {
     /**
      * Description
      * @method getParams
@@ -693,9 +805,9 @@ $window.onpopstate = function () {
 			 */
 			var match,
 				pl     = /\+/g,  // Regex for replacing addition symbol with a space
-				search = /([^&=]+)=?([^&]*)/g,
-				decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-				query  = url.split('?')[1];
+				search = /([^&amp;=]+)=?([^&amp;]*)/g,
+				decode = function (s) { return decodeURIComponent(s.replace(pl, &quot; &quot;)); },
+				query  = url.split(&#x27;?&#x27;)[1];
 
 			urlParams = {};
 			while (match = search.exec(query))
@@ -720,14 +832,14 @@ $window.onpopstate = function () {
 	 * @return ObjectExpression
 	 */
 	var parseDateTitle = function (path) {	
-		var splif = path.split("-");
-		var title = ""
-		var date = splif[0].split("/")[1]+"-"+splif[1]+"-"+splif[2];
-		for(var i=3;i<splif.length;i++) {
+		var splif = path.split(&quot;-&quot;);
+		var title = &quot;&quot;
+		var date = splif[0].split(&quot;/&quot;)[1]+&quot;-&quot;+splif[1]+&quot;-&quot;+splif[2];
+		for(var i=3;i&lt;splif.length;i++) {
 			if(i!==splif.length-1) {
-				title += splif[i]+" ";
+				title += splif[i]+&quot; &quot;;
 			} else {
-				title += splif[i].split(".")[0];
+				title += splif[i].split(&quot;.&quot;)[0];
 			}
 		}
 		return {
@@ -743,7 +855,7 @@ $window.onpopstate = function () {
 	}
 });
 
-myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthService) {
+myApp.service(&quot;PollingSrvc&quot;, function ($q, $timeout, UserModel, GithubAuthService) {
         /**
          * Description
          * @method poll
@@ -752,7 +864,7 @@ myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthServic
          * @return MemberExpression
          */
         var poll = function (repoName, branchName) {
-        var resource = "README.md";
+        var resource = &quot;README.md&quot;;
         var deferred = $q.defer();
         // poll for availability - implement as promise, resolve as soon as it is available
 		var githubInstance = GithubAuthService.instance();
@@ -769,7 +881,7 @@ myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthServic
 		var restartPolling = function() {
 		    var promise = branch.read(resource,false);
 			promise.then(function(res) {
-				console.log("branch available")
+				console.log(&quot;branch available&quot;)
 				deferred.resolve();
 			}, function(err) {
 				/**
@@ -794,7 +906,7 @@ myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthServic
  * YamlSrvc can parse files with frontmatter (normal post)
  * and the _config.yaml without frontmatter
  */
-myApp.service("YamlSrvc", function () {
+myApp.service(&quot;YamlSrvc&quot;, function () {
     /**
      * Description
      * @method parse
@@ -805,45 +917,45 @@ myApp.service("YamlSrvc", function () {
 		var response = {};
 
         // if there is a frontmatter available (parsing of a post source code)...
-		var contentSplit = content.split("---");
+		var contentSplit = content.split(&quot;---&quot;);
         var lineSplit = 0;
 
         // different handle for _config.yml and normal sites
         if(contentSplit.length === 3) {
-            lineSplit = contentSplit[1].split("\n");
+            lineSplit = contentSplit[1].split(&quot;\n&quot;);
             // trim leading line breaks
-            var trimmedLinebreaks = contentSplit[2].replace(/^[\r\n]+|[\r\n]+$/g,'');
-            response["content"] = trimmedLinebreaks;
+            var trimmedLinebreaks = contentSplit[2].replace(/^[\r\n]+|[\r\n]+$/g,&#x27;&#x27;);
+            response[&quot;content&quot;] = trimmedLinebreaks;
         } else if(contentSplit.length === 1) {
-            response["content"] = contentSplit[0];
+            response[&quot;content&quot;] = contentSplit[0];
         }
 
-		var remember = "";
+		var remember = &quot;&quot;;
 
         // parse the text to an js object
-		for(var i=0; i<lineSplit.length; i++) {
-			if(lineSplit[i] !== "") {
-				var line = lineSplit[i].split(":");
-				if(line.length===2 && line[1].trim() !== "") {
+		for(var i=0; i&lt;lineSplit.length; i++) {
+			if(lineSplit[i] !== &quot;&quot;) {
+				var line = lineSplit[i].split(&quot;:&quot;);
+				if(line.length===2 &amp;&amp; line[1].trim() !== &quot;&quot;) {
                     // deal with boolean
                     var value = line[1].trim();
-                    if(value === "true" || value === "false") {
+                    if(value === &quot;true&quot; || value === &quot;false&quot;) {
 						// convert to a boolean object
-                        value = (line[1].trim() === 'true');
+                        value = (line[1].trim() === &#x27;true&#x27;);
                     } else {
 						value = line[1].trim();
 					}
                     response[line[0]] = value;
 				} else {
-					var element = line[0].split("-");
-                    var value = "";
+					var element = line[0].split(&quot;-&quot;);
+                    var value = &quot;&quot;;
 					if(element.length === 1) {
 						value = element[0].trim();
                         remember = value;
 						response[value] = [];
 					} else {
                         value = element[1].trim();
-                        if(value === "true" || value === "false") {
+                        if(value === &quot;true&quot; || value === &quot;false&quot;) {
                             value = Boolean(element[1].trim());
 						    response[remember].push(value);
                         }
@@ -861,26 +973,26 @@ myApp.service("YamlSrvc", function () {
 	 * @return response
 	 */
 	var create = function (content) {
-		var response = "---\n";
+		var response = &quot;---\n&quot;;
 		for (var key in content) {
-			if(key !== "content") {
-				response += key+":";
-				if (typeof content[key] === 'string'|| typeof content[key] === 'boolean') {
-					response += " "+content[key]+"\n";
+			if(key !== &quot;content&quot;) {
+				response += key+&quot;:&quot;;
+				if (typeof content[key] === &#x27;string&#x27;|| typeof content[key] === &#x27;boolean&#x27;) {
+					response += &quot; &quot;+content[key]+&quot;\n&quot;;
 				} else if(content[key].length!==0) {
-					for(var i=0; i<content[key].length; i++) {
-						response += "\n - "+content[key][i]+"\n";
+					for(var i=0; i&lt;content[key].length; i++) {
+						response += &quot;\n - &quot;+content[key][i]+&quot;\n&quot;;
 					}
 				} else {
-					response += "\n";
+					response += &quot;\n&quot;;
 				}
 			}
 		}
-		response += "---\n";
+		response += &quot;---\n&quot;;
 		// remove empty lines
-		response = response.replace(/^\s*\n/gm, "");
+		response = response.replace(/^\s*\n/gm, &quot;&quot;);
 		
-		response += content['content'];
+		response += content[&#x27;content&#x27;];
 		return response;
     };
 
@@ -891,14 +1003,14 @@ myApp.service("YamlSrvc", function () {
 	}
 });
 
-myApp.service("EditorSrvc", function () {
+myApp.service(&quot;EditorSrvc&quot;, function () {
     /**
      * Description
      * @method getEditorContent
      * @return MemberExpression
      */
     var getEditorContent = function() {
-        return $('#target-editor').markdown()[0].value;
+        return $(&#x27;#target-editor&#x27;).markdown()[0].value;
     };
 
     /**
@@ -908,7 +1020,7 @@ myApp.service("EditorSrvc", function () {
      * @return 
      */
     var showContentInEditor = function(editorContent) {
-        $('#target-editor').markdown({
+        $(&#x27;#target-editor&#x27;).markdown({
             savable:false,
             height:500,
             /**
@@ -918,11 +1030,11 @@ myApp.service("EditorSrvc", function () {
              * @return 
              */
             onFocus: function(e) {
-                console.log("editor focused")
+                console.log(&quot;editor focused&quot;)
             }
         });
-        $('#target-editor').val(editorContent);
-        $('#target-editor').show();
+        $(&#x27;#target-editor&#x27;).val(editorContent);
+        $(&#x27;#target-editor&#x27;).show();
     }
 
     return {
@@ -931,7 +1043,7 @@ myApp.service("EditorSrvc", function () {
     }
 });
 
-myApp.service("PollingImgSrvc", function ($q, $timeout) {
+myApp.service(&quot;PollingImgSrvc&quot;, function ($q, $timeout) {
 
     /**
      * Description
@@ -949,7 +1061,7 @@ myApp.service("PollingImgSrvc", function ($q, $timeout) {
          */
         var pollForImg = function() {
             if(!angular.isUndefined(repoName)) {
-                console.log("poll");
+                console.log(&quot;poll&quot;);
                 var img = new Image();
 
                 /**
@@ -958,7 +1070,7 @@ myApp.service("PollingImgSrvc", function ($q, $timeout) {
                  * @return 
                  */
                 img.onload = function () {
-                    console.log("yehh");
+                    console.log(&quot;yehh&quot;);
                     deferred.resolve();
                 }
                 /**
@@ -967,7 +1079,7 @@ myApp.service("PollingImgSrvc", function ($q, $timeout) {
                  * @return 
                  */
                 img.onerror = function () {
-                    console.log("oh noooo");
+                    console.log(&quot;oh noooo&quot;);
                     /**
                      * Description
                      * @method pollForImage
@@ -978,9 +1090,9 @@ myApp.service("PollingImgSrvc", function ($q, $timeout) {
                     }
                     $timeout(pollForImage, 30000);
                 }
-                img.src = "https://" + repoName + "/app/img/ping.gif";
+                img.src = &quot;https://&quot; + repoName + &quot;/app/img/ping.gif&quot;;
             } else {
-                return deferred.reject("fn should be called with a repoName")
+                return deferred.reject(&quot;fn should be called with a repoName&quot;)
             }
         }
         pollForImg();
@@ -990,7 +1102,7 @@ myApp.service("PollingImgSrvc", function ($q, $timeout) {
     return { checkReady: poll }
 });
 
-myApp.service("StyleSwitcher", function () {
+myApp.service(&quot;StyleSwitcher&quot;, function () {
 	return { 
 /**
   * Description
@@ -999,12 +1111,12 @@ myApp.service("StyleSwitcher", function () {
   * @return 
   */
  switch: function(styleName) {
-		console.log("switch to style: "+styleName);
-		if(typeof styleName!=='undefined' && styleName !== '') {
+		console.log(&quot;switch to style: &quot;+styleName);
+		if(typeof styleName!==&#x27;undefined&#x27; &amp;&amp; styleName !== &#x27;&#x27;) {
 			var i, link_tag ;
-			  for (i = 0, link_tag = document.getElementsByTagName("link") ;
-				i < link_tag.length ; i++ ) {
-				if ((link_tag[i].rel.indexOf( "stylesheet" ) != -1) &&
+			  for (i = 0, link_tag = document.getElementsByTagName(&quot;link&quot;) ;
+				i &lt; link_tag.length ; i++ ) {
+				if ((link_tag[i].rel.indexOf( &quot;stylesheet&quot; ) != -1) &amp;&amp;
 				  link_tag[i].title) {
 				  link_tag[i].disabled = true ;
 				  if (link_tag[i].title == styleName) {
@@ -1016,3 +1128,23 @@ myApp.service("StyleSwitcher", function () {
 	}}
 });
 
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

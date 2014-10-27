@@ -1,0 +1,142 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'smartcomments' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose cache add [ 'smartcomments', null ]
+5 verbose cache add name=undefined spec="smartcomments" args=["smartcomments",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'smartcomments',
+6 verbose parsed url   path: 'smartcomments',
+6 verbose parsed url   href: 'smartcomments' }
+7 silly lockFile 26c1152c-smartcomments smartcomments
+8 verbose lock smartcomments /Users/crunsh/.npm/26c1152c-smartcomments.lock
+9 silly lockFile 26c1152c-smartcomments smartcomments
+10 silly lockFile 26c1152c-smartcomments smartcomments
+11 verbose addNamed [ 'smartcomments', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 66c70d05-smartcomments smartcomments@
+14 verbose lock smartcomments@ /Users/crunsh/.npm/66c70d05-smartcomments.lock
+15 silly addNameRange { name: 'smartcomments', range: '*', hasData: false }
+16 verbose request where is /smartcomments
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id d5a94fc180126757
+19 verbose url raw /smartcomments
+20 verbose url resolving [ 'https://registry.npmjs.org/', './smartcomments' ]
+21 verbose url resolved https://registry.npmjs.org/smartcomments
+22 verbose request where is https://registry.npmjs.org/smartcomments
+23 info trying registry request attempt 1 at 23:03:19
+24 verbose etag "5LBJ41YOQV76XMI2P7LKGUIOO"
+25 http GET https://registry.npmjs.org/smartcomments
+26 http 304 https://registry.npmjs.org/smartcomments
+27 silly registry.get cb [ 304,
+27 silly registry.get   { date: 'Mon, 27 Oct 2014 22:03:19 GMT',
+27 silly registry.get     server: 'Apache',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'last-modified': 'Mon, 27 Oct 2014 22:03:20 GMT',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     etag: '"5LBJ41YOQV76XMI2P7LKGUIOO"',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-fra1234-FRA',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1414447399.732149,VS0,VE710',
+27 silly registry.get     vary: 'Accept',
+27 silly registry.get     'content-length': '0',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 verbose etag https://registry.npmjs.org/smartcomments from cache
+29 silly addNameRange number 2 { name: 'smartcomments', range: '*', hasData: true }
+30 silly addNameRange versions [ 'smartcomments',
+30 silly addNameRange   [ '0.1.0', '0.1.1', '0.2.0', '0.2.1', '0.3.0', '0.3.1', '0.3.2' ] ]
+31 verbose addNamed [ 'smartcomments', '0.3.2' ]
+32 verbose addNamed [ '0.3.2', '0.3.2' ]
+33 silly lockFile f2ea4e98-smartcomments-0-3-2 smartcomments@0.3.2
+34 verbose lock smartcomments@0.3.2 /Users/crunsh/.npm/f2ea4e98-smartcomments-0-3-2.lock
+35 silly lockFile f2ea4e98-smartcomments-0-3-2 smartcomments@0.3.2
+36 silly lockFile f2ea4e98-smartcomments-0-3-2 smartcomments@0.3.2
+37 silly lockFile 66c70d05-smartcomments smartcomments@
+38 silly lockFile 66c70d05-smartcomments smartcomments@
+39 silly resolved [ { name: 'smartcomments',
+39 silly resolved     version: '0.3.2',
+39 silly resolved     description: 'SmartComments, It\'s a tool that allow you to create implicit comments from javascript source code. You can integrate it with javascript documentation generators like YUIDocs.',
+39 silly resolved     author: { name: 'Dariel N. Vila', email: 'darielnoel@gmail.com' },
+39 silly resolved     engines: { node: '>=0.9.0' },
+39 silly resolved     keywords:
+39 silly resolved      [ 'generator',
+39 silly resolved        'comments',
+39 silly resolved        'documentation',
+39 silly resolved        'yuidocs',
+39 silly resolved        'docs',
+39 silly resolved        'automatic' ],
+39 silly resolved     bin: { smartcomments: './bin/smartcomments' },
+39 silly resolved     dependencies:
+39 silly resolved      { underscore: '>=1.6.0',
+39 silly resolved        esprima: '>=1.0.4',
+39 silly resolved        eswalker: '>=0.1.2',
+39 silly resolved        'fs-extra': '>=0.6.4' },
+39 silly resolved     devDependencies: {},
+39 silly resolved     preferGlobal: 'true',
+39 silly resolved     license: 'BSD',
+39 silly resolved     repository:
+39 silly resolved      { type: 'git',
+39 silly resolved        url: 'https://github.com/smartcomments/smartcomments.git' },
+39 silly resolved     bugs: { url: 'https://github.com/smartcomments/smartcomments/issues' },
+39 silly resolved     homepage: 'https://github.com/smartcomments/smartcomments',
+39 silly resolved     _id: 'smartcomments@0.3.2',
+39 silly resolved     dist:
+39 silly resolved      { shasum: '51be0a58ee3b8c129d86ddd1a21269a32505a1a8',
+39 silly resolved        tarball: 'http://registry.npmjs.org/smartcomments/-/smartcomments-0.3.2.tgz' },
+39 silly resolved     _from: 'smartcomments@',
+39 silly resolved     _npmVersion: '1.4.3',
+39 silly resolved     _npmUser: { name: 'darielnoel', email: 'darielnoel@gmail.com' },
+39 silly resolved     maintainers: [ [Object] ],
+39 silly resolved     directories: {},
+39 silly resolved     _shasum: '51be0a58ee3b8c129d86ddd1a21269a32505a1a8',
+39 silly resolved     _resolved: 'https://registry.npmjs.org/smartcomments/-/smartcomments-0.3.2.tgz',
+39 silly resolved     readme: 'ERROR: No README data found!' } ]
+40 info install smartcomments@0.3.2 into /usr/local/lib
+41 info installOne smartcomments@0.3.2
+42 verbose lib/node_modules/smartcomments unbuild
+43 verbose tar unpack /Users/crunsh/.npm/smartcomments/0.3.2/package.tgz
+44 silly lockFile 8bbdf785-l-lib-node-modules-smartcomments tar:///usr/local/lib/node_modules/smartcomments
+45 verbose lock tar:///usr/local/lib/node_modules/smartcomments /Users/crunsh/.npm/8bbdf785-l-lib-node-modules-smartcomments.lock
+46 silly lockFile 30a797fd--smartcomments-0-3-2-package-tgz tar:///Users/crunsh/.npm/smartcomments/0.3.2/package.tgz
+47 verbose lock tar:///Users/crunsh/.npm/smartcomments/0.3.2/package.tgz /Users/crunsh/.npm/30a797fd--smartcomments-0-3-2-package-tgz.lock
+48 silly gunzTarPerm modes [ '755', '644' ]
+49 error Error: EACCES, mkdir '/usr/local/lib/node_modules/smartcomments'
+49 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/smartcomments']
+49 error   errno: 3,
+49 error   code: 'EACCES',
+49 error   path: '/usr/local/lib/node_modules/smartcomments',
+49 error   fstream_type: 'Directory',
+49 error   fstream_path: '/usr/local/lib/node_modules/smartcomments',
+49 error   fstream_class: 'DirWriter',
+49 error   fstream_stack:
+49 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+49 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+49 error      'Object.oncomplete (fs.js:107:15)' ] }
+50 error Please try running this command again as root/Administrator.
+51 error System Darwin 14.0.0
+52 error command "node" "/usr/local/bin/npm" "install" "-g" "smartcomments"
+53 error cwd /Users/crunsh/Documents/maltretieren.github.com/app/js
+54 error node -v v0.10.32
+55 error npm -v 1.4.28
+56 error path /usr/local/lib/node_modules/smartcomments
+57 error fstream_path /usr/local/lib/node_modules/smartcomments
+58 error fstream_type Directory
+59 error fstream_class DirWriter
+60 error code EACCES
+61 error errno 3
+62 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/smartcomments'
+63 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+63 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+63 error fstream_stack Object.oncomplete (fs.js:107:15)
+64 verbose exit [ 3, true ]

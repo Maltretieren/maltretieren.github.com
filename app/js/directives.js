@@ -8,6 +8,15 @@ myApp.directive('inputtext', function ($timeout) {
         scope: { 
         	//if there were attributes it would be shown here
         },
+        /**
+         * Description
+         * @method link
+         * @param {} scope
+         * @param {} element
+         * @param {} attrs
+         * @param {} ctrl
+         * @return 
+         */
         link:function (scope, element, attrs, ctrl) {
         	// DOM manipulation may happen here.      
         }
@@ -27,7 +36,21 @@ myApp.directive('checkList', function() {
       list: '=checkList',
       value: '@'
     },
+    /**
+     * Description
+     * @method link
+     * @param {} scope
+     * @param {} elem
+     * @param {} attrs
+     * @return 
+     */
     link: function(scope, elem, attrs) {
+      /**
+       * Description
+       * @method handler
+       * @param {} setup
+       * @return 
+       */
       var handler = function(setup) {
         var checked = elem.prop('checked');
         var index = scope.list.indexOf(scope.value);
