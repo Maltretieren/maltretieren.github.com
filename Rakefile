@@ -28,7 +28,7 @@ namespace :my_tasks do
         puts "\n## You should see a yyyy-mm-dd-documentation.md file in _posts/documentation"
         system("ls -la _posts/documentation")
 
-        system("git checkout master")
+        system("git checkout -b master")
         puts "\n## git add"
         system("git add _posts/*")
         puts "\n## git commit"
