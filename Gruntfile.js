@@ -105,6 +105,6 @@ module.exports = function(grunt) {
     // Add a new task for travis
     grunt.registerTask('devmode', ['jsdoc2md', 'karma:unit', 'watch'])
     grunt.registerTask('testLocally', ['karma:unit', 'watch'])
-    grunt.registerTask('test', ['karma:travis', 'protractor:saucelabs'])
+    grunt.registerTask('test', ['karma:travis', 'jsdoc2md', 'protractor:saucelabs'])
     grunt.registerTask('doc', ['jsdoc2md'])
 };
