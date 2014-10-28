@@ -24,8 +24,9 @@ namespace :my_tasks do
 		})).process
 	end
 
+	desc "Push generated documentation to the repo"
     task :commitDocumentation do
-        puts "\n## You should see a yyyy-mm-dd-documentation.md file in here."
+        puts "\n## You should see a yyyy-mm-dd-documentation.md file in _posts/documentation"
         system("ls -la _posts/documentation")
         system("git add _posts/documentation/*")
         system("git commit -m '[skip ci] added documentation')
