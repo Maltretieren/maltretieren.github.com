@@ -31,7 +31,7 @@ namespace :my_tasks do
         puts "\n## git add"
         system("git add _posts/*")
         puts "\n## git commit"
-        git merge my-temporary-work
+        system("git commit -m '[skip ci] added documentation'")
         puts "\n## git push"
         system("git push origin master")
     end
