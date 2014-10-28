@@ -27,8 +27,11 @@ namespace :my_tasks do
     task :commitDocumentation do
         puts "\n## You should see a yyyy-mm-dd-documentation.md file in _posts/documentation"
         system("ls -la _posts/documentation")
+        puts "\n## git add"
         system("git add _posts/documentation/*")
+        puts "\n## git commit"
         system("git commit -m '[skip ci] added documentation'")
+        puts "\n## git push"
         system("git push origin master")
     end
 
