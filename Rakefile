@@ -27,11 +27,13 @@ namespace :my_tasks do
     task :commitDocumentation do
         puts "\n## You should see a yyyy-mm-dd-documentation.md file in _posts/documentation"
         system("ls -la _posts/documentation")
-        system("git checkout -b master")
         puts "\n## git add"
         system("git add _posts/*")
         puts "\n## git commit"
         system("git commit -m '[skip ci] added documentation'")
+        system("git branch my-temporary-work")
+        system("git checkout master")
+        system("git merge my-temporary-work")
         puts "\n## git push"
         system("git push origin master")
     end
