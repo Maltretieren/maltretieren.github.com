@@ -54,16 +54,6 @@ module.exports = function(grunt) {
 				dest: "documentation.md"
             }
         },
-        gitcommit: {
-            your_target: {
-                options: {
-                    // Target-specific options go here.
-                },
-                files: {
-                    "_posts/documentation/"
-                }
-            }
-        },
         coveralls: {
             options: {
                 // LCOV coverage file relevant to every target
