@@ -42,6 +42,7 @@ namespace :my_tasks do
 	end
 	
 	task :commitDocumentation do
+		puts "\n## You should see a yyyy-mm-dd-documentation.md file in here."
 		system("ls -la _posts/documentation")
 	end
 	
@@ -96,4 +97,4 @@ namespace :my_tasks do
 end
 
 # first generate the site to see if jekyll is working - after that test the JavaScript code...
-task :default => ["my_tasks:generate", "my_tasks:coverageResultTest", "my_tasks:deploy", "my_tasks:lintConfig"]
+task :default => ["my_tasks:generate", "my_tasks:coverageResultTest", "my_tasks:deploy", "my_tasks:commitDocumentation", "my_tasks:lintConfig"]
