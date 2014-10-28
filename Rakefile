@@ -23,7 +23,12 @@ namespace :my_tasks do
 			"destination" => "_site"
 		})).process
 	end
-	
+
+    task :commitDocumentation do
+        puts "\n## You should see a yyyy-mm-dd-documentation.md file in here."
+        system("ls -la _posts/documentation")
+    end
+
 	desc "Test if the test coverage report files where generated correctly"
 	task :coverageResultTest do
 		puts "\n## You should see a lcov.info file in here. The file size should be greate than zero bytes :)"
@@ -39,17 +44,6 @@ namespace :my_tasks do
 		#puts system "bash -c #{escaped_command}"
 		#output = `cat coverage/report/lcov.info`
         #puts output
-	end
-	
-	task :commitDocumentation do
-		puts "\n## You should see a yyyy-mm-dd-documentation.md file in here."
-		system("ls -la _posts")
-		puts "\n## You should see a yyyy-mm-dd-documentation.md file in here."
-		system("ls -la _posts/documentation")
-		puts "\n## You should see a yyyy-mm-dd-documentation.md file in here."
-		system("ls -la _posts/documentation/")
-		puts "\n## Folder Structure"
-		system("ls -la .")
 	end
 	
 	task :deploy do
@@ -103,4 +97,4 @@ namespace :my_tasks do
 end
 
 # first generate the site to see if jekyll is working - after that test the JavaScript code...
-task :default => ["my_tasks:generate", "my_tasks:coverageResultTest", "my_tasks:deploy", "my_tasks:commitDocumentation", "my_tasks:lintConfig"]
+task :default => ["my_tasks:generate", "my_tasks:coverageResultTest", "my_tasks:commitDocumentation", "my_tasks:deploy", "my_tasks:lintConfig"]
