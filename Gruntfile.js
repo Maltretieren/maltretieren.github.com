@@ -35,16 +35,14 @@ module.exports = function(grunt) {
                 tasks: ['karma:unit:run']
             }
         },
-        yuidoc: {
-            name: '<%= pkg.name %>',
-            description: '<%= pkg.description %>',
-            version: '<%= pkg.version %>',
-            url: '<%= pkg.homepage %>',
-            options: {
-                paths: ['./app/js'],
-                outdir: './assets/docs/'
-            }
-        },
+		jsdoc : {
+			dist : {
+				src: ['app/js/*.js'], 
+				options: {
+					destination: 'asstes/doc'
+				}
+			}
+		},
         coveralls: {
             options: {
                 // LCOV coverage file relevant to every target
