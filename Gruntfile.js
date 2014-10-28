@@ -51,7 +51,17 @@ module.exports = function(grunt) {
 					template: 'tests/templates/documentation.hbs'
                 },
                 src: "app/js/*.js",
-				dest: "_posts/documentation/"+grunt.template.today('yyyy-mm-dd')+"-documentation.md"
+				dest: "_posts/documentation/documentation.md"
+            }
+        },
+        gitcommit: {
+            your_target: {
+                options: {
+                    // Target-specific options go here.
+                },
+                files: {
+                    "_posts/documentation/"
+                }
             }
         },
         coveralls: {
