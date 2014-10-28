@@ -41,6 +41,10 @@ namespace :my_tasks do
         #puts output
 	end
 	
+	task :commitDocumentation do
+		system("ls -la _posts/documentation")
+	end
+	
 	task :deploy do
 	  puts "\n## Deleting template branch"
 	  status = system("git push origin --delete template")

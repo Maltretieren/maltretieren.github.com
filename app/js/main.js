@@ -6,8 +6,6 @@
 
     /**
      * Description
-     * @method LABjsLoaded
-     * @return 
      */
     function LABjsLoaded() {
          // Load the scripts. All scripts depend on jQuery. Then,
@@ -71,8 +69,6 @@
         scriptElem.onload = 
 /**
   * Description
-  * @method onreadystatechange
-  * @return 
   */
  scriptElem.onreadystatechange = function () {
             if ((scriptElem.readyState && scriptElem.readyState !== "complete" && scriptElem.readyState !== "loaded") || scriptdone) {
@@ -92,7 +88,6 @@
         oDOC.addEventListener("DOMContentLoaded", 
 /**
   * Description
-  * @return 
   */
  handler = function () {
             oDOC.removeEventListener("DOMContentLoaded", handler, false);

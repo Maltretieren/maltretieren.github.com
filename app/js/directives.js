@@ -10,12 +10,6 @@ myApp.directive('inputtext', function ($timeout) {
         },
         /**
          * Description
-         * @method link
-         * @param {} scope
-         * @param {} element
-         * @param {} attrs
-         * @param {} ctrl
-         * @return 
          */
         link:function (scope, element, attrs, ctrl) {
         	// DOM manipulation may happen here.      
@@ -38,18 +32,10 @@ myApp.directive('checkList', function() {
     },
     /**
      * Description
-     * @method link
-     * @param {} scope
-     * @param {} elem
-     * @param {} attrs
-     * @return 
      */
     link: function(scope, elem, attrs) {
       /**
        * Description
-       * @method handler
-       * @param {} setup
-       * @return 
        */
       var handler = function(setup) {
         var checked = elem.prop('checked');

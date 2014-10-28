@@ -10,8 +10,6 @@
 /**
  * Receive a complete list of all comments
  *
- * @class CommentsCtrl
- * @constructor
  */
 myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toaster, UserModel) {
 	var commentsUrl = config.keenio.comments_url;
@@ -43,20 +41,12 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
     } else {
         $scope.filterString = '&filters=[{"property_name":"pageTitle","operator":"eq","property_value":"'+document.title+'"}]';
     }
-    /**
-     * Description
-     * @method more
-     * @return 
-     */
+
     $scope.more = function() {
         $scope.quantity += 3;
     }
 	
-    /**
-     * Description
-     * @method getComments
-     * @return 
-     */
+
     $scope.getComments = function() {
 		$http({method: 'GET', url: commentsUrl+$scope.filterString})
         .success(function(data, status, headers, config) {
@@ -76,9 +66,6 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
     $scope.sortorder = 'created_at';
 	/**
 	 * Description
-	 * @method deleteComment
-	 * @param {} event
-	 * @return 
 	 */
 	$scope.deleteComment = function(event) {
 		var cId = event.target.id;
@@ -95,8 +82,6 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
 	// comments form
 	/**
 	 * Description
-	 * @method submit
-	 * @return 
 	 */
 	$scope.submit = function() {
 		var data = {
@@ -109,8 +94,6 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
 
 		/**
 		 * Description
-		 * @method success
-		 * @return 
 		 */
 		var success = function() {
 			toaster.pop('success', "Comment saved", 'Comment was saved and will be available shortly', 5000, 'trustedHtml');
@@ -119,8 +102,6 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
 		}
 		/**
 		 * Description
-		 * @method error
-		 * @return 
 		 */
 		var error = function() {
 			toaster.pop('error', "Comment failed", 'There was an error while saving the comment', 5000, 'trustedHtml');
@@ -138,8 +119,6 @@ myApp.controller("KeenioMasterCtrl", function ($scope, $modalInstance, $http, to
 	
 	/**
 	 * Description
-	 * @method cancel
-	 * @return 
 	 */
 	$scope.cancel = function(){
 		$modalInstance.dismiss('canceled');  
@@ -147,8 +126,6 @@ myApp.controller("KeenioMasterCtrl", function ($scope, $modalInstance, $http, to
 	
 	/**
 	 * Description
-	 * @method save
-	 * @return 
 	 */
 	$scope.save = function() {
 		$scope.masterKey = $scope.user.name;
@@ -171,14 +148,11 @@ myApp.controller("KeenioMasterCtrl", function ($scope, $modalInstance, $http, to
 /**
  * Receive a complete list of all comments
  *
- * @class WikiquoteCtrl
- * @constructor
  */
 myApp.controller("WikiquoteCtrl",function ($scope) {
     /**
      * Description
-     * @method wikiquote
-     * @return 
+
      */
     var wikiquote = function() {
         WikiquoteApi.getRandomQuote("Programming|Computer",
@@ -196,8 +170,6 @@ myApp.controller("WikiquoteCtrl",function ($scope) {
 /**
  * Function for table sort and search
  *
- * @class TableCtrl
- * @constructor
  */
 myApp.controller("TableCtrl",function ($scope, $http) {
     var postsUrl = "/postsFrontpage.json";
@@ -222,15 +194,11 @@ myApp.controller("TableCtrl",function ($scope, $http) {
 /**
  * GithubModalCtrl
  *
- * @class GithubModalCtrl
- * @constructor
  */
 myApp.controller("GithubModalCtrl", function ($scope, $modalInstance, UserModel, GithubAuthService, GithubSrvc) {
 	$scope.user = {}
 	/**
 	 * Description
-	 * @method cancel
-	 * @return 
 	 */
 	$scope.cancel = function(){
 		$modalInstance.dismiss('canceled');  
@@ -238,8 +206,6 @@ myApp.controller("GithubModalCtrl", function ($scope, $modalInstance, UserModel,
 	
 	/**
 	 * Description
-	 * @method save
-	 * @return 
 	 */
 	$scope.save = function() {
         console.log($scope.user.name);
@@ -260,8 +226,6 @@ myApp.controller("GithubModalCtrl", function ($scope, $modalInstance, UserModel,
 /**
  * itHub controller using the GitHub service
  *
- * @class GithubCtrl
- * @constructor
  */
 myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, UrlSrvc, UserModel, GithubSrvc, GithubAuthService) {
 	// login by the owner of the repository: edits on the blog are possible
@@ -282,8 +246,6 @@ myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, Url
 	(
 /**
  * Description
- * @method login
- * @return 
  */
 $scope.login = function() {
 		var user = UserModel.getUser();
@@ -319,8 +281,6 @@ $scope.login = function() {
 	// Request a login code from github if the user presses the login button
 	/**
 	 * Description
-	 * @method requestCode
-	 * @return 
 	 */
 	$scope.requestCode = function() {
 		if($scope.githubLogin) {
@@ -338,8 +298,6 @@ $scope.login = function() {
 	// logout - this is not really a logout from github, but the access token is deleted
 	/**
 	 * Description
-	 * @method logout
-	 * @return 
 	 */
 	$scope.logout = function() {
 		GithubAuthService.logout();
@@ -364,19 +322,12 @@ myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster)
 	$scope.inputs = config,
     /**
      * Description
-     * @method setOutput
-     * @param {} key
-     * @param {} key2
-     * @param {} newValue
-     * @return 
      */
     $scope.setOutput = function(key, key2, newValue) {
         $scope.inputs[key][key2] = newValue;
     }
 	/**
 	 * Description
-	 * @method saveFrontendConfig
-	 * @return 
 	 */
 	$scope.saveFrontendConfig = function() {
 		var config = "var config = "+JSON.stringify($scope.inputs);
@@ -388,8 +339,6 @@ myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster)
 	}
     /**
      * Description
-     * @method saveBackendConfig
-     * @return 
      */
     $scope.saveBackendConfig = function() {
         console.log("save backend config");
@@ -425,8 +374,6 @@ myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster)
 /**
  * For popup messages
  *
- * @class ToasterController
- * @constructor
  */
 myApp.controller('ToasterController', function($scope, toaster) {
     // save a reference to the current scope...
@@ -443,9 +390,6 @@ myApp.controller('ToasterController', function($scope, toaster) {
 	
 	/**
 	 * Description
-	 * @method pop
-	 * @param {} toast
-	 * @return 
 	 */
 	$scope.pop = function(toast){
 		toaster.pop(toast.type, toast.title, toast.message, 5000, 'trustedHtml');
@@ -454,8 +398,6 @@ myApp.controller('ToasterController', function($scope, toaster) {
     
     /**
      * Description
-     * @method clear
-     * @return 
      */
     $scope.clear = function(){
         toaster.clear();
@@ -465,8 +407,6 @@ myApp.controller('ToasterController', function($scope, toaster) {
 /**
  * Fork functionality
  *
- * @class GithubForkCtrl
- * @constructor
  */
 myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster, UserModel, StyleSwitcher, GithubSrvc, GithubAuthService, PollingSrvc, PollingImgSrvc) {
 	var scope = $scope;
@@ -494,8 +434,6 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
 
     /**
      * This checks if the repo already exists
-     * @method checkUnique
-     * @return 
      */
     var checkUnique = function() {
         var url = "";
@@ -510,15 +448,10 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
 
             /**
              * Description
-             * @method onload
-             * @return 
              */
             this.img.onload = function() {_good();};
             /**
              * Description
-             * @method onerror
-             * @param {} e
-             * @return 
              */
             this.img.onerror = function(e) { error(e);};
 
@@ -526,8 +459,6 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
 
             /**
              * Description
-             * @method good
-             * @return 
              */
             var good= function() {
                 console.log("yehh");
@@ -535,9 +466,6 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
 
             /**
              * Description
-             * @method error
-             * @param {} e
-             * @return 
              */
             var error= function(e) {
                 console.log("oh noooo");
@@ -553,8 +481,6 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
 	// change theme
 	/**
 	 * Description
-	 * @method switchTheme
-	 * @return 
 	 */
 	var switchTheme = function() {
 		StyleSwitcher.switch($scope.options.selectedTheme.name);
@@ -576,8 +502,6 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
 
     /**
      * Description
-     * @method fork
-     * @return 
      */
     $scope.fork = function() {
         var forkName = $scope.options.forkName;
@@ -638,8 +562,6 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
 
             /**
              * Description
-             * @method modifiyConfig
-             * @return 
              */
             var modifiyConfig = function() {
                 var configMod = {}
@@ -681,8 +603,6 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
             var commitPromise = $q.defer();
             /**
              * Description
-             * @method modifiyConfig
-             * @return 
              */
             var modifiyConfig = function() {
                 var githubInstance = GithubAuthService.instance();
@@ -715,10 +635,6 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
 	
 	/**
 	 * Description
-	 * @method pop
-	 * @param {} title
-	 * @param {} text
-	 * @return 
 	 */
 	$scope.pop = function(title, text){
 		toaster.pop('success', title, text, 5000, 'trustedHtml');
@@ -729,8 +645,6 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
  /**
  *	This controller unlocks/lock admin functionality
  *
- * @class GithubForkCtrl
- * @constructor
  */
 myApp.controller('AdminCtrl', function($scope, UserModel) {
 	// binding to hide the edit button for non-admin users...
@@ -745,8 +659,6 @@ myApp.controller('AdminCtrl', function($scope, UserModel) {
 /**
 * This controller exports/imports post as a zip
 *
-* @class ExportCtrl
-* @constructor
 */
 myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 	// binding to hide the edit button for non-admin users...
@@ -770,9 +682,7 @@ myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 	});
 	
     /**
-     * Description
-     * @method zip
-     * @return 
+     * Description 
      */
     $scope.zip = function() {
 		var filePromise = GithubSrvc.getFiles($scope.exportSelection);
@@ -802,8 +712,6 @@ myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 	
 	/**
 	 * Description
-	 * @method selectAllExport
-	 * @return 
 	 */
 	$scope.selectAllExport = function() {
         console.log($scope.export);
@@ -811,8 +719,6 @@ myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
     }
 	/**
 	 * Description
-	 * @method unselectAllExport
-	 * @return 
 	 */
 	$scope.unselectAllExport = function() {
 		$scope.exportSelection = [];
@@ -822,8 +728,6 @@ myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 /**
  *	This controller imports posts from a zip archive
  *
- * @class ImportCtrl
- * @constructor
  */
 myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
     // binding to hide the edit button for non-admin users...
@@ -837,8 +741,6 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
     var importValue = [];
     /**
      * Description
-     * @method add
-     * @return 
      */
     $scope.add = function(){
         var f = document.getElementById('file').files[0],
@@ -847,9 +749,6 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
 
         /**
          * Description
-         * @method onloadend
-         * @param {} e
-         * @return 
          */
         r.onloadend = function(e){
             var data = e.target.result;
@@ -872,8 +771,6 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
 
     /**
      * Description
-     * @method selectAllImport
-     * @return 
      */
     $scope.selectAllImport = function() {
         //console.log($scope.import);
@@ -882,8 +779,6 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
     }
     /**
      * Description
-     * @method unselectAllImport
-     * @return 
      */
     $scope.unselectAllImport = function() {
         $scope.importSelection = [];
@@ -891,9 +786,6 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
 
     /**
      * Description
-     * @method showContent
-     * @param {} selected
-     * @return 
      */
     $scope.showContent = function(selected) {
         console.log(selected);
@@ -910,8 +802,6 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
 
     /**
      * Description
-     * @method doImport
-     * @return 
      */
     $scope.doImport = function() {
         var importObject = {};
@@ -928,10 +818,6 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
 
     /**
      * Description
-     * @method endsWith
-     * @param {} str
-     * @param {} suffix
-     * @return BinaryExpression
      */
     function endsWith(str, suffix) {
         return str.indexOf(suffix, str.length - suffix.length) !== -1;
@@ -941,8 +827,6 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
 /**
  *	This controller manages edits on content on github
  *
- * @class GithubEditCtrl
- * @constructor
  */
 myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeout, toaster, YamlSrvc, UserModel, UrlSrvc, GithubSrvc, hotkeys) {
     var scope = $scope;
@@ -959,8 +843,6 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
         /**
          * Description
-         * @method callback
-         * @return 
          */
         callback: function() {
             console.info("hotkey strg+s detected");
@@ -971,9 +853,6 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 	// styling for tags / categories labels
     /**
      * Description
-     * @method getTagClass
-     * @param {} city
-     * @return Literal
      */
     $scope.getTagClass = function(city) {
         return 'label label-primary';
@@ -1010,8 +889,6 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 	var savePromise = $q.defer();
 	/**
 	 * Description
-	 * @method save
-	 * @return 
 	 */
 	$scope.save = function() {
 		console.info("saving editor content...");
@@ -1050,8 +927,6 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
     // redirect to normal calling page immediately
     /**
      * Description
-     * @method cancel
-     * @return 
      */
     $scope.cancel = function() {
         console.log("cancel edit...and redirect ");
@@ -1065,9 +940,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 
     $scope.confirmed = 'You have yet to be confirmed!';
     /**
-     * Description
-     * @method delete
-     * @return 
+     * Description 
      */
     $scope.delete = function() {
         console.log("delete....");
@@ -1089,8 +962,6 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 	// date picker
     /**
      * Description
-     * @method today
-     * @return 
      */
     $scope.today = function() {
         $scope.options.date = new Date();
@@ -1106,8 +977,6 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 
     /**
      * Description
-     * @method clear
-     * @return 
      */
     $scope.clear = function () {
         $scope.options.date = null;
@@ -1115,9 +984,6 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 
     /**
      * Description
-     * @method open
-     * @param {} $event
-     * @return 
      */
     $scope.open = function($event) {
         $event.preventDefault();
@@ -1137,16 +1003,11 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 /**
  *	Star rating
  *
- * @class RatingCtrl
- * @constructor
  */
 myApp.controller('RatingCtrl', function($scope) {
     var ratyElements =  $('.raty');
     /**
      * Description
-     * @method success
-     * @param {} data
-     * @return 
      */
     var success = function (data) {
         alert("success");
@@ -1156,10 +1017,6 @@ myApp.controller('RatingCtrl', function($scope) {
             path: 'assets/js/raty/images',
             /**
              * Description
-             * @method click
-             * @param {} score
-             * @param {} evt
-             * @return 
              */
             click: function(score, evt) {
                 accessoireRating(this.id, score);
@@ -1170,8 +1027,6 @@ myApp.controller('RatingCtrl', function($scope) {
 
     /**
      * Description
-     * @method getRatings
-     * @return 
      */
     var getRatings = function() {
         var url = "https://api.keen.io/3.0/projects/532b3e5a00111c0da1000006/queries/average?" +
@@ -1181,9 +1036,6 @@ myApp.controller('RatingCtrl', function($scope) {
 				"5e6a&event_collection=accessoires&timezone=3600&target_property=rating&group_by=id"
         /**
          * Description
-         * @method success
-         * @param {} data
-         * @return 
          */
         var success = function (data) {
             for(i=0;i<data.result.length;i++)
@@ -1198,10 +1050,6 @@ myApp.controller('RatingCtrl', function($scope) {
                     path: 'assets/js/raty/images',
                     /**
                      * Description
-                     * @method click
-                     * @param {} score
-                     * @param {} evt
-                     * @return 
                      */
                     click: function(score, evt) {
                         accessoireRating(this.id, score);

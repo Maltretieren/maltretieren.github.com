@@ -24,7 +24,7 @@
     "grunt-contrib-watch": "0.6.1",
     "grunt-contrib-connect": "0.8.0",
     "grunt-saucelabs": "8.3.2",
-    "grunt-jsdoc": "0.5.7",
+	"grunt-jsdoc-to-markdown": "0.4.2",
     "smartcomments": "0.3.2",
     "selenium-webdriver": "2.43.5"
   },

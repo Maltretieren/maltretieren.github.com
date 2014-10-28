@@ -39,10 +39,21 @@ module.exports = function(grunt) {
 			dist : {
 				src: ['app/js/*.js'], 
 				options: {
-					destination: 'asstes/doc'
+					destination: 'assets/docs'
 				}
 			}
 		},
+		
+		// jsdoc in markdown language - format suitable for github pages...
+        jsdoc2md: {
+			withOptions: {
+                options: {
+					template: 'assets/docu/template.hbs'
+                },
+                src: "app/js/*.js",
+				dest: "_posts/documentation/"+grunt.template.today('yyyy-mm-dd')+"-documentation.md"
+            }
+        },
         coveralls: {
             options: {
                 // LCOV coverage file relevant to every target
@@ -92,7 +103,7 @@ module.exports = function(grunt) {
 
     
     // Add a new task for travis
-    grunt.registerTask('devmode', ['yuidoc', 'karma:unit', 'watch'])
+    grunt.registerTask('devmode', ['jsdoc2md', 'karma:unit', 'watch'])
     grunt.registerTask('testLocally', ['karma:unit', 'watch'])
     grunt.registerTask('test', ['karma:travis', 'protractor:saucelabs'])
 };
