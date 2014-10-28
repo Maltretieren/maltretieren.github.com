@@ -45,10 +45,11 @@ module.exports = function(grunt) {
 		},
 		
 		// jsdoc in markdown language - format suitable for github pages...
+		// this uses handlebars templates
         jsdoc2md: {
 			withOptions: {
                 options: {
-					template: 'assets/docu/template.hbs'
+					template: 'tests/templates/documentation.hbs'
                 },
                 src: "app/js/*.js",
 				dest: "_posts/documentation/"+grunt.template.today('yyyy-mm-dd')+"-documentation.md"
