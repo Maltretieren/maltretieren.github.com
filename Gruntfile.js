@@ -6,6 +6,9 @@ module.exports = function(grunt) {
     }]
     
     grunt.initConfig({
+        // this is for yuidocs
+        pkg: grunt.file.readJSON('package.json'),
+
         karma: {
             // Add a new travis ci karma configuration
             // configs here override those in our existing karma.conf.js
@@ -30,6 +33,16 @@ module.exports = function(grunt) {
             karma: {
                 files: ['tests/unit/**/*.test.js'],
                 tasks: ['karma:unit:run']
+            }
+        },
+        yuidoc: {
+            name: '<%= pkg.name %>',
+            description: '<%= pkg.description %>',
+            version: '<%= pkg.version %>',
+            url: '<%= pkg.homepage %>',
+            options: {
+                paths: ['./app/js'],
+                outdir: './assets/docs/'
             }
         },
         coveralls: {
@@ -81,7 +94,7 @@ module.exports = function(grunt) {
 
     
     // Add a new task for travis
-    grunt.registerTask('devmode', ['karma:unit', 'watch'])
+    grunt.registerTask('devmode', ['yuidoc', 'karma:unit', 'watch'])
     grunt.registerTask('testLocally', ['karma:unit', 'watch'])
     grunt.registerTask('test', ['karma:travis', 'protractor:saucelabs'])
 };
