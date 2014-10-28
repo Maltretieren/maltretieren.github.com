@@ -30,9 +30,9 @@ namespace :my_tasks do
         puts "\n## git add"
         system("git add _posts/*")
         puts "\n## git commit"
-        system("git commit -m '[skip ci] added documentation'")
         # http://stackoverflow.com/questions/10228760/fix-a-git-detached-head
         system("git branch my-temporary-work")
+        system("git commit -m '[skip ci] added documentation'")
         system("git checkout master")
         system("git merge my-temporary-work")
         puts "\n## git push"
