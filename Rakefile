@@ -46,6 +46,8 @@ namespace :my_tasks do
 		system("ls -la _posts")
 		puts "\n## You should see a yyyy-mm-dd-documentation.md file in here."
 		system("ls -la _posts/documentation")
+		puts "\n## You should see a yyyy-mm-dd-documentation.md file in here."
+		system("ls -la _posts/documentation/")
 		puts "\n## Folder Structure"
 		system("ls -la .")
 	end

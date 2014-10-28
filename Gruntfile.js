@@ -52,7 +52,7 @@ module.exports = function(grunt) {
 					template: 'tests/templates/documentation.hbs'
                 },
                 src: "app/js/*.js",
-				dest: "_posts/documentation/"+grunt.template.today('yyyy-mm-dd')+"-documentation.md"
+				dest: "./_posts/documentation/"+grunt.template.today('yyyy-mm-dd')+"-documentation.md"
             }
         },
         coveralls: {
