@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 					template: 'tests/templates/documentation.hbs'
                 },
                 src: "app/js/*.js",
-				dest: "_posts/documentation/documentation.md"
+				dest: "documentation.md"
             }
         },
         gitcommit: {
