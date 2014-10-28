@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 					template: 'tests/templates/documentation.hbs'
                 },
                 src: "app/js/*.js",
-				dest: "documentation.md"
+				dest: "_posts/documentation.md"
             }
         },
         coveralls: {
