@@ -19,8 +19,8 @@ namespace :my_tasks do
 	desc "Generate site on travis - if this fail it will also fail on github"
 	 task :generate do
 		Jekyll::Site.new(Jekyll.configuration({
-		"source" => ".",
-		"destination" => "_site"
+			"source" => ".",
+			"destination" => "_site"
 		})).process
 	end
 	
