@@ -4,5 +4,3 @@ node_modules/*
 .idea/*
 tests/results/*
 .idea/workspace.xml
-
-_posts/documentation/2014-10-28-documentation.md
