@@ -48,7 +48,8 @@ module.exports = function(grunt) {
         jsdoc2md: {
 			withTemplate: {
                 options: {
-					template: 'tests/templates/documentation.hbs'
+					template: 'tests/templates/documentation.hbs',
+                    index: false
                 },
                 src: "app/js/*.js",
 				dest: "_posts/documentation/"+grunt.template.today('yyyy-mm-dd')+"-documentation.md"
