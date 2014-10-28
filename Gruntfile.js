@@ -47,7 +47,7 @@ module.exports = function(grunt) {
 		// jsdoc in markdown language - format suitable for github pages...
 		// this uses handlebars templates
         jsdoc2md: {
-			withOptions: {
+			withTemplate: {
                 options: {
 					template: 'tests/templates/documentation.hbs'
                 },
