@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 					template: 'tests/templates/documentation.hbs'
                 },
                 src: "app/js/*.js",
-				dest: "grunt.template.today('yyyy-mm-dd')+"-documentation.md"
+				dest: grunt.template.today('yyyy-mm-dd')+"-documentation.md"
             }
         },
         coveralls: {
