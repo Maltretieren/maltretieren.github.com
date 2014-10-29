@@ -29,8 +29,8 @@ namespace :my_tasks do
         system("ls -la _posts/documentation")
         puts "\n## git add"
         system("git add _posts/*")
-        puts "\n## git commit"
         # http://stackoverflow.com/questions/10228760/fix-a-git-detached-head
+		puts "\n## git commit"
 		system("git commit -m '[skip ci] added documentation'")
         system("git branch my-temporary-work")
         system("git checkout master")
