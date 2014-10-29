@@ -51,7 +51,8 @@ module.exports = function(grunt) {
 			withTemplate: {
                 options: {
 					index: false,
-					template: 'tests/templates/documentation.hbs'
+					template: 'tests/jsdoc2md/templates/documentation.hbs',
+                    partial: 'tests/jsdoc2md/partials/*'
                 },
                 src: "app/js/*.js",
 				dest: "_posts/documentation/"+grunt.template.today('yyyy-mm-dd')+"-documentation.md"

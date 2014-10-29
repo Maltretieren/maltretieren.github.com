@@ -8,29 +8,23 @@ tags:
 published: true
 ---
 
-<a name="callback"></a>
-#callback()
+<a name="callback" href=""></a>#callback()
 Hotkey pressed callback, calls save on editor
 `save`
 
-<a name="click"></a>
-#click()
+<a name="click" href=""></a>#click()
 Description
 
-<a name="click"></a>
-#click()
+<a name="click" href=""></a>#click()
 Description
 
-<a name="link"></a>
-#link()
+<a name="link" href=""></a>#link()
 Description
 
-<a name="link"></a>
-#link()
+<a name="link" href=""></a>#link()
 Description
 
-<a name="instance"></a>
-#instance(username, password)
+<a name="instance" href=""></a>#instance(username, password)
 Description
 
 **Params**
@@ -39,12 +33,10 @@ Description
 - password   
 
 **Returns**:  - github  
-<a name="requestCode"></a>
-#requestCode()
+<a name="requestCode" href=""></a>#requestCode()
 Description
 
-<a name="requestToken"></a>
-#requestToken(oauthCode)
+<a name="requestToken" href=""></a>#requestToken(oauthCode)
 Description
 
 **Params**
@@ -52,113 +44,86 @@ Description
 - oauthCode   
 
 **Returns**:  - MemberExpression  
-<a name="userInfo"></a>
-#userInfo()
+<a name="userInfo" href=""></a>#userInfo()
 Description
 
 **Returns**:  - ObjectExpression  
-<a name="user"></a>
-#user()
+<a name="user" href=""></a>#user()
 Description
 
 **Returns**:  - userPromise  
-<a name="user"></a>
-#user()
+<a name="user" href=""></a>#user()
 Description
 
-<a name="logout"></a>
-#logout()
+<a name="logout" href=""></a>#logout()
 Description
 
-<a name="requestCode"></a>
-#requestCode()
+<a name="requestCode" href=""></a>#requestCode()
 Description
 
-<a name="testAdmin"></a>
-#testAdmin()
+<a name="testAdmin" href=""></a>#testAdmin()
 Description
 
-<a name="fork"></a>
-#fork()
+<a name="fork" href=""></a>#fork()
 Description
 
-<a name="renameRepo"></a>
-#renameRepo()
+<a name="renameRepo" href=""></a>#renameRepo()
 Description
 
-<a name="batchDelete"></a>
-#batchDelete()
+<a name="batchDelete" href=""></a>#batchDelete()
 Description
 
-<a name="getContents"></a>
-#getContents()
+<a name="getContents" href=""></a>#getContents()
 Description
 
-<a name="getFiles"></a>
-#getFiles()
+<a name="getFiles" href=""></a>#getFiles()
 Description
 
-<a name="deleteBranch"></a>
-#deleteBranch()
+<a name="deleteBranch" href=""></a>#deleteBranch()
 Description
 
-<a name="renameBranch"></a>
-#renameBranch()
+<a name="renameBranch" href=""></a>#renameBranch()
 Description
 
-<a name="createBranch"></a>
-#createBranch()
+<a name="createBranch" href=""></a>#createBranch()
 Description
 
-<a name="postProcess"></a>
-#postProcess()
+<a name="postProcess" href=""></a>#postProcess()
 Description
 
-<a name="getContent"></a>
-#getContent()
+<a name="getContent" href=""></a>#getContent()
 Description
 
-<a name="editContent"></a>
-#editContent()
+<a name="editContent" href=""></a>#editContent()
 Description
 
-<a name="commit"></a>
-#commit()
+<a name="commit" href=""></a>#commit()
 Description
 
-<a name="commitMany"></a>
-#commitMany()
+<a name="commitMany" href=""></a>#commitMany()
 Description
 
-<a name="deleteContent"></a>
-#deleteContent()
+<a name="deleteContent" href=""></a>#deleteContent()
 Description
 
-<a name="setUserName"></a>
-#setUserName()
+<a name="setUserName" href=""></a>#setUserName()
 Description
 
-<a name="setIsAdmin"></a>
-#setIsAdmin()
+<a name="setIsAdmin" href=""></a>#setIsAdmin()
 Description
 
-<a name="setPassword"></a>
-#setPassword()
+<a name="setPassword" href=""></a>#setPassword()
 Description
 
-<a name="logout"></a>
-#logout()
+<a name="logout" href=""></a>#logout()
 Description
 
-<a name="getUser"></a>
-#getUser()
+<a name="getUser" href=""></a>#getUser()
 Description
 
-<a name="onFocus"></a>
-#onFocus()
+<a name="onFocus" href=""></a>#onFocus()
 Description
 
-<a name="switch"></a>
-#switch()
+<a name="switch" href=""></a>#switch()
 Description
 
