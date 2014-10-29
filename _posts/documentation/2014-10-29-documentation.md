@@ -8,7 +8,6 @@ tags:
 published: true
 ---
 
-<div ng-controller="DocCtrl">
 #Index
 
 **Functions**
@@ -207,5 +206,3 @@ Description
 #switch()
 Description
 
-
-</div>
