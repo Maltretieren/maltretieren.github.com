@@ -8,7 +8,7 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "
 # this is the default interpreter https://github.com/blog/1867-github-pages-now-runs-jekyll-2-2-0
 highlighter: pygments
 
-# possible values kramdown, redcarpet, rdiscount
+# possible values kramdown, redcarpet, rdiscount -> https://pages.github.com/versions/
 markdown: rdiscount
 
 # Themes are encouraged to use these universal variables 

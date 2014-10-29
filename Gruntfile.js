@@ -39,7 +39,9 @@ module.exports = function(grunt) {
 			dist : {
 				src: ['app/js/*.js'], 
 				options: {
-					destination: 'assets/docs'
+					destination: 'assets/docs',
+					configure : "./tests/config/jsdoc_conf.json",
+					verbose: true
 				}
 			}
 		},
@@ -109,4 +111,5 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['karma:travis', 'protractor:saucelabs'])
     grunt.registerTask('travis', ['karma:travis', 'jsdoc2md', 'protractor:saucelabs'])
     grunt.registerTask('doc', ['jsdoc2md'])
+	grunt.registerTask('plainDoc', ['jsdoc'])
 };
