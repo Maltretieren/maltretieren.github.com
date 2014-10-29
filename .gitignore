@@ -6,3 +6,4 @@ tests/results/*
 .idea/workspace.xml
 .gitignore
 ./_posts/documentation/*
+_posts/documentation/2014-10-29-documentation.md
