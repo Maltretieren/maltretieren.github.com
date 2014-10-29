@@ -8,50 +8,6 @@ tags:
 published: true
 ---
 
-#Index
-
-**Functions**
-
-* [callback()](#callback)
-* [click()](#click)
-* [click()](#click)
-* [link()](#link)
-  * [link~handler()](#link..handler)
-* [link()](#link)
-  * [link~handler()](#link..handler)
-* [instance(username, password)](#instance)
-* [requestCode()](#requestCode)
-* [requestToken(oauthCode)](#requestToken)
-* [userInfo()](#userInfo)
-* [user()](#user)
-* [user()](#user)
-* [logout()](#logout)
-* [requestCode()](#requestCode)
-* [testAdmin()](#testAdmin)
-* [fork()](#fork)
-* [renameRepo()](#renameRepo)
-* [batchDelete()](#batchDelete)
-* [getContents()](#getContents)
-  * [getContents~fileCount()](#getContents..fileCount)
-* [getFiles()](#getFiles)
-  * [getFiles~doGet()](#getFiles..doGet)
-* [deleteBranch()](#deleteBranch)
-* [renameBranch()](#renameBranch)
-* [createBranch()](#createBranch)
-* [postProcess()](#postProcess)
-* [getContent()](#getContent)
-* [editContent()](#editContent)
-* [commit()](#commit)
-* [commitMany()](#commitMany)
-* [deleteContent()](#deleteContent)
-* [setUserName()](#setUserName)
-* [setIsAdmin()](#setIsAdmin)
-* [setPassword()](#setPassword)
-* [logout()](#logout)
-* [getUser()](#getUser)
-* [onFocus()](#onFocus)
-* [switch()](#switch)
- 
 <a name="callback"></a>
 #callback()
 Hotkey pressed callback, calls save on editor
