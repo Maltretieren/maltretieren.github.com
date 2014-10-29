@@ -9,8 +9,11 @@
 
 /**
  * Receive a complete list of all comments
- *
+ * @param {string} str The string to repeat.
+ * @param {number} [times=1] How many times to repeat the string.
+ * @returns {string}
  */
+
 myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toaster, UserModel) {
 	var commentsUrl = config.keenio.comments_url;
 	// disable comments if there is no config for it...
