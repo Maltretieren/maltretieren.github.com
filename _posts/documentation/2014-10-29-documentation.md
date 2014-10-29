@@ -8,23 +8,68 @@ tags:
 published: true
 ---
 
-<a name="callback" href=""></a>#callback()
+<div ng-controller="DocCtrl">
+#Index
+
+**Functions**
+
+* [callback()](#callback)
+* [click()](#click)
+* [click()](#click)
+* [link()](#link)
+  * [link~handler()](#link..handler)
+* [link()](#link)
+  * [link~handler()](#link..handler)
+* [instance(username, password)](#instance)
+* [requestCode()](#requestCode)
+* [requestToken(oauthCode)](#requestToken)
+* [userInfo()](#userInfo)
+* [user()](#user)
+* [user()](#user)
+* [logout()](#logout)
+* [requestCode()](#requestCode)
+* [testAdmin()](#testAdmin)
+* [fork()](#fork)
+* [renameRepo()](#renameRepo)
+* [batchDelete()](#batchDelete)
+* [getContents()](#getContents)
+  * [getContents~fileCount()](#getContents..fileCount)
+* [getFiles()](#getFiles)
+  * [getFiles~doGet()](#getFiles..doGet)
+* [deleteBranch()](#deleteBranch)
+* [renameBranch()](#renameBranch)
+* [createBranch()](#createBranch)
+* [postProcess()](#postProcess)
+* [getContent()](#getContent)
+* [editContent()](#editContent)
+* [commit()](#commit)
+* [commitMany()](#commitMany)
+* [deleteContent()](#deleteContent)
+* [setUserName()](#setUserName)
+* [setIsAdmin()](#setIsAdmin)
+* [setPassword()](#setPassword)
+* [logout()](#logout)
+* [getUser()](#getUser)
+* [onFocus()](#onFocus)
+* [switch()](#switch)
+ 
+<a ng-click="scrollTo('callback')"></a>#callback()
 Hotkey pressed callback, calls save on editor
 `save`
 
-<a name="click" href=""></a>#click()
+<a ng-click="scrollTo('click')"></a>#click()
 Description
 
-<a name="click" href=""></a>#click()
+<a ng-click="scrollTo('click')"></a>#click()
 Description
 
-<a name="link" href=""></a>#link()
+<a ng-click="scrollTo('link')"></a>#link()
 Description
 
-<a name="link" href=""></a>#link()
+<a ng-click="scrollTo('link')"></a>#link()
 Description
 
-<a name="instance" href=""></a>#instance(username, password)
+<a ng-click="scrollTo('instance')"></a>#instance(username, password)
 Description
 
 **Params**
@@ -33,10 +78,10 @@ Description
 - password   
 
 **Returns**:  - github  
-<a name="requestCode" href=""></a>#requestCode()
+<a ng-click="scrollTo('requestCode')"></a>#requestCode()
 Description
 
-<a name="requestToken" href=""></a>#requestToken(oauthCode)
+<a ng-click="scrollTo('requestToken')"></a>#requestToken(oauthCode)
 Description
 
 **Params**
@@ -44,86 +89,88 @@ Description
 - oauthCode   
 
 **Returns**:  - MemberExpression  
-<a name="userInfo" href=""></a>#userInfo()
+<a ng-click="scrollTo('userInfo')"></a>#userInfo()
 Description
 
 **Returns**:  - ObjectExpression  
-<a name="user" href=""></a>#user()
+<a ng-click="scrollTo('user')"></a>#user()
 Description
 
 **Returns**:  - userPromise  
-<a name="user" href=""></a>#user()
+<a ng-click="scrollTo('user')"></a>#user()
 Description
 
-<a name="logout" href=""></a>#logout()
+<a ng-click="scrollTo('logout')"></a>#logout()
 Description
 
-<a name="requestCode" href=""></a>#requestCode()
+<a ng-click="scrollTo('requestCode')"></a>#requestCode()
 Description
 
-<a name="testAdmin" href=""></a>#testAdmin()
+<a ng-click="scrollTo('testAdmin')"></a>#testAdmin()
 Description
 
-<a name="fork" href=""></a>#fork()
+<a ng-click="scrollTo('fork')"></a>#fork()
 Description
 
-<a name="renameRepo" href=""></a>#renameRepo()
+<a ng-click="scrollTo('renameRepo')"></a>#renameRepo()
 Description
 
-<a name="batchDelete" href=""></a>#batchDelete()
+<a ng-click="scrollTo('batchDelete')"></a>#batchDelete()
 Description
 
-<a name="getContents" href=""></a>#getContents()
+<a ng-click="scrollTo('getContents')"></a>#getContents()
 Description
 
-<a name="getFiles" href=""></a>#getFiles()
+<a ng-click="scrollTo('getFiles')"></a>#getFiles()
 Description
 
-<a name="deleteBranch" href=""></a>#deleteBranch()
+<a ng-click="scrollTo('deleteBranch')"></a>#deleteBranch()
 Description
 
-<a name="renameBranch" href=""></a>#renameBranch()
+<a ng-click="scrollTo('renameBranch')"></a>#renameBranch()
 Description
 
-<a name="createBranch" href=""></a>#createBranch()
+<a ng-click="scrollTo('createBranch')"></a>#createBranch()
 Description
 
-<a name="postProcess" href=""></a>#postProcess()
+<a ng-click="scrollTo('postProcess')"></a>#postProcess()
 Description
 
-<a name="getContent" href=""></a>#getContent()
+<a ng-click="scrollTo('getContent')"></a>#getContent()
 Description
 
-<a name="editContent" href=""></a>#editContent()
+<a ng-click="scrollTo('editContent')"></a>#editContent()
 Description
 
-<a name="commit" href=""></a>#commit()
+<a ng-click="scrollTo('commit')"></a>#commit()
 Description
 
-<a name="commitMany" href=""></a>#commitMany()
+<a ng-click="scrollTo('commitMany')"></a>#commitMany()
 Description
 
-<a name="deleteContent" href=""></a>#deleteContent()
+<a ng-click="scrollTo('deleteContent')"></a>#deleteContent()
 Description
 
-<a name="setUserName" href=""></a>#setUserName()
+<a ng-click="scrollTo('setUserName')"></a>#setUserName()
 Description
 
-<a name="setIsAdmin" href=""></a>#setIsAdmin()
+<a ng-click="scrollTo('setIsAdmin')"></a>#setIsAdmin()
 Description
 
-<a name="setPassword" href=""></a>#setPassword()
+<a ng-click="scrollTo('setPassword')"></a>#setPassword()
 Description
 
-<a name="logout" href=""></a>#logout()
+<a ng-click="scrollTo('logout')"></a>#logout()
 Description
 
-<a name="getUser" href=""></a>#getUser()
+<a ng-click="scrollTo('getUser')"></a>#getUser()
 Description
 
-<a name="onFocus" href=""></a>#onFocus()
+<a ng-click="scrollTo('onFocus')"></a>#onFocus()
 Description
 
-<a name="switch" href=""></a>#switch()
+<a ng-click="scrollTo('switch')"></a>#switch()
 Description
 
+
+</div>
