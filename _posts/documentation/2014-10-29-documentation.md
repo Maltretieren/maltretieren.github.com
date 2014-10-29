@@ -8,9 +8,7 @@ tags:
 published: true
 ---
 
-{% raw %}
-<div ng-controller="DocCtrl">
-{% endraw %}
+"<div ng-controller="DocCtrl">"
 
 #Index
 
@@ -212,6 +210,4 @@ Description
 
 
 
-{% raw %}
-</div>
-{% endraw %}
+"</div>"
