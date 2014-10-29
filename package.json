@@ -28,6 +28,7 @@
 	"grunt-jsdoc": "0.5.7",
     "smartcomments": "0.3.2",
     "grunt-git": "0.2.14",
+    "grunt-jekyll": "0.4.2",
     "selenium-webdriver": "2.43.5"
   },
   "repository": {

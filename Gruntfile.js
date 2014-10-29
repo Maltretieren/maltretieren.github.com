@@ -96,6 +96,17 @@ module.exports = function(grunt) {
                   port: 9999
               }
           }
+        },
+        jekyll: {
+            serve: {
+                options: {
+                    src : '.',
+                    dest: '_site',
+                    drafts: true,
+                    serve: true,
+                    watch: true
+                }
+            }
         }
     });
     
@@ -111,5 +122,5 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['karma:travis', 'protractor:saucelabs'])
     grunt.registerTask('travis', ['karma:travis', 'jsdoc2md', 'protractor:saucelabs'])
     grunt.registerTask('doc', ['jsdoc2md'])
-	grunt.registerTask('plainDoc', ['jsdoc'])
+    grunt.registerTask('jekyllServe', ['jsdoc2md', 'jekyll:serve'])
 };
