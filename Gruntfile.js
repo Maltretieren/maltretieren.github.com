@@ -45,7 +45,7 @@ module.exports = function(grunt) {
 		},
 		
 		// jsdoc to markdown language, compatible with templates
-        : {
+        jsdoc2md: {
 			withTemplate: {
                 options: {
 					index: false,
