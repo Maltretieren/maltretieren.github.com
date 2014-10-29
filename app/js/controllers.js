@@ -114,6 +114,15 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
 	}
 });
 
+myApp.controller("DocCtrl", function ($scope, $anchorScroll) {
+    /**
+     * Description scrollTo
+     */
+    $scope.scrollTo = function(id) {
+        $location.hash(id);
+        $anchorScroll();
+    }
+});
 
 myApp.controller("KeenioMasterCtrl", function ($scope, $modalInstance, $http, toaster, data) {
 	$scope.user = {};
