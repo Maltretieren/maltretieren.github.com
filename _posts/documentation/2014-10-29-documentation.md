@@ -8,7 +8,7 @@ tags:
 published: true
 ---
 
-<div ng-controller='DocCtrl'>
+&lt;div ng-controller='DocCtrl'&gt;
 
 #Index
 
@@ -210,4 +210,4 @@ Description
 
 
 
-</div>"
+&lt;</div>&gt;
