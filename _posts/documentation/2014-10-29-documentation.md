@@ -53,23 +53,29 @@ published: true
 * [onFocus()](#onFocus)
 * [switch()](#switch)
  
-<a ng-click="scrollTo('callback')"></a>#callback()
+<a name="callback"></a>
+#callback()
 Hotkey pressed callback, calls save on editor
 `save`
 
-<a ng-click="scrollTo('click')"></a>#click()
+<a name="click"></a>
+#click()
 Description
 
-<a ng-click="scrollTo('click')"></a>#click()
+<a name="click"></a>
+#click()
 Description
 
-<a ng-click="scrollTo('link')"></a>#link()
+<a name="link"></a>
+#link()
 Description
 
-<a ng-click="scrollTo('link')"></a>#link()
+<a name="link"></a>
+#link()
 Description
 
-<a ng-click="scrollTo('instance')"></a>#instance(username, password)
+<a name="instance"></a>
+#instance(username, password)
 Description
 
 **Params**
@@ -78,10 +84,12 @@ Description
 - password   
 
 **Returns**:  - github  
-<a ng-click="scrollTo('requestCode')"></a>#requestCode()
+<a name="requestCode"></a>
+#requestCode()
 Description
 
-<a ng-click="scrollTo('requestToken')"></a>#requestToken(oauthCode)
+<a name="requestToken"></a>
+#requestToken(oauthCode)
 Description
 
 **Params**
@@ -89,87 +97,114 @@ Description
 - oauthCode   
 
 **Returns**:  - MemberExpression  
-<a ng-click="scrollTo('userInfo')"></a>#userInfo()
+<a name="userInfo"></a>
+#userInfo()
 Description
 
 **Returns**:  - ObjectExpression  
-<a ng-click="scrollTo('user')"></a>#user()
+<a name="user"></a>
+#user()
 Description
 
 **Returns**:  - userPromise  
-<a ng-click="scrollTo('user')"></a>#user()
+<a name="user"></a>
+#user()
 Description
 
-<a ng-click="scrollTo('logout')"></a>#logout()
+<a name="logout"></a>
+#logout()
 Description
 
-<a ng-click="scrollTo('requestCode')"></a>#requestCode()
+<a name="requestCode"></a>
+#requestCode()
 Description
 
-<a ng-click="scrollTo('testAdmin')"></a>#testAdmin()
+<a name="testAdmin"></a>
+#testAdmin()
 Description
 
-<a ng-click="scrollTo('fork')"></a>#fork()
+<a name="fork"></a>
+#fork()
 Description
 
-<a ng-click="scrollTo('renameRepo')"></a>#renameRepo()
+<a name="renameRepo"></a>
+#renameRepo()
 Description
 
-<a ng-click="scrollTo('batchDelete')"></a>#batchDelete()
+<a name="batchDelete"></a>
+#batchDelete()
 Description
 
-<a ng-click="scrollTo('getContents')"></a>#getContents()
+<a name="getContents"></a>
+#getContents()
 Description
 
-<a ng-click="scrollTo('getFiles')"></a>#getFiles()
+<a name="getFiles"></a>
+#getFiles()
 Description
 
-<a ng-click="scrollTo('deleteBranch')"></a>#deleteBranch()
+<a name="deleteBranch"></a>
+#deleteBranch()
 Description
 
-<a ng-click="scrollTo('renameBranch')"></a>#renameBranch()
+<a name="renameBranch"></a>
+#renameBranch()
 Description
 
-<a ng-click="scrollTo('createBranch')"></a>#createBranch()
+<a name="createBranch"></a>
+#createBranch()
 Description
 
-<a ng-click="scrollTo('postProcess')"></a>#postProcess()
+<a name="postProcess"></a>
+#postProcess()
 Description
 
-<a ng-click="scrollTo('getContent')"></a>#getContent()
+<a name="getContent"></a>
+#getContent()
 Description
 
-<a ng-click="scrollTo('editContent')"></a>#editContent()
+<a name="editContent"></a>
+#editContent()
 Description
 
-<a ng-click="scrollTo('commit')"></a>#commit()
+<a name="commit"></a>
+#commit()
 Description
 
-<a ng-click="scrollTo('commitMany')"></a>#commitMany()
+<a name="commitMany"></a>
+#commitMany()
 Description
 
-<a ng-click="scrollTo('deleteContent')"></a>#deleteContent()
+<a name="deleteContent"></a>
+#deleteContent()
 Description
 
-<a ng-click="scrollTo('setUserName')"></a>#setUserName()
+<a name="setUserName"></a>
+#setUserName()
 Description
 
-<a ng-click="scrollTo('setIsAdmin')"></a>#setIsAdmin()
+<a name="setIsAdmin"></a>
+#setIsAdmin()
 Description
 
-<a ng-click="scrollTo('setPassword')"></a>#setPassword()
+<a name="setPassword"></a>
+#setPassword()
 Description
 
-<a ng-click="scrollTo('logout')"></a>#logout()
+<a name="logout"></a>
+#logout()
 Description
 
-<a ng-click="scrollTo('getUser')"></a>#getUser()
+<a name="getUser"></a>
+#getUser()
 Description
 
-<a ng-click="scrollTo('onFocus')"></a>#onFocus()
+<a name="onFocus"></a>
+#onFocus()
 Description
 
-<a ng-click="scrollTo('switch')"></a>#switch()
+<a name="switch"></a>
+#switch()
 Description
 
 
