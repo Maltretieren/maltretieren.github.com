@@ -8,9 +8,8 @@ tags:
 published: true
 ---
 
-
+<!-- https://github.com/github/markup/tree/master#html-sanitization -->
 {% capture m %}<div ng-controller='DocCtrl'>{% endcapture %}
-{{ m | textify }}
+{{ m | markdownify }}
 {{> main}}
-{% capture m %}</div>{% endcapture %}
-{{ m | textify }}
+</div>
