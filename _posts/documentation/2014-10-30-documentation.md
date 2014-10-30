@@ -9,7 +9,7 @@ published: true
 ---
 
 <!-- https://github.com/github/markup/tree/master#html-sanitization -->
-{% capture m %}<div ng-controller='DocCtrl'>{% endcapture %}
+{% capture m %}<div>test</div>{% endcapture %}
 
 #Index
 
@@ -210,4 +210,3 @@ Description
 Description
 
 
-</div>
