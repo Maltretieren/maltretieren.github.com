@@ -7,8 +7,7 @@ tags:
 - example
 published: true
 ---
-<div ng-controller='DocCtrl' markdown="0">
-#Index
+<div ng-controller='DocCtrl'>#Index
 
 **Functions**
 
@@ -205,6 +204,5 @@ Description
 <a name="switch"></a>
 #switch()
 Description
-
 
 <div> 
