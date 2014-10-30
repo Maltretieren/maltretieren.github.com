@@ -41,7 +41,8 @@ module.exports = function(grunt) {
 				options: {
 					destination: 'assets/docs',
 					configure : "./tests/config/jsdoc_conf.json",
-					verbose: true
+					verbose: true,
+					debug: true
 				}
 			}
 		},
