@@ -7,4 +7,6 @@ tags:
 - example
 published: true
 ---
-<![CDATA[<div ng-controller='DocCtrl'>]]> {{> main}} <![CDATA[<div>]]>
+{% raw  %}<div ng-controller='DocCtrl'>{% endraw %}
+{{> main}}
+{% raw  %}</div>{% endraw %}

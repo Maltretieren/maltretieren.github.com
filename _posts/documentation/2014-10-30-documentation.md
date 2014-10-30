@@ -7,7 +7,8 @@ tags:
 - example
 published: true
 ---
-<div ng-controller='DocCtrl'><% raw %>#Index
+{% raw  %}<div ng-controller='DocCtrl'>{% endraw %}
+#Index
 
 **Functions**
 
@@ -53,8 +54,7 @@ published: true
  
 <a name="callback"></a>
 #callback()
-Hotkey pressed callback, calls save on editor
-`save`
+Hotkey pressed callback, calls save on editor`save`
 
 <a name="click"></a>
 #click()
@@ -205,4 +205,5 @@ Description
 #switch()
 Description
 
-<% endraw %><div>
+
+{% raw  %}</div>{% endraw %}
