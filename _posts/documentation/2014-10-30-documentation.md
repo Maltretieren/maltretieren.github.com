@@ -8,7 +8,10 @@ tags:
 published: true
 ---
 
-{% raw %}<div ng-controller='DocCtrl'>#Index
+{% raw %}
+
+<div ng-controller='DocCtrl'>
+#Index
 
 **Functions**
 
@@ -206,4 +209,7 @@ Description
 #switch()
 Description
 
-<div>{% endraw %}
+
+<div>
+
+{% endraw %}
