@@ -54,7 +54,8 @@ published: true
  
 <a name="callback"></a>
 #callback()
-Hotkey pressed callback, calls save on editor`save`
+Hotkey pressed callback, calls save on editor
+`save`
 
 <a name="click"></a>
 #click()
