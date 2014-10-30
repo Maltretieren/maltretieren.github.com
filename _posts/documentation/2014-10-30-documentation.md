@@ -10,7 +10,7 @@ published: true
 
 <!-- https://github.com/github/markup/tree/master#html-sanitization -->
 {% capture m %}<div ng-controller='DocCtrl'>{% endcapture %}
-{ m | markdownify }
+
 #Index
 
 **Functions**
