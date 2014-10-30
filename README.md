@@ -119,6 +119,18 @@ Inspired by https://github.com/angular/angular-seed & https://github.com/plusjad
 - [JSO](https://github.com/andreassolberg/jso)
     - Javascript OAuth Library
 
+# Development
+## Grunt Tasks
+### grunt devmode
+### grunt testLocally
+### grunt testc2md
+### grunt doc
+ * generates documentation
+### grunt jekyllServe
+ * generate doc in _posts/documentation/
+ * build and run jekyll, access it via your browser on http://localhost:4000
+ * if you change a file in app/js jekyll will reload immediatly
+
 ## Available Resources
 [rss.xml](http://maltretieren.github.io/rss.xml)
 [atom.xml](http://maltretieren.github.io/atom.xml)
