@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: documentation
 categories:
 - template
 tagline:
@@ -7,7 +7,8 @@ tags:
 - example
 published: true
 ---
-{% raw %}<div ng-controller='DocCtrl'>{% endraw %}
+
+<!-- injected DocCtrl via documentation layo -->
 #Index
 
 **Functions**
@@ -207,4 +208,3 @@ Description
 Description
 
 
-{% raw %}</div>{% endraw %}
