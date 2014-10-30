@@ -1,1 +1,0 @@
-{{#if longname}}<a ng-click="scrollTo('{{{anchorName}}}')"></a>{{/if}}

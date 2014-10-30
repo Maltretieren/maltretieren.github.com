@@ -114,7 +114,7 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
 	}
 });
 
-myApp.controller("DocCtrl", function ($scope, $anchorScroll) {
+myApp.controller("DocCtrl", function ($scope, $anchorScroll, $location) {
     /**
      * Description scrollTo
      */
