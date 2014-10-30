@@ -9,8 +9,8 @@ published: true
 ---
 
 <!-- https://github.com/github/markup/tree/master#html-sanitization -->
-{% capture m %}<div>test</div>{% endcapture %}
-
+<div>
+{% raw %}<div ng-controller='DocCtrl'>{% endraw %}
 #Index
 
 **Functions**
@@ -208,5 +208,4 @@ Description
 <a name="switch"></a>
 #switch()
 Description
-
 
