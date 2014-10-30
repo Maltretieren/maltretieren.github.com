@@ -8,6 +8,9 @@ tags:
 published: true
 ---
 
-<div ng-controller='DocCtrl'>
+
+{% capture m %}<div ng-controller='DocCtrl'>{% endcapture %}
+{{ m | textify }}
 {{> main}}
-</div>
+{% capture m %}</div>{% endcapture %}
+{{ m | textify }}
