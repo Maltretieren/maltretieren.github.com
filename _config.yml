@@ -10,6 +10,8 @@ highlighter: pygments
 
 # possible values kramdown, redcarpet, rdiscount -> https://pages.github.com/versions/
 markdown: rdiscount
+rdiscount:
+  extensions: [smart]
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
