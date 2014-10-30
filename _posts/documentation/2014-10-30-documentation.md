@@ -13,8 +13,9 @@ published: true
 
 **Functions**
 
+* [GithubEditCtrl()](#GithubEditCtrl)
 * [callback()](#callback)
-* [click()](#click)
+* [RatingCtrl()](#RatingCtrl)
 * [click()](#click)
 * [link()](#link)
   * [link~handler()](#link..handler)
@@ -53,14 +54,18 @@ published: true
 * [onFocus()](#onFocus)
 * [switch()](#switch)
  
+<a name="GithubEditCtrl"></a>
+#GithubEditCtrl()
+This controller manages edits on content on github
+
 <a name="callback"></a>
 #callback()
 Hotkey pressed callback, calls save on editor
 `save`
 
-<a name="click"></a>
-#click()
-Description
+<a name="RatingCtrl"></a>
+#RatingCtrl()
+Star rating
 
 <a name="click"></a>
 #click()

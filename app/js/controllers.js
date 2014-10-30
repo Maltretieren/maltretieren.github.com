@@ -340,10 +340,7 @@ myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster)
     }
 	/**
 	 * Commit config file to github
-     *
-     * @promise {Save}        If the file is saved successfully
      */
-	 */
 	$scope.saveFrontendConfig = function() {
 		var config = "var config = "+JSON.stringify($scope.inputs);
 		console.log(config);

@@ -23,7 +23,7 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
          * @method instance
          * @param {} username
          * @param {} password
-         * @return github
+         * @return github instance
          */
         instance : function(username, password) {
             // this should ask for the UserModel - user object, and get the token from there...
