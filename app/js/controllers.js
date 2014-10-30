@@ -339,7 +339,10 @@ myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster)
         $scope.inputs[key][key2] = newValue;
     }
 	/**
-	 * Description
+	 * Commit config file to github
+     *
+     * @promise {Save}        If the file is saved successfully
+     */
 	 */
 	$scope.saveFrontendConfig = function() {
 		var config = "var config = "+JSON.stringify($scope.inputs);
@@ -573,7 +576,11 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
             var commitPromise = $q.defer();
 
             /**
-             * Description
+             * Preprocess promise and commit to github
+             *
+             * @param   {Number} id   The id of the user to load
+             * @promise {User}        The loaded user instance.
+             * @fail    {InputError}  If the id is invalid.
              */
             var modifiyConfig = function() {
                 var configMod = {}
@@ -603,6 +610,7 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
                     commitPromise.resolve();
                 }, function() {
                    console.log("commit errrror");
+                    commitPromise.reject();
                 })
             }
             $timeout(modifiyConfig, 1000);
@@ -613,9 +621,7 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
             // commit to make sure it shows the right page
             console.log("commit a post")
             var commitPromise = $q.defer();
-            /**
-             * Description
-             */
+
             var modifiyConfig = function() {
                 var githubInstance = GithubAuthService.instance();
                 var repo = githubInstance.getRepo(UserModel.getUser().name, UserModel.getUser().name+".github.com");
@@ -656,7 +662,6 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
 
  /**
  *	This controller unlocks/lock admin functionality
- *
  */
 myApp.controller('AdminCtrl', function($scope, UserModel) {
 	// binding to hide the edit button for non-admin users...
@@ -670,7 +675,6 @@ myApp.controller('AdminCtrl', function($scope, UserModel) {
 
 /**
 * This controller exports/imports post as a zip
-*
 */
 myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 	// binding to hide the edit button for non-admin users...
@@ -739,7 +743,6 @@ myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 
 /**
  *	This controller imports posts from a zip archive
- *
  */
 myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
     // binding to hide the edit button for non-admin users...
@@ -781,24 +784,16 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
         r.readAsBinaryString(f);
     }
 
-    /**
-     * Description
-     */
     $scope.selectAllImport = function() {
         //console.log($scope.import);
         $scope.importSelection = $scope.import;
         //console.log($scope.importSelection);
     }
-    /**
-     * Description
-     */
+
     $scope.unselectAllImport = function() {
         $scope.importSelection = [];
     }
 
-    /**
-     * Description
-     */
     $scope.showContent = function(selected) {
         console.log(selected);
         var value = $scope.import[selected].asText();
