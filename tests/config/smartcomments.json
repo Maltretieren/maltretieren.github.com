@@ -11,5 +11,5 @@
             "params":{}
         }
     },
-    "template" : "../templates/default.js"
+    "template" : "./smartcomments_templates.js"
 }
