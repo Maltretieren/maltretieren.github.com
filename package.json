@@ -25,6 +25,7 @@
     "grunt-contrib-connect": "0.8.0",
     "grunt-saucelabs": "8.3.2",
 	"grunt-jsdoc-to-markdown": "0.4.2",
+    "handlebars": "2.0.0",
 	"grunt-jsdoc": "0.5.7",
     "smartcomments": "0.3.2",
     "grunt-git": "0.2.14",
