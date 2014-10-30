@@ -7,7 +7,7 @@ tags:
 - example
 published: true
 ---
-<div ng-controller='DocCtrl'><% raw %>#Index
+<![CDATA[<div ng-controller='DocCtrl'>]]> #Index
 
 **Functions**
 
@@ -205,4 +205,4 @@ Description
 #switch()
 Description
 
-<% endraw %><div>
+ <![CDATA[<div>]]>
