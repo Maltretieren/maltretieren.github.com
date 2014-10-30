@@ -7,6 +7,6 @@ tags:
 - example
 published: true
 ---
-<div ng-controller='DocCtrl'>
+{% assign name = '<div ng-controller="DocCtrl">' %}
+{{ name | remove: '<p>' | remove: '</p>'}}
 {{> main}}
-<div> 
