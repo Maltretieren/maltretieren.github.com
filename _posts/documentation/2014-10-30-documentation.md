@@ -8,10 +8,7 @@ tags:
 published: true
 ---
 
-<!-- https://github.com/github/markup/tree/master#html-sanitization -->
-<div>
-{% raw %}<div ng-controller='DocCtrl'>{% endraw %}
-#Index
+{% raw %}<div ng-controller='DocCtrl'>#Index
 
 **Functions**
 
@@ -209,3 +206,4 @@ Description
 #switch()
 Description
 
+<div>{% endraw %}
