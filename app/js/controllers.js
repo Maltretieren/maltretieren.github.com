@@ -833,7 +833,7 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
 
 /**
  *	This controller manages edits on content on github
- *
+ *  @method GithubEditCtrl
  */
 myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeout, toaster, YamlSrvc, UserModel, UrlSrvc, GithubSrvc, hotkeys) {
     var scope = $scope;
@@ -1011,6 +1011,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 /**
  *	Star rating
  *
+ *   @function RatingCtrl
  */
 myApp.controller('RatingCtrl', function($scope) {
     var ratyElements =  $('.raty');
