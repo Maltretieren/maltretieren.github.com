@@ -1,4 +1,5 @@
 var MyTemplate = {
+
     /**
      * Return a list with the name of node visitor functions that will be used in this template
      * @method walkFunctions
@@ -10,8 +11,10 @@ var MyTemplate = {
             {name: 'enterFunctionDeclaration'},
             {name: 'enterVariableDeclaration'}
         ];
+
         return walkFunctions;
     },
+
     /**
      * Allow to write custom tags
      * @method tags
@@ -19,8 +22,9 @@ var MyTemplate = {
      * @return tags Object that contains the custom tags implementations
      */
     tags: function(template_instance){
+
         var tags = {
-//The function tag implementation
+            //The function tag implementation
             function: {
                 /**
                  * Define the way to build comments for functions tag
@@ -29,10 +33,10 @@ var MyTemplate = {
                  * @return
                  */
                 buildComment: function(data) {
-                    var instance = template_instance, //BaseTemplate instance
-                        config = instance.config, //User current config
-                        available_options = config.tags.function, //Custom functions tags options
-                        pos, // Empty comment obj
+                    var instance = template_instance,                  //BaseTemplate instance
+                        config = instance.config,                      //User current config               
+                        available_options = config.tags.function,      //Custom functions tags options
+                        pos,                                           // Empty comment obj
                         comment = {
                             pos: data.pos,
                             tags: []
@@ -41,27 +45,32 @@ var MyTemplate = {
                         node = data.node,
                         params = [],
                         default_value = 'My function Description';
+
                     if (typeof(config.private) === 'undefined'
                         || config.private
                         || !/^_/.test(method_name)) {
-//Description statement
+
+                        //Description statement
                         if (available_options.desc) {
                             if (available_options.desc.value) {
                                 default_value = available_options.desc.value;
                             }
+
                             comment.tags.push({
                                 name: '',
                                 value: default_value
                             });
                         }
-//@method statement
+
+                        //@method statement
                         if (method_name && available_options.name) {
                             comment.tags.push({
                                 name: '@method',
                                 value: method_name
                             });
                         }
-//@param statement
+
+                        //@param statement
                         if (available_options.params) {
                             var array = node.params,
                                 size = array.length,
@@ -79,9 +88,11 @@ var MyTemplate = {
                                 });
                             };
                         }
-//@return statement
+
+                        //@return statement
                         if (available_options.rtrn) {
                             var body_elements = node.body.body;
+
                             if (body_elements) {
                                 var size = body_elements.length,
                                     value = '';
@@ -94,21 +105,28 @@ var MyTemplate = {
                                             } else {
                                                 value = body_elements[i].argument.type;
                                             }
+
                                         }
                                     }
                                 };
+
                                 comment.tags.push({
                                     name: '@return',
                                     value: value
                                 });
                             }
+
                         }
+
+
+
                         if (comment.pos >= 0) {
-//Add comment to comment_list
+                            //Add comment to comment_list
                             instance.comments_list.push(comment);
                         }
                     }
                 },
+
                 /**
                  * Concrete visitor function implementation for functions tags in default Template
                  * @method enterFunctionExpression
@@ -119,25 +137,32 @@ var MyTemplate = {
                     var instance = this,
                         comment_data = {},
                         parent = params.parent;
+
                     if (parent.type === 'Property') {
+
                         if (parent.key) {
                             comment_data.name = parent.key.name;
                         }
+
                         comment_data.pos = parent.range[0];
                         comment_data.node = params.node;
                         instance.buildComment(comment_data);
                     }
                     else if(parent.type === 'AssignmentExpression') {
+
                         if(parent.right.type === 'FunctionExpression') {
+
                             if (parent.left.property && parent.left.property.name) {
                                 comment_data.name = parent.left.property.name;
                             }
-                            comment_data.pos = parent.left.range[0];
+
+                            comment_data.pos  = parent.left.range[0];
                             comment_data.node = parent.right;
                             instance.buildComment(comment_data);
                         }
                     }
                 },
+
                 /**
                  * Concrete visitor function implementation for functions tags in default Template
                  * @method enterFunctionDeclaration
@@ -154,6 +179,7 @@ var MyTemplate = {
                         };
                     instance.buildComment(comment_data);
                 },
+
                 /**
                  * Concrete visitor function implementation for functions tags in default Template
                  * @method enterVariableDeclaration
@@ -168,23 +194,29 @@ var MyTemplate = {
                         i = 0,
                         item,
                         comment_data = {};
+
                     for (i; i < size; i++) {
                         item = declarations[i];
                         if (item.init && item.init.type === 'FunctionExpression') {
                             comment_data.name = item.id.name;
                             comment_data.node = item.init;
                         }
+
                     };
+
                     if (comment_data.name) {
                         comment_data.pos = node.range[0];
                         instance.buildComment(comment_data);
                     }
                 }
+
+
             }
         }
         return tags;
     }
 }
+
 module.exports = {
     walkFunctions: MyTemplate.walkFunctions,
     tags: MyTemplate.tags
