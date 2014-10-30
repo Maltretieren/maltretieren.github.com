@@ -9,7 +9,6 @@ published: true
 ---
 
 <div ng-controller='DocCtrl'>
-
 #Index
 
 **Functions**
@@ -207,7 +206,6 @@ Description
 <a name="switch"></a>
 #switch()
 Description
-
 
 
 </div>
