@@ -7,7 +7,7 @@ tags:
 - example
 published: true
 ---
-{% raw  %}<div ng-controller='DocCtrl'>{% endraw %}
+&lt;div ng-controller='DocCtrl'&gt;
 #Index
 
 **Functions**
@@ -206,4 +206,4 @@ Description
 Description
 
 
-{% raw  %}</div>{% endraw %}
+&lt;/div&gt;
