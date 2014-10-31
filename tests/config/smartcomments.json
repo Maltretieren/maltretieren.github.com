@@ -1,17 +1,3 @@
-/**
- target: If it is a directory this option specify that the files within this directory are the ones that SmartComment will generate comments for. If it’s a file SmartComment will generate the comments for this file.
-
- match_files: Regular expression that defines rules for the file names, for example ["^((?!~).)*.(js)$"] match if the file names ends with .js and do not contain ~.
-
- backup: Accepts true or false. If true a backup of the files is created before the file is modified.
-
- private: Accepts true or false. If true the privated functions are ignored during the comment generation.
-
- favor_generated: Accepts true or false. When it's set to true (which is the default), it replaces whatever @return or @returns tag is in the source file with the generated one.
-
- Template: Path of the template that you want to use for the comments generation. In a template, a series of algorithm that allow to generate the comments from an AST with the JavaScript code are defined.
- */
-
 {
     "target_dir": ["app/js/"],
     "match_files": ["^((?!~).)*.(js)$"],
