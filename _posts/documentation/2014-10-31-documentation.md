@@ -11,313 +11,385 @@ published: true
 <!-- injected DocCtrl via documentation layo -->
 #Index
 
-**Modules**
+**Namespaces**
 
-* [controllers](#module_controllers)
-  * [controllers~TableCtrl()](#module_controllers..TableCtrl)
-  * [controllers~GithubModalCtrl()](#module_controllers..GithubModalCtrl)
-  * [controllers~GithubCtrl()](#module_controllers..GithubCtrl)
-  * [controllers~ConfigCtrl()](#module_controllers..ConfigCtrl)
-  * [controllers~ToasterController()](#module_controllers..ToasterController)
-  * [controllers~GithubForkCtrl()](#module_controllers..GithubForkCtrl)
-  * [controllers~GithubEditCtrl()](#module_controllers..GithubEditCtrl)
-  * [controllers~RatingCtrl()](#module_controllers..RatingCtrl)
-* [services](#module_services)
-  * [services~requestCode()](#module_services..requestCode)
-  * [services~requestToken(oauthCode)](#module_services..requestToken)
-  * [services~userInfo()](#module_services..userInfo)
-    * [userInfo~user()](#module_services..userInfo..user)
-  * [services~user()](#module_services..user)
-  * [services~logout()](#module_services..logout)
-  * [services~GithubSrvc()](#module_services..GithubSrvc)
-  * [services~requestCode()](#module_services..requestCode)
-  * [services~testAdmin()](#module_services..testAdmin)
-  * [services~fork()](#module_services..fork)
-  * [services~renameRepo()](#module_services..renameRepo)
-  * [services~batchDelete()](#module_services..batchDelete)
-  * [services~getContents()](#module_services..getContents)
-    * [getContents~fileCount()](#module_services..getContents..fileCount)
-  * [services~getFiles()](#module_services..getFiles)
-    * [getFiles~doGet()](#module_services..getFiles..doGet)
-  * [services~deleteBranch()](#module_services..deleteBranch)
-  * [services~renameBranch()](#module_services..renameBranch)
-  * [services~createBranch()](#module_services..createBranch)
-  * [services~postProcess()](#module_services..postProcess)
-  * [services~getContent()](#module_services..getContent)
-  * [services~editContent()](#module_services..editContent)
-  * [services~commit()](#module_services..commit)
-  * [services~commitMany()](#module_services..commitMany)
-  * [services~deleteContent()](#module_services..deleteContent)
-  * [services.setUserName()](#module_services.setUserName)
-  * [services.setIsAdmin()](#module_services.setIsAdmin)
-  * [services.setPassword()](#module_services.setPassword)
-  * [services.logout()](#module_services.logout)
-  * [services.getUser()](#module_services.getUser)
-  * [services~onFocus()](#module_services..onFocus)
-  * [services~switch()](#module_services..switch)
-  * [class: services~GithubAuthService](#module_services..GithubAuthService)
+* [Controllers](#Controllers)
+  * [Controllers.CommentsCtrl](#Controllers.CommentsCtrl)
+    * [CommentsCtrl.getComments()](#Controllers.CommentsCtrl.getComments)
+    * [CommentsCtrl.deleteComment()](#Controllers.CommentsCtrl.deleteComment)
+    * [CommentsCtrl.submit()](#Controllers.CommentsCtrl.submit)
+  * [Controllers.DocCtrl](#Controllers.DocCtrl)
+  * [Controllers.KeenioMasterCtrl](#Controllers.KeenioMasterCtrl)
+  * [Controllers.WikiquoteCtrl](#Controllers.WikiquoteCtrl)
+  * [Controllers.TableCtrl](#Controllers.TableCtrl)
+  * [Controllers.GithubModalCtrl](#Controllers.GithubModalCtrl)
+  * [Controllers.GithubCtrl](#Controllers.GithubCtrl)
+  * [Controllers.ConfigCtrl](#Controllers.ConfigCtrl)
+  * [Controllers.ToasterController](#Controllers.ToasterController)
+  * [Controllers.GithubForkCtrl](#Controllers.GithubForkCtrl)
+  * [Controllers.AdminCtrl](#Controllers.AdminCtrl)
+  * [Controllers.ExportCtrl](#Controllers.ExportCtrl)
+  * [Controllers.ImportCtrl](#Controllers.ImportCtrl)
+  * [Controllers.GithubEditCtrl](#Controllers.GithubEditCtrl)
+  * [Controllers.RatingCtrl](#Controllers.RatingCtrl)
+* [Services](#Services)
+  * [Services.GithubSrvc](#Services.GithubSrvc)
+  * [Services.UserModel](#Services.UserModel)
+  * [Services.UrlSrvc](#Services.UrlSrvc)
+  * [Services.PollingSrvc](#Services.PollingSrvc)
+  * [Services.YamlSrvc](#Services.YamlSrvc)
+  * [Services.EditorSrvc](#Services.EditorSrvc)
+  * [Services.PollingImgSrvc](#Services.PollingImgSrvc)
+  * [Services.StyleSwitcher](#Services.StyleSwitcher)
 
 **Functions**
 
-* [link()](#link)
-  * [link~handler()](#link..handler)
-* [link()](#link)
-  * [link~handler()](#link..handler)
+* [requestCode()](#requestCode)
+* [requestToken(oauthCode)](#requestToken)
+* [userInfo()](#userInfo)
+  * [userInfo~user()](#userInfo..user)
+* [user()](#user)
+* [logout()](#logout)
+* [renameRepo()](#renameRepo)
+* [batchDelete()](#batchDelete)
+* [getContents()](#getContents)
+  * [getContents~fileCount()](#getContents..fileCount)
+* [getFiles()](#getFiles)
+  * [getFiles~doGet()](#getFiles..doGet)
+* [deleteBranch()](#deleteBranch)
+* [renameBranch()](#renameBranch)
+* [createBranch()](#createBranch)
+* [postProcess()](#postProcess)
+* [getContent()](#getContent)
+* [editContent()](#editContent)
+* [commit()](#commit)
+* [commitMany()](#commitMany)
+* [deleteContent()](#deleteContent)
+* [onFocus()](#onFocus)
  
-<a name="module_controllers"></a>
-#controllers
+<a name="Controllers"></a>
+#Controllers
 The controller must be responsible for binding model data to views using $scope, and control information flow. It does not contain logic to fetch the data or manipulating it.
 
 **Members**
 
-* [controllers](#module_controllers)
-  * [controllers~TableCtrl()](#module_controllers..TableCtrl)
-  * [controllers~GithubModalCtrl()](#module_controllers..GithubModalCtrl)
-  * [controllers~GithubCtrl()](#module_controllers..GithubCtrl)
-  * [controllers~ConfigCtrl()](#module_controllers..ConfigCtrl)
-  * [controllers~ToasterController()](#module_controllers..ToasterController)
-  * [controllers~GithubForkCtrl()](#module_controllers..GithubForkCtrl)
-  * [controllers~GithubEditCtrl()](#module_controllers..GithubEditCtrl)
-  * [controllers~RatingCtrl()](#module_controllers..RatingCtrl)
+* [Controllers](#Controllers)
+  * [Controllers.CommentsCtrl](#Controllers.CommentsCtrl)
+    * [CommentsCtrl.getComments()](#Controllers.CommentsCtrl.getComments)
+    * [CommentsCtrl.deleteComment()](#Controllers.CommentsCtrl.deleteComment)
+    * [CommentsCtrl.submit()](#Controllers.CommentsCtrl.submit)
+  * [Controllers.DocCtrl](#Controllers.DocCtrl)
+  * [Controllers.KeenioMasterCtrl](#Controllers.KeenioMasterCtrl)
+  * [Controllers.WikiquoteCtrl](#Controllers.WikiquoteCtrl)
+  * [Controllers.TableCtrl](#Controllers.TableCtrl)
+  * [Controllers.GithubModalCtrl](#Controllers.GithubModalCtrl)
+  * [Controllers.GithubCtrl](#Controllers.GithubCtrl)
+  * [Controllers.ConfigCtrl](#Controllers.ConfigCtrl)
+  * [Controllers.ToasterController](#Controllers.ToasterController)
+  * [Controllers.GithubForkCtrl](#Controllers.GithubForkCtrl)
+  * [Controllers.AdminCtrl](#Controllers.AdminCtrl)
+  * [Controllers.ExportCtrl](#Controllers.ExportCtrl)
+  * [Controllers.ImportCtrl](#Controllers.ImportCtrl)
+  * [Controllers.GithubEditCtrl](#Controllers.GithubEditCtrl)
+  * [Controllers.RatingCtrl](#Controllers.RatingCtrl)
 
-<a name="module_controllers..TableCtrl"></a>
-##controllers~TableCtrl()
-Function for table sort and search
-
-**Scope**: inner function of [controllers](#module_controllers)  
-<a name="module_controllers..GithubModalCtrl"></a>
-##controllers~GithubModalCtrl()
-Show a modal window to enter user credentials...
-
-**Scope**: inner function of [controllers](#module_controllers)  
-<a name="module_controllers..GithubCtrl"></a>
-##controllers~GithubCtrl()
-GitHub controller using the GitHub service
-
-**Scope**: inner function of [controllers](#module_controllers)  
-<a name="module_controllers..ConfigCtrl"></a>
-##controllers~ConfigCtrl()
-Edit the configuration file
-
-**Scope**: inner function of [controllers](#module_controllers)  
-<a name="module_controllers..ToasterController"></a>
-##controllers~ToasterController()
-For popup messages
-
-**Scope**: inner function of [controllers](#module_controllers)  
-<a name="module_controllers..GithubForkCtrl"></a>
-##controllers~GithubForkCtrl()
-Fork functionality
-
-**Scope**: inner function of [controllers](#module_controllers)  
-<a name="module_controllers..GithubEditCtrl"></a>
-##controllers~GithubEditCtrl()
-This controller manages edits on content on github
-
-**Scope**: inner function of [controllers](#module_controllers)  
-<a name="module_controllers..RatingCtrl"></a>
-##controllers~RatingCtrl()
-Star rating
-
-**Scope**: inner function of [controllers](#module_controllers)  
-<a name="module_services"></a>
-#services
-Services are singleton objects used to share data (e.g. among several controllers) and generallyencapsulate reusable pieces of code (since they can be injected and offer their "services" in any part of your app that needs them: controllers, directives, filters, other services etc).
+<a name="Controllers.CommentsCtrl"></a>
+##Controllers.CommentsCtrl
+Bundles functions to receive and save comments
 
 **Members**
 
-* [services](#module_services)
-  * [services~requestCode()](#module_services..requestCode)
-  * [services~requestToken(oauthCode)](#module_services..requestToken)
-  * [services~userInfo()](#module_services..userInfo)
-    * [userInfo~user()](#module_services..userInfo..user)
-  * [services~user()](#module_services..user)
-  * [services~logout()](#module_services..logout)
-  * [services~GithubSrvc()](#module_services..GithubSrvc)
-  * [services~requestCode()](#module_services..requestCode)
-  * [services~testAdmin()](#module_services..testAdmin)
-  * [services~fork()](#module_services..fork)
-  * [services~renameRepo()](#module_services..renameRepo)
-  * [services~batchDelete()](#module_services..batchDelete)
-  * [services~getContents()](#module_services..getContents)
-    * [getContents~fileCount()](#module_services..getContents..fileCount)
-  * [services~getFiles()](#module_services..getFiles)
-    * [getFiles~doGet()](#module_services..getFiles..doGet)
-  * [services~deleteBranch()](#module_services..deleteBranch)
-  * [services~renameBranch()](#module_services..renameBranch)
-  * [services~createBranch()](#module_services..createBranch)
-  * [services~postProcess()](#module_services..postProcess)
-  * [services~getContent()](#module_services..getContent)
-  * [services~editContent()](#module_services..editContent)
-  * [services~commit()](#module_services..commit)
-  * [services~commitMany()](#module_services..commitMany)
-  * [services~deleteContent()](#module_services..deleteContent)
-  * [services.setUserName()](#module_services.setUserName)
-  * [services.setIsAdmin()](#module_services.setIsAdmin)
-  * [services.setPassword()](#module_services.setPassword)
-  * [services.logout()](#module_services.logout)
-  * [services.getUser()](#module_services.getUser)
-  * [services~onFocus()](#module_services..onFocus)
-  * [services~switch()](#module_services..switch)
-  * [class: services~GithubAuthService](#module_services..GithubAuthService)
+* [Controllers.CommentsCtrl](#Controllers.CommentsCtrl)
+  * [CommentsCtrl.getComments()](#Controllers.CommentsCtrl.getComments)
+  * [CommentsCtrl.deleteComment()](#Controllers.CommentsCtrl.deleteComment)
+  * [CommentsCtrl.submit()](#Controllers.CommentsCtrl.submit)
 
-<a name="module_services..requestCode"></a>
-##services~requestCode()
+<a name="Controllers.CommentsCtrl.getComments"></a>
+###CommentsCtrl.getComments()
+receive comments
+
+**Returns**:  - entries  
+<a name="Controllers.CommentsCtrl.deleteComment"></a>
+###CommentsCtrl.deleteComment()
+receive comments
+
+**Returns**:  - entries  
+<a name="Controllers.CommentsCtrl.submit"></a>
+###CommentsCtrl.submit()
+receive comments
+
+**Returns**:  - entries  
+<a name="Controllers.DocCtrl"></a>
+##Controllers.DocCtrl
+xyz
+
+**Members**
+
+* [Controllers.DocCtrl](#Controllers.DocCtrl)
+
+<a name="Controllers.KeenioMasterCtrl"></a>
+##Controllers.KeenioMasterCtrl
+xyz
+
+**Members**
+
+* [Controllers.KeenioMasterCtrl](#Controllers.KeenioMasterCtrl)
+
+<a name="Controllers.WikiquoteCtrl"></a>
+##Controllers.WikiquoteCtrl
+xyz
+
+**Members**
+
+* [Controllers.WikiquoteCtrl](#Controllers.WikiquoteCtrl)
+
+<a name="Controllers.TableCtrl"></a>
+##Controllers.TableCtrl
+xyz
+
+**Members**
+
+* [Controllers.TableCtrl](#Controllers.TableCtrl)
+
+<a name="Controllers.GithubModalCtrl"></a>
+##Controllers.GithubModalCtrl
+xyz
+
+**Members**
+
+* [Controllers.GithubModalCtrl](#Controllers.GithubModalCtrl)
+
+<a name="Controllers.GithubCtrl"></a>
+##Controllers.GithubCtrl
+xyz
+
+**Members**
+
+* [Controllers.GithubCtrl](#Controllers.GithubCtrl)
+
+<a name="Controllers.ConfigCtrl"></a>
+##Controllers.ConfigCtrl
+xyz
+
+**Members**
+
+* [Controllers.ConfigCtrl](#Controllers.ConfigCtrl)
+
+<a name="Controllers.ToasterController"></a>
+##Controllers.ToasterController
+xyz
+
+**Members**
+
+* [Controllers.ToasterController](#Controllers.ToasterController)
+
+<a name="Controllers.GithubForkCtrl"></a>
+##Controllers.GithubForkCtrl
+xyz
+
+**Members**
+
+* [Controllers.GithubForkCtrl](#Controllers.GithubForkCtrl)
+
+<a name="Controllers.AdminCtrl"></a>
+##Controllers.AdminCtrl
+Unlock admin functionality
+
+**Members**
+
+* [Controllers.AdminCtrl](#Controllers.AdminCtrl)
+
+<a name="Controllers.ExportCtrl"></a>
+##Controllers.ExportCtrl
+This controller exports/imports post as a zip
+
+**Members**
+
+* [Controllers.ExportCtrl](#Controllers.ExportCtrl)
+
+<a name="Controllers.ImportCtrl"></a>
+##Controllers.ImportCtrl
+This controller imports posts from a zip archive
+
+**Members**
+
+* [Controllers.ImportCtrl](#Controllers.ImportCtrl)
+
+<a name="Controllers.GithubEditCtrl"></a>
+##Controllers.GithubEditCtrl
+This controller manages edits on content on github
+
+**Members**
+
+* [Controllers.GithubEditCtrl](#Controllers.GithubEditCtrl)
+
+<a name="Controllers.RatingCtrl"></a>
+##Controllers.RatingCtrl
+Star rating
+
+**Members**
+
+* [Controllers.RatingCtrl](#Controllers.RatingCtrl)
+
+<a name="Services"></a>
+#Services
+**Members**
+
+* [Services](#Services)
+  * [Services.GithubSrvc](#Services.GithubSrvc)
+  * [Services.UserModel](#Services.UserModel)
+  * [Services.UrlSrvc](#Services.UrlSrvc)
+  * [Services.PollingSrvc](#Services.PollingSrvc)
+  * [Services.YamlSrvc](#Services.YamlSrvc)
+  * [Services.EditorSrvc](#Services.EditorSrvc)
+  * [Services.PollingImgSrvc](#Services.PollingImgSrvc)
+  * [Services.StyleSwitcher](#Services.StyleSwitcher)
+
+<a name="Services.GithubSrvc"></a>
+##Services.GithubSrvc
+xyz
+
+**Members**
+
+* [Services.GithubSrvc](#Services.GithubSrvc)
+
+<a name="Services.UserModel"></a>
+##Services.UserModel
+xyz
+
+**Members**
+
+* [Services.UserModel](#Services.UserModel)
+
+<a name="Services.UrlSrvc"></a>
+##Services.UrlSrvc
+xyz
+
+**Members**
+
+* [Services.UrlSrvc](#Services.UrlSrvc)
+
+<a name="Services.PollingSrvc"></a>
+##Services.PollingSrvc
+xyz
+
+**Members**
+
+* [Services.PollingSrvc](#Services.PollingSrvc)
+
+<a name="Services.YamlSrvc"></a>
+##Services.YamlSrvc
+YamlSrvc can parse files with frontmatter (normal post) and the _config.yaml without frontmatter
+
+**Members**
+
+* [Services.YamlSrvc](#Services.YamlSrvc)
+
+<a name="Services.EditorSrvc"></a>
+##Services.EditorSrvc
+xyz
+
+**Members**
+
+* [Services.EditorSrvc](#Services.EditorSrvc)
+
+<a name="Services.PollingImgSrvc"></a>
+##Services.PollingImgSrvc
+xyz
+
+**Members**
+
+* [Services.PollingImgSrvc](#Services.PollingImgSrvc)
+
+<a name="Services.StyleSwitcher"></a>
+##Services.StyleSwitcher
+xyz
+
+**Members**
+
+* [Services.StyleSwitcher](#Services.StyleSwitcher)
+
+<a name="requestCode"></a>
+#requestCode()
 Description
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..requestToken"></a>
-##services~requestToken(oauthCode)
+<a name="requestToken"></a>
+#requestToken(oauthCode)
 Description
 
 **Params**
 
 - oauthCode   
 
-**Scope**: inner function of [services](#module_services)  
 **Returns**:  - MemberExpression  
-<a name="module_services..userInfo"></a>
-##services~userInfo()
+<a name="userInfo"></a>
+#userInfo()
 Description
 
-**Scope**: inner function of [services](#module_services)  
 **Returns**:  - ObjectExpression  
-<a name="module_services..user"></a>
-##services~user()
+<a name="user"></a>
+#user()
 Description
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..logout"></a>
-##services~logout()
+<a name="logout"></a>
+#logout()
 Description
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..GithubSrvc"></a>
-##services~GithubSrvc()
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..requestCode"></a>
-##services~requestCode()
+<a name="renameRepo"></a>
+#renameRepo()
 Description
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..testAdmin"></a>
-##services~testAdmin()
+<a name="batchDelete"></a>
+#batchDelete()
 Description
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..fork"></a>
-##services~fork()
+<a name="getContents"></a>
+#getContents()
 Description
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..renameRepo"></a>
-##services~renameRepo()
+<a name="getFiles"></a>
+#getFiles()
 Description
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..batchDelete"></a>
-##services~batchDelete()
-Description
-
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..getContents"></a>
-##services~getContents()
-Description
-
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..getFiles"></a>
-##services~getFiles()
-Description
-
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..deleteBranch"></a>
-##services~deleteBranch()
+<a name="deleteBranch"></a>
+#deleteBranch()
 With the help of this function the template brach is deleted after forkin
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..renameBranch"></a>
-##services~renameBranch()
+<a name="renameBranch"></a>
+#renameBranch()
 Rename template branch to master branch
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..createBranch"></a>
-##services~createBranch()
+<a name="createBranch"></a>
+#createBranch()
 Creates a branch
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..postProcess"></a>
-##services~postProcess()
+<a name="postProcess"></a>
+#postProcess()
 After forking it preprocesses the config file
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..getContent"></a>
-##services~getContent()
+<a name="getContent"></a>
+#getContent()
 Get content of a file hosted on GitHub
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..editContent"></a>
-##services~editContent()
+<a name="editContent"></a>
+#editContent()
 Edit content on a file hosted on github
 
-**Scope**: inner function of [services](#module_services)  
 **Returns**:  - a save promise after editing.  
-<a name="module_services..commit"></a>
-##services~commit()
+<a name="commit"></a>
+#commit()
 Commit a file back to GitHub
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..commitMany"></a>
-##services~commitMany()
+<a name="commitMany"></a>
+#commitMany()
 Commit many files back to GitHub
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..deleteContent"></a>
-##services~deleteContent()
+<a name="deleteContent"></a>
+#deleteContent()
 Delete content from GitHub
 
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services.setUserName"></a>
-##services.setUserName()
-Description
-
-<a name="module_services.setIsAdmin"></a>
-##services.setIsAdmin()
-Description
-
-<a name="module_services.setPassword"></a>
-##services.setPassword()
-Description
-
-<a name="module_services.logout"></a>
-##services.logout()
-Description
-
-<a name="module_services.getUser"></a>
-##services.getUser()
-Description
-
-<a name="module_services..onFocus"></a>
-##services~onFocus()
-Description
-
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..switch"></a>
-##services~switch()
-Description
-
-**Scope**: inner function of [services](#module_services)  
-<a name="module_services..GithubAuthService"></a>
-##class: services~GithubAuthService
-**Members**
-
-* [class: services~GithubAuthService](#module_services..GithubAuthService)
-
-<a name="link"></a>
-#link()
-Description
-
-<a name="link"></a>
-#link()
+<a name="onFocus"></a>
+#onFocus()
 Description
 
 
