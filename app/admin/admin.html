@@ -21,7 +21,7 @@ comments: false
             </div>
                 <table>
                     <th>Post</th>
-                    <th><a href="" ng-click="selectAllExport()">Select All</a> / <a href="" ng-click="unselectAllExport()">Unselect All</a></th>
+                    <th><a href="" ng-click="selectAllExport()" target="_self">Select All</a> / <a href="" ng-click="unselectAllExport()" target="_self">Unselect All</a></th>
                     <tr ng-repeat="(key, value) in export">
                         <td>
                             <div ng-click="showContent(value)">{{value}}</div>
@@ -43,7 +43,7 @@ comments: false
             <div class="row">
                 <table>
                     <th>Post</th>
-                    <th><a href="" ng-click="selectAllImport()">Select All</a> / <a href="" ng-click="unselectAllImport()">Unselect All</a></th>
+                    <th><a href="" ng-click="selectAllImport()" target="_self">Select All</a> / <a href="" ng-click="unselectAllImport()" target="_self">Unselect All</a></th>
                     <tr ng-repeat="(key, value) in import">
                         <td>
                             <div ng-click="showContent(value)">{{value}}</div>
