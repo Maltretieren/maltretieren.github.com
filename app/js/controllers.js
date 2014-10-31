@@ -1,25 +1,16 @@
 'use strict';
 
 /**
- The controller must be responsible for binding model data to views using $scope, and control information flow. It does not contain logic to fetch the data or manipulating it.
- @module
+ * @namespace Controllers
+ * @description  The controller must be responsible for binding model data to views using $scope, and control information flow. It does not contain logic to fetch the data or manipulating it.
  */
 
-/**
 
 /**
- * @Description Receive a complete list of all comments
- * @method CommentsCtrl
- * @param $scope
- * @param $http
- * @param $dialogs
- * @param $timeout
- * @param toaster
- * @param UserModel
- * @returns nothing
- * @namespace example.angular
+ * @namespace Controllers.CommentsCtrl
+ * @memborOf Controllers
+ * @description Bundles functions to receive and save comments
  */
-
 myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toaster, UserModel) {
 	var commentsUrl = config.keenio.comments_url;
 	// disable comments if there is no config for it...
@@ -56,7 +47,10 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
     }
 
     /**
-     * @memberOf CommentsCtrl
+     * @function getComments
+     * @memberOf Controllers.CommentsCtrl
+     * @description receive comments
+     * @returns entries
      */
     $scope.getComments = function() {
 		$http({method: 'GET', url: commentsUrl+$scope.filterString})
@@ -75,9 +69,13 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
 
     $scope.quantity = 3;
     $scope.sortorder = 'created_at';
-	/**
-	 * @Description Description
-	 */
+
+    /**
+     * @function deleteComment
+     * @memberOf Controllers.CommentsCtrl
+     * @description receive comments
+     * @returns entries
+     */
 	$scope.deleteComment = function(event) {
 		var cId = event.target.id;
 		//console.log("Delete: "+$scope.id);
@@ -89,11 +87,13 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
 			console.log("exit");
 		});
 	}
-	
-	// comments form
-	/**
-	 * @Description Description
-	 */
+
+    /**
+     * @function submit
+     * @memberOf Controllers.CommentsCtrl
+     * @description receive comments
+     * @returns entries
+     */
 	$scope.submit = function() {
 		var data = {
 			"name": $scope.userName,
@@ -103,17 +103,12 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
 			"pageUrl": $scope.pageUrl
 		} 
 
-		/**
-		 * @Description Description
-		 */
 		var success = function() {
 			toaster.pop('success', "Comment saved", 'Comment was saved and will be available shortly', 5000, 'trustedHtml');
 			$timeout($scope.getComments, 9000);
 			$scope.$apply();
 		}
-		/**
-		 * @Description Description
-		 */
+
 		var error = function() {
 			toaster.pop('error', "Comment failed", 'There was an error while saving the comment', 5000, 'trustedHtml');
 			$scope.$apply();
@@ -122,31 +117,32 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
 	}
 });
 
+/**
+ * @namespace Controllers.DocCtrl
+ * @memborOf Controllers
+ * @description xyz
+ */
 myApp.controller("DocCtrl", function ($scope, $anchorScroll, $location) {
-    /**
-     * @Description Description scrollTo
-     */
     $scope.scrollTo = function(id) {
         $location.hash(id);
         $anchorScroll();
     }
 });
 
+/**
+ * @namespace Controllers.KeenioMasterCtrl
+ * @memborOf Controllers
+ * @description xyz
+ */
 myApp.controller("KeenioMasterCtrl", function ($scope, $modalInstance, $http, toaster, data) {
 	$scope.user = {};
 	$scope.commentId = data.commentId;
 	console.log($scope.commentId);
-	
-	/**
-	 * @Description Description
-	 */
+
 	$scope.cancel = function(){
 		$modalInstance.dismiss('canceled');  
 	}; // end cancel
-	
-	/**
-	 * @Description Description
-	 */
+
 	$scope.save = function() {
 		$scope.masterKey = $scope.user.name;
         console.log("Keenio Master key: "+$scope.masterKey);
@@ -165,6 +161,11 @@ myApp.controller("KeenioMasterCtrl", function ($scope, $modalInstance, $http, to
 	};
 });
 
+/**
+ * @namespace Controllers.WikiquoteCtrl
+ * @memborOf Controllers
+ * @description xyz
+ */
 myApp.controller("WikiquoteCtrl",function ($scope) {
     /** @lends wikiquote */
     var wikiquote = function() {
@@ -181,8 +182,9 @@ myApp.controller("WikiquoteCtrl",function ($scope) {
 });
 
 /**
- * @method TableCtrl
- * @Description Function for table sort and search
+ * @namespace Controllers.TableCtrl
+ * @memborOf Controllers
+ * @description xyz
  */
 myApp.controller("TableCtrl",function ($scope, $http) {
     var postsUrl = "/postsFrontpage.json";
@@ -205,21 +207,16 @@ myApp.controller("TableCtrl",function ($scope, $http) {
 });
 
 /**
- *  @method GithubModalCtrl
- *  @Description Show a modal window to enter user credentials...
+ * @namespace Controllers.GithubModalCtrl
+ * @memborOf Controllers
+ * @description xyz
  */
 myApp.controller("GithubModalCtrl", function ($scope, $modalInstance, UserModel, GithubAuthService, GithubSrvc) {
 	$scope.user = {}
-	/**
-	 * Description
-	 */
 	$scope.cancel = function(){
 		$modalInstance.dismiss('canceled');  
 	}; // end cancel
-	
-	/**
-	 * Description
-	 */
+
 	$scope.save = function() {
         console.log($scope.user.name);
         GithubAuthService.instance($scope.user.name, $scope.user.password);
@@ -237,8 +234,9 @@ myApp.controller("GithubModalCtrl", function ($scope, $modalInstance, UserModel,
 });
 
 /**
- *  @method GithubCtrl
- *  @Description GitHub controller using the GitHub service
+ * @namespace Controllers.GithubCtrl
+ * @memborOf Controllers
+ * @description xyz
  */
 myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, UrlSrvc, UserModel, GithubSrvc, GithubAuthService) {
 	// login by the owner of the repository: edits on the blog are possible
@@ -257,10 +255,7 @@ myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, Url
 	
 	// if no token is available listen for button click...
 	(
-/**
- * @Description Description
- */
-$scope.login = function() {
+    $scope.login = function() {
 		var user = UserModel.getUser();
 		// first check if there is a valid user already stored in the localStorage
 		if(typeof user !== 'undefined' && user !== null) {
@@ -339,9 +334,9 @@ $scope.login = function() {
 });
 
 /**
- * @method ConfigCtrl
- * @Description Edit the configuration file
- *
+ * @namespace Controllers.ConfigCtrl
+ * @memborOf Controllers
+ * @description xyz
  */
 myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster) {
     $scope.inputs = {}
@@ -399,8 +394,9 @@ myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster)
 });
 
 /**
- * @method ToasterController
- * @Description For popup messages
+ * @namespace Controllers.ToasterController
+ * @memborOf Controllers
+ * @description xyz
  */
 myApp.controller('ToasterController', function($scope, toaster) {
     // save a reference to the current scope...
@@ -432,8 +428,9 @@ myApp.controller('ToasterController', function($scope, toaster) {
 });
 
 /**
- * @method GithubForkCtrl
- * @Description Fork functionality
+ * @namespace Controllers.GithubForkCtrl
+ * @memborOf Controllers
+ * @description xyz
  */
 myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster, UserModel, StyleSwitcher, GithubSrvc, GithubAuthService, PollingSrvc, PollingImgSrvc) {
 	var scope = $scope;
@@ -672,11 +669,12 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
     };
 });
 
- /**
- *	@Description This controller unlocks/lock admin functionality
+/**
+ * @namespace Controllers.AdminCtrl
+ * @memborOf Controllers
+ * @description Unlock admin functionality
  */
 myApp.controller('AdminCtrl', function($scope, UserModel) {
-	// binding to hide the edit button for non-admin users...
 	var user = UserModel.getUser();
 	if(user !== null) {
 		$scope.isAdmin = UserModel.getUser().isAdmin;
@@ -686,8 +684,10 @@ myApp.controller('AdminCtrl', function($scope, UserModel) {
 });
 
 /**
-* @Description This controller exports/imports post as a zip
-*/
+ * @namespace Controllers.ExportCtrl
+ * @memborOf Controllers
+ * @description This controller exports/imports post as a zip
+ */
 myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 	// binding to hide the edit button for non-admin users...
 	$scope.export = [];
@@ -708,9 +708,11 @@ myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 	}, function(update) {
 		console.log("Update from the fileCount process: "+update);
 	});
-	
+
     /**
-     * @Description Description
+     * @function zip
+     * @memberOf controller.ExportCtrl
+     * @description zip files
      */
     $scope.zip = function() {
 		var filePromise = GithubSrvc.getFiles($scope.exportSelection);
@@ -754,7 +756,9 @@ myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 });
 
 /**
- *	@Description This controller imports posts from a zip archive
+ * @namespace Controllers.ImportCtrl
+ * @memborOf Controllers
+ * @description This controller imports posts from a zip archive
  */
 myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
     // binding to hide the edit button for non-admin users...
@@ -844,8 +848,9 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
 });
 
 /**
- *	@Description This controller manages edits on content on github
- *  @method GithubEditCtrl
+ * @namespace Controllers.GithubEditCtrl
+ * @memborOf Controllers
+ * @description This controller manages edits on content on github
  */
 myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeout, toaster, YamlSrvc, UserModel, UrlSrvc, GithubSrvc, hotkeys) {
     var scope = $scope;
@@ -1017,9 +1022,9 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 });
 
 /**
- *	@Description Star rating
- *
- *   @function RatingCtrl
+ * @namespace Controllers.RatingCtrl
+ * @memborOf Controllers
+ * @description Star rating
  */
 myApp.controller('RatingCtrl', function($scope) {
     var ratyElements =  $('.raty');

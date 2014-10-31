@@ -1,28 +1,25 @@
 "use strict";
 
 /**
- * @author Example <jon.doe@example.com>
- * @copyright 2014 Example Ltd. All rights reserved.
+  Services are singleton objects used to share data (e.g. among several controllers) and generallyencapsulate reusable pieces of code (since they can be injected and offer their "services" in any part of your app that needs them: controllers, directives, filters, other services etc).
  */
 
 /**
-  Services are singleton objects used to share data (e.g. among several controllers) and generallyencapsulate reusable pieces of code (since they can be injected and offer their "services" in any part of your app that needs them: controllers, directives, filters, other services etc).
-  @module
+ * @namespace Services
  */
 
- /**
-  @class GithubAuthService
+/**
+ * @namespace Service.GithubAuthService
+ * @memborOf Services
+ * @description xyz
  */
 myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
     var github = null;
 
     return {
         /**
-         * @Description Description
-         * @memberOf GithubAuthService
-         * @param {} username
-         * @param {} password
-         * @return github instance
+         * @funvtion instance
+         * @memberOf Services.GithubAuthService
          */
         instance : function(username, password) {
             // this should ask for the UserModel - user object, and get the token from there...
@@ -141,22 +138,18 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
 });
 
 /**
- * @method GithubSrvc
+ * @namespace Services.GithubSrvc
+ * @memborOf Services
+ * @description xyz
  */
 myApp.service("GithubSrvc", function (
     $rootScope, $q, $interval, GithubAuthService,
     UserModel, PollingSrvc, YamlSrvc, EditorSrvc, UrlSrvc, $http, $timeout) {
 
     return {
-        /**
-         * @Description Description
-         */
         requestCode: function() {
             GithubAuthService.requestCode();
         },
-        /**
-         * @Description Description
-         */
         testAdmin: function() {
             var deferred = $q.defer();
             var githubInstance = GithubAuthService.instance();
@@ -176,9 +169,6 @@ myApp.service("GithubSrvc", function (
             })
             return deferred.promise;
         },
-		/**
-		 * @Description Description
-		 */
 		fork: function(options) {
             // options contain the name for the new github page and the site slogan
 			var githubInstance = GithubAuthService.instance();
@@ -192,6 +182,7 @@ myApp.service("GithubSrvc", function (
             }
 		},
         /**
+         * @function renameRepo
          * @Description Description
          */
         renameRepo: function(forkName) {
@@ -518,49 +509,41 @@ myApp.service("GithubSrvc", function (
 });
 
 // Inspired by http://joelhooks.com/blog/2013/04/24/modeling-data-and-state-in-your-angularjs-application/
+/**
+ * @namespace Services.UserModel
+ * @memborOf Services
+ * @description xyz
+ */
 myApp.service("UserModel", function ($rootScope) {
 	this.user = {};
-    /**
-     * @Description Description
-     */
+
     var serializeUser = function(user) {
         var userJson = JSON.stringify(user);
         localStorage.setItem("user", userJson);
     }
 
-	/**
-	 * @Description Description
-	 */
 	this.setUserName = function(userName) {
 		this.user.name = userName;
         $rootScope.$broadcast('UserModel::userLoggedIn');
         serializeUser(this.user);
 	};
-    /**
-     * @Description Description
-     */
+
     this.setIsAdmin = function(isAdmin) {
         this.user.isAdmin = isAdmin;
         serializeUser(this.user);
     },
-    /**
-     * @Description Description
-     */
+
     this.setPassword = function(password) {
         this.user.password = password;
         serializeUser(this.user);
     },
-	/**
-	 * @Description Description
-	 */
+
 	this.logout = function() {
 		this.user = {};
 		localStorage.clear();
 		$rootScope.$broadcast('UserModel::userLoggedOut');
 	}
-	/**
-	 * @Description Description
-	 */
+
 	this.getUser = function() {
 		var userString = localStorage.getItem("user");
 		if(typeof userString !== 'undefined') {
@@ -573,8 +556,10 @@ myApp.service("UserModel", function ($rootScope) {
 });
 
 /**
- * @Description This is a helper function
- **/
+ * @namespace Services.UrlSrvc
+ * @memborOf Services
+ * @description xyz
+ */
 myApp.service("UrlSrvc", function ($window) {
     /**
      * @Description Description
@@ -582,10 +567,8 @@ myApp.service("UrlSrvc", function ($window) {
     var getParams = function (url, paramName) {
 		var urlParams;
 		(
-/**
- * @Description Description
- */
-$window.onpopstate = function () {
+
+            $window.onpopstate = function () {
 			/**
 			 * Description
 			 */
@@ -637,6 +620,11 @@ $window.onpopstate = function () {
 	}
 });
 
+/**
+ * @namespace Services.PollingSrvc
+ * @memborOf Services
+ * @description xyz
+ */
 myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthService) {
         /**
          * @Description Description
@@ -677,7 +665,9 @@ myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthServic
 });
 
 /**
- * @Description YamlSrvc can parse files with frontmatter (normal post) and the _config.yaml without frontmatter
+ * @namespace Services.YamlSrvc
+ * @memborOf Services
+ * @description YamlSrvc can parse files with frontmatter (normal post) and the _config.yaml without frontmatter
  */
 myApp.service("YamlSrvc", function () {
     /**
@@ -770,6 +760,11 @@ myApp.service("YamlSrvc", function () {
 	}
 });
 
+/**
+ * @namespace Services.EditorSrvc
+ * @memborOf Services
+ * @description xyz
+ */
 myApp.service("EditorSrvc", function () {
     /**
      * @Description Description
@@ -802,6 +797,11 @@ myApp.service("EditorSrvc", function () {
     }
 });
 
+/**
+ * @namespace Services.PollingImgSrvc
+ * @memborOf Services
+ * @description xyz
+ */
 myApp.service("PollingImgSrvc", function ($q, $timeout) {
     var poll = function (repoName) {
         var deferred = $q.defer();
@@ -835,11 +835,13 @@ myApp.service("PollingImgSrvc", function ($q, $timeout) {
     return { checkReady: poll }
 });
 
-myApp.service("StyleSwitcher", function () {
-	return { 
 /**
-  * @Description Description
-  */
+ * @namespace Services.StyleSwitcher
+ * @memborOf Services
+ * @description xyz
+ */
+myApp.service("StyleSwitcher", function () {
+	return {
  switch: function(styleName) {
 		console.log("switch to style: "+styleName);
 		if(typeof styleName!=='undefined' && styleName !== '') {
