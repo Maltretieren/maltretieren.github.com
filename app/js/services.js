@@ -1,20 +1,17 @@
 "use strict";
 
-
-myApp.value('version', '0.1');
+/**
+ * @author Example <jon.doe@example.com>
+ * @copyright 2014 Example Ltd. All rights reserved.
+ */
 
 /**
- * Services are singleton objects used to share data
- * (e.g. among several controllers) and generally
- * encapsulate reusable pieces of code (since they can be
- * injected and offer their "services" in any part of your app
- * that needs them: controllers, directives, filters, other services etc).
- *
+  Services are singleton objects used to share data (e.g. among several controllers) and generallyencapsulate reusable pieces of code (since they can be injected and offer their "services" in any part of your app that needs them: controllers, directives, filters, other services etc).
+  @module
  */
 
  /**
- * @method GithubAuthService
- * @constructor
+  @class GithubAuthService
  */
 myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
     var github = null;
@@ -22,7 +19,7 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
     return {
         /**
          * @Description Description
-         * @method instance
+         * @memberOf GithubAuthService
          * @param {} username
          * @param {} password
          * @return github instance

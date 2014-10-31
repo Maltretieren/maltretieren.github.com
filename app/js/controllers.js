@@ -1,11 +1,11 @@
 'use strict';
 
 /**
-*	The controller must be responsible for binding model data to views using $scope,
- *	and control information flow.
- *
- *	It does not contain logic to fetch the data or manipulating it.
-*/
+ The controller must be responsible for binding model data to views using $scope, and control information flow. It does not contain logic to fetch the data or manipulating it.
+ @module
+ */
+
+/**
 
 /**
  * @Description Receive a complete list of all comments
@@ -162,14 +162,8 @@ myApp.controller("KeenioMasterCtrl", function ($scope, $modalInstance, $http, to
 	};
 });
 
-/**
- * @method WikiquoteCtrl
- * @Description Receive a complete list of all comments
- * @example
- * var foo = bar;
- * var bar = foo;
- */
 myApp.controller("WikiquoteCtrl",function ($scope) {
+    /** @lends wikiquote */
     var wikiquote = function() {
         WikiquoteApi.getRandomQuote("Programming|Computer",
             function(newQuote) {
