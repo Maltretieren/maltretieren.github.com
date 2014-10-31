@@ -463,7 +463,13 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
             }
 
             this.img = new Image();
+            /**
+             * @private
+             */
             this.img.onload = function() {_good();};
+            /**
+             * @private
+             */
             this.img.onerror = function(e) { error(e);};
             this.img.src = "https://"+$scope.options.forkName;
             var good= function() {
