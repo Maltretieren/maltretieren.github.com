@@ -7,3 +7,5 @@ tests/results/*
 .gitignore
 
 npm-debug.log
+
+_posts/documentation/2014-10-31-documentation.md
