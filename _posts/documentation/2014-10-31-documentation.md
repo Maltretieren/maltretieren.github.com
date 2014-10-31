@@ -234,6 +234,8 @@ Star rating
 
 <a name="Services"></a>
 #Services
+Services are singleton objects used to share data (e.g. among several controllers) and generallyencapsulate reusable pieces of code (since they can be injected and offer their "services" in any part of your app that needs them: controllers, directives, filters, other services etc).
+
 **Members**
 
 * [Services](#Services)
