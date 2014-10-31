@@ -462,18 +462,6 @@ Description
 #clear()
 Description
 
-<a name="onload"></a>
-#onload()
-Description
-
-<a name="onerror"></a>
-#onerror(e)
-Description
-
-**Params**
-
-- e   
-
 <a name="good"></a>
 #good()
 Description
