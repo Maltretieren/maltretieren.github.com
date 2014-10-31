@@ -165,6 +165,9 @@ myApp.controller("KeenioMasterCtrl", function ($scope, $modalInstance, $http, to
 /**
  * @method WikiquoteCtrl
  * @Description Receive a complete list of all comments
+ * @example
+ * var foo = bar;
+ * var bar = foo;
  */
 myApp.controller("WikiquoteCtrl",function ($scope) {
     var wikiquote = function() {
