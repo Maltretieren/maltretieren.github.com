@@ -17,6 +17,7 @@
  * @param toaster
  * @param UserModel
  * @returns nothing
+ * @namespace example.angular
  */
 
 myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toaster, UserModel) {
@@ -53,8 +54,10 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
     $scope.more = function() {
         $scope.quantity += 3;
     }
-	
 
+    /**
+     * @memberOf CommentsCtrl
+     */
     $scope.getComments = function() {
 		$http({method: 'GET', url: commentsUrl+$scope.filterString})
         .success(function(data, status, headers, config) {
@@ -503,7 +506,6 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
     };
 
 	/**
-     * @method switchTheme
 	 * @Description change theme
 	 */
 	var switchTheme = function() {
@@ -858,6 +860,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
         combo: 'ctrl+s',
         description: 'Save the post',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
+
         /**
          * @Description Hotkey pressed callback, calls save on editor
          * {@link save}

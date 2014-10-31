@@ -24,7 +24,7 @@ install:
 
 before_script:
   # automatically generate comments
-  - smartcomments -g --config ./tests/config/smartcomments.json
+  # - smartcomments -g --config ./tests/config/smartcomments.json
   - grunt travis
   - git config --global user.name "Travis CI"
   - git remote set-url origin https://Maltretieren:${GH_TOKEN}@github.com/Maltretieren/maltretieren.github.com.git
