@@ -340,7 +340,7 @@ myApp.service("GithubSrvc", function (
 			return fileDeferred.promise;
 		},
         /**
-         * Description
+         * With the help of this function the template brach is deleted after forkin
          */
         deleteBranch: function(forkName, branchName) {
 			var that = this;
@@ -352,7 +352,7 @@ myApp.service("GithubSrvc", function (
 			});
         },
         /**
-         * Description
+         * Rename template branch to master branch
          */
         renameBranch: function(forkName) {
 			var that = this;
@@ -364,7 +364,7 @@ myApp.service("GithubSrvc", function (
 			});
         },
         /**
-         * Description
+         * Creates a branch
          */
         createBranch: function(forkName, branchName) {
 			var that = this;
@@ -380,7 +380,7 @@ myApp.service("GithubSrvc", function (
 			});
         },
         /**
-         * Description
+         * After forking it preprocesses the config file
          */
         postProcess: function(path, replace, repositoryName) {
             var self = this;
@@ -413,7 +413,7 @@ myApp.service("GithubSrvc", function (
             return deferred.promise;
         },
         /**
-         * Description
+         * Get content of a file hosted on GitHub
          */
         getContent: function(path) {
             var githubInstance = GithubAuthService.instance();
@@ -434,7 +434,8 @@ myApp.service("GithubSrvc", function (
 			}
         },
         /**
-         * Description
+         * Edit content on a file hosted on github
+         * @returns a save promise after editing.
          */
         editContent: function(path) {
             var self = this;
@@ -461,7 +462,7 @@ myApp.service("GithubSrvc", function (
 			}
         },
 		/**
-		 * Description
+		 * Commit a file back to GitHub
 		 */
 		commit: function(text, path, branch, showMessage, force) {
 			if(typeof branch === 'undefined') {
@@ -490,7 +491,7 @@ myApp.service("GithubSrvc", function (
             return deferred.promise;
         },
 		/**
-		 * Description
+		 * Commit many files back to GitHub
 		 */
 		commitMany: function(posts, message, showMessage, force) {
 			var githubInstance = GithubAuthService.instance();
@@ -510,7 +511,7 @@ myApp.service("GithubSrvc", function (
             return deferred.promise;
         },
         /**
-         * Description
+         * Delete content from GitHub
          */
         deleteContent: function(path) {
             var githubInstance = GithubAuthService.instance();

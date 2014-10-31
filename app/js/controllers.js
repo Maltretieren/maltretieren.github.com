@@ -9,9 +9,14 @@
 
 /**
  * Receive a complete list of all comments
- * @param {string} str The string to repeat.
- * @param {number} [times=1] How many times to repeat the string.
- * @returns {string}
+ * @method CommentsCtrl
+ * @param $scope
+ * @param $http
+ * @param $dialogs
+ * @param $timeout
+ * @param toaster
+ * @param UserModel
+ * @returns nothing
  */
 
 myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toaster, UserModel) {
@@ -158,14 +163,10 @@ myApp.controller("KeenioMasterCtrl", function ($scope, $modalInstance, $http, to
 });
 
 /**
+ *  @method WikiquoteCtrl
  * Receive a complete list of all comments
- *
  */
 myApp.controller("WikiquoteCtrl",function ($scope) {
-    /**
-     * Description
-
-     */
     var wikiquote = function() {
         WikiquoteApi.getRandomQuote("Programming|Computer",
             function(newQuote) {
@@ -180,8 +181,8 @@ myApp.controller("WikiquoteCtrl",function ($scope) {
 });
 
 /**
+ *  @method TableCtrl
  * Function for table sort and search
- *
  */
 myApp.controller("TableCtrl",function ($scope, $http) {
     var postsUrl = "/postsFrontpage.json";
@@ -204,7 +205,7 @@ myApp.controller("TableCtrl",function ($scope, $http) {
 });
 
 /**
- * GithubModalCtrl
+ *  @method GithubModalCtrl
  *
  */
 myApp.controller("GithubModalCtrl", function ($scope, $modalInstance, UserModel, GithubAuthService, GithubSrvc) {
@@ -236,8 +237,8 @@ myApp.controller("GithubModalCtrl", function ($scope, $modalInstance, UserModel,
 });
 
 /**
- * itHub controller using the GitHub service
- *
+ *  @method GithubCtrl
+ *  GitHub controller using the GitHub service
  */
 myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, UrlSrvc, UserModel, GithubSrvc, GithubAuthService) {
 	// login by the owner of the repository: edits on the blog are possible
@@ -290,9 +291,9 @@ $scope.login = function() {
 		}
 	})();
 
-	// Request a login code from github if the user presses the login button
 	/**
-	 * Description
+	 * @method $scope.requestCode()
+     * Request a login code from github if the user presses the login button
 	 */
 	$scope.requestCode = function() {
 		if($scope.githubLogin) {
@@ -307,15 +308,19 @@ $scope.login = function() {
 		}
     }
 
-	// logout - this is not really a logout from github, but the access token is deleted
 	/**
-	 * Description
+     * @method $scope.logout
+	 * Calls GithubAuthService.logout() - this is not really a logout from github, but the access token is deleted
 	 */
 	$scope.logout = function() {
 		GithubAuthService.logout();
 	}
 
 	// bind user model to the view and listen for events
+    /**
+     * @method $scope.$on('UserModel::userLoggedIn')
+     * called when a user logged in
+     */
 	$scope.$on('UserModel::userLoggedIn', function(event) {
 		console.log("the GithubCtrl received an userLoggedIn event for user: "+UserModel.user.name);
         var user = UserModel.getUser();
@@ -323,23 +328,32 @@ $scope.login = function() {
 			$scope.user = user;
 		}
     });
+    /**
+     * @method $scope.$on('UserModel::userLoggedOut')
+     * called when a user logged out
+     */
 	$scope.$on('UserModel::userLoggedOut', function(event) {
 		console.log("the GithubCtrl received an userLoggedOut event");
         $scope.user = "";
     });
 });
 
+/**
+ * @method ConfigCtrl
+ * Edit the configuration file
+ *
+ */
 myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster) {
     $scope.inputs = {}
 	$scope.inputs = config,
-    /**
-     * Description
-     */
+
     $scope.setOutput = function(key, key2, newValue) {
         $scope.inputs[key][key2] = newValue;
     }
-	/**
-	 * Commit config file to github
+
+    /**
+     * @method $scope.saveFrontendConfig
+	 * Commit frontend config file back to github
      */
 	$scope.saveFrontendConfig = function() {
 		var config = "var config = "+JSON.stringify($scope.inputs);
@@ -350,7 +364,8 @@ myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster)
         });
 	}
     /**
-     * Description
+     * @method $scope.saveBackendConfig
+     * Commit backend config file to github
      */
     $scope.saveBackendConfig = function() {
         console.log("save backend config");
@@ -384,8 +399,8 @@ myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster)
 });
 
 /**
+ * @method ToasterController
  * For popup messages
- *
  */
 myApp.controller('ToasterController', function($scope, toaster) {
     // save a reference to the current scope...
@@ -417,8 +432,8 @@ myApp.controller('ToasterController', function($scope, toaster) {
 });
 
 /**
+ * @method GithubForkCtrl
  * Fork functionality
- *
  */
 myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster, UserModel, StyleSwitcher, GithubSrvc, GithubAuthService, PollingSrvc, PollingImgSrvc) {
 	var scope = $scope;
@@ -490,9 +505,9 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
         }
     };
 
-	// change theme
 	/**
-	 * Description
+     * @method switchTheme
+	 * change theme
 	 */
 	var switchTheme = function() {
 		StyleSwitcher.switch($scope.options.selectedTheme.name);
@@ -513,7 +528,8 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
     });
 
     /**
-     * Description
+     * @method $scope.fork
+     * manages to fork this page
      */
     $scope.fork = function() {
         var forkName = $scope.options.forkName;
@@ -855,9 +871,8 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
         }
     });
 
-	// styling for tags / categories labels
     /**
-     * Description
+     * Set the css style for tags / categories
      */
     $scope.getTagClass = function(city) {
         return 'label label-primary';
@@ -1045,9 +1060,7 @@ myApp.controller('RatingCtrl', function($scope) {
                 $("#"+element).raty({
                     score: rating,
                     path: 'assets/js/raty/images',
-                    /**
-                     * Description
-                     */
+
                     click: function(score, evt) {
                         accessoireRating(this.id, score);
                     }
