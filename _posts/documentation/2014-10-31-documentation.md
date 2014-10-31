@@ -11,52 +11,21 @@ published: true
 <!-- injected DocCtrl via documentation layo -->
 #Index
 
+**Classes**
+
+* [class: GithubAuthService](#GithubAuthService)
+
 **Functions**
 
 * [CommentsCtrl($scope, $http, $dialogs, $timeout, toaster, UserModel)](#CommentsCtrl)
-* [WikiquoteCtrl
-Receive a complete list of all comments()](#WikiquoteCtrl
-Receive a complete list of all comments)
-* [TableCtrl
-Function for table sort and search()](#TableCtrl
-Function for table sort and search)
+* [WikiquoteCtrl()](#WikiquoteCtrl)
+* [TableCtrl()](#TableCtrl)
 * [GithubModalCtrl()](#GithubModalCtrl)
-* [GithubCtrl
- GitHub controller using the GitHub service()](#GithubCtrl
- GitHub controller using the GitHub service)
-* [$scope.requestCode()
-Request a login code from github if the user presses the login button()](#$scope.requestCode()
-Request a login code from github if the user presses the login button)
-* [$scope.logout
-Calls GithubAuthService.logout() - this is not really a logout from github, but the access token is deleted()](#$scope.logout
-Calls GithubAuthService.logout() - this is not really a logout from github, but the access token is deleted)
-* [$scope.$on('UserModel::userLoggedIn')
-called when a user logged in()](#$scope.$on('UserModel__userLoggedIn')
-called when a user logged in)
-* [$scope.$on('UserModel::userLoggedOut')
-called when a user logged out()](#$scope.$on('UserModel__userLoggedOut')
-called when a user logged out)
-* [ConfigCtrl
-Edit the configuration file()](#ConfigCtrl
-Edit the configuration file)
-* [$scope.saveFrontendConfig
-Commit frontend config file back to github()](#$scope.saveFrontendConfig
-Commit frontend config file back to github)
-* [$scope.saveBackendConfig
-Commit backend config file to github()](#$scope.saveBackendConfig
-Commit backend config file to github)
-* [ToasterController
-For popup messages()](#ToasterController
-For popup messages)
-* [GithubForkCtrl
-Fork functionality()](#GithubForkCtrl
-Fork functionality)
-* [switchTheme
-change theme()](#switchTheme
-change theme)
-* [$scope.fork
-manages to fork this page()](#$scope.fork
-manages to fork this page)
+* [GithubCtrl()](#GithubCtrl)
+* [ConfigCtrl()](#ConfigCtrl)
+* [ToasterController()](#ToasterController)
+* [GithubForkCtrl()](#GithubForkCtrl)
+* [switchTheme()](#switchTheme)
 * [GithubEditCtrl()](#GithubEditCtrl)
 * [callback()](#callback)
 * [RatingCtrl()](#RatingCtrl)
@@ -71,6 +40,7 @@ manages to fork this page)
 * [user()](#user)
 * [user()](#user)
 * [logout()](#logout)
+* [GithubSrvc()](#GithubSrvc)
 * [requestCode()](#requestCode)
 * [testAdmin()](#testAdmin)
 * [fork()](#fork)
@@ -97,6 +67,12 @@ manages to fork this page)
 * [onFocus()](#onFocus)
 * [switch()](#switch)
  
+<a name="GithubAuthService"></a>
+#class: GithubAuthService
+**Members**
+
+* [class: GithubAuthService](#GithubAuthService)
+
 <a name="CommentsCtrl"></a>
 #CommentsCtrl($scope, $http, $dialogs, $timeout, toaster, UserModel)
 Receive a complete list of all comments
@@ -111,64 +87,38 @@ Receive a complete list of all comments
 - UserModel   
 
 **Returns**:  - nothing  
-<a name="WikiquoteCtrl
-Receive a complete list of all comments"></a>
-#WikiquoteCtrl
-Receive a complete list of all comments()
-<a name="TableCtrl
-Function for table sort and search"></a>
-#TableCtrl
-Function for table sort and search()
+<a name="WikiquoteCtrl"></a>
+#WikiquoteCtrl()
+Receive a complete list of all comments
+
+<a name="TableCtrl"></a>
+#TableCtrl()
+Function for table sort and search
+
 <a name="GithubModalCtrl"></a>
 #GithubModalCtrl()
-<a name="GithubCtrl
- GitHub controller using the GitHub service"></a>
-#GithubCtrl
- GitHub controller using the GitHub service()
-<a name="$scope.requestCode()
-Request a login code from github if the user presses the login button"></a>
-#$scope.requestCode()
-Request a login code from github if the user presses the login button()
-<a name="$scope.logout
-Calls GithubAuthService.logout() - this is not really a logout from github, but the access token is deleted"></a>
-#$scope.logout
-Calls GithubAuthService.logout() - this is not really a logout from github, but the access token is deleted()
-<a name="$scope.$on('UserModel__userLoggedIn')
-called when a user logged in"></a>
-#$scope.$on('UserModel::userLoggedIn')
-called when a user logged in()
-<a name="$scope.$on('UserModel__userLoggedOut')
-called when a user logged out"></a>
-#$scope.$on('UserModel::userLoggedOut')
-called when a user logged out()
-<a name="ConfigCtrl
-Edit the configuration file"></a>
-#ConfigCtrl
-Edit the configuration file()
-<a name="$scope.saveFrontendConfig
-Commit frontend config file back to github"></a>
-#$scope.saveFrontendConfig
-Commit frontend config file back to github()
-<a name="$scope.saveBackendConfig
-Commit backend config file to github"></a>
-#$scope.saveBackendConfig
-Commit backend config file to github()
-<a name="ToasterController
-For popup messages"></a>
-#ToasterController
-For popup messages()
-<a name="GithubForkCtrl
-Fork functionality"></a>
-#GithubForkCtrl
-Fork functionality()
-<a name="switchTheme
-change theme"></a>
-#switchTheme
-change theme()
-<a name="$scope.fork
-manages to fork this page"></a>
-#$scope.fork
-manages to fork this page()
+Show a modal window to enter user credentials...
+
+<a name="GithubCtrl"></a>
+#GithubCtrl()
+GitHub controller using the GitHub service
+
+<a name="ConfigCtrl"></a>
+#ConfigCtrl()
+Edit the configuration file
+
+<a name="ToasterController"></a>
+#ToasterController()
+For popup messages
+
+<a name="GithubForkCtrl"></a>
+#GithubForkCtrl()
+Fork functionality
+
+<a name="switchTheme"></a>
+#switchTheme()
+change theme
+
 <a name="GithubEditCtrl"></a>
 #GithubEditCtrl()
 This controller manages edits on content on github
@@ -231,6 +181,8 @@ Description
 #logout()
 Description
 
+<a name="GithubSrvc"></a>
+#GithubSrvc()
 <a name="requestCode"></a>
 #requestCode()
 Description
@@ -261,39 +213,40 @@ Description
 
 <a name="deleteBranch"></a>
 #deleteBranch()
-Description
+With the help of this function the template brach is deleted after forkin
 
 <a name="renameBranch"></a>
 #renameBranch()
-Description
+Rename template branch to master branch
 
 <a name="createBranch"></a>
 #createBranch()
-Description
+Creates a branch
 
 <a name="postProcess"></a>
 #postProcess()
-Description
+After forking it preprocesses the config file
 
 <a name="getContent"></a>
 #getContent()
-Description
+Get content of a file hosted on GitHub
 
 <a name="editContent"></a>
 #editContent()
-Description
+Edit content on a file hosted on github
 
+**Returns**:  - a save promise after editing.  
 <a name="commit"></a>
 #commit()
-Description
+Commit a file back to GitHub
 
 <a name="commitMany"></a>
 #commitMany()
-Description
+Commit many files back to GitHub
 
 <a name="deleteContent"></a>
 #deleteContent()
-Description
+Delete content from GitHub
 
 <a name="setUserName"></a>
 #setUserName()
