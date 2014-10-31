@@ -17,7 +17,7 @@ rdiscount:
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : <img src='/assets/images/rainbow.gif' style='width:60px;padding-bottom:0px'>
+title : <img src='/assets/images/rainbow.gif' style='width:60px;padding-bottom:0px' target="_self">
 tagline: ... or be free
 author :
   name : Maltretieren
