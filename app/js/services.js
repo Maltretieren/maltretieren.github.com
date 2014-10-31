@@ -81,7 +81,6 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
         },
         /**
          * @Description Description
-         * @method requestToken
          * @param {} oauthCode
          * @return MemberExpression
          */
@@ -108,14 +107,12 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
         },
         /**
          * @Description Description
-         * @method userInfo
          * @return ObjectExpression
          */
         userInfo: function() {
             var self = this;
             /**
              * @Description Description
-             * @method user
              * @return userPromise
              */
             var user = function() {
