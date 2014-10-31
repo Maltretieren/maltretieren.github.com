@@ -58,7 +58,9 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
             return github;
         },
         /**
-         * @Description Description
+         * @function requestCode
+         * @memberOf Services.GithubAuthService
+         * @description request a oAuth code from Github
          */
         requestCode: function() {
             console.log("Request a new token, the page will be reloaded with code appended to the address...");
@@ -77,9 +79,9 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
             });
         },
         /**
-         * @Description Description
-         * @param {} oauthCode
-         * @return MemberExpression
+         * @function requestToken
+         * @memberOf Services.GithubAuthService
+         * @description request a oAuth token from Github
          */
         requestToken: function(oauthCode) {
             var that = this;
@@ -103,14 +105,16 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
             return tokenPromise.promise;
         },
         /**
-         * @Description Description
-         * @return ObjectExpression
+         * @function userInfo
+         * @memberOf Services.GithubAuthService
+         * @description xyz
          */
         userInfo: function() {
             var self = this;
             /**
-             * @Description Description
-             * @return userPromise
+             * @function user
+             * @memberOf Services.GithubAuthService
+             * @description xyz
              */
             var user = function() {
                 var githubInstance = self.instance();
@@ -121,15 +125,9 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
             };
 
             return {
-                /**
-                 * @Description Description
-                 */
                 user: function() { return user(); }
             }
         },
-        /**
-         * @Description Description
-         */
         logout: function() {
             github = null;
             UserModel.logout();
@@ -183,7 +181,8 @@ myApp.service("GithubSrvc", function (
 		},
         /**
          * @function renameRepo
-         * @Description Description
+         * @memberOf Services.GithubSrvc
+         * @description xyz
          */
         renameRepo: function(forkName) {
 			console.log("rename repo to "+forkName);
@@ -203,9 +202,6 @@ myApp.service("GithubSrvc", function (
                 //that.renameBranch(forkName, "heads/master");
             })
         },
-        /**
-         * @Description Description
-         */
         batchDelete: function(forkName) {
             var githubInstance = GithubAuthService.instance();
             var repo = githubInstance.getRepo(UserModel.getUser().name, forkName);
@@ -232,9 +228,6 @@ myApp.service("GithubSrvc", function (
 			})();
 
         },
-        /**
-         * @Description Description
-         */
         getContents: function(path) {
             var githubInstance = GithubAuthService.instance();
 			var readyPromise = $q.defer();
@@ -257,9 +250,6 @@ myApp.service("GithubSrvc", function (
 				var j = 0;
 				var fileCountDeferred = $q.defer();
 				// find all files to export also in subfolders
-				/**
-				 * Description 
-				 */
 				var fileCount = function(path) {
 					branch.contents(path).then(function(response) {
 						var res = JSON.parse(response);
@@ -290,9 +280,6 @@ myApp.service("GithubSrvc", function (
 				return readyPromise.promise;
 			}
         },
-		/**
-		 * @Description Description
-		 */
 		getFiles: function(fileNames) {
 			var self = this;
 			
@@ -304,9 +291,6 @@ myApp.service("GithubSrvc", function (
 			var i=1;
 			
 			var fileDeferred = $q.defer();
-			/**
-			 * @Description Description
-			 */
 			var doGet = function(fileName) {
 				var fileName = fileName;
 				self.getContent(fileName).then(function(response) {
@@ -326,7 +310,9 @@ myApp.service("GithubSrvc", function (
 			return fileDeferred.promise;
 		},
         /**
-         * @Description With the help of this function the template brach is deleted after forkin
+         * @function deleteBranch
+         * @memberOf Services.GithubSrvc
+         * @description With the help of this function the template brach is deleted after forkin
          */
         deleteBranch: function(forkName, branchName) {
 			var that = this;
@@ -337,9 +323,6 @@ myApp.service("GithubSrvc", function (
 				//that.renameBranch(forkName);
 			});
         },
-        /**
-         * @Description Rename template branch to master branch
-         */
         renameBranch: function(forkName) {
 			var that = this;
 			var githubInstance = GithubAuthService.instance();
@@ -349,9 +332,6 @@ myApp.service("GithubSrvc", function (
 				//that.createBranch(forkName, "master");
 			});
         },
-        /**
-         * @Description Creates a branch
-         */
         createBranch: function(forkName, branchName) {
 			var that = this;
 			var githubInstance = GithubAuthService.instance();
@@ -365,9 +345,6 @@ myApp.service("GithubSrvc", function (
                 branch = repo.getBranch("master");
 			});
         },
-        /**
-         * @Description After forking it preprocesses the config file
-         */
         postProcess: function(path, replace, repositoryName) {
             var self = this;
             var content = this.getContent(path);
@@ -399,7 +376,9 @@ myApp.service("GithubSrvc", function (
             return deferred.promise;
         },
         /**
-         * @Description Get content of a file hosted on GitHub
+         * @function renameRepo
+         * @memberOf Services.GithubSrvc
+         * @description Get content of a file hosted on GitHub
          */
         getContent: function(path) {
             var githubInstance = GithubAuthService.instance();
@@ -420,7 +399,9 @@ myApp.service("GithubSrvc", function (
 			}
         },
         /**
-         * @Description Edit content on a file hosted on github
+         * @function editContent
+         * @memberOf Services.GithubSrvc
+         * @description Edit content on a file hosted on github
          * @returns a save promise after editing.
          */
         editContent: function(path) {
@@ -447,9 +428,11 @@ myApp.service("GithubSrvc", function (
 				return deferred.promise;
 			}
         },
-		/**
-		 * @Description Commit a file back to GitHub
-		 */
+        /**
+         * @function commit
+         * @memberOf Services.GithubSrvc
+         * @description Commit a file back to GitHub
+         */
 		commit: function(text, path, branch, showMessage, force) {
 			if(typeof branch === 'undefined') {
 				var githubInstance = GithubAuthService.instance();
@@ -476,9 +459,11 @@ myApp.service("GithubSrvc", function (
             });
             return deferred.promise;
         },
-		/**
-		 * @Description Commit many files back to GitHub
-		 */
+        /**
+         * @function commitMany
+         * @memberOf Services.GithubSrvc
+         * @description Commit many files back to GitHub
+         */
 		commitMany: function(posts, message, showMessage, force) {
 			var githubInstance = GithubAuthService.instance();
 			var repo = githubInstance.getRepo(config.github.user, config.github.repository);
@@ -497,7 +482,9 @@ myApp.service("GithubSrvc", function (
             return deferred.promise;
         },
         /**
-         * @Description Delete content from GitHub
+         * @function deleteContent
+         * @memberOf Services.GithubSrvc
+         * @description Delete content from GitHub
          */
         deleteContent: function(path) {
             var githubInstance = GithubAuthService.instance();
@@ -561,17 +548,11 @@ myApp.service("UserModel", function ($rootScope) {
  * @description xyz
  */
 myApp.service("UrlSrvc", function ($window) {
-    /**
-     * @Description Description
-     */
     var getParams = function (url, paramName) {
 		var urlParams;
 		(
 
             $window.onpopstate = function () {
-			/**
-			 * Description
-			 */
 			var match,
 				pl     = /\+/g,  // Regex for replacing addition symbol with a space
 				search = /([^&=]+)=?([^&]*)/g,
@@ -585,17 +566,15 @@ myApp.service("UrlSrvc", function ($window) {
 		return urlParams[paramName];
 	}
 
-    /**
-     * @Description Description
-     */
     var getUrl = function () {
         return window.location.search;
     }
-
-	/**
-	 * @description This function extracts date and title from a Jekyll path
+    /**
+     * @function parseDateTitle
+     * @memberOf Services.UrlSrvc
+     * @description This function extracts date and title from a Jekyll path
      * @returns an object with date and title
-	 */
+     */
 	var parseDateTitle = function (path) {	
 		var splif = path.split("-");
 		var title = ""
@@ -626,9 +605,6 @@ myApp.service("UrlSrvc", function ($window) {
  * @description xyz
  */
 myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthService) {
-        /**
-         * @Description Description
-         */
         var poll = function (repoName, branchName) {
         var resource = "README.md";
         var deferred = $q.defer();
@@ -638,19 +614,13 @@ myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthServic
 		var branch = repo.getBranch(branchName);
 		var repoName = repoName;
 		var branchName = branchName;
-		
-		/**
-		 * @Description Description
-		 */
+
 		var restartPolling = function() {
 		    var promise = branch.read(resource,false);
 			promise.then(function(res) {
 				console.log("branch available")
 				deferred.resolve();
 			}, function(err) {
-				/**
-				 * @Description Description
-				 */
 				var restart = function(){
 					restartPolling(repoName, branchName)
 				}
@@ -670,9 +640,6 @@ myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthServic
  * @description YamlSrvc can parse files with frontmatter (normal post) and the _config.yaml without frontmatter
  */
 myApp.service("YamlSrvc", function () {
-    /**
-     * @Description Description
-     */
     var parse = function (content) {
 		var response = {};
 
@@ -726,9 +693,6 @@ myApp.service("YamlSrvc", function () {
 		}
 		return response;
     };
-	/**
-	 * @Description Description
-	 */
 	var create = function (content) {
 		var response = "---\n";
 		for (var key in content) {
@@ -766,23 +730,14 @@ myApp.service("YamlSrvc", function () {
  * @description xyz
  */
 myApp.service("EditorSrvc", function () {
-    /**
-     * @Description Description
-     */
     var getEditorContent = function() {
         return $('#target-editor').markdown()[0].value;
     };
 
-    /**
-     * @Description Description
-     */
     var showContentInEditor = function(editorContent) {
         $('#target-editor').markdown({
             savable:false,
             height:500,
-            /**
-             * @Description Description
-             */
             onFocus: function(e) {
                 console.log("editor focused")
             }

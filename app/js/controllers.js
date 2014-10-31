@@ -286,10 +286,12 @@ myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, Url
 		}
 	})();
 
-	/**
-	 * @method $scope.requestCode()
-     * @Description Request a login code from github if the user presses the login button
-	 */
+    /**
+     * @function requestCode
+     * @memberOf Controllers.GithubCtrl
+     * @description request a oAuth token from Github
+     * @returns entries
+     */
 	$scope.requestCode = function() {
 		if($scope.githubLogin) {
 			GithubSrvc.requestCode();
@@ -303,19 +305,16 @@ myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, Url
 		}
     }
 
-	/**
-     * @method $scope.logout
-	 * @Description Calls GithubAuthService.logout() - this is not really a logout from github, but the access token is deleted
-	 */
+    /**
+     * @function logout
+     * @memberOf Controllers.GithubCtrl
+     * @description Calls GithubAuthService.logout() - this is not really a logout from github, but the access token is deleted
+     */
 	$scope.logout = function() {
 		GithubAuthService.logout();
 	}
 
 	// bind user model to the view and listen for events
-    /**
-     * @method $scope.$on('UserModel::userLoggedIn')
-     * @Description called when a user logged in
-     */
 	$scope.$on('UserModel::userLoggedIn', function(event) {
 		console.log("the GithubCtrl received an userLoggedIn event for user: "+UserModel.user.name);
         var user = UserModel.getUser();
@@ -323,10 +322,7 @@ myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, Url
 			$scope.user = user;
 		}
     });
-    /**
-     * @method $scope.$on('UserModel::userLoggedOut')
-     * @Description called when a user logged out
-     */
+
 	$scope.$on('UserModel::userLoggedOut', function(event) {
 		console.log("the GithubCtrl received an userLoggedOut event");
         $scope.user = "";
@@ -347,8 +343,9 @@ myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster)
     }
 
     /**
-     * @method $scope.saveFrontendConfig
-	 * @Description Commit frontend config file back to github
+     * @function saveFrontendConfig
+     * @memberOf Controllers.ConfigCtrl
+     * @description Commit frontend config file back to github
      */
 	$scope.saveFrontendConfig = function() {
 		var config = "var config = "+JSON.stringify($scope.inputs);
@@ -359,8 +356,9 @@ myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster)
         });
 	}
     /**
-     * @method $scope.saveBackendConfig
-     * @Description Commit backend config file to github
+     * @function saveBackendConfig
+     * @memberOf Controllers.ConfigCtrl
+     * @description Commit backend config file to github
      */
     $scope.saveBackendConfig = function() {
         console.log("save backend config");
@@ -410,18 +408,12 @@ myApp.controller('ToasterController', function($scope, toaster) {
 		};
 		scope.pop(toast);
 	});
-	
-	/**
-	 * @Description Description
-	 */
+
 	$scope.pop = function(toast){
 		toaster.pop(toast.type, toast.title, toast.message, 5000, 'trustedHtml');
 		$scope.$apply();
     };
-    
-    /**
-     * @Description Description
-     */
+
     $scope.clear = function(){
         toaster.clear();
     };
@@ -457,7 +449,9 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
     ];
 
     /**
-     * @Description This checks if the repo already exists
+     * @function checkUnique
+     * @memberOf Controllers.GithubForkCtrl
+     * @description This checks if the repo already exists
      */
     var checkUnique = function() {
         var url = "";
@@ -469,42 +463,26 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
             }
 
             this.img = new Image();
-
-            /**
-             * Description
-             */
             this.img.onload = function() {_good();};
-            /**
-             * Description
-             */
             this.img.onerror = function(e) { error(e);};
-
             this.img.src = "https://"+$scope.options.forkName;
-
-            /**
-             * Description
-             */
             var good= function() {
                 console.log("yehh");
-            } 
-
-            /**
-             * Description
-             */
+            }
             var error= function(e) {
                 console.log("oh noooo");
                 console.log(e);
             }
-
-
             //$http.jsonp("http://"+$scope.options.forkName+"&callback=JSON_CALLBACK");
             console.log("here the test should come if the url is available: "+$scope.options.forkName);
         }
     };
 
-	/**
-	 * @Description change theme
-	 */
+    /**
+     * @function switchTheme
+     * @memberOf Controllers.GithubForkCtrl
+     * @description Switch the theme
+     */
 	var switchTheme = function() {
 		StyleSwitcher.switch($scope.options.selectedTheme.name);
 	}
@@ -524,8 +502,9 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
     });
 
     /**
-     * @method $scope.fork
-     * @Description manages to fork this page
+     * @function fork
+     * @memberOf Controllers.GithubForkCtrl
+     * @description manages to fork this page
      */
     $scope.fork = function() {
         var forkName = $scope.options.forkName;
@@ -711,7 +690,7 @@ myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 
     /**
      * @function zip
-     * @memberOf controller.ExportCtrl
+     * @memberOf Controllers.ExportCtrl
      * @description zip files
      */
     $scope.zip = function() {
@@ -739,17 +718,10 @@ myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 			$scope.exportStatus = percentage;
 		});
 	}
-	
-	/**
-	 * @Description Description
-	 */
 	$scope.selectAllExport = function() {
         console.log($scope.export);
 		$scope.exportSelection = angular.copy($scope.export);
     }
-	/**
-	 * @Description Description
-	 */
 	$scope.unselectAllExport = function() {
 		$scope.exportSelection = [];
 	}
@@ -770,17 +742,11 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
     $scope.type = 'info';
 
     var importValue = [];
-    /**
-     * @Description Description
-     */
     $scope.add = function(){
         var f = document.getElementById('file').files[0],
             r = new FileReader();
         var importTemp = [];
 
-        /**
-         * @Description Description
-         */
         r.onloadend = function(e){
             var data = e.target.result;
             var zip = new JSZip(data);
@@ -823,9 +789,6 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
         console.log();
     }
 
-    /**
-     * @Description Description
-     */
     $scope.doImport = function() {
         var importObject = {};
         for(var i=0; i<$scope.importSelection.length;i++) {
@@ -839,9 +802,6 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
         GithubSrvc.commitMany(importObject, "Import", false, false);
     }
 
-    /**
-     * @Description Description
-     */
     function endsWith(str, suffix) {
         return str.indexOf(suffix, str.length - suffix.length) !== -1;
     }
@@ -873,7 +833,9 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
     });
 
     /**
-     * @Description Set the css style for tags / categories
+     * @function getTagClass
+     * @memberOf Controllers.GithubEditCtrl
+     * @description Set the css style for tags / categories
      */
     $scope.getTagClass = function(city) {
         return 'label label-primary';
@@ -908,9 +870,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 	
 	$scope.commitPath = "";
 	var savePromise = $q.defer();
-	/**
-	 * @Description Description
-	 */
+
 	$scope.save = function() {
 		console.info("saving editor content...");
 		var content = $('#target-editor').markdown()[0].value;
@@ -946,9 +906,6 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
     });
 
     // redirect to normal calling page immediately
-    /**
-     * @Description Description
-     */
     $scope.cancel = function() {
         console.log("cancel edit...and redirect ");
 
@@ -960,9 +917,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
     };
 
     $scope.confirmed = 'You have yet to be confirmed!';
-    /**
-     * @Description Description
-     */
+
     $scope.delete = function() {
         console.log("delete....");
         var dlg = $dialogs.confirm('Please Confirm','Do you want to delete the post?');
@@ -981,9 +936,6 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
     }
 
 	// date picker
-    /**
-     * @Description Description
-     */
     $scope.today = function() {
         $scope.options.date = new Date();
     };
@@ -996,16 +948,10 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
         $scope.options.date = date;
     }
 
-    /**
-     * @Description Description
-     */
     $scope.clear = function () {
         $scope.options.date = null;
     };
 
-    /**
-     * @Description Description
-     */
     $scope.open = function($event) {
         $event.preventDefault();
         $event.stopPropagation();
