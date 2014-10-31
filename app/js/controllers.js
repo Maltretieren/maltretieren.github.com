@@ -861,10 +861,6 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
         description: 'Save the post',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
 
-        /**
-         * @Description Hotkey pressed callback, calls save on editor
-         * {@link save}
-         */
         callback: function() {
             console.info("hotkey strg+s detected");
             $scope.save();
