@@ -404,46 +404,9 @@ xyz
 
 * [Services.StyleSwitcher](#Services.StyleSwitcher)
 
-<a name="link"></a>
-#link(scope, element, attrs, ctrl)
-Description
-
-**Params**
-
-- scope   
-- element   
-- attrs   
-- ctrl   
-
-<a name="link"></a>
-#link(scope, elem, attrs)
-Description
-
-**Params**
-
-- scope   
-- elem   
-- attrs   
-
-<a name="handler"></a>
-#handler(setup)
-Description
-
-**Params**
-
-- setup   
-
 <a name="user"></a>
 #user()
 Description
-
-<a name="fileCount"></a>
-#fileCount(path)
-Description
-
-**Params**
-
-- path   
 
 <a name="decode"></a>
 #decode(s)
