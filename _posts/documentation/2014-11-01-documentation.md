@@ -18,7 +18,7 @@ The controller must be responsible for binding model data to views using $scope,
 * [Controllers](#Controllers)
   * [Controllers.CommentsCtrl](#Controllers.CommentsCtrl)
     * [CommentsCtrl.getComments()](#Controllers.CommentsCtrl.getComments)
-    * [CommentsCtrl.deleteComment(event)](#Controllers.CommentsCtrl.deleteComment)
+    * [CommentsCtrl.deleteComment()](#Controllers.CommentsCtrl.deleteComment)
     * [CommentsCtrl.submit()](#Controllers.CommentsCtrl.submit)
   * [Controllers.DocCtrl](#Controllers.DocCtrl)
   * [Controllers.KeenioMasterCtrl](#Controllers.KeenioMasterCtrl)
@@ -40,18 +40,18 @@ The controller must be responsible for binding model data to views using $scope,
     * [ExportCtrl.zip()](#Controllers.ExportCtrl.zip)
   * [Controllers.ImportCtrl](#Controllers.ImportCtrl)
   * [Controllers.GithubEditCtrl](#Controllers.GithubEditCtrl)
-    * [GithubEditCtrl.getTagClass(city)](#Controllers.GithubEditCtrl.getTagClass)
+    * [GithubEditCtrl.getTagClass()](#Controllers.GithubEditCtrl.getTagClass)
   * [Controllers.RatingCtrl](#Controllers.RatingCtrl)
 
 <a name="Controllers.CommentsCtrl"></a>
 ##Controllers.CommentsCtrl
-Bundles functions to receive and save comments
+`Bundles` *functions* to receive and save comments
 
 **Members**
 
 * [Controllers.CommentsCtrl](#Controllers.CommentsCtrl)
   * [CommentsCtrl.getComments()](#Controllers.CommentsCtrl.getComments)
-  * [CommentsCtrl.deleteComment(event)](#Controllers.CommentsCtrl.deleteComment)
+  * [CommentsCtrl.deleteComment()](#Controllers.CommentsCtrl.deleteComment)
   * [CommentsCtrl.submit()](#Controllers.CommentsCtrl.submit)
 
 <a name="Controllers.CommentsCtrl.getComments"></a>
@@ -59,17 +59,15 @@ Bundles functions to receive and save comments
 receive comments
 
 <a name="Controllers.CommentsCtrl.deleteComment"></a>
-###CommentsCtrl.deleteComment(event)
+###CommentsCtrl.deleteComment()
 receive comments
 
-**Params**
-
-- event   
-
+**Returns**:  - entries  
 <a name="Controllers.CommentsCtrl.submit"></a>
 ###CommentsCtrl.submit()
 receive comments
 
+**Returns**:  - entries  
 <a name="Controllers.DocCtrl"></a>
 ##Controllers.DocCtrl
 xyz
@@ -124,6 +122,7 @@ xyz
 ###GithubCtrl.requestCode()
 request a oAuth token from Github
 
+**Returns**:  - entries  
 <a name="Controllers.GithubCtrl.logout"></a>
 ###GithubCtrl.logout()
 Calls GithubAuthService.logout() - this is not really a logout from github, but the access token is deleted
@@ -208,15 +207,11 @@ This controller manages edits on content on github
 **Members**
 
 * [Controllers.GithubEditCtrl](#Controllers.GithubEditCtrl)
-  * [GithubEditCtrl.getTagClass(city)](#Controllers.GithubEditCtrl.getTagClass)
+  * [GithubEditCtrl.getTagClass()](#Controllers.GithubEditCtrl.getTagClass)
 
 <a name="Controllers.GithubEditCtrl.getTagClass"></a>
-###GithubEditCtrl.getTagClass(city)
+###GithubEditCtrl.getTagClass()
 Set the css style for tags / categories
-
-**Params**
-
-- city   
 
 <a name="Controllers.RatingCtrl"></a>
 ##Controllers.RatingCtrl
@@ -234,16 +229,16 @@ Services are singleton objects used to share data (e.g. among several controller
 
 * [Services](#Services)
   * [Services.GithubSrvc](#Services.GithubSrvc)
-    * [GithubSrvc.renameRepo(forkName)](#Services.GithubSrvc.renameRepo)
-    * [GithubSrvc.deleteBranch(forkName, branchName)](#Services.GithubSrvc.deleteBranch)
-    * [GithubSrvc.getContent(path)](#Services.GithubSrvc.getContent)
-    * [GithubSrvc.editContent(path)](#Services.GithubSrvc.editContent)
-    * [GithubSrvc.commit(text, path, branch, showMessage, force)](#Services.GithubSrvc.commit)
-    * [GithubSrvc.commitMany(posts, message, showMessage, force)](#Services.GithubSrvc.commitMany)
-    * [GithubSrvc.deleteContent(path)](#Services.GithubSrvc.deleteContent)
+    * [GithubSrvc.renameRepo()](#Services.GithubSrvc.renameRepo)
+    * [GithubSrvc.deleteBranch()](#Services.GithubSrvc.deleteBranch)
+    * [GithubSrvc.renameRepo()](#Services.GithubSrvc.renameRepo)
+    * [GithubSrvc.editContent()](#Services.GithubSrvc.editContent)
+    * [GithubSrvc.commit()](#Services.GithubSrvc.commit)
+    * [GithubSrvc.commitMany()](#Services.GithubSrvc.commitMany)
+    * [GithubSrvc.deleteContent()](#Services.GithubSrvc.deleteContent)
   * [Services.UserModel](#Services.UserModel)
   * [Services.UrlSrvc](#Services.UrlSrvc)
-    * [UrlSrvc.parseDateTitle(path)](#Services.UrlSrvc.parseDateTitle)
+    * [UrlSrvc.parseDateTitle()](#Services.UrlSrvc.parseDateTitle)
   * [Services.PollingSrvc](#Services.PollingSrvc)
   * [Services.YamlSrvc](#Services.YamlSrvc)
   * [Services.EditorSrvc](#Services.EditorSrvc)
@@ -257,77 +252,42 @@ xyz
 **Members**
 
 * [Services.GithubSrvc](#Services.GithubSrvc)
-  * [GithubSrvc.renameRepo(forkName)](#Services.GithubSrvc.renameRepo)
-  * [GithubSrvc.deleteBranch(forkName, branchName)](#Services.GithubSrvc.deleteBranch)
-  * [GithubSrvc.getContent(path)](#Services.GithubSrvc.getContent)
-  * [GithubSrvc.editContent(path)](#Services.GithubSrvc.editContent)
-  * [GithubSrvc.commit(text, path, branch, showMessage, force)](#Services.GithubSrvc.commit)
-  * [GithubSrvc.commitMany(posts, message, showMessage, force)](#Services.GithubSrvc.commitMany)
-  * [GithubSrvc.deleteContent(path)](#Services.GithubSrvc.deleteContent)
+  * [GithubSrvc.renameRepo()](#Services.GithubSrvc.renameRepo)
+  * [GithubSrvc.deleteBranch()](#Services.GithubSrvc.deleteBranch)
+  * [GithubSrvc.renameRepo()](#Services.GithubSrvc.renameRepo)
+  * [GithubSrvc.editContent()](#Services.GithubSrvc.editContent)
+  * [GithubSrvc.commit()](#Services.GithubSrvc.commit)
+  * [GithubSrvc.commitMany()](#Services.GithubSrvc.commitMany)
+  * [GithubSrvc.deleteContent()](#Services.GithubSrvc.deleteContent)
 
 <a name="Services.GithubSrvc.renameRepo"></a>
-###GithubSrvc.renameRepo(forkName)
+###GithubSrvc.renameRepo()
 xyz
 
-**Params**
-
-- forkName   
-
 <a name="Services.GithubSrvc.deleteBranch"></a>
-###GithubSrvc.deleteBranch(forkName, branchName)
+###GithubSrvc.deleteBranch()
 With the help of this function the template brach is deleted after forkin
 
-**Params**
-
-- forkName   
-- branchName   
-
-<a name="Services.GithubSrvc.getContent"></a>
-###GithubSrvc.getContent(path)
+<a name="Services.GithubSrvc.renameRepo"></a>
+###GithubSrvc.renameRepo()
 Get content of a file hosted on GitHub
 
-**Params**
-
-- path   
-
 <a name="Services.GithubSrvc.editContent"></a>
-###GithubSrvc.editContent(path)
+###GithubSrvc.editContent()
 Edit content on a file hosted on github
 
-**Params**
-
-- path   
-
+**Returns**:  - a save promise after editing.  
 <a name="Services.GithubSrvc.commit"></a>
-###GithubSrvc.commit(text, path, branch, showMessage, force)
+###GithubSrvc.commit()
 Commit a file back to GitHub
 
-**Params**
-
-- text   
-- path   
-- branch   
-- showMessage   
-- force   
-
 <a name="Services.GithubSrvc.commitMany"></a>
-###GithubSrvc.commitMany(posts, message, showMessage, force)
+###GithubSrvc.commitMany()
 Commit many files back to GitHub
 
-**Params**
-
-- posts   
-- message   
-- showMessage   
-- force   
-
 <a name="Services.GithubSrvc.deleteContent"></a>
-###GithubSrvc.deleteContent(path)
+###GithubSrvc.deleteContent()
 Delete content from GitHub
-
-**Params**
-
-- path   
 
 <a name="Services.UserModel"></a>
 ##Services.UserModel
@@ -344,16 +304,13 @@ xyz
 **Members**
 
 * [Services.UrlSrvc](#Services.UrlSrvc)
-  * [UrlSrvc.parseDateTitle(path)](#Services.UrlSrvc.parseDateTitle)
+  * [UrlSrvc.parseDateTitle()](#Services.UrlSrvc.parseDateTitle)
 
 <a name="Services.UrlSrvc.parseDateTitle"></a>
-###UrlSrvc.parseDateTitle(path)
+###UrlSrvc.parseDateTitle()
 This function extracts date and title from a Jekyll path
 
-**Params**
-
-- path   
-
+**Returns**:  - an object with date and title  
 <a name="Services.PollingSrvc"></a>
 ##Services.PollingSrvc
 xyz
@@ -393,492 +350,4 @@ xyz
 **Members**
 
 * [Services.StyleSwitcher](#Services.StyleSwitcher)
-
-<a name="more"></a>
-#more()
-Description
-
-<a name="success"></a>
-#success()
-Description
-
-<a name="error"></a>
-#error()
-Description
-
-<a name="scrollTo"></a>
-#scrollTo(id)
-Description
-
-**Params**
-
-- id   
-
-<a name="cancel"></a>
-#cancel()
-Description
-
-<a name="save"></a>
-#save()
-Description
-
-<a name="cancel"></a>
-#cancel()
-Description
-
-<a name="save"></a>
-#save()
-Description
-
-<a name="login"></a>
-#login()
-Description
-
-<a name="setOutput"></a>
-#setOutput(key, key2, newValue)
-Description
-
-**Params**
-
-- key   
-- key2   
-- newValue   
-
-<a name="pop"></a>
-#pop(toast)
-Description
-
-**Params**
-
-- toast   
-
-<a name="clear"></a>
-#clear()
-Description
-
-<a name="good"></a>
-#good()
-Description
-
-<a name="error"></a>
-#error(e)
-Description
-
-**Params**
-
-- e   
-
-<a name="modifiyConfig"></a>
-#modifiyConfig()
-Preprocess promise and commit to github
-
-<a name="modifiyConfig"></a>
-#modifiyConfig()
-Description
-
-<a name="pop"></a>
-#pop(title, text)
-Description
-
-**Params**
-
-- title   
-- text   
-
-<a name="selectAllExport"></a>
-#selectAllExport()
-Description
-
-<a name="unselectAllExport"></a>
-#unselectAllExport()
-Description
-
-<a name="add"></a>
-#add()
-Description
-
-<a name="onloadend"></a>
-#onloadend(e)
-Description
-
-**Params**
-
-- e   
-
-<a name="selectAllImport"></a>
-#selectAllImport()
-Description
-
-<a name="unselectAllImport"></a>
-#unselectAllImport()
-Description
-
-<a name="showContent"></a>
-#showContent(selected)
-Description
-
-**Params**
-
-- selected   
-
-<a name="doImport"></a>
-#doImport()
-Description
-
-<a name="endsWith"></a>
-#endsWith(str, suffix)
-Description
-
-**Params**
-
-- str   
-- suffix   
-
-<a name="callback"></a>
-#callback()
-Description
-
-<a name="save"></a>
-#save()
-Description
-
-<a name="cancel"></a>
-#cancel()
-Description
-
-<a name="delete"></a>
-#delete()
-Description
-
-<a name="today"></a>
-#today()
-Description
-
-<a name="clear"></a>
-#clear()
-Description
-
-<a name="open"></a>
-#open($event)
-Description
-
-**Params**
-
-- $event   
-
-<a name="success"></a>
-#success(data)
-Description
-
-**Params**
-
-- data   
-
-<a name="click"></a>
-#click(score, evt)
-Description
-
-**Params**
-
-- score   
-- evt   
-
-<a name="getRatings"></a>
-#getRatings()
-Description
-
-<a name="success"></a>
-#success(data)
-Description
-
-**Params**
-
-- data   
-
-<a name="click"></a>
-#click(score, evt)
-Description
-
-**Params**
-
-- score   
-- evt   
-
-<a name="link"></a>
-#link(scope, element, attrs, ctrl)
-Description
-
-**Params**
-
-- scope   
-- element   
-- attrs   
-- ctrl   
-
-<a name="link"></a>
-#link(scope, elem, attrs)
-Description
-
-**Params**
-
-- scope   
-- elem   
-- attrs   
-
-<a name="handler"></a>
-#handler(setup)
-Description
-
-**Params**
-
-- setup   
-
-<a name="LABjsLoaded"></a>
-#LABjsLoaded()
-Description
-
-<a name="onreadystatechange"></a>
-#onreadystatechange()
-Description
-
-<a name="user"></a>
-#user()
-Description
-
-<a name="logout"></a>
-#logout()
-Description
-
-<a name="requestCode"></a>
-#requestCode()
-Description
-
-<a name="testAdmin"></a>
-#testAdmin()
-Description
-
-<a name="fork"></a>
-#fork(options)
-Description
-
-**Params**
-
-- options   
-
-<a name="batchDelete"></a>
-#batchDelete(forkName)
-Description
-
-**Params**
-
-- forkName   
-
-<a name="getContents"></a>
-#getContents(path)
-Description
-
-**Params**
-
-- path   
-
-<a name="fileCount"></a>
-#fileCount(path)
-Description
-
-**Params**
-
-- path   
-
-<a name="getFiles"></a>
-#getFiles(fileNames)
-Description
-
-**Params**
-
-- fileNames   
-
-<a name="doGet"></a>
-#doGet(fileName)
-Description
-
-**Params**
-
-- fileName   
-
-<a name="renameBranch"></a>
-#renameBranch(forkName)
-Description
-
-**Params**
-
-- forkName   
-
-<a name="createBranch"></a>
-#createBranch(forkName, branchName)
-Description
-
-**Params**
-
-- forkName   
-- branchName   
-
-<a name="postProcess"></a>
-#postProcess(path, replace, repositoryName)
-Description
-
-**Params**
-
-- path   
-- replace   
-- repositoryName   
-
-<a name="serializeUser"></a>
-#serializeUser(user)
-Description
-
-**Params**
-
-- user   
-
-<a name="setUserName"></a>
-#setUserName(userName)
-Description
-
-**Params**
-
-- userName   
-
-<a name="setIsAdmin"></a>
-#setIsAdmin(isAdmin)
-Description
-
-**Params**
-
-- isAdmin   
-
-<a name="setPassword"></a>
-#setPassword(password)
-Description
-
-**Params**
-
-- password   
-
-<a name="logout"></a>
-#logout()
-Description
-
-<a name="getUser"></a>
-#getUser()
-Description
-
-<a name="getParams"></a>
-#getParams(url, paramName)
-Description
-
-**Params**
-
-- url   
-- paramName   
-
-<a name="onpopstate"></a>
-#onpopstate()
-Description
-
-<a name="decode"></a>
-#decode(s)
-Description
-
-**Params**
-
-- s   
-
-<a name="getUrl"></a>
-#getUrl()
-Description
-
-<a name="poll"></a>
-#poll(repoName, branchName)
-Description
-
-**Params**
-
-- repoName   
-- branchName   
-
-<a name="restartPolling"></a>
-#restartPolling()
-Description
-
-<a name="restart"></a>
-#restart()
-Description
-
-<a name="parse"></a>
-#parse(content)
-Description
-
-**Params**
-
-- content   
-
-<a name="create"></a>
-#create(content)
-Description
-
-**Params**
-
-- content   
-
-<a name="getEditorContent"></a>
-#getEditorContent()
-Description
-
-<a name="showContentInEditor"></a>
-#showContentInEditor(editorContent)
-Description
-
-**Params**
-
-- editorContent   
-
-<a name="onFocus"></a>
-#onFocus(e)
-Description
-
-**Params**
-
-- e   
-
-<a name="poll"></a>
-#poll(repoName)
-Description
-
-**Params**
-
-- repoName   
-
-<a name="pollForImg"></a>
-#pollForImg()
-Description
-
-<a name="onload"></a>
-#onload()
-Description
-
-<a name="onerror"></a>
-#onerror()
-Description
-
-<a name="pollForImage"></a>
-#pollForImage()
-Description
-
-<a name="switch"></a>
-#switch(styleName)
-Description
-
-**Params**
-
-- styleName   
 

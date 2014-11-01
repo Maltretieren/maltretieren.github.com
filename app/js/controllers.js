@@ -9,7 +9,7 @@
 /**
  * @namespace Controllers.CommentsCtrl
  * @memborOf Controllers
- * @description `Bundles` functions to receive and save comments
+ * @description `Bundles` *functions* to receive and save comments
  */
 myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toaster, UserModel) {
 	var commentsUrl = config.keenio.comments_url;
