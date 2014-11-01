@@ -28,7 +28,7 @@ namespace :my_tasks do
         puts "\n## You should see a yyyy-mm-dd-documentation.md file in _posts/documentation"
         system("ls -la _posts/documentation")
         puts "\n## git add"
-        system("git add _posts/documentation/*")
+        system("git add _posts/apidoc/*")
         # http://stackoverflow.com/questions/10228760/fix-a-git-detached-head
 		puts "\n## git commit, do not commit back generated comments"
 		system("git commit -m '[skip ci] added documentation'")
