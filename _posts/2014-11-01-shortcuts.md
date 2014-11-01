@@ -1,6 +1,7 @@
 ---
 layout: post
 categories:
+ - userdoc
 tagline:
 tags:
  - example
