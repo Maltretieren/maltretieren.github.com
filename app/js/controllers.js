@@ -50,7 +50,6 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
      * @function getComments
      * @memberOf Controllers.CommentsCtrl
      * @description receive comments
-     * @returns entries
      */
     $scope.getComments = function() {
 		$http({method: 'GET', url: commentsUrl+$scope.filterString})
@@ -488,6 +487,7 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
      * @function switchTheme
      * @memberOf Controllers.GithubForkCtrl
      * @description Switch the theme
+     * @access private
      */
 	var switchTheme = function() {
 		StyleSwitcher.switch($scope.options.selectedTheme.name);
