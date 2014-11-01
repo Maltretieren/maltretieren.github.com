@@ -2,7 +2,8 @@
 
 /**
  * @namespace Introduction
- * @description  This is the API documentation for Controllers and Services... 
+ * @description
+ * This is the API documentation the functions which drive this page. It will be written in a style to enable reusage of these functions in your page. I assume that you have running a basic AngularJS web app running and load the libraries defined in {@link /app/js/main.js}.
  */
 
 
