@@ -125,6 +125,7 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
                 user: function() { return user(); }
             }
         },
+        /** @private  */
         logout: function() {
             github = null;
             UserModel.logout();
@@ -166,6 +167,7 @@ myApp.service("GithubSrvc", function (
             })
             return deferred.promise;
         },
+        /** @private  */
 		fork: function(options) {
             // options contain the name for the new github page and the site slogan
 			var githubInstance = GithubAuthService.instance();
@@ -201,6 +203,7 @@ myApp.service("GithubSrvc", function (
                 //that.renameBranch(forkName, "heads/master");
             })
         },
+        /** @private  */
         batchDelete: function(forkName) {
             var githubInstance = GithubAuthService.instance();
             var repo = githubInstance.getRepo(UserModel.getUser().name, forkName);
@@ -227,6 +230,7 @@ myApp.service("GithubSrvc", function (
 			})();
 
         },
+        /** @private  */
         getContents: function(path) {
             var githubInstance = GithubAuthService.instance();
 			var readyPromise = $q.defer();
@@ -279,6 +283,7 @@ myApp.service("GithubSrvc", function (
 				return readyPromise.promise;
 			}
         },
+        /** @private  */
 		getFiles: function(fileNames) {
 			var self = this;
 			
@@ -290,6 +295,7 @@ myApp.service("GithubSrvc", function (
 			var i=1;
 			
 			var fileDeferred = $q.defer();
+            /** @private  */
 			var doGet = function(fileName) {
 				var fileName = fileName;
 				self.getContent(fileName).then(function(response) {
@@ -322,6 +328,7 @@ myApp.service("GithubSrvc", function (
 				//that.renameBranch(forkName);
 			});
         },
+        /** @private  */
         renameBranch: function(forkName) {
 			var that = this;
 			var githubInstance = GithubAuthService.instance();
@@ -331,6 +338,7 @@ myApp.service("GithubSrvc", function (
 				//that.createBranch(forkName, "master");
 			});
         },
+        /** @private  */
         createBranch: function(forkName, branchName) {
 			var that = this;
 			var githubInstance = GithubAuthService.instance();
@@ -344,6 +352,7 @@ myApp.service("GithubSrvc", function (
                 branch = repo.getBranch("master");
 			});
         },
+        /** @private  */
         postProcess: function(path, replace, repositoryName) {
             var self = this;
             var content = this.getContent(path);
@@ -564,7 +573,6 @@ myApp.service("UrlSrvc", function ($window) {
 				pl     = /\+/g,  // Regex for replacing addition symbol with a space
 				search = /([^&=]+)=?([^&]*)/g,
                 /** @private  */
-                /** @private  */
 				decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
 				query  = url.split('?')[1];
 
@@ -615,6 +623,7 @@ myApp.service("UrlSrvc", function ($window) {
  * @description xyz
  */
 myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthService) {
+        /** @private  */
         var poll = function (repoName, branchName) {
         var resource = "README.md";
         var deferred = $q.defer();
