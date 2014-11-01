@@ -572,9 +572,7 @@ myApp.service("UrlSrvc", function ($window) {
 				pl     = /\+/g,  // Regex for replacing addition symbol with a space
 				search = /([^&=]+)=?([^&]*)/g,
 
-                /** @private  */
-				decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-				query  = url.split('?')[1];
+  				query  = url.split('?')[1];
 
 			urlParams = {};
 			while (match = search.exec(query))
