@@ -404,10 +404,6 @@ xyz
 
 * [Services.StyleSwitcher](#Services.StyleSwitcher)
 
-<a name="modifiyConfig"></a>
-#modifiyConfig()
-Description
-
 <a name="link"></a>
 #link(scope, element, attrs, ctrl)
 Description
@@ -520,10 +516,6 @@ Description
 - replace   
 - repositoryName   
 
-<a name="onpopstate"></a>
-#onpopstate()
-Description
-
 <a name="decode"></a>
 #decode(s)
 Description
@@ -540,32 +532,4 @@ Description
 
 - repoName   
 - branchName   
-
-<a name="restart"></a>
-#restart()
-Description
-
-<a name="parse"></a>
-#parse(content)
-Description
-
-**Params**
-
-- content   
-
-<a name="onFocus"></a>
-#onFocus(e)
-Description
-
-**Params**
-
-- e   
-
-<a name="pollForImg"></a>
-#pollForImg()
-Description
-
-<a name="pollForImage"></a>
-#pollForImage()
-Description
 
