@@ -142,9 +142,11 @@ myApp.service("GithubSrvc", function (
     UserModel, PollingSrvc, YamlSrvc, EditorSrvc, UrlSrvc, $http, $timeout) {
 
     return {
+        /** @private  */
         requestCode: function() {
             GithubAuthService.requestCode();
         },
+        /** @private  */
         testAdmin: function() {
             var deferred = $q.defer();
             var githubInstance = GithubAuthService.instance();

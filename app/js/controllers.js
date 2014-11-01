@@ -218,10 +218,13 @@ myApp.controller("TableCtrl",function ($scope, $http) {
  */
 myApp.controller("GithubModalCtrl", function ($scope, $modalInstance, UserModel, GithubAuthService, GithubSrvc) {
 	$scope.user = {}
+
+    /** @private  */
 	$scope.cancel = function(){
 		$modalInstance.dismiss('canceled');  
 	}; // end cancel
 
+    /** @private  */
 	$scope.save = function() {
         console.log($scope.user.name);
         GithubAuthService.instance($scope.user.name, $scope.user.password);
@@ -850,6 +853,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
         description: 'Save the post',
         allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
 
+        /** @private  */
         callback: function() {
             console.info("hotkey strg+s detected");
             $scope.save();
@@ -931,6 +935,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
     });
 
     // redirect to normal calling page immediately
+    /** @private  */
     $scope.cancel = function() {
         console.log("cancel edit...and redirect ");
 
@@ -1012,6 +1017,7 @@ myApp.controller('RatingCtrl', function($scope) {
         $(ratyElements[i]).raty({
             path: 'assets/js/raty/images',
 
+            /** @private  */
             click: function(score, evt) {
                 accessoireRating(this.id, score);
             }
@@ -1027,6 +1033,7 @@ myApp.controller('RatingCtrl', function($scope) {
 				"36d45d33c78a0b44420c2ecd35223b76d67af37df1d0cc52bf67e73cb32d949eb58cb5814e7e" +
 				"5e6a&event_collection=accessoires&timezone=3600&target_property=rating&group_by=id"
 
+        /** @private  */
         var success = function (data) {
             for(i=0;i<data.result.length;i++)
             {
@@ -1039,6 +1046,7 @@ myApp.controller('RatingCtrl', function($scope) {
                     score: rating,
                     path: 'assets/js/raty/images',
 
+                    /** @private  */
                     click: function(score, evt) {
                         accessoireRating(this.id, score);
                     }
