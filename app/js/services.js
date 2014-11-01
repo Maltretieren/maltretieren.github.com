@@ -763,11 +763,13 @@ myApp.service("PollingImgSrvc", function ($q, $timeout) {
                 console.log("poll");
                 var img = new Image();
 
+                /** @private */
                 img.onload = function () {
                     console.log("yehh");
                     deferred.resolve();
                 }
 
+                /** @private */
                 img.onerror = function () {
                     console.log("oh noooo");
                     var pollForImage = function () {
