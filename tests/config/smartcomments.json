@@ -8,8 +8,7 @@
         "function":{
             "name":{},
             "desc":{"value":"Description"},
-            "params":{},
-            "rtrn":{}
+            "params":{}
         }
     }
 }
