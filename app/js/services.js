@@ -503,33 +503,39 @@ myApp.service("GithubSrvc", function (
 myApp.service("UserModel", function ($rootScope) {
 	this.user = {};
 
+    /** @private  */
     var serializeUser = function(user) {
         var userJson = JSON.stringify(user);
         localStorage.setItem("user", userJson);
     }
 
+    /** @private  */
 	this.setUserName = function(userName) {
 		this.user.name = userName;
         $rootScope.$broadcast('UserModel::userLoggedIn');
         serializeUser(this.user);
 	};
 
+    /** @private  */
     this.setIsAdmin = function(isAdmin) {
         this.user.isAdmin = isAdmin;
         serializeUser(this.user);
     },
 
+    /** @private  */
     this.setPassword = function(password) {
         this.user.password = password;
         serializeUser(this.user);
     },
 
+    /** @private  */
 	this.logout = function() {
 		this.user = {};
 		localStorage.clear();
 		$rootScope.$broadcast('UserModel::userLoggedOut');
 	}
 
+    /** @private  */
 	this.getUser = function() {
 		var userString = localStorage.getItem("user");
 		if(typeof userString !== 'undefined') {
@@ -547,6 +553,7 @@ myApp.service("UserModel", function ($rootScope) {
  * @description xyz
  */
 myApp.service("UrlSrvc", function ($window) {
+    /** @private  */
     var getParams = function (url, paramName) {
 		var urlParams;
 		(
@@ -564,10 +571,11 @@ myApp.service("UrlSrvc", function ($window) {
 		})();
 		return urlParams[paramName];
 	}
-
+    /** @private  */
     var getUrl = function () {
         return window.location.search;
     }
+
     /**
      * @function parseDateTitle
      * @memberOf Services.UrlSrvc
@@ -614,6 +622,7 @@ myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthServic
 		var repoName = repoName;
 		var branchName = branchName;
 
+        /** @private  */
 		var restartPolling = function() {
 		    var promise = branch.read(resource,false);
 			promise.then(function(res) {
@@ -692,6 +701,8 @@ myApp.service("YamlSrvc", function () {
 		}
 		return response;
     };
+
+    /** @private  */
 	var create = function (content) {
 		var response = "---\n";
 		for (var key in content) {
@@ -729,10 +740,12 @@ myApp.service("YamlSrvc", function () {
  * @description xyz
  */
 myApp.service("EditorSrvc", function () {
+    /** @private  */
     var getEditorContent = function() {
         return $('#target-editor').markdown()[0].value;
     };
 
+    /** @private  */
     var showContentInEditor = function(editorContent) {
         $('#target-editor').markdown({
             savable:false,
@@ -757,6 +770,7 @@ myApp.service("EditorSrvc", function () {
  * @description xyz
  */
 myApp.service("PollingImgSrvc", function ($q, $timeout) {
+    /** @private  */
     var poll = function (repoName) {
         var deferred = $q.defer();
 
@@ -798,6 +812,7 @@ myApp.service("PollingImgSrvc", function ($q, $timeout) {
  */
 myApp.service("StyleSwitcher", function () {
 	return {
+        /** @private  */
         switch: function (styleName) {
             console.log("switch to style: " + styleName);
             if (typeof styleName !== 'undefined' && styleName !== '') {

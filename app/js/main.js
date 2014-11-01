@@ -4,9 +4,7 @@
 (function (global, oDOC, handler) {
     var head = oDOC.head || oDOC.getElementsByTagName("head");
 
-    /**
-     * Description
-     */
+    /** @private  */
     function LABjsLoaded() {
          // Load the scripts. All scripts depend on jQuery. Then,
 		// only the cat-lover script depends on the friend.js to
@@ -66,10 +64,9 @@
         }
         var scriptElem = oDOC.createElement("script"),
             scriptdone = false;
-        scriptElem.onload = 
-/**
-  * Description
-  */
+        scriptElem.onload =
+
+ /** @private  */
  scriptElem.onreadystatechange = function () {
             if ((scriptElem.readyState && scriptElem.readyState !== "complete" && scriptElem.readyState !== "loaded") || scriptdone) {
                 return false;
@@ -85,10 +82,9 @@
     // required: shim for FF <= 3.5 not having document.readyState
     if (oDOC.readyState == null && oDOC.addEventListener) {
         oDOC.readyState = "loading";
-        oDOC.addEventListener("DOMContentLoaded", 
-/**
-  * Description
-  */
+        oDOC.addEventListener("DOMContentLoaded",
+
+ /** @private  */
  handler = function () {
             oDOC.removeEventListener("DOMContentLoaded", handler, false);
             oDOC.readyState = "complete";
