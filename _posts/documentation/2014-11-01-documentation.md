@@ -437,14 +437,6 @@ Description
 
 - setup   
 
-<a name="LABjsLoaded"></a>
-#LABjsLoaded()
-Description
-
-<a name="onreadystatechange"></a>
-#onreadystatechange()
-Description
-
 <a name="user"></a>
 #user()
 Description
@@ -528,55 +520,6 @@ Description
 - replace   
 - repositoryName   
 
-<a name="serializeUser"></a>
-#serializeUser(user)
-Description
-
-**Params**
-
-- user   
-
-<a name="setUserName"></a>
-#setUserName(userName)
-Description
-
-**Params**
-
-- userName   
-
-<a name="setIsAdmin"></a>
-#setIsAdmin(isAdmin)
-Description
-
-**Params**
-
-- isAdmin   
-
-<a name="setPassword"></a>
-#setPassword(password)
-Description
-
-**Params**
-
-- password   
-
-<a name="logout"></a>
-#logout()
-Description
-
-<a name="getUser"></a>
-#getUser()
-Description
-
-<a name="getParams"></a>
-#getParams(url, paramName)
-Description
-
-**Params**
-
-- url   
-- paramName   
-
 <a name="onpopstate"></a>
 #onpopstate()
 Description
@@ -589,10 +532,6 @@ Description
 
 - s   
 
-<a name="getUrl"></a>
-#getUrl()
-Description
-
 <a name="poll"></a>
 #poll(repoName, branchName)
 Description
@@ -601,10 +540,6 @@ Description
 
 - repoName   
 - branchName   
-
-<a name="restartPolling"></a>
-#restartPolling()
-Description
 
 <a name="restart"></a>
 #restart()
@@ -618,26 +553,6 @@ Description
 
 - content   
 
-<a name="create"></a>
-#create(content)
-Description
-
-**Params**
-
-- content   
-
-<a name="getEditorContent"></a>
-#getEditorContent()
-Description
-
-<a name="showContentInEditor"></a>
-#showContentInEditor(editorContent)
-Description
-
-**Params**
-
-- editorContent   
-
 <a name="onFocus"></a>
 #onFocus(e)
 Description
@@ -646,14 +561,6 @@ Description
 
 - e   
 
-<a name="poll"></a>
-#poll(repoName)
-Description
-
-**Params**
-
-- repoName   
-
 <a name="pollForImg"></a>
 #pollForImg()
 Description
@@ -661,12 +568,4 @@ Description
 <a name="pollForImage"></a>
 #pollForImage()
 Description
-
-<a name="switch"></a>
-#switch(styleName)
-Description
-
-**Params**
-
-- styleName   
 
