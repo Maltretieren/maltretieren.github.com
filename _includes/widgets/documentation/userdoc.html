@@ -1,0 +1,6 @@
+<section>
+    <h1>User Documentation (UserDoc)</h1>
+    {% for post in site.categories.userdoc %}
+    <a href="{{ post.url }}" target="_self">{{ post.title }}</a>
+    {% endfor %}
+</section>
