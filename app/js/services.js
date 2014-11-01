@@ -564,6 +564,7 @@ myApp.service("UrlSrvc", function ($window) {
 				pl     = /\+/g,  // Regex for replacing addition symbol with a space
 				search = /([^&=]+)=?([^&]*)/g,
                 /** @private  */
+                /** @private  */
 				decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
 				query  = url.split('?')[1];
 
@@ -631,6 +632,7 @@ myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthServic
 				console.log("branch available")
 				deferred.resolve();
 			}, function(err) {
+                /** @private  */
 				var restart = function(){
 					restartPolling(repoName, branchName)
 				}
@@ -650,6 +652,7 @@ myApp.service("PollingSrvc", function ($q, $timeout, UserModel, GithubAuthServic
  * @description YamlSrvc can parse files with frontmatter (normal post) and the _config.yaml without frontmatter
  */
 myApp.service("YamlSrvc", function () {
+    /** @private  */
     var parse = function (content) {
 		var response = {};
 
@@ -752,6 +755,7 @@ myApp.service("EditorSrvc", function () {
         $('#target-editor').markdown({
             savable:false,
             height:500,
+            /** @private  */
             onFocus: function(e) {
                 console.log("editor focused")
             }
@@ -776,6 +780,7 @@ myApp.service("PollingImgSrvc", function ($q, $timeout) {
     var poll = function (repoName) {
         var deferred = $q.defer();
 
+        /** @private  */
         var pollForImg = function() {
             if(!angular.isUndefined(repoName)) {
                 console.log("poll");
@@ -790,6 +795,7 @@ myApp.service("PollingImgSrvc", function ($q, $timeout) {
                 /** @private */
                 img.onerror = function () {
                     console.log("oh noooo");
+                    /** @private  */
                     var pollForImage = function () {
                         pollForImg();
                     }
