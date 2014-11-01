@@ -32,6 +32,7 @@ The controller must be responsible for binding model data to views using $scope,
     * [ConfigCtrl.saveFrontendConfig()](#Controllers.ConfigCtrl.saveFrontendConfig)
     * [ConfigCtrl.saveBackendConfig()](#Controllers.ConfigCtrl.saveBackendConfig)
   * [Controllers.ToasterController](#Controllers.ToasterController)
+    * [ToasterController.pop(toast)](#Controllers.ToasterController.pop)
   * [Controllers.GithubForkCtrl](#Controllers.GithubForkCtrl)
     * [GithubForkCtrl.checkUnique()](#Controllers.GithubForkCtrl.checkUnique)
     * [GithubForkCtrl.fork()](#Controllers.GithubForkCtrl.fork)
@@ -153,6 +154,15 @@ xyz
 **Members**
 
 * [Controllers.ToasterController](#Controllers.ToasterController)
+  * [ToasterController.pop(toast)](#Controllers.ToasterController.pop)
+
+<a name="Controllers.ToasterController.pop"></a>
+###ToasterController.pop(toast)
+Show popup message
+
+**Params**
+
+- toast   
 
 <a name="Controllers.GithubForkCtrl"></a>
 ##Controllers.GithubForkCtrl
@@ -394,26 +404,6 @@ xyz
 
 * [Services.StyleSwitcher](#Services.StyleSwitcher)
 
-<a name="more"></a>
-#more()
-Description
-
-<a name="success"></a>
-#success()
-Description
-
-<a name="error"></a>
-#error()
-Description
-
-<a name="scrollTo"></a>
-#scrollTo(id)
-Description
-
-**Params**
-
-- id   
-
 <a name="cancel"></a>
 #cancel()
 Description
@@ -422,157 +412,17 @@ Description
 #save()
 Description
 
-<a name="cancel"></a>
-#cancel()
-Description
-
-<a name="save"></a>
-#save()
-Description
-
-<a name="login"></a>
-#login()
-Description
-
-<a name="setOutput"></a>
-#setOutput(key, key2, newValue)
-Description
-
-**Params**
-
-- key   
-- key2   
-- newValue   
-
-<a name="pop"></a>
-#pop(toast)
-Description
-
-**Params**
-
-- toast   
-
-<a name="clear"></a>
-#clear()
-Description
-
-<a name="good"></a>
-#good()
-Description
-
-<a name="error"></a>
-#error(e)
-Description
-
-**Params**
-
-- e   
-
-<a name="modifiyConfig"></a>
-#modifiyConfig()
-Preprocess promise and commit to github
-
 <a name="modifiyConfig"></a>
 #modifiyConfig()
 Description
-
-<a name="pop"></a>
-#pop(title, text)
-Description
-
-**Params**
-
-- title   
-- text   
-
-<a name="selectAllExport"></a>
-#selectAllExport()
-Description
-
-<a name="unselectAllExport"></a>
-#unselectAllExport()
-Description
-
-<a name="add"></a>
-#add()
-Description
-
-<a name="onloadend"></a>
-#onloadend(e)
-Description
-
-**Params**
-
-- e   
-
-<a name="selectAllImport"></a>
-#selectAllImport()
-Description
-
-<a name="unselectAllImport"></a>
-#unselectAllImport()
-Description
-
-<a name="showContent"></a>
-#showContent(selected)
-Description
-
-**Params**
-
-- selected   
-
-<a name="doImport"></a>
-#doImport()
-Description
-
-<a name="endsWith"></a>
-#endsWith(str, suffix)
-Description
-
-**Params**
-
-- str   
-- suffix   
 
 <a name="callback"></a>
 #callback()
 Description
 
-<a name="save"></a>
-#save()
-Description
-
 <a name="cancel"></a>
 #cancel()
 Description
-
-<a name="delete"></a>
-#delete()
-Description
-
-<a name="today"></a>
-#today()
-Description
-
-<a name="clear"></a>
-#clear()
-Description
-
-<a name="open"></a>
-#open($event)
-Description
-
-**Params**
-
-- $event   
-
-<a name="success"></a>
-#success(data)
-Description
-
-**Params**
-
-- data   
 
 <a name="click"></a>
 #click(score, evt)
@@ -582,10 +432,6 @@ Description
 
 - score   
 - evt   
-
-<a name="getRatings"></a>
-#getRatings()
-Description
 
 <a name="success"></a>
 #success(data)
