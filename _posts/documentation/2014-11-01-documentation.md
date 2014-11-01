@@ -404,11 +404,3 @@ xyz
 
 * [Services.StyleSwitcher](#Services.StyleSwitcher)
 
-<a name="decode"></a>
-#decode(s)
-Description
-
-**Params**
-
-- s   
-
