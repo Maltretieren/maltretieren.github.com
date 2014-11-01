@@ -25,4 +25,10 @@ body  {
     height: 100%;
 }
 
-bton
+.navbar-brand {
+    float: left;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 15px;
+    padding-bottom:5px;
+}
