@@ -404,10 +404,6 @@ xyz
 
 * [Services.StyleSwitcher](#Services.StyleSwitcher)
 
-<a name="user"></a>
-#user()
-Description
-
 <a name="decode"></a>
 #decode(s)
 Description
