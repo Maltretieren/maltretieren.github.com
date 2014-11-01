@@ -45,7 +45,7 @@ The controller must be responsible for binding model data to views using $scope,
 
 <a name="Controllers.CommentsCtrl"></a>
 ##Controllers.CommentsCtrl
-Bundles functions to receive and save comments
+`Bundles` functions to receive and save comments
 
 **Members**
 
