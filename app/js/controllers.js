@@ -244,16 +244,14 @@ myApp.controller("GithubModalCtrl", function ($scope, $modalInstance, UserModel,
 /**
  * @namespace Controllers.GithubCtrl
  * @memborOf Controllers
- * @description xyz
+ * @description
+ * login by the owner of the repository: edits on the blog are possible
+ * login by someone else: create an empty fork of the repository, automatically available
+ * ask for a name: the fork will be created for that name: xyz.github.io
+ * poll for repo.contents until the forked repo is ready
+ * guide them with a link to the new repo and encourage them to click on "edit"
  */
 myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, UrlSrvc, UserModel, GithubSrvc, GithubAuthService) {
-	// login by the owner of the repository: edits on the blog are possible
-	// login by someone else: create an empty fork of the repository, automatically available
-	//      - ask for a name: the fork will be created for that name: xyz.github.io
-	//      - poll for repo.contents until the forked repo is ready
-	//      - guide them with a link to the new repo and encourage them to click on "edit"
-	
-
 	$scope.user = UserModel.user;
 	if(config.heroku.authenticate != "") {
 		$scope.githubLogin = true;
