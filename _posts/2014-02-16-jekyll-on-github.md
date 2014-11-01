@@ -1,13 +1,13 @@
 ---
 layout: post
 categories:
- - frontpage
+ - devdoc
 tagline: "a post to the main page"
 tags:
  - jekyll
  - github
+published: true
 ---
-
 {% include JB/setup %}
 
 ## Jekyll on GitHub
