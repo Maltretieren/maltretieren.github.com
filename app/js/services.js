@@ -574,7 +574,7 @@ myApp.service("UrlSrvc", function ($window) {
 				query  = url.split('?')[1];
 
             /** @private  */
-            decode = function (s) {
+            var decode = function (s) {
                 return decodeURIComponent(s.replace(pl, " "));
             },
 
