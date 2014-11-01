@@ -11,7 +11,7 @@ published: true
 {% include JB/setup %}
 
 ## Jekyll on GitHub
-Beside of hosting of code repositories, Github offers free hosting of Jekyll driven pages. Jekyll is a software to generate static website files out of templates. Instead of generating the files locally and push it to the repo, Github runs Jekyll on their infrastructure and you push the Jekyll files to your repository and Github builds it for you.
+Beside of hosting code repositories, Github offers free hosting of Jekyll driven pages. Jekyll is a software to generate static website files out of templates. Instead of generating the files locally and push it to the repo, Github runs Jekyll on their infrastructure and you push the Jekyll files to your repository and Github builds it for you.
 
 <!-- more -->
 
