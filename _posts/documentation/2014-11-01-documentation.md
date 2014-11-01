@@ -113,7 +113,11 @@ xyz
 
 <a name="Controllers.GithubCtrl"></a>
 ##Controllers.GithubCtrl
-xyz
+login by the owner of the repository: edits on the blog are possible
+login by someone else: create an empty fork of the repository, automatically available
+ask for a name: the fork will be created for that name: xyz.github.io
+poll for repo.contents until the forked repo is ready
+guide them with a link to the new repo and encourage them to click on "edit"
 
 **Members**
 
