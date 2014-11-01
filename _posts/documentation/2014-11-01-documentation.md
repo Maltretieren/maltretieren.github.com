@@ -404,51 +404,9 @@ xyz
 
 * [Services.StyleSwitcher](#Services.StyleSwitcher)
 
-<a name="cancel"></a>
-#cancel()
-Description
-
-<a name="save"></a>
-#save()
-Description
-
 <a name="modifiyConfig"></a>
 #modifiyConfig()
 Description
-
-<a name="callback"></a>
-#callback()
-Description
-
-<a name="cancel"></a>
-#cancel()
-Description
-
-<a name="click"></a>
-#click(score, evt)
-Description
-
-**Params**
-
-- score   
-- evt   
-
-<a name="success"></a>
-#success(data)
-Description
-
-**Params**
-
-- data   
-
-<a name="click"></a>
-#click(score, evt)
-Description
-
-**Params**
-
-- score   
-- evt   
 
 <a name="link"></a>
 #link(scope, element, attrs, ctrl)
@@ -493,14 +451,6 @@ Description
 
 <a name="logout"></a>
 #logout()
-Description
-
-<a name="requestCode"></a>
-#requestCode()
-Description
-
-<a name="testAdmin"></a>
-#testAdmin()
 Description
 
 <a name="fork"></a>
