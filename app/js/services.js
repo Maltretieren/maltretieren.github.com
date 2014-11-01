@@ -558,10 +558,12 @@ myApp.service("UrlSrvc", function ($window) {
 		var urlParams;
 		(
 
+            /** @private  */
             $window.onpopstate = function () {
 			var match,
 				pl     = /\+/g,  // Regex for replacing addition symbol with a space
 				search = /([^&=]+)=?([^&]*)/g,
+                /** @private  */
 				decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
 				query  = url.split('?')[1];
 

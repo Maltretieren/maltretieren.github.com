@@ -627,6 +627,7 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
             console.log("commit a post")
             var commitPromise = $q.defer();
 
+            /** @private  */
             var modifiyConfig = function() {
                 var githubInstance = GithubAuthService.instance();
                 var repo = githubInstance.getRepo(UserModel.getUser().name, UserModel.getUser().name+".github.com");
