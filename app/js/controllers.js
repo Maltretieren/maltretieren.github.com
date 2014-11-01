@@ -1,6 +1,12 @@
 'use strict';
 
 /**
+ * @namespace Introduction
+ * @description  This is the API documentation for Controllers and Services...
+ */
+
+
+/**
  * @namespace Controllers
  * @description  The controller must be responsible for binding model data to views using $scope, and control information flow. It does not contain logic to fetch the data or manipulating it.
  */
@@ -245,11 +251,15 @@ myApp.controller("GithubModalCtrl", function ($scope, $modalInstance, UserModel,
  * @namespace Controllers.GithubCtrl
  * @memborOf Controllers
  * @description
- * login by the owner of the repository: edits on the blog are possible
- * login by someone else: create an empty fork of the repository, automatically available
- * ask for a name: the fork will be created for that name: xyz.github.io
- * poll for repo.contents until the forked repo is ready
- * guide them with a link to the new repo and encourage them to click on "edit"
+ * As soon as the GithubCtrl is injected it checks if config.heroku.authenticate is in the configuration file config.js . If it is available it will use the oAuth workflow - if not it will ask for Username/Password.
+ *
+ * if the owner of the repository login:
+ *
+ * - edits on the blog are possible
+ * - login by someone else: create an empty fork of the repository, automatically available
+ * - ask for a name: the fork will be created for that name: xyz.github.io
+ * - poll for repo.contents until the forked repo is ready
+ * - guide them with a link to the new repo and encourage them to click on "edit"
  */
 myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, UrlSrvc, UserModel, GithubSrvc, GithubAuthService) {
 	$scope.user = UserModel.user;
@@ -258,11 +268,13 @@ myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, Url
 	} else {
 		$scope.githubLogin = false;
 	}
-	
-	// if no token is available listen for button click...
-	(
-    /** @private  */
-    $scope.login = function() {
+
+    /**
+     * @function login
+     * @memberOf Controllers.GithubCtrl
+     * @description if no token is available listen for button click...
+     */
+    ($scope.login = function() {
 		var user = UserModel.getUser();
 		// first check if there is a valid user already stored in the localStorage
 		if(typeof user !== 'undefined' && user !== null) {
@@ -321,7 +333,11 @@ myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, Url
 		GithubAuthService.logout();
 	}
 
-	// bind user model to the view and listen for events
+    /**
+     * @function UserModel::userLoggedIn
+     * @memberOf Controllers.GithubCtrl
+     * @description bind user model to the view and listen for events
+     */
 	$scope.$on('UserModel::userLoggedIn', function(event) {
 		console.log("the GithubCtrl received an userLoggedIn event for user: "+UserModel.user.name);
         var user = UserModel.getUser();
@@ -330,6 +346,11 @@ myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, Url
 		}
     });
 
+    /**
+     * @function UserModel::userLoggedOut
+     * @memberOf Controllers.GithubCtrl
+     * @description clears logged in user
+     */
 	$scope.$on('UserModel::userLoggedOut', function(event) {
 		console.log("the GithubCtrl received an userLoggedOut event");
         $scope.user = "";
