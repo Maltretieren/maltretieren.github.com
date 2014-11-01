@@ -119,6 +119,7 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
             };
 
             return {
+                /** @private  */
                 user: function() { return user(); }
             }
         },
