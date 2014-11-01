@@ -42,6 +42,7 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
         $scope.filterString = '&filters=[{"property_name":"pageTitle","operator":"eq","property_value":"'+document.title+'"}]';
     }
 
+    /** @private  */
     $scope.more = function() {
         $scope.quantity += 3;
     }
@@ -100,14 +101,16 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
 			"message": $scope.commentText,
 			"pageTitle": $scope.pageTitle,
 			"pageUrl": $scope.pageUrl
-		} 
+		}
 
+        /** @private  */
 		var success = function() {
 			toaster.pop('success', "Comment saved", 'Comment was saved and will be available shortly', 5000, 'trustedHtml');
 			$timeout($scope.getComments, 9000);
 			$scope.$apply();
 		}
 
+        /** @private  */
 		var error = function() {
 			toaster.pop('error', "Comment failed", 'There was an error while saving the comment', 5000, 'trustedHtml');
 			$scope.$apply();
@@ -122,6 +125,7 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
  * @description xyz
  */
 myApp.controller("DocCtrl", function ($scope, $anchorScroll, $location) {
+    /** @private  */
     $scope.scrollTo = function(id) {
         $location.hash(id);
         $anchorScroll();
@@ -138,10 +142,12 @@ myApp.controller("KeenioMasterCtrl", function ($scope, $modalInstance, $http, to
 	$scope.commentId = data.commentId;
 	console.log($scope.commentId);
 
+    /** @private  */
 	$scope.cancel = function(){
 		$modalInstance.dismiss('canceled');  
 	}; // end cancel
 
+    /** @private  */
 	$scope.save = function() {
 		$scope.masterKey = $scope.user.name;
         console.log("Keenio Master key: "+$scope.masterKey);
@@ -254,6 +260,7 @@ myApp.controller("GithubCtrl", function ($scope, $location, $http, $dialogs, Url
 	
 	// if no token is available listen for button click...
 	(
+    /** @private  */
     $scope.login = function() {
 		var user = UserModel.getUser();
 		// first check if there is a valid user already stored in the localStorage
@@ -337,6 +344,7 @@ myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster)
     $scope.inputs = {}
 	$scope.inputs = config,
 
+    /** @private  */
     $scope.setOutput = function(key, key2, newValue) {
         $scope.inputs[key][key2] = newValue;
     }
@@ -408,11 +416,17 @@ myApp.controller('ToasterController', function($scope, toaster) {
 		scope.pop(toast);
 	});
 
+    /**
+     * @function pop
+     * @memberOf Controllers.ToasterController
+     * @description Show popup message
+     */
 	$scope.pop = function(toast){
 		toaster.pop(toast.type, toast.title, toast.message, 5000, 'trustedHtml');
 		$scope.$apply();
     };
 
+    /** @private  */
     $scope.clear = function(){
         toaster.clear();
     };
@@ -462,18 +476,18 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
             }
 
             this.img = new Image();
-            /**
-             * @private
-             */
+            /** @private  */
             this.img.onload = function() {_good();};
-            /**
-             * @private
-             */
+            /** @private  */
             this.img.onerror = function(e) { error(e);};
             this.img.src = "https://"+$scope.options.forkName;
+
+            /** @private  */
             var good= function() {
                 console.log("yehh");
             }
+
+            /** @private  */
             var error= function(e) {
                 console.log("oh noooo");
                 console.log(e);
@@ -569,14 +583,8 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
             console.log("update config");
             var commitPromise = $q.defer();
 
-            /**
-             * @Description Preprocess promise and commit to github
-             *
-             * @param   {Number} id   The id of the user to load
-             * @promise {User}        The loaded user instance.
-             * @fail    {InputError}  If the id is invalid.
-             */
-            var modifiyConfig = function() {
+            /** @private  */
+            var modifyConfig = function() {
                 var configMod = {}
                 for (var key in config) {
                     var obj = config[key];
@@ -644,10 +652,8 @@ myApp.controller('GithubForkCtrl', function($scope, $http, $q, $timeout, toaster
 	$scope.$on('Toast::githubForkSuccess', function(event) {
 		//scope.pop();
 	});
-	
-	/**
-	 * @Description Description
-	 */
+
+    /** @private  */
 	$scope.pop = function(title, text){
 		toaster.pop('success', title, text, 5000, 'trustedHtml');
 		$scope.$apply();
@@ -724,10 +730,14 @@ myApp.controller('ExportCtrl', function($scope, $dialogs, GithubSrvc) {
 			$scope.exportStatus = percentage;
 		});
 	}
+
+    /** @private  */
 	$scope.selectAllExport = function() {
         console.log($scope.export);
 		$scope.exportSelection = angular.copy($scope.export);
     }
+
+    /** @private  */
 	$scope.unselectAllExport = function() {
 		$scope.exportSelection = [];
 	}
@@ -748,11 +758,14 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
     $scope.type = 'info';
 
     var importValue = [];
+
+    /** @private  */
     $scope.add = function(){
         var f = document.getElementById('file').files[0],
             r = new FileReader();
         var importTemp = [];
 
+        /** @private  */
         r.onloadend = function(e){
             var data = e.target.result;
             var zip = new JSZip(data);
@@ -772,16 +785,19 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
         r.readAsBinaryString(f);
     }
 
+    /** @private  */
     $scope.selectAllImport = function() {
         //console.log($scope.import);
         $scope.importSelection = $scope.import;
         //console.log($scope.importSelection);
     }
 
+    /** @private  */
     $scope.unselectAllImport = function() {
         $scope.importSelection = [];
     }
 
+    /** @private  */
     $scope.showContent = function(selected) {
         console.log(selected);
         var value = $scope.import[selected].asText();
@@ -795,6 +811,7 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
         console.log();
     }
 
+    /** @private  */
     $scope.doImport = function() {
         var importObject = {};
         for(var i=0; i<$scope.importSelection.length;i++) {
@@ -808,6 +825,7 @@ myApp.controller('ImportCtrl', function($scope, $dialogs, GithubSrvc) {
         GithubSrvc.commitMany(importObject, "Import", false, false);
     }
 
+    /** @private  */
     function endsWith(str, suffix) {
         return str.indexOf(suffix, str.length - suffix.length) !== -1;
     }
@@ -877,6 +895,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 	$scope.commitPath = "";
 	var savePromise = $q.defer();
 
+    /** @private  */
 	$scope.save = function() {
 		console.info("saving editor content...");
 		var content = $('#target-editor').markdown()[0].value;
@@ -924,6 +943,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 
     $scope.confirmed = 'You have yet to be confirmed!';
 
+    /** @private  */
     $scope.delete = function() {
         console.log("delete....");
         var dlg = $dialogs.confirm('Please Confirm','Do you want to delete the post?');
@@ -942,6 +962,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
     }
 
 	// date picker
+    /** @private  */
     $scope.today = function() {
         $scope.options.date = new Date();
     };
@@ -954,10 +975,12 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
         $scope.options.date = date;
     }
 
+    /** @private  */
     $scope.clear = function () {
         $scope.options.date = null;
     };
 
+    /** @private  */
     $scope.open = function($event) {
         $event.preventDefault();
         $event.stopPropagation();
@@ -981,6 +1004,7 @@ myApp.controller('GithubEditCtrl', function($scope, $dialogs, $q, $modal, $timeo
 myApp.controller('RatingCtrl', function($scope) {
     var ratyElements =  $('.raty');
 
+    /** @private  */
     var success = function (data) {
         alert("success");
     }
@@ -995,6 +1019,7 @@ myApp.controller('RatingCtrl', function($scope) {
 
     }
 
+    /** @private  */
     var getRatings = function() {
         var url = "https://api.keen.io/3.0/projects/532b3e5a00111c0da1000006/queries/average?" +
 				"api_key=fca64cb411fe523d053f2d9b1d159011135be6ce55da682f1ad8d6b1d4f629b84dd5" +
