@@ -1,10 +1,7 @@
 ---
 layout: post
 categories:
- - development
- - jekyll
- - edit
- - github
+ - devdoc
 frontpage: false
 published: true
 tags:
