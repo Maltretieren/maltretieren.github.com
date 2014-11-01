@@ -6,3 +6,4 @@ tests/results/*
 .idea/workspace.xml
 .gitignore
 npm-debug.log
+_posts/documentation/2014-11-01-documentation.md
