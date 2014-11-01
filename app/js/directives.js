@@ -8,6 +8,7 @@ myApp.directive('inputtext', function ($timeout) {
         scope: { 
         	//if there were attributes it would be shown here
         },
+        /** @private  */
         link:function (scope, element, attrs, ctrl) {
         	// DOM manipulation may happen here.      
         }
@@ -27,8 +28,10 @@ myApp.directive('checkList', function() {
       list: '=checkList',
       value: '@'
     },
+    /** @private  */
     link: function(scope, elem, attrs) {
-      var handler = function(setup) {
+        /** @private  */
+        var handler = function(setup) {
         var checked = elem.prop('checked');
         var index = scope.list.indexOf(scope.value);
 

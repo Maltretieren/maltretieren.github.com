@@ -108,11 +108,8 @@ myApp.service("GithubAuthService", function ($http, $q, $rootScope, UserModel) {
          */
         userInfo: function() {
             var self = this;
-            /**
-             * @function user
-             * @memberOf Services.GithubAuthService
-             * @description xyz
-             */
+
+            /** @private  */
             var user = function() {
                 var githubInstance = self.instance();
                 var user = githubInstance.getUser();
@@ -253,6 +250,7 @@ myApp.service("GithubSrvc", function (
 				var j = 0;
 				var fileCountDeferred = $q.defer();
 				// find all files to export also in subfolders
+                /** @private  */
 				var fileCount = function(path) {
 					branch.contents(path).then(function(response) {
 						var res = JSON.parse(response);
