@@ -437,34 +437,6 @@ Description
 #user()
 Description
 
-<a name="logout"></a>
-#logout()
-Description
-
-<a name="fork"></a>
-#fork(options)
-Description
-
-**Params**
-
-- options   
-
-<a name="batchDelete"></a>
-#batchDelete(forkName)
-Description
-
-**Params**
-
-- forkName   
-
-<a name="getContents"></a>
-#getContents(path)
-Description
-
-**Params**
-
-- path   
-
 <a name="fileCount"></a>
 #fileCount(path)
 Description
@@ -473,49 +445,6 @@ Description
 
 - path   
 
-<a name="getFiles"></a>
-#getFiles(fileNames)
-Description
-
-**Params**
-
-- fileNames   
-
-<a name="doGet"></a>
-#doGet(fileName)
-Description
-
-**Params**
-
-- fileName   
-
-<a name="renameBranch"></a>
-#renameBranch(forkName)
-Description
-
-**Params**
-
-- forkName   
-
-<a name="createBranch"></a>
-#createBranch(forkName, branchName)
-Description
-
-**Params**
-
-- forkName   
-- branchName   
-
-<a name="postProcess"></a>
-#postProcess(path, replace, repositoryName)
-Description
-
-**Params**
-
-- path   
-- replace   
-- repositoryName   
-
 <a name="decode"></a>
 #decode(s)
 Description
@@ -523,13 +452,4 @@ Description
 **Params**
 
 - s   
-
-<a name="poll"></a>
-#poll(repoName, branchName)
-Description
-
-**Params**
-
-- repoName   
-- branchName   
 
