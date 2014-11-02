@@ -46,3 +46,23 @@ var privateFunction = function() {
 ...
 }
 {% endhighlight %}
+
+# Smartcomment
+smartcomment.json
+
+{% highlight javascript linenos=table %}
+{
+    "target_dir": ["app/js/"],
+    "match_files": ["^((?!~).)*.(js)$"],
+    "backup" : false,
+    "private" : true,
+    "favor_generated" : true,
+    "tags": {
+        "function":{
+            "name":{},
+            "desc":{"value":"Description"},
+            "params":{}
+        }
+    }
+}
+{% endhighlight %}
