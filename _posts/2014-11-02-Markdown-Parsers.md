@@ -18,7 +18,7 @@ To get a list of available markdown parsers please refer to [Github Pages Depend
 ## Configuration
 You can configure which markdown parser should be used. Refer to the `_config.yml` file in the root directory and look for the "markdown" key:
 
-{% highlight %}
+{% highlight ruby %}
 markdown: kramdown
 {% endhighlight %}
 
