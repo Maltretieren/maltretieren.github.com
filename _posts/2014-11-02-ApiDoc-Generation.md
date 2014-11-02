@@ -76,7 +76,35 @@ published: true
 # JSdoc
 JSdoc is used to parse the JavaScript source files for comments. This could be done manually before committing by running the grunt task `jsdoc2md`. By the name of the task you can see that the plugin grunt-jsdoc-to-markdown is used to get the documentation in markdown.
 
+# Smartcomments
+I use smartcomments to prevent cluttering my code comments with `@param` annotations, but also to be sure that the documentation of atttributes passed into functions are always up to date. The way it works is going through the JavaScript codes and where it doesn't find a comment it adds it.  This is an optional task run by Travis during assembly. Only the resulting ApiDoc file is commited back, not the modified JS files). It runs before running the JSdoc task.
 
+So, during Travis build I run the smartcomments generation command defined in `.travis.yml`:
+{% highlight ruby %}
+before_script:
+  # automatically generate comments
+  - smartcomments -g --config ./tests/config/smartcomments.json
+{% endhighlight %}
+
+First you need to have a `./tests/config/smartcomments.json`configuration file which is passed to smartcomments in abouve statement via the `--config` parameter.
+{% highlight javascript linenos=table %}
+{
+    "target_dir": ["app/js/"],
+    "match_files": ["^((?!~).)*.(js)$"],
+    "backup" : false,
+    "private" : true,
+    "favor_generated" : true,
+    "tags": {
+        "function":{
+            "name":{},
+            "desc":{"value":"Description"},
+            "params":{}
+        }
+    }
+}
+{% endhighlight %}
+
+Please note the `private: true` parameter. It will skip adding comments to functions annotated with `/** @private */` as shown in the following section.
 
 ## Commenting
 Preparation of a "Controllers" namespace:
