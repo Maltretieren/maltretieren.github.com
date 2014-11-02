@@ -54,7 +54,7 @@ jsdoc : {
 
 If you run `grunt doc` it will output the file to the `_posts/apidoc/2014-11-02-ApiDoc.md` directory (date is added. This is without smartcomments - the JS files are only preprocessed on Travis).
 
-The `documentation.hbs` template is important for injecting the documentation in a markdown file with correct yaml frontmatter for this page:
+The `documentation.hbs` template is important for injecting the documentation in a markdown file with correct yaml frontmatter (the text between --- and ---) for this page:
 
 {% highlight ruby %}
 ---
