@@ -1,12 +1,13 @@
 ---
 layout: post
 categories:
- - template
+ - devdoc
 tagline:
 tags:
  - example
 published: true
 frontpage: false
+comments: true
 ---
 # Markdown
 
