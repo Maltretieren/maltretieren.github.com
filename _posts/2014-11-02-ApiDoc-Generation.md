@@ -56,7 +56,7 @@ If you run `grunt doc` it will output the file to the `_posts/apidoc/` directory
 
 The documentation.hbs template is important for injecting the documentation in a markdown file with correct yaml frontmatter for this page. 
 
-documentation.hbs
+`documentation.hbs`
 {% highlight ruby %}
 ---
 layout: documentation
