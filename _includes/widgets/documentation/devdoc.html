@@ -10,7 +10,6 @@ Filters all posts belonging to the category 'devdoc' and then sort by tags into 
     <ul>
         {% for post in site.categories.devdoc %}
             {% if post.tags contains 'basic' %}
-                {% post.tags -= 'basic' %}
                 <li><a href="{{ post.url }}" target="_self">{{ post.title }}</a></li>
             {% endif %}
         {% endfor %}
