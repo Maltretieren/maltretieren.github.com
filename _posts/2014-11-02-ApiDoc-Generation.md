@@ -7,7 +7,7 @@ tags:
  - basic
 published: true
 frontpage: false
-comments: false
+comments: true
 ---
 # ApiDoc
 
@@ -147,3 +147,5 @@ var privateFunction = function() {
 ...
 }
 {% endhighlight %}
+
+I hope this can be useful for somebody. Please leave a comment if something is not clear...
