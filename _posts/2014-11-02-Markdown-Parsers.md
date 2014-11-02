@@ -38,7 +38,7 @@ The documentation can be found on [the Kramdown homepage](http://kramdown.gettal
 {% endhighlight %}
 
 ### Quirks
-Headings are defined with `# h1 heading` or `#h1 heading`. There needs to be a blank line before the heading definition. RDiscount is more tolerant and renders the headings even without blank lines. 
+Headings are defined with `# h1 heading` or `#h1 heading`. There needs to be a blank line before the heading definition. RDiscount is more tolerant and renders the headings even without a blank line. 
 
 ## Redcarpet
 The documentation can be found on [the Redcarpet GitHub repository](https://github.com/vmg/redcarpet). 
@@ -47,4 +47,4 @@ The documentation can be found on [the Redcarpet GitHub repository](https://gith
 The documentation can be found on [RDiscount GitHub repository](https://github.com/davidfstr/rdiscount). 
 
 ### Quirks
-It doesn't support adding a target attribute to a link. This is necessary because html5 mode is enabled on this page. In html5 mode every link needs to contain a `target='_self'` attribute on a link to follow it...
+It doesn't support adding a target attribute to a link (see section "Cool Features" for kramdown). This is necessary because html5 mode is enabled on this page. In html5 mode every link needs to contain a `target='_self'` attribute to redirect to the link you clicked on.
