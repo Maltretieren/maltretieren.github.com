@@ -28,9 +28,17 @@ Annotating single controllers
  * @memborOf Controllers
  * @description `Bundles` *functions* to receive and save comments
  */
+ myApp.controller("ExampleCtrl",function ($scope) {
+ ...
+ }
+ 
 {% endhighlight %}
 
 Prevent smartcomments from generating doc for functions you don't want to be visible in the documentation. Annotate with `/** @private  */`
+
 {% highlight javascript linenos=table %}
 /** @private  */
+var privateFunction = function() {
+...
+}
 {% endhighlight %}

@@ -428,7 +428,11 @@ myApp.controller('ConfigCtrl', function($scope, GithubSrvc, EditorSrvc, toaster)
 myApp.controller('ToasterController', function($scope, toaster) {
     // save a reference to the current scope...
 	var scope = $scope;
-	
+
+    /**
+     * githubCommitSuccess event
+     * @event githubCommitSuccess
+     */
 	$scope.$on('Toast::githubCommitSuccess', function(event) {
 		var toast = {
 			type: "success",
