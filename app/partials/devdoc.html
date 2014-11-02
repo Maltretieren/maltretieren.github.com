@@ -1,8 +1,7 @@
-{% comment %}
-Filters all posts belonging to the category 'devdoc' and then sort by tags into the different sections...
-- basics
-{% endcomment %}
 <section>
     <h1>Developer Documention</h1>
     <p>The Developer Documentation (DevDoc) serves the purpose to eneble a developer to understand how the bits and pieces are put together. The goal is that someone who is new to all this technology can edit and extend functionality. Usually a developer will first read the DevDoc and then refer to the ApiDoc</p>
+    <ul ng-model="devDoc" ng-init="loadDevDoc()">
+        <li ng-repeat="post in devDoc"><a href="{{post.Url}}" target="_self">{{post.Title}}</a></li>
+    </ul>
 </section>

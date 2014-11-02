@@ -1,6 +1,7 @@
 <section>
     <h1>User Documentation</h1>
    <p>The User Documentation (UserDoc) is the highest level of documentation. Because this site targets to be easy to use and configurable via the frontend, this doucumentation will mainly describe where to click to achieve what you want to do. It will reference to the DevDoc to give you some ideas what is happening behing the scenes...</p>
-
-    {% include widgets/documentation/userdoc.json %}
+    <ul ng-model="userDoc" ng-init="loadUserDoc()">
+        <li ng-repeat="post in userDoc"><a href="{{post.Url}}" target="_self">{{post.Title}}</a></li>
+    </ul>
 </section>

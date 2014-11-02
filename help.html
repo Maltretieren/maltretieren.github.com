@@ -5,7 +5,10 @@ header: Posts By Category
 group: navigation
 ---
 {% include JB/setup %}
-{% include widgets/documentation/userdoc.html %}
-{% include widgets/documentation/devdoc.html %}
-{% include widgets/documentation/apidoc.html %}
+
+<div ng-controller="DocCtrl">
+   <div data-ng-include data-src="'/app/partials/userdoc.html'"></div>
+   <div data-ng-include data-src="'/app/partials/devdoc.html'"></div>
+   <div data-ng-include data-src="'/app/partials/apidoc.html'"></div>
+</div>
 

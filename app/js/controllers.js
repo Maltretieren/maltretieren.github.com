@@ -130,12 +130,31 @@ myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toa
  * @memborOf Controllers
  * @description xyz
  */
-myApp.controller("DocCtrl", function ($scope, $anchorScroll, $location) {
-    /** @private  */
-    $scope.scrollTo = function(id) {
-        $location.hash(id);
-        $anchorScroll();
-    }
+myApp.controller("DocCtrl", function ($scope, $http) {
+    $scope.loadDevDoc = function() {
+        var httpRequest = $http({
+            method: 'GET',
+            url: '/app/data/devdoc.json'
+        }).success(function(data, status) {
+            $scope.devDoc = data;
+        });
+    };
+    $scope.loadApiDoc = function() {
+        var httpRequest = $http({
+            method: 'GET',
+            url: '/app/data/apidoc.json'
+        }).success(function(data, status) {
+            $scope.apiDoc = data;
+        });
+    };
+    $scope.loadUserDoc = function() {
+        var httpRequest = $http({
+            method: 'GET',
+            url: '/app/data/userdoc.json'
+        }).success(function(data, status) {
+            $scope.userDoc = data;
+        });
+    };
 });
 
 /**

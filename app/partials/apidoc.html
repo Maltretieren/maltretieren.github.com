@@ -1,12 +1,7 @@
 <section>
     <h1>API Documentation</h1>
     <p>The API Documentation (ApiDoc) is for developers who want to change or extent functionality of this page. Another use case is that some people want to include some parts of the app in their own project...</p>
-
-    <p>
-        <ul>
-            {% for post in site.categories.apidoc %}
-                <li><a href="{{ post.url }}" target="_self">{{ post.title }}</a></li>
-            {% endfor %}
-        </ul>
-    </p>
+    <ul ng-model="apiDoc" ng-init="loadApiDoc()">
+        <li ng-repeat="post in apiDoc"><a href="{{post.Url}}" target="_self">{{post.Title}}</a></li>
+    </ul>
 </section>
