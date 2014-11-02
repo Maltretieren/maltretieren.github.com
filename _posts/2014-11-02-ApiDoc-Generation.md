@@ -38,18 +38,10 @@ Annotating single controllers
  
 {% endhighlight %}
 
-Prevent smartcomments from generating doc for functions you don't want to be visible in the documentation. Annotate with `/** @private  */`
+# Smartcomments
+I use smartcomments to prevent cluttering my code comments with `@param` annotations, but also to be sure that the documentation of atttributes passed into functions are always up to date. This is an optional task run by Travis during assembly and not pushed back into my repository.
 
-{% highlight javascript linenos=table %}
-/** @private  */
-var privateFunction = function() {
-...
-}
-{% endhighlight %}
-
-# Smartcomment
-smartcomment.json
-
+First you need to have a smartcomment.json configuration file
 {% highlight javascript linenos=table %}
 {
     "target_dir": ["app/js/"],
@@ -64,5 +56,14 @@ smartcomment.json
             "params":{}
         }
     }
+}
+{% endhighlight %}
+
+Prevent smartcomments from generating doc for functions you don't want to be visible in the documentation. Annotate with `/** @private  */`
+
+{% highlight javascript linenos=table %}
+/** @private  */
+var privateFunction = function() {
+...
 }
 {% endhighlight %}
