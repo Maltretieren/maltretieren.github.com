@@ -24,39 +24,21 @@ The dependencies in `package.json` are:
 {% endhighlight %}
 
 In the `Gruntfile.js` it looks like:
-{% highlight javascript linenos=table %}
-jsdoc : {
-     dist : {
-         src: ['app/js/*.js'], 
-         options: {
-             destination: 'assets/docs',
-             configure : "./tests/config/jsdoc_conf.json",
-             verbose: true,
-             debug: true
-         }
-     }
- },
- 
- // jsdoc to markdown language, compatible with templates
- jsdoc2md: {
-     withTemplate: {
-         options: {
-             helper: 'tests/jsdoc2md/handlebars/helpers/*.js',
-             template: 'tests/jsdoc2md/handlebars/templates/documentation.hbs',
-             partial: 'tests/jsdoc2md/handlebars/partials/*.hbs'
-         },
-         src: "app/js/*.js",
-         dest: "_posts/apidoc/"+grunt.template.today('yyyy-mm-dd')+"-ApiDoc.md"
-     }
- }
- grunt.registerTask('doc', ['jsdoc2md'])
+
+{% highlight ruby %}
+---
+layout: documentation
+categories:
+- apidoc
+tagline:
+tags:
+- controller
+published: true
+---
+
+{% raw %} {{> documentation}} {% endraw %} 
+
 {% endhighlight %}
-
-If you run `grunt doc` it will output the file `_posts/apidoc/2014-11-02-ApiDoc.md` (date is added. This is without smartcomments - the JS files are only preprocessed on Travis).
-
-The `documentation.hbs` template is important for injecting the documentation in a markdown file with correct yaml frontmatter (the text between --- and ---) for this page:
-
-
 
 `grunt-to-markdown` acutally uses the [DMD library](https://github.com/75lb/dmd) to transform JSdoc output to markdown. If you wanted to customize the input to the `documentation.hbs` template your starting point would be [here](https://github.com/75lb/dmd/tree/master/partials). E.g. if you wanted to inject the documentation with a table of content you would replace {% raw %} {{> documentation}} {% endraw %} with  {% raw %} {{> main}} {% endraw %} in above example. You could also override partials by adding them to the  `tests/jsdoc2md/handlebars/partials/` directory as configured in the Gruntfiles.js as shown above. 
 
