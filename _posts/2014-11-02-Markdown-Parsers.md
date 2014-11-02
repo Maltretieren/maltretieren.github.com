@@ -12,6 +12,7 @@ comments: true
 # Markdown
 
 # Parsers available on GitHub
+
 ## Configuration
 You can configure which markdown parser should be used to generate the content of this site. Refer to the `_config.yml` file in the root directory and look for the "markdown" key:
 
