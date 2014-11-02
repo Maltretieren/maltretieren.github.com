@@ -5,7 +5,7 @@ tagline:
 tags:
 published: true
 frontpage: false
-comments: false
+comments: true
 ---
 # ApiDoc
 
