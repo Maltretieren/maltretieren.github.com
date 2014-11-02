@@ -134,7 +134,7 @@ Inspired by https://github.com/angular/angular-seed & https://github.com/plusjad
 ## Available Resources
 [rss.xml](http://maltretieren.github.io/rss.xml)
 [atom.xml](http://maltretieren.github.io/atom.xml)
-[postsFrontpage.json](http://maltretieren.github.io/rss.xml)
+[postsFrontpage.json](http://maltretieren.github.io/app/data/postsFrontpage.json)
 
 ## License
 

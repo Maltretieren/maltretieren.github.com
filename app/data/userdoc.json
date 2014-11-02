@@ -1,0 +1,20 @@
+---
+layout: null
+---
+{% assign hit = 0 %}
+[{% for post in site.categories.userdoc %}
+    {% capture postElement %}
+        {% assign postSize = site.categories.userdoc.size | minus: 1 %}
+        {% if forloop.rindex0 >= 0 and forloop.rindex0 != postSize and hit != 0 %},{% endif %}
+        {
+            "Title": "{{ post.title }}",
+            "Url": "{{ post.url}}",
+            "Tags":
+            [{% for tag in post.tags %}
+            "{{tag}}"
+            {% if forloop.rindex0 > 0 %},{% endif %}{% endfor %}]
+        }
+        {% assign hit = 1 %}
+    {% endcapture %}
+    {{ postElement }}
+{% endfor %}]

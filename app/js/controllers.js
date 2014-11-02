@@ -198,7 +198,7 @@ myApp.controller("WikiquoteCtrl",function ($scope) {
  * @description xyz
  */
 myApp.controller("TableCtrl",function ($scope, $http) {
-    var postsUrl = "/postsFrontpage.json";
+    var postsUrl = "/app/data/postsFrontpage.json";
 	$http({method: 'GET', url: postsUrl}).
 		success(function(data, status, headers, config) {
 			// this callback will be called asynchronously
