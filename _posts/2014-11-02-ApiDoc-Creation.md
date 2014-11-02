@@ -4,10 +4,10 @@ categories:
  - devdoc
 tagline:
 tags:
- - basics
+ - basic
 published: true
 frontpage: false
-comments: true
+comments: false
 ---
 # ApiDoc
 
