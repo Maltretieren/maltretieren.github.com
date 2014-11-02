@@ -4,6 +4,7 @@ categories:
  - devdoc
 tagline:
 tags:
+ - basics
 published: true
 frontpage: false
 comments: true
