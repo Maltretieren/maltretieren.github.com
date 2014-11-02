@@ -59,7 +59,7 @@ module.exports = function(grunt) {
                 options: {
                     helper: 'tests/jsdoc2md/handlebars/helpers/*.js',
 					template: 'tests/jsdoc2md/handlebars/templates/documentation.hbs',
-                    partial: 'tests/jsdoc2md/handlebars/partials/*.hbs'
+                    partial: 'tests/jsdoc2md/handlebars/partials/*.hbs' 
                 },
                 src: "app/js/*.js",
 				dest: "_posts/apidoc/"+grunt.template.today('yyyy-mm-dd')+"-ApiDoc.md"
