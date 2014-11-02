@@ -56,6 +56,10 @@ If you run `grunt doc` it will output the file `_posts/apidoc/2014-11-02-ApiDoc.
 
 The `documentation.hbs` template is important for injecting the documentation in a markdown file with correct yaml frontmatter (the text between --- and ---) for this page:
 
+
+
+`grunt-to-markdown` acutally uses the [DMD library](https://github.com/75lb/dmd) to transform JSdoc output to markdown. If you wanted to customize the input to the `documentation.hbs` template your starting point would be [here](https://github.com/75lb/dmd/tree/master/partials). E.g. if you wanted to inject the documentation with a table of content you would replace {% raw %} {{> documentation}} {% endraw %} with  {% raw %} {{> main}} {% endraw %} in above example. You could also override partials by adding them to the  `tests/jsdoc2md/handlebars/partials/` directory as configured in the Gruntfiles.js as shown above. 
+
 # JSdoc
 JSdoc is used to parse the JavaScript source files for comments. This could be done manually before committing by running the grunt task `jsdoc2md`. By the name of the task you can see that the plugin grunt-jsdoc-to-markdown is used to get the documentation in markdown.
 
