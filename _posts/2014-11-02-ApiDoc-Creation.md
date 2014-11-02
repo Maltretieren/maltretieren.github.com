@@ -29,3 +29,8 @@ Annotating single controllers
  * @description `Bundles` *functions* to receive and save comments
  */
 {% endhighlight %}
+
+Prevent smartcomments from generating doc for functions you don't want to be visible in the documentation. Annotate with `/** @private  */`
+{% highlight javascript linenos=table %}
+/** @private  */
+{% endhighlight %}
