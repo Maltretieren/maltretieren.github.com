@@ -18,9 +18,9 @@ In the JavaScript source files you need to annotate your functions with comments
 
 The dependencies in `package.json` are
 {% highlight javascript linenos=table %}
-	"grunt-jsdoc-to-markdown": "0.4.2",
-	"grunt-jsdoc": "0.5.7",
-    "smartcomments": "0.3.2"
+"grunt-jsdoc-to-markdown": "0.4.2",
+"grunt-jsdoc": "0.5.7",
+"smartcomments": "0.3.2"
 {% endhighlight %}
 
 # JSdoc
