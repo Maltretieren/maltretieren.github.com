@@ -9,7 +9,7 @@ published: true
 frontpage: false
 comments: true
 ---
-# Markdown
+#Markdown
 Markdown is the language which drives most of the content on this page. Instead of writing HTML code you have a higher level language to define how the content looks like... A markdown parser takes the markdown code and translates it to HTML code.
 
 # Parsers available on GitHub
