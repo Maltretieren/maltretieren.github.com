@@ -107,7 +107,7 @@ First you need to have a `./tests/config/smartcomments.json`configuration file w
 Please note the `private: true` parameter. It will skip adding comments to functions annotated with `/** @private */` as shown in the following section.
 
 ## Commenting
-Preparation of a Controllers namespace:
+Preparation of a "Controllers" namespace:
 {% highlight javascript linenos=table %}
 /**
  * @namespace Controllers
@@ -139,7 +139,7 @@ $scope.getComments = function() {
 }
 {% endhighlight %}
 
-Prevent smartcomments from generating doc for functions you don't want to be visible in the documentation. Annotate with `/** @private  */` comment.
+Prevent smartcomments from generating comments for functions you don't want to be visible in the documentation. Annotate with `/** @private  */` comment.
 
 {% highlight javascript linenos=table %}
 /** @private  */
