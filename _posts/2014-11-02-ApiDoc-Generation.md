@@ -23,7 +23,7 @@ The dependencies in `package.json` are:
 "smartcomments": "0.3.2"
 {% endhighlight %}
 
-In the Gruntfile.js it looks like:
+In the `Gruntfile.js` it looks like:
 {% highlight javascript linenos=table %}
 jsdoc : {
      dist : {
@@ -52,11 +52,10 @@ jsdoc : {
  grunt.registerTask('doc', ['jsdoc2md'])
 {% endhighlight %}
 
-If you run `grunt doc` it will output the file to the `_posts/apidoc/` directory (this is without smartcomments - the JS files are only preprocessed on Travis.
+If you run `grunt doc` it will output the file to the `_posts/apidoc/2014-11-02-ApiDoc.md` directory (date is added. This is without smartcomments - the JS files are only preprocessed on Travis).
 
-The documentation.hbs template is important for injecting the documentation in a markdown file with correct yaml frontmatter for this page. 
+The `documentation.hbs` template is important for injecting the documentation in a markdown file with correct yaml frontmatter for this page:
 
-`documentation.hbs`
 {% highlight ruby %}
 ---
 layout: documentation
