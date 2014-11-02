@@ -138,14 +138,3 @@ $scope.getComments = function() {
    ...
 }
 {% endhighlight %}
-
-Prevent smartcomments from generating comments for functions you don't want to be visible in the documentation. Annotate with `/** @private  */` comment.
-
-{% highlight javascript linenos=table %}
-/** @private  */
-var privateFunction = function() {
-...
-}
-{% endhighlight %}
-
-I hope this can be useful for somebody. Please leave a comment if something is not clear...
