@@ -30,8 +30,14 @@ On GitHub there are 3 different options available:
 ## Kramdown
 The documentation can be found on [the Kramdown homepage](http://kramdown.gettalong.org/). 
 
+### Useful features
+- define a target attribut for links:
+{% highlight ruby %}
+[Link Title](http://xyz.github.io/){:target="_self"}
+{% endhighlight %}
+
 ### Quirks
-Headings are defined with `# h1 heading` or `#h1 heading`. There needs to be a blank line before/after. RDiscount is more tolerant and renders the headings even without blank lines. 
+Headings are defined with `# h1 heading` or `#h1 heading`. There needs to be a blank line before the heading definition. RDiscount is more tolerant and renders the headings even without blank lines. 
 
 ## Redcarpet
 The documentation can be found on [the Redcarpet GitHub repository](https://github.com/vmg/redcarpet). 
