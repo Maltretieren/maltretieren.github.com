@@ -105,36 +105,3 @@ First you need to have a `./tests/config/smartcomments.json`configuration file w
 {% endhighlight %}
 
 Please note the `private: true` parameter. It will skip adding comments to functions annotated with `/** @private */` as shown in the following section.
-
-## Commenting
-Preparation of a "Controllers" namespace:
-{% highlight javascript linenos=table %}
-/**
- * @namespace Controllers
- * @description  The controller must be responsible for binding model data to views using $scope, and control information flow. It does not contain logic to fetch the data or manipulating it.
- */
-{% endhighlight %}
-
-Annotating a controller:
-{% highlight javascript linenos=table %}
-/**
- * @namespace Controllers.ExampleCtrl
- * @memborOf Controllers
- * @description ExampleCtrl is responsible for...
- */
- myApp.controller("ExampleCtrl",function ($scope) {
- ...
- }
-{% endhighlight %}
-
-Annotating a function inside the controller:
-{% highlight javascript linenos=table %}
-/**
- * @function getExample
- * @memberOf Controllers.ExampleCtrl
- * @description Function inside ExampleCtrl
- */
-$scope.getComments = function() {
-   ...
-}
-{% endhighlight %}
