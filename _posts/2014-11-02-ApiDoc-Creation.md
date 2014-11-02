@@ -11,7 +11,7 @@ comments: false
 ---
 # ApiDoc
 
-The ApiDoc documents the Controllers and Services. This post documents the workflow used to create the documentation automatically from the comments in the JavaScript source files using JSdoc and smartercomments. You can see the results on [the ApiDoc page](https://maltretieren.github.io/apidoc/2014/11/01/ApiDoc/)
+The ApiDoc documents the Controllers and Services. This post documents the workflow used to create the documentation automatically from the comments in the JavaScript source files using JSdoc and smartercomments. You can see the results on [the ApiDoc page](https://maltretieren.github.io/apidoc/2014/11/01/ApiDoc/){:target="_self"}
 
 Preparation of a Controllers namespace
 {% highlight javascript linenos=table %}
