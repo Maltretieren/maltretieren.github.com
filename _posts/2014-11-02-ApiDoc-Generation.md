@@ -107,7 +107,7 @@ First you need to have a `./tests/config/smartcomments.json`configuration file w
 Please note the `private: true` parameter. It will skip adding comments to functions annotated with `/** @private */` as shown in the following section.
 
 ## Commenting
-Preparation of a Controllers namespace
+Preparation of a Controllers namespace:
 {% highlight javascript linenos=table %}
 /**
  * @namespace Controllers
@@ -115,7 +115,7 @@ Preparation of a Controllers namespace
  */
 {% endhighlight %}
 
-Annotating single controllers
+Annotating a controller:
 {% highlight javascript linenos=table %}
 /**
  * @namespace Controllers.ExampleCtrl
