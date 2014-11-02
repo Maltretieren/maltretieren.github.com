@@ -13,6 +13,7 @@ comments: true
 Markdown is the language which drives most of the content on this page. Instead of writing HTML code you have a higher level language to define how the content looks like... A markdown parser takes the markdown code and translates it to HTML code.
 
 # Parsers available on GitHub
+To get a list of available markdown parsers please refer to [Github Pages Dependency versions](https://pages.github.com/versions/) 
 
 ## Configuration
 You can configure which markdown parser should be used to generate the content of this site. Refer to the `_config.yml` file in the root directory and look for the "markdown" key:
