@@ -1,6 +1,7 @@
 ---
 layout: post
 categories:
+ - devdoc
 tagline:
 tags:
 published: true
