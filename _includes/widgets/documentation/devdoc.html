@@ -6,12 +6,14 @@ Filters all posts belonging to the category 'devdoc' and then sort by tags into 
     <h1>Developer Documention (DevDoc)</h1>
     <p>The ApiDoc serves the purpose to eneble a developer to understand how the bits and pieces are put together. The goal is that someone who is new to all this technology can edit and extend functionality.</p>
 
+    <h2>Basics</h2>
     {% for post in site.categories.devdoc %}
-        <h2>Basics</h2>
         {% if post.tags contains 'basic' %}
             <p><a href="{{ post.url }}" target="_self">{{ post.title }}</a></p>
-        {% else %}
-            unsorted: <a href="{{ post.url }}" target="_self">{{ post.title }}</a>
         {% endif %}
+    {% endfor %}
+    <h2>Unsorted</h2>
+    {% for post in site.categories.devdoc %}
+        <p><a href="{{ post.url }}" target="_self">{{ post.title }}</a></p>
     {% endfor %}
 </section>
