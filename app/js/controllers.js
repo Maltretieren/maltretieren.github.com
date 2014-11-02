@@ -8,9 +8,7 @@
 
 
 /**
- *
- * @namespace Controllers
- *
+ * @namespace Controllers/n
  * @description  The controller must be responsible for binding model data to views using $scope, and control information flow. It does not contain logic to fetch the data or manipulating it.
  */
 
