@@ -56,23 +56,83 @@ If you run `grunt doc` it will output the file `_posts/apidoc/2014-11-02-ApiDoc.
 
 The `documentation.hbs` template is important for injecting the documentation in a markdown file with correct yaml frontmatter (the text between --- and ---) for this page:
 
-{% highlight ruby %}
----
-layout: documentation
-categories:
-- apidoc
-tagline:
-tags:
-- controller
-published: true
----
 
-{% raw %} {{> documentation}} {% endraw %} 
-
-{% endhighlight %}
 
 `grunt-to-markdown` acutally uses the [DMD library](https://github.com/75lb/dmd) to transform JSdoc output to markdown. If you wanted to customize the input to the `documentation.hbs` template your starting point would be [here](https://github.com/75lb/dmd/tree/master/partials). E.g. if you wanted to inject the documentation with a table of content you would replace {% raw %} {{> documentation}} {% endraw %} with  {% raw %} {{> main}} {% endraw %} in above example. You could also override partials by adding them to the  `tests/jsdoc2md/handlebars/partials/` directory as configured in the Gruntfiles.js as shown above. 
 
 # JSdoc
 JSdoc is used to parse the JavaScript source files for comments. This could be done manually before committing by running the grunt task `jsdoc2md`. By the name of the task you can see that the plugin grunt-jsdoc-to-markdown is used to get the documentation in markdown.
 
+# Smartcomments
+I use smartcomments to prevent cluttering my code comments with `@param` annotations, but also to be sure that the documentation of atttributes passed into functions are always up to date. The way it works is going through the JavaScript codes and where it doesn't find a comment it adds it.  This is an optional task run by Travis during assembly. Only the resulting ApiDoc file is commited back, not the modified JS files). It runs before running the JSdoc task.
+
+So, during Travis build I run the smartcomments generation command defined in `.travis.yml`:
+{% highlight ruby %}
+before_script:
+  # automatically generate comments
+  - smartcomments -g --config ./tests/config/smartcomments.json
+{% endhighlight %}
+
+First you need to have a `./tests/config/smartcomments.json`configuration file which is passed to smartcomments in abouve statement via the `--config` parameter.
+{% highlight javascript linenos=table %}
+{
+    "target_dir": ["app/js/"],
+    "match_files": ["^((?!~).)*.(js)$"],
+    "backup" : false,
+    "private" : true,
+    "favor_generated" : true,
+    "tags": {
+        "function":{
+            "name":{},
+            "desc":{"value":"Description"},
+            "params":{}
+        }
+    }
+}
+{% endhighlight %}
+
+Please note the `private: true` parameter. It will skip adding comments to functions annotated with `/** @private */` as shown in the following section.
+
+## Commenting
+Preparation of a "Controllers" namespace:
+{% highlight javascript linenos=table %}
+/**
+ * @namespace Controllers
+ * @description  The controller must be responsible for binding model data to views using $scope, and control information flow. It does not contain logic to fetch the data or manipulating it.
+ */
+{% endhighlight %}
+
+Annotating a controller:
+{% highlight javascript linenos=table %}
+/**
+ * @namespace Controllers.ExampleCtrl
+ * @memborOf Controllers
+ * @description ExampleCtrl is responsible for...
+ */
+ myApp.controller("ExampleCtrl",function ($scope) {
+ ...
+ }
+{% endhighlight %}
+
+Annotating a function inside the controller:
+{% highlight javascript linenos=table %}
+/**
+ * @function getExample
+ * @memberOf Controllers.ExampleCtrl
+ * @description Function inside ExampleCtrl
+ */
+$scope.getComments = function() {
+   ...
+}
+{% endhighlight %}
+
+Prevent smartcomments from generating comments for functions you don't want to be visible in the documentation. Annotate with `/** @private  */` comment.
+
+{% highlight javascript linenos=table %}
+/** @private  */
+var privateFunction = function() {
+...
+}
+{% endhighlight %}
+
+I hope this can be useful for somebody. Please leave a comment if something is not clear...
