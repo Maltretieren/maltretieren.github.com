@@ -10,7 +10,7 @@ highlighter: pygments
 
 # possible values kramdown, redcarpet, rdiscount -> https://pages.github.com/versions/
 # a list of all rdiscount extensions can be found http://www.rubydoc.info/github/davidfstr/rdiscount/RDiscount
-markdown: rdiscount
+markdown: kramdown
 rdiscount:
   extensions: [smart]
 
