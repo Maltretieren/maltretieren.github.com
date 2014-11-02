@@ -1,4 +1,10 @@
-{{>head~}}
+{{#if mainIndex~}}
+{{>main-index-head~}}
+{{else~}}
+{{#if longname}}<a name="{{{anchorName}}}"></a>
+{{/if}}
+{{>heading}}{{>name}}
+{{/if}}
 {{>body~}}
 
 **Members**
