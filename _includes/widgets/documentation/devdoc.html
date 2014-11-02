@@ -6,19 +6,5 @@ Filters all posts belonging to the category 'devdoc' and then sort by tags into 
     <h1>Developer Documention</h1>
     <p>The Developer Documentation (DevDoc) serves the purpose to eneble a developer to understand how the bits and pieces are put together. The goal is that someone who is new to all this technology can edit and extend functionality. Usually a developer will first read the DevDoc and then refer to the ApiDoc</p>
 
-    <h2>Basics</h2>
-    <ul>
-        {% for post in site.categories.devdoc %}
-            {% if post.tags contains 'basic' %}
-                {% assign post.tags.delete('basic') %}
-                <li><a href="{{ post.url }}" target="_self">{{ post.title }}</a></li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-    <h2>Unsorted</h2>
-    <ul>
-        {% for post in site.categories.devdoc %}
-            <li><a href="{{ post.url }}" target="_self">{{ post.title }}</a></li>
-        {% endfor %}
-    </ul>
+    {% include widgets/documentation/devdoc.json %}
 </section>

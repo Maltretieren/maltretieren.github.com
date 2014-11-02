@@ -2,11 +2,5 @@
     <h1>User Documentation</h1>
    <p>The User Documentation (UserDoc) is the highest level of documentation. Because this site targets to be easy to use and configurable via the frontend, this doucumentation will mainly describe where to click to achieve what you want to do. It will reference to the DevDoc to give you some ideas what is happening behing the scenes...</p>
 
-    <p>
-        <ul>
-            {% for post in site.categories.userdoc %}
-            <li><a href="{{ post.url }}" target="_self">{{ post.title }}</a></li>
-            {% endfor %}
-        </ul>
-    </p>
+    {% include widgets/documentation/userdoc.json %}
 </section>
