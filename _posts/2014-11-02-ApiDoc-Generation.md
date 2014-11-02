@@ -41,7 +41,7 @@ Annotating single controllers
 # Smartcomments
 I use smartcomments to prevent cluttering my code comments with `@param` annotations, but also to be sure that the documentation of atttributes passed into functions are always up to date. This is an optional task run by Travis during assembly and not pushed back into my repository.
 
-So, during Travis build I run the smartcomments generation command defined in `.travis.yml`:
+So, during Travis build I run the smartcomments generation command defined in .travis.yml`:
 {% highlight ruby %}
 before_script:
   # automatically generate comments
@@ -66,7 +66,7 @@ First you need to have a `./tests/config/smartcomments.json`configuration file
 }
 {% endhighlight %}
 
-Prevent smartcomments from generating doc for functions you don't want to be visible in the documentation. Annotate with `/** @private  */`
+Prevent smartcomments from generating doc for functions you don't want to be visible in the documentation. Annotate with `/** @private  */` comment.
 
 {% highlight javascript linenos=table %}
 /** @private  */
