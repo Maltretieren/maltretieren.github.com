@@ -23,10 +23,9 @@ markdown: kramdown
 {% endhighlight %}
 
 On GitHub there are 3 different options available:
-
-- kramdown
-- redcarpet
-- rdiscount
+ - kramdown
+ - redcarpet
+ - rdiscount
 
 ## Kramdown
 The documentation can be found on [the Kramdown homepage](http://kramdown.gettalong.org/). 
