@@ -104,14 +104,7 @@ First you need to have a `./tests/config/smartcomments.json`configuration file w
 }
 {% endhighlight %}
 
-Prevent smartcomments from generating doc for functions you don't want to be visible in the documentation. Annotate with `/** @private  */` comment.
-
-{% highlight javascript linenos=table %}
-/** @private  */
-var privateFunction = function() {
-...
-}
-{% endhighlight %}
+Please note the `private: true` parameter. It will skip adding comments to functions annotated with `/** @private */` as shown in the following section.
 
 ## Commenting
 Preparation of a Controllers namespace
@@ -125,13 +118,32 @@ Preparation of a Controllers namespace
 Annotating single controllers
 {% highlight javascript linenos=table %}
 /**
- * @namespace Controllers.CommentsCtrl
+ * @namespace Controllers.ExampleCtrl
  * @memborOf Controllers
- * @description `Bundles` *functions* to receive and save comments
+ * @description ExampleCtrl is responsible for...
  */
  myApp.controller("ExampleCtrl",function ($scope) {
  ...
  }
- 
 {% endhighlight %}
 
+Annotating a function inside the controller:
+{% highlight javascript linenos=table %}
+/**
+ * @function getExample
+ * @memberOf Controllers.ExampleCtrl
+ * @description Function inside ExampleCtrl
+ */
+$scope.getComments = function() {
+   ...
+}
+{% endhighlight %}
+
+Prevent smartcomments from generating doc for functions you don't want to be visible in the documentation. Annotate with `/** @private  */` comment.
+
+{% highlight javascript linenos=table %}
+/** @private  */
+var privateFunction = function() {
+...
+}
+{% endhighlight %}
