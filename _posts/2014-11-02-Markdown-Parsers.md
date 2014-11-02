@@ -23,6 +23,7 @@ markdown: kramdown
 {% endhighlight %}
 
 On GitHub there are 3 different options available:
+
 - kramdown
 - redcarpet
 - rdiscount
