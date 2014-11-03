@@ -11,7 +11,7 @@ highlighter: pygments
 # possible values kramdown, redcarpet, rdiscount -> https://pages.github.com/versions/
 # a list of all rdiscount extensions can be found http://www.rubydoc.info/github/davidfstr/rdiscount/RDiscount
 # kramdown suuports adding a target to a link: [the ApiDoc page](https://maltretieren.github.io/apidoc/2014/11/01/ApiDoc/){:target="_self"}  - other markdown interpreters don't :( This feature is needed for activated html5 mode. Otherwise it will not follow links... The feature is scheduled for RDiscount 2.1.5, see https://github.com/davidfstr/rdiscount/issues/27
-markdown: kramdown
+markdown: redcarpet2
 rdiscount:
   extensions: [smart]
 
