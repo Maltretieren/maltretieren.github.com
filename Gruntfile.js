@@ -62,7 +62,7 @@ module.exports = function(grunt) {
                     partial: 'tests/jsdoc2md/handlebars/partials/*.hbs' 
                 },
                 src: "app/js/*.js",
-				dest: "_posts/apidoc/"+grunt.template.today('yyyy-mm-dd')+"-ApiDoc.md"
+				dest: "assets/docs/apidoc.md"
             }
         },
         coveralls: {
