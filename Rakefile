@@ -26,7 +26,7 @@ namespace :my_tasks do
 
     task :commitDocumentation do
         puts "\n## You should see a yyyy-mm-dd-documentation.md file in _posts/documentation"
-        system("ls -la _posts/documentation")
+        system("ls -la _posts/apidoc")
         puts "\n## git add"
         system("git add _posts/apidoc/*")
         # http://stackoverflow.com/questions/10228760/fix-a-git-detached-head
