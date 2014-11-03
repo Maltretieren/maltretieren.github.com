@@ -36,7 +36,7 @@ namespace :my_tasks do
         system("git checkout master")
         system("git merge my-temporary-work")
         puts "\n## git push"
-        system("git push origin master")
+        system("git push origin master --force")
     end
 
 	desc "Test if the test coverage report files where generated correctly"
