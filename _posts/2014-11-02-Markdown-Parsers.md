@@ -41,7 +41,7 @@ The documentation can be found on [the Kramdown homepage](http://kramdown.gettal
 Headings are defined with `# h1 heading` or `#h1 heading`. There needs to be a blank line before the heading definition. RDiscount is more tolerant and renders the headings even without a blank line. 
 
 ## Redcarpet
-The documentation can be found on [the Redcarpet GitHub repository](https://github.com/vmg/redcarpet). 
+The documentation can be found on [the Redcarpet GitHub repository](https://github.com/vmg/redcarpet). Redcarpet is released by [GitHub](https://github.com/blog/832-rolling-out-the-redcarpet) 
 
 ## RDiscount
 The documentation can be found on [RDiscount GitHub repository](https://github.com/davidfstr/rdiscount). 
