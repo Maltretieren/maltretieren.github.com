@@ -17,7 +17,7 @@
  * @memborOf Controllers
  * @description `Bundles` *functions* to receive and save comments
  */
-myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toaster, UserModel) {
+myApp.controller("CommentsCtrl",function ($scope, $http, $dialogs, $timeout, toaster, UserModel) { 
 	var commentsUrl = config.keenio.comments_url;
 	// disable comments if there is no config for it...
 	if(commentsUrl==='') {
