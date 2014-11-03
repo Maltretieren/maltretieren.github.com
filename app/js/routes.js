@@ -35,6 +35,7 @@ myApp.config(function ($routeProvider, $locationProvider) {
 	// see also: http://johan.driessen.se/posts/Manipulating-history-with-the-HTML5-History-API-and-AngularJS
     // needed to enable because otherwise anchor links will target #/anchor and not /#anchor ...
     $locationProvider.html5Mode({
-        enabled: true
+        enabled: true,
+        requireBase: false
     });
 });

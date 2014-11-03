@@ -13,10 +13,10 @@ comments: true
 Markdown is the language which drives most of the content on this page. Instead of writing HTML code you have a higher level language to define how the content looks like. A markdown parser takes the markdown code and translates it to HTML code.
 
 # Parsers available on GitHub
-To get a list of available markdown parsers please refer to [Github Pages Dependency versions](https://pages.github.com/versions/).
+To get a list of available markdown parsers please refer to [Github Pages Dependency versions](https://pages.github.com/versions/). 
 
 ## Configuration
-You can configure which markdown parser should be used. Refer to the `_config.yml` file in the root directory and look for the "markdown" key:
+You can configure which markdown parser should be used. Refer to the `_config.yml` file in the root directory and look for the "markdown" key. The parser used for this blog is [kramdown](#kramdown) .
 
 {% highlight ruby %}
 markdown: kramdown
@@ -24,6 +24,7 @@ markdown: kramdown
 
 On GitHub there are 3 different options available:
 
+ - maruku (depricated, do not use)
  - kramdown
  - redcarpet
  - rdiscount
@@ -38,7 +39,7 @@ The documentation can be found on [the Kramdown homepage](http://kramdown.gettal
 {% endhighlight %}
 
 ### Quirks
-Headings are defined with `# h1 heading` or `#h1 heading`. There needs to be a blank line before the heading definition. RDiscount is more tolerant and renders the headings even without a blank line. 
+There needs to be a blank line before the heading definition. RDiscount is more tolerant and renders the headings even without a blank line. Therefore I needed to adjust the "partials" for the jsdoc-to-markdown process while generating the ApiDoc.
 
 ## Redcarpet
 The documentation can be found on [the Redcarpet GitHub repository](https://github.com/vmg/redcarpet). Redcarpet is released by [GitHub](https://github.com/blog/832-rolling-out-the-redcarpet) 
