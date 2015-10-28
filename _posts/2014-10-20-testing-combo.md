@@ -11,7 +11,7 @@ published: true
 {% include JB/setup %}
 
 ## The Goal
-The goal is to automatically run tests for this angularjs site whssSSSen a new file is deployed to github. The tests will run on Travis. The testing combo reads as following
+The goal is to automatically run tests for this angularjs site as soon as a new file is deployed to github. The tests will run on Travis. The testing combo reads as following
 
  - Karma (Test Runner, integrates well with AnularJS)
  - Karma Plugins (karma-coverage)
