@@ -24,6 +24,7 @@ The goal is to automatically run tests for this angularjs site as soon as a new 
  - Grunt Plugins (grunt-protractor-runner grunt-contrib-watch, grunt-contrib-connect, grunt-saucelabs)
  
 ## Tips and Tricks
+
 ### Listen to changes
 
 {% highlight sh linenos=table %}
